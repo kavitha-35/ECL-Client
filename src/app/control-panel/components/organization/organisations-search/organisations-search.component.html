@@ -1,0 +1,67 @@
+<section id="organisation-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card Title -->
+        <app-mat-dialog-header title="Search" subTitle="Search for Organisation(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!--  Clinic Name -->
+        <mat-form-field>
+          <mat-label>Clinic Name</mat-label>
+          <input matInput placeholder="Clinic Name" />
+        </mat-form-field>
+  
+        <!-- Type -->
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <input matInput placeholder="Type" />
+        </mat-form-field>
+  
+        <!-- Address -->
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Address" />
+        </mat-form-field>
+  
+        <!-- Post Box -->
+        <mat-form-field>
+          <mat-label>Post Box</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Area -->
+        <mat-form-field>
+          <mat-label>Area</mat-label>
+          <input matInput maxlength="25" placeholder="Area"  />
+        </mat-form-field>
+  
+        <!--Region -->
+        <mat-form-field>
+          <mat-label>Region</mat-label>
+          <input matInput placeholder="Region" />
+        </mat-form-field>
+  
+        <!-- Country-->
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <input matInput placeholder="Country" />
+        </mat-form-field>
+  
+        <!-- Sales Representative -->
+        <mat-form-field>
+          <mat-label>Sales Representative</mat-label>
+          <input matInput placeholder="Sales Representative" />
+        </mat-form-field>
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

@@ -1,0 +1,38 @@
+<section id="row-filter-container">
+  <mat-icon class="pointer" [matMenuTriggerFor]="menu">
+    <i class="fa fa-filter filter-icon" aria-hidden="true"></i>
+  </mat-icon>
+</section>
+
+<mat-menu #menu="matMenu" [overlapTrigger]="false" (click)="onFilterClicked($event)" (closed)="onFilterClosed()">
+  <section class="row-filter-menu" (click)="onFilterClicked($event)">
+    <!-- Filter Header -->
+    <section class="title">
+      Filter
+    </section>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Filter TextBox -->
+    <section class="filter-text">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Filter" autocomplete="off" [(ngModel)]="filterQuery" />
+      </mat-form-field>
+    </section>
+
+    <!-- Filter Items List -->
+    <section>
+      <mat-selection-list>
+        <mat-list-option [selected]="item.isSelected" [matTooltip]="item.value"
+        (click)="onFilterItemClicked(item)"
+         checkboxPosition="before"
+          *ngFor="let item of allItems | filterBy: ['value']: filterQuery">
+
+          <section class="filter-item-text">{{ item.value }}</section>
+
+        </mat-list-option>
+      </mat-selection-list>
+    </section>
+  </section>
+</mat-menu>

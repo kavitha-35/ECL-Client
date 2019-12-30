@@ -1,0 +1,24 @@
+#visit-test-collection-list-container {
+  table {
+    .mat-column-id {
+      width: 10%;
+    }
+
+    .mat-column-test {
+      width: 80%;
+    }
+
+    .mat-column-price {
+      width: 10%;
+      text-align: center;
+    }
+
+    tr.mat-footer-row {
+      font-weight: bold;
+    }
+
+    .total-amount-container {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+#branch-samples-container {
+  table {
+    .actions-wrapper {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 0;
+        line-height: 1;
+        min-width: 32px;
+      }
+
+      .edit-button {
+        visibility: hidden;
+      }
+
+      .action-button {
+        color: rgba(0, 0, 0, 0.54);
+      }
+    }
+
+    .mat-row:hover {
+      cursor: pointer;
+
+      .edit-button {
+        visibility: visible;
+      }
+    }
+  }
+}

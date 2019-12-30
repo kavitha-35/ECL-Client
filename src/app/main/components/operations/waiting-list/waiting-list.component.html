@@ -1,0 +1,59 @@
+<section id="waiting-list-container" class="animated fadeIn">
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >rate_review
+        </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Waiting List(s)
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Manage Waiting Lists for Patients </mat-card-subtitle>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-waiting-list-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    ></app-waiting-list-ribbon-menu>
+
+    <mat-divider></mat-divider>
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-waiting-list-data-list
+        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      ></app-waiting-list-data-list>
+    </ng-template>
+
+    <!--  Table View -->
+    <ng-template #tableView>
+      <app-waiting-list-table
+        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (updateOperationButtonClicked)="onUpdateOperationButtonClicked($event)"
+      ></app-waiting-list-table>
+    </ng-template>
+
+    <mat-paginator
+      [length]="logisticsCollections.length"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = $event"
+    >
+    </mat-paginator>
+  </mat-card>
+</section>

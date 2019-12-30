@@ -1,0 +1,157 @@
+<section id="update-logistic-trf-container">
+  <mat-card>
+    <app-mat-dialog-header title="Manage TRF" subTitle="Update TRFs from Client Location"></app-mat-dialog-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <h6>Logistics Information</h6>
+
+      <!-- Logistics Information -->
+      <section class="logistic-information">
+        <!-- Logistic ID -->
+        <section class="sub-title">Logistic ID</section>
+        <section>{{ selectedLogistic.id }}</section>
+
+        <!-- Scheduled On -->
+        <section class="sub-title">Scheduled On</section>
+        <section>{{ selectedLogistic.scheduledOn }}</section>
+
+        <!-- Clinic -->
+        <section class="sub-title">Clinic</section>
+        <section>{{ selectedLogistic.clinic.name }}</section>
+
+        <!-- Called By -->
+        <section class="sub-title">Called By</section>
+        <section>{{ selectedLogistic.calledBy.name }}</section>
+
+        <!-- Driver Name -->
+        <section class="sub-title">Driver Name</section>
+        <section>{{ selectedLogistic.driver.name }}</section>
+
+        <!-- Status -->
+        <section class="sub-title">Status</section>
+        <section>{{ selectedLogistic.status.name }}</section>
+      </section>
+
+      <h6>TRF Details</h6>
+
+      <!-- TRF Details -->
+      <form class="trf-details-form">
+        <section class="trf-information-container">
+          <mat-form-field>
+            <mat-label class="sub-title">Number of TRFs</mat-label>
+            <input matInput placeholder="Number of TRFs" />
+          </mat-form-field>
+
+          <!-- Temperature -->
+          <mat-form-field>
+            <mat-label class="sub-title">Temperature</mat-label>
+            <input matInput placeholder="Temperature" />
+          </mat-form-field>
+
+          <!-- Sample Type -->
+          <section class="d-flex">
+            <mat-label class="pr-48 sub-title">Type</mat-label>
+            <section>
+              <mat-checkbox class="pr-24">AMBIENT</mat-checkbox>
+              <mat-checkbox class="pr-24">REFRIGERATED</mat-checkbox>
+              <mat-checkbox class="pr-24">FROZEN</mat-checkbox>
+            </section>
+          </section>
+
+          <!-- Stat -->
+          <section class="d-flex">
+            <mat-label class="pr-48 sub-title">Stat</mat-label>
+            <mat-radio-group>
+              <mat-radio-button class="pr-24" value="Yes">Yes</mat-radio-button>
+              <mat-radio-button class="pr-24" value="No">No</mat-radio-button>
+            </mat-radio-group>
+          </section>
+        </section>
+
+        <!-- Specimen Details Header -->
+        <section class="specimen-details-header d-flex">
+          <h6>Specimen Details</h6>
+          <button class="add-specimen-button" mat-button color="primary" (click)="onAddSpecimenClicked()">
+            + Add Specimen
+          </button>
+        </section>
+
+        <!-- Specimens -->
+        <section *ngIf="!specimens.length" class="no-specimen-msg">
+          No Specimens Recorded
+        </section>
+
+        <section *ngIf="specimens.length" class="specimens-container">
+          <section class="d-flex" *ngFor="let specimen of specimens">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Specimen" disableOptionCentering>
+                <mat-option value="1">
+                  <section>
+                    <span>
+                      <i class="fa fa-circle yellow-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Plain with gel
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option value="2">
+                  <section>
+                    <span>
+                      <i class="fa fa-circle red-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Plain tubes
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option value="3">
+                  <section>
+                    <span>
+                      <i class="fa fa-circle blue-violet" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      EDTA
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option value="4">
+                  <section>
+                    <span>
+                      <i class="fa fa-circle cadet-blue" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Citrate
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option value="5">
+                  <section>
+                    <span>
+                      <i class="fa fa-circle grey-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Flouride
+                    </span>
+                  </section>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml-7 mt-7">
+              <mat-label>Specimen Count</mat-label>
+              <input matInput placeholder="Speciment Count" />
+            </mat-form-field>
+          </section>
+        </section>
+      </form>
+
+      <section class="action-buttons-wrapper">
+        <button mat-button color="primary" matDialogClose>Close</button>
+        <button mat-raised-button color="primary" matDialogClose cdkFocusInitial>Save</button>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

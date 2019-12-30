@@ -1,0 +1,82 @@
+<section id="add-case-container">
+  <mat-card>
+    <!-- Mat Card header -->
+    <app-mat-dialog-header title="Add Case" subTitle="Add Cases for the Lab"></app-mat-dialog-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <section class="add-case">
+        <!-- SID Number -->
+        <mat-form-field>
+          <mat-label>SID Number</mat-label>
+          <input type="text" matInput placeholder="SID Number" />
+        </mat-form-field>
+
+        <!-- Patient's Name -->
+        <mat-form-field>
+          <mat-label>Patient's Name</mat-label>
+          <input type="text" matInput placeholder="Patient's Name" />
+        </mat-form-field>
+
+        <!-- Mobile Number -->
+        <mat-form-field>
+          <mat-label>Mobile Number</mat-label>
+          <input type="text" matInput placeholder="Mobile Number" />
+        </mat-form-field>
+
+        <!-- Email ID -->
+        <mat-form-field>
+          <mat-label>Email ID</mat-label>
+          <input type="text" matInput placeholder="Email ID" />
+        </mat-form-field>
+
+        <!-- File Number -->
+        <mat-form-field>
+          <mat-label>File Number</mat-label>
+          <input type="text" matInput placeholder="File Number" />
+        </mat-form-field>
+
+        <!-- Organization -->
+        <mat-form-field>
+          <mat-label>Organization</mat-label>
+          <input type="text" matInput placeholder="Organization" />
+        </mat-form-field>
+
+        <!-- Physician -->
+        <mat-form-field>
+          <mat-label>Physician</mat-label>
+          <input type="text" matInput placeholder="Physician" />
+        </mat-form-field>
+
+        <!-- Priority -->
+        <mat-form-field>
+          <mat-label>Priority</mat-label>
+          <input type="text" matInput placeholder="Priority" />
+        </mat-form-field>
+
+        <!-- Escalated To -->
+        <mat-form-field>
+          <mat-label>Escalated To</mat-label>
+          <input type="text" matInput placeholder="Escalated To" />
+        </mat-form-field>
+
+        <!-- Problem -->
+        <mat-form-field>
+          <mat-label>Problem</mat-label>
+          <input type="text" matInput placeholder="Problem" />
+        </mat-form-field>
+
+        <!-- Reported By -->
+        <mat-form-field>
+          <mat-label>Reported By</mat-label>
+          <input type="text" matInput placeholder="Reported By" />
+        </mat-form-field>
+      </section>
+
+      <section class="action-buttons">
+        <button mat-button color="primary" matDialogClose>Close</button>
+        <button mat-raised-button color="primary" matDialogClose>Add</button>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

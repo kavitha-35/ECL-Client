@@ -1,0 +1,12 @@
+<section id="payment-list-container">
+  <mat-card>
+    <mat-card-title>Payment's List</mat-card-title>
+    <mat-card-subtitle>Manage Payment's List</mat-card-subtitle>
+    <mat-card-content>
+      <app-shared-registration-list [registrations]="registrations" showActionIcon="true">
+        <button mat-menu-item (click)="onPayBillButtonClicked($event)">Pay Bill</button>
+        <button mat-menu-item>Cancel</button>
+      </app-shared-registration-list>
+    </mat-card-content>
+  </mat-card>
+</section>

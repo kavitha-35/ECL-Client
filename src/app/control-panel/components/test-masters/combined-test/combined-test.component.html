@@ -1,0 +1,29 @@
+<section class="animated fadeIn">
+  <mat-card>
+    <!-- Mat Card Title -->
+    <mat-card-title>
+      <section class="mat-card-title-container">
+        <section>
+          Test Lists
+        </section>
+        <section>
+          <button mat-button color="primary" (click)="onAddTestButtonClicked()">+ Add Test</button>
+        </section>
+      </section>
+    </mat-card-title>
+
+    <!-- Mat Card SubTitle -->
+    <mat-card-subtitle> Manage Test(s) </mat-card-subtitle>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Combined Test List Data Table -->
+    <app-combined-test-list-data-table
+      [tests]="tests"
+      [isBusy]="isFetchingTests"
+      (editTestClicked)="onEditTestClicked($event)"
+      (deleteTestClicked)="onDeleteTestClicked($event)"
+    ></app-combined-test-list-data-table>
+  </mat-card>
+</section>

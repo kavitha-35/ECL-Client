@@ -1,0 +1,39 @@
+<section id="column-chooser-container">
+  <!-- Material Button -->
+  <mat-icon class="pointer" [matMenuTriggerFor]="menu">filter_list</mat-icon>
+</section>
+
+<!-- Column Chooser Menu -->
+<mat-menu #menu="matMenu" (click)="onMenuClicked($event)" (closed)="onMenuClosed()" [overlapTrigger]="false">
+  <section class="column-chooser-menu" (click)="onMenuClicked($event)">
+    <!-- Filter Header -->
+    <section class="title">
+      Filter Columns
+    </section>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Filter TextBox -->
+    <section class="filter-text">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Filter" autocomplete="off" [(ngModel)]="filterQuery"/>
+      </mat-form-field>
+    </section>
+
+    <!-- Filter Columns List -->
+    <section>
+      <mat-selection-list>
+        <mat-list-option
+          [selected]="column.isSelected"
+          (click)="onMenuItemClicked(column)"
+          checkboxPosition="before"
+          *ngFor="let column of columns | filterBy: ['displayValue']: filterQuery">
+
+          <section>{{ column.displayValue || column.columnName }}</section>
+
+        </mat-list-option>
+      </mat-selection-list>
+    </section>
+  </section>
+</mat-menu>

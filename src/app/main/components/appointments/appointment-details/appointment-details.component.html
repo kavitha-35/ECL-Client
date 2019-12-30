@@ -1,0 +1,58 @@
+<section id="appointment-details-container">
+  <mat-card>
+    <mat-card-title>Appointment Details</mat-card-title>
+    <mat-card-subtitle>Details for Selected Appointment</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <section class="appointments-wrapper">
+        <!-- Appointment Details -->
+        <section class="appointment-details">
+        <!-- Appointment ID -->
+        <section class="sub-title">Appointment ID</section>
+        <section>{{ selectedAppointment.id }}</section>
+
+        <!-- Patient Name -->
+        <section class="sub-title">Patient Name</section>
+        <section>{{ selectedAppointment.name }}</section>
+
+        <!-- Date Of Birth -->
+        <section class="sub-title">Date Of Birth</section>
+        <section>{{ selectedAppointment.dateOfBirth }}</section>
+
+        <!-- Gender -->
+        <section class="sub-title">Gender</section>
+        <section>{{ selectedAppointment.gender.name }}</section>
+
+        <!-- Mobile Number -->
+        <section class="sub-title">Mobile Number</section>
+        <section>{{ selectedAppointment.mobileNumber }}</section>
+
+        <!-- Phone Number -->
+        <section class="sub-title">Phone Number</section>
+        <section>{{ selectedAppointment.phoneNumber }}</section>
+
+        <!-- Status -->
+        <section class="sub-title">Status</section>
+        <section>{{ selectedAppointment.status.name }}</section>
+
+        <!-- Appointment Schedule (From) -->
+        <section class="sub-title">Appointment Schedule (From)</section>
+        <section>{{ selectedAppointment.from }}</section>
+
+        <!-- Appointment Schedule (To) -->
+        <section class="sub-title">Appointment Schedule (To)</section>
+        <section>{{ selectedAppointment.to }}</section>
+
+        <!-- Comment Details -->
+        <section class="sub-title">Comments / Remarks</section>
+        <section>{{ selectedAppointment.comment }}</section>
+      </section>
+
+        <!-- Appointment Illustration -->
+        <section class="appointments-illustration">
+          <img src="../../../../../assets/images/mat-card-1.png" alt="">
+        </section>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

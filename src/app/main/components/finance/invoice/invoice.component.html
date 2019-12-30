@@ -1,0 +1,16 @@
+<section id="invoice-container">
+  <mat-card>
+    <!-- Mat Card Title -->
+    <mat-card-title>Invoices</mat-card-title>
+
+    <!-- Mat Card Subtitle -->
+    <mat-card-subtitle>Manage Invoices for the Organization</mat-card-subtitle>
+
+    <mat-divider></mat-divider>
+
+    <!-- Mat Card Content -->
+    <mat-card-content>
+      <app-invoice-list [invoiceList]="invoiceList"></app-invoice-list>
+    </mat-card-content>
+  </mat-card>
+</section>

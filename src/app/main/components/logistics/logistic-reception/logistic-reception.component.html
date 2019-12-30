@@ -1,0 +1,26 @@
+<section id="logistic-reception-container" class="animated fadeIn">
+    <mat-card>
+      <!-- Mat Card Title -->
+      <mat-card-title>
+        <section class="mat-card-title-container">
+          <section>
+            Logistic(s)
+          </section>
+          <section>
+            <button mat-button color="primary" (click)="onAddLogisticsClicked()">
+              + Add Logistic
+            </button>
+          </section>
+        </section>
+      </mat-card-title>
+
+      <!-- Mat Card SubTitle -->
+      <mat-card-subtitle>   &nbsp; </mat-card-subtitle>
+
+      <!-- Mat Divider -->
+      <mat-divider></mat-divider>
+
+      <!-- Home collection List Data Table -->
+      <app-logistic-list [logisticsCollections]="logisticsList"></app-logistic-list>
+    </mat-card>
+  </section>

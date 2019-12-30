@@ -1,0 +1,65 @@
+<section id="case-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >rate_review
+        </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Cases
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Manage Cases for Patients </mat-card-subtitle>
+      </section>
+
+      <!-- Add Button -->
+      <section class="case-button-wrapper">
+        <button mat-stroked-button (click)="onAddCaseButtonClicked()">
+          Add Case
+        </button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-case-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    >
+    </app-case-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-case-data-list [caseList]="caseList | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-case-data-list>
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-case-table [caseList]="caseList | slice: pageEvent.pageIndex:pageEvent.pageSize"> </app-case-table>
+    </ng-template>
+
+    <mat-paginator
+      [length]="caseList.length"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = $event"
+    >
+    </mat-paginator>
+  </mat-card>
+</section>

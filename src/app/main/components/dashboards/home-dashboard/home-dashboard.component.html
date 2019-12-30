@@ -1,0 +1,342 @@
+<section id="home-dashboard-container">
+  <!-- Home Collections -->
+  <section class="home-collection-card-wrapper">
+    <div class="card grad-blue">
+      <div class="title">Home Collection</div>
+      <div class="sub-title">This Week</div>
+      <div class="weather">
+        <div class="content d-flex justify-content-between">
+          <i class="fa fa-shopping-bag fa-3x align-self-center"></i>
+          <div class="number align-self-center">12</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointments -->
+  <section class="appointments-card-wrapper">
+    <div class="card grad-not-blue">
+      <div class="title">Appointments</div>
+      <div class="sub-title">This Week</div>
+      <div class="weather">
+        <div class="content d-flex justify-content-between">
+          <i class="fa fa-users fa-3x align-self-center"></i>
+          <div class="number align-self-center">34</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Accounts -->
+  <section class="account-card-wrapper">
+    <div class="card grad-green">
+      <div class="title">Active Accounts</div>
+      <div class="sub-title">This Week</div>
+      <div class="weather">
+        <div class="content d-flex justify-content-between">
+          <i class="fa fa-universal-access fa-3x align-self-center"></i>
+          <div class="number align-self-center">87</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Doctors -->
+  <section class="doctors-card-wrapper">
+    <div class="card grad-orange">
+      <div class="title">Active Doctors</div>
+      <div class="sub-title">This Week</div>
+      <div class="weather">
+        <div class="content d-flex justify-content-between">
+          <i class="fa fa-user-md fa-3x align-self-center"></i>
+          <div class="number align-self-center">87</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar -->
+  <section class="calendar-card-wrapper">
+    <app-calendar></app-calendar>
+  </section>
+
+  <!-- News Widget 1 -->
+  <section class="news-feed-1 news-feed-wrapper">
+    <mat-card>
+      <mat-card-title>News</mat-card-title>
+      <mat-card-subtitle>Stories posted today</mat-card-subtitle>
+      <hr />
+      <section class="news-section"></section>
+    </mat-card>
+  </section>
+
+  <!-- News Widget 2 -->
+  <section class="news-feed-2 news-feed-wrapper">
+    <mat-card>
+      <mat-card-title>News</mat-card-title>
+      <mat-card-subtitle>Stories posted today</mat-card-subtitle>
+      <hr />
+      <section class="news-section"></section>
+    </mat-card>
+  </section>
+
+  <!-- News Widget 3 -->
+  <section class="news-feed-3 news-feed-wrapper">
+    <mat-card>
+      <mat-card-title>News</mat-card-title>
+      <mat-card-subtitle>Stories posted today</mat-card-subtitle>
+      <hr />
+      <section class="news-section"></section>
+    </mat-card>
+  </section>
+
+  <!-- News Widget 4 -->
+  <section class="news-feed-4 news-feed-wrapper">
+    <mat-card>
+      <mat-card-title>Newsfeed</mat-card-title>
+      <mat-card-subtitle>Stories posted today</mat-card-subtitle>
+      <hr />
+      <section class="news-section"></section>
+    </mat-card>
+  </section>
+
+  <!-- Maps Widget -->
+  <section class="map-wrapper">
+    <agm-map [latitude]="+12.9542946" [longitude]="+77.490852">
+      <agm-marker [latitude]="+12.9542946" [longitude]="+77.490852"></agm-marker>
+    </agm-map>
+  </section>
+
+  <!-- Maps Widget -->
+  <section class="leaflet-wrapper">
+    <agm-map [latitude]="+12.9542946" [longitude]="+77.490852">
+      <agm-marker [latitude]="+12.9542946" [longitude]="+77.490852"></agm-marker>
+    </agm-map>
+  </section>
+
+  <!-- Weather Widget -->
+  <section class="weather-widget">
+    <mat-card>
+      <section class="wheather-widget text-center grad-blue">
+        <section class="wheather-today">
+          <h3 class="mb-3">Today</h3>
+          <i class="wi wi-day-cloudy mat-text-accent"></i>
+          <h3>13 &#8451;</h3>
+          Surrey, Canada
+        </section>
+        <section class="wheather-future">
+          <section fxLayout="row wrap">
+            <section fxFlex.gt-sm="50%" fxFlex="100" class="m-gap p-gap wheather-child">
+              <p>Yesterday</p>
+              <i class="wi wi-day-rain-mix mb-2"></i>
+              <h3>13 &#8451;</h3>
+            </section>
+            <section fxFlex.gt-sm="50%" fxFlex="100" class="m-gap p-gap wheather-child">
+              <p>Tomorrow</p>
+              <i class="wi wi-day-cloudy-high mb-2"></i>
+              <h3>13 &#8451;</h3>
+            </section>
+          </section>
+        </section>
+      </section>
+    </mat-card>
+  </section>
+
+  <!-- Contact Us -->
+  <section class="contact-us-wrapper">
+    <mat-card>
+      <mat-card-title>Contact Us</mat-card-title>
+      <mat-card-subtitle>Contact Information</mat-card-subtitle>
+      <hr />
+      <section class="contact-us-section">
+        <strong>
+          <h4>Eastern Clinical Laboratories</h4>
+        </strong>
+        Elite Business Center, <br />
+        Floor 1, Office 105 Al Barsha, <br />
+        Behind Mall of Emirates, <br />
+        Dubai, UAE
+
+        <strong><h4>Get In Touch</h4></strong>
+        Eastern Clinical Laboratories is a Medical Diagnostic Services company based in Dubai.The company has been in
+        operation for over 10 years and has been at the forefront of Diagnostic Healthcare in the region.
+
+        <br />
+        <br />
+        <strong>Who to Contact</strong> <br />
+        During Lab Timings: <br />
+
+        9:00 am to 11:00 pm <br />
+        Tel.: +971 4 3244512 <br />
+      </section>
+    </mat-card>
+  </section>
+
+  <!-- Patient Feedback Form -->
+  <section class="patient-feedback-wrapper">
+    <mat-card>
+      <mat-card-title>Patient Feedback Form</mat-card-title>
+      <mat-card-subtitle>Patient Feedback Form</mat-card-subtitle>
+      <hr />
+      <section class="news-section">
+        <app-account-feedback-survey></app-account-feedback-survey>
+      </section>
+    </mat-card>
+  </section>
+
+  <!-- Accounts Feedback Form -->
+  <section class="accounts-feedback-wrapper">
+    <mat-card>
+      <mat-card-title>Accounts Feedback Form</mat-card-title>
+      <mat-card-subtitle>Accounts Feedback Form</mat-card-subtitle>
+      <hr />
+      <section class="news-section">
+        <app-patient-feedback-survey></app-patient-feedback-survey>
+      </section>
+    </mat-card>
+  </section>
+
+  <!-- Facebook Widget -->
+  <section>
+    <mat-card>
+      <section fxLayout="row" fxLayoutWrap="wrap">
+        <section
+          fxFlex.gt-sm="50%"
+          fxLayoutAlign="center center"
+          fxFlex="100"
+          class="m-gap p-gap mb-0 grad-red icon-tp"
+        >
+          <section class="text-center">
+            <i class="fa fa-facebook fa-3x"></i>
+            <div class="d-inline-block">
+              <h5>Facebook</h5>
+            </div>
+          </section>
+        </section>
+        <section fxFlex.gt-sm="50%" fxFlex="100" fxLayoutAlign="center center" class="m-gap p-gap mb-0">
+          <section class="card-block text-center">
+            <section class="row">
+              <section>
+                <h2>9</h2>
+                <p class="text-muted">Online</p>
+              </section>
+              <hr />
+              <div>
+                <h2>21</h2>
+                <p class="text-muted">Comment</p>
+              </div>
+            </section>
+          </section>
+        </section>
+      </section>
+    </mat-card>
+  </section>
+
+  <!-- Twitter Widget -->
+  <section>
+    <mat-card>
+      <section fxLayout="row" fxLayoutWrap="wrap">
+        <section
+          fxFlex.gt-sm="50%"
+          fxLayoutAlign="center center"
+          fxFlex="100"
+          class="m-gap p-gap mb-0 grad-green icon-tp"
+        >
+          <section class="text-center">
+            <i class="fa fa-twitter fa-3x"></i>
+            <div class="d-inline-block">
+              <h5>Twitter</h5>
+            </div>
+          </section>
+        </section>
+        <section fxFlex.gt-sm="50%" fxFlex="100" fxLayoutAlign="center center" class="m-gap p-gap mb-0">
+          <section class="card-block text-center">
+            <section class="row">
+              <section>
+                <h2>89</h2>
+                <p class="text-muted">Tweets</p>
+              </section>
+              <hr />
+              <div>
+                <h2>189</h2>
+                <p class="text-muted">Replies</p>
+              </div>
+            </section>
+          </section>
+        </section>
+      </section>
+    </mat-card>
+  </section>
+
+  <!-- LinkedIn Widget -->
+  <section>
+    <mat-card>
+      <section fxLayout="row" fxLayoutWrap="wrap">
+        <section
+          fxFlex.gt-sm="50%"
+          fxLayoutAlign="center center"
+          fxFlex="100"
+          class="m-gap p-gap mb-0 grad-blue icon-tp"
+        >
+          <section class="text-center">
+            <i class="fa fa-linkedin fa-3x"></i>
+            <div class="d-inline-block">
+              <h5>Linkedin</h5>
+            </div>
+          </section>
+        </section>
+        <section fxFlex.gt-sm="50%" fxFlex="100" fxLayoutAlign="center center" class="m-gap p-gap mb-0">
+          <section class="card-block text-center">
+            <section class="row">
+              <section>
+                <h2>67</h2>
+                <p class="text-muted">Online</p>
+              </section>
+              <hr />
+              <div>
+                <h2>34</h2>
+                <p class="text-muted">Messages</p>
+              </div>
+            </section>
+          </section>
+        </section>
+      </section>
+    </mat-card>
+  </section>
+
+  <!-- Instagram Widget -->
+  <section>
+    <mat-card>
+      <section fxLayout="row" fxLayoutWrap="wrap">
+        <section
+          fxFlex.gt-sm="50%"
+          fxLayoutAlign="center center"
+          fxFlex="100"
+          class="m-gap p-gap mb-0 grad-red icon-tp"
+        >
+          <section class="text-center">
+            <i class="fa fa-instagram fa-3x"></i>
+            <div class="d-inline-block">
+              <h5>Instagram</h5>
+            </div>
+          </section>
+        </section>
+        <section fxFlex.gt-sm="50%" fxFlex="100" fxLayoutAlign="center center" class="m-gap p-gap mb-0">
+          <section class="card-block text-center">
+            <section class="row">
+              <section>
+                <h2>76</h2>
+                <p class="text-muted">Likes</p>
+              </section>
+              <hr />
+              <div>
+                <h2>0</h2>
+                <p class="text-muted">Comment</p>
+              </div>
+            </section>
+          </section>
+        </section>
+      </section>
+    </mat-card>
+  </section>
+</section>

@@ -1,0 +1,44 @@
+<section id="patient-collection-list-container">
+  <table mat-table [dataSource]="appointments" class="full-width">
+    <!-- Visit ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>VISIT ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Visit Date -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>DATE</th>
+      <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+
+    <!-- Patient Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>NAME</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Referral -->
+    <ng-container matColumnDef="referral">
+      <th mat-header-cell *matHeaderCellDef>REFERRAL</th>
+      <td mat-cell *matCellDef="let element">{{ element.referral }}</td>
+    </ng-container>
+
+    <!-- Organization Cost -->
+    <ng-container matColumnDef="organization">
+      <th mat-header-cell *matHeaderCellDef>ORGANISATION</th>
+      <td mat-cell *matCellDef="let element">{{ element.organization }}</td>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>ADD TEST(S)</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="primary" (click)="onAddAdditionalTestsButtonClicked()">Add Test(s)</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

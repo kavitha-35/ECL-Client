@@ -1,0 +1,69 @@
+<section id="outsourcing-management-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >apps
+        </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Outsourcing Management
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage Outsourcing Labs </mat-card-subtitle>
+      </section>
+
+      <!-- Add Appointment Button -->
+      <section class="outsourcing-management-button-wrapper">
+        <button mat-stroked-button (click)="onAddReferalLabButtonClicked()">Add Outsourcing Lab</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-outsourcing-management-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+    </app-outsourcing-management-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+      <!-- Test List -->
+      <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+      <!-- List View -->
+      <ng-template #listView>
+        <app-outsourcing-management-list
+        [labs]="outsourcedLab | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-outsourcing-management-list
+          >
+      </ng-template>
+
+      <!-- Table View -->
+      <ng-template #tableView>
+        <app-referal-lab-list-data-table
+        [labs]="outsourcedLab | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (editReferalLabClicked)="onEditReferalLabClicked()"
+        [isBusy]="isFetchingReferalLab"
+      ></app-referal-lab-list-data-table>
+      </ng-template>
+
+      <mat-paginator
+        [length]="outsourcedLab.length"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+  </mat-card>
+</section>
+

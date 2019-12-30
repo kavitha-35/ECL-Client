@@ -1,0 +1,200 @@
+<section class="app search-i" [ngClass]="[menuLayout, collapsedClass]" [class.collapsed-sidebar]="collapseSidebar">
+  <!-- SideNav Container -->
+  <mat-sidenav-container class="app-inner">
+    <!-- SideNav -->
+    <mat-sidenav
+      #sidemenu
+      class="sidebar-panel"
+      id="sidebar-panel"
+      [mode]="isOver() ? 'over' : 'side'"
+      [opened]="!isOver()"
+      (mouseover)="menuMouseOver()"
+      (mouseout)="menuMouseOut()"
+    >
+      <section class="opt-side relative ">
+        <section class="sidebar-container ">
+          <section class="branding text-center">
+            <h2><i class="fa fa-cubes" aria-hidden="true"></i> <span> LIS </span></h2>
+          </section>
+          <section class="main-nav">
+            <section class="user-pro-wrap">
+              <section class="user-profile-thumb text-center">
+                <section class="user-i">
+                  <img src="assets/images/userpic.jpg" class="rad-full mb-1" width="100" height="100" alt="" />
+                  <section><span>Arun Selva Kumar</span></section>
+                </section>
+              </section>
+              <section class="most-used text-center">
+                <a class="most-link" color="primary" [routerLink]="['/main']">
+                  <mat-icon>home</mat-icon>
+                </a>
+                <a class="most-link" color="primary">
+                  <mat-icon>person</mat-icon>
+                </a>
+                <a class="most-link" [routerLink]="['']" (click)="logout()" color="primary">
+                  <mat-icon>logout</mat-icon>
+                </a>
+              </section>
+            </section>
+            <mat-nav-list appAccordion class="navigation relative">
+              <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems">
+                <a
+                  appAccordionToggle
+                  class="relative"
+                  mat-ripple
+                  [routerLink]="[menuitem.state]"
+                  [queryParams]="{ action: menuitem.paramValue }"
+                  *ngIf="menuitem.type === 'link'"
+                >
+                  <mat-icon>{{ menuitem.icon }}</mat-icon>
+                  <span>{{ menuitem.name | translate }}</span>
+                  <span fxFlex></span>
+                  <span class="menu-badge mat-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
+                    badge.value
+                  }}</span>
+                </a>
+                <a
+                  appAccordionToggle
+                  class="relative"
+                  mat-ripple
+                  href="{{ menuitem.state }}"
+                  *ngIf="menuitem.type === 'extLink'"
+                >
+                  <mat-icon>{{ menuitem.icon }}</mat-icon>
+                  <span>{{ menuitem.name | translate }}</span>
+                  <span fxFlex></span>
+                  <span class="menu-badge mat-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
+                    badge.value
+                  }}</span>
+                </a>
+                <a
+                  appAccordionToggle
+                  class="relative"
+                  mat-ripple
+                  href="{{ menuitem.state }}"
+                  target="_blank"
+                  *ngIf="menuitem.type === 'extTabLink'"
+                >
+                  <mat-icon>{{ menuitem.icon }}</mat-icon>
+                  <span>{{ menuitem.name | translate }}</span>
+                  <span fxFlex></span>
+                  <span class="menu-badge mat-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
+                    badge.value
+                  }}</span>
+                </a>
+                <a appAccordionToggle class="relative" mat-ripple href="javascript:;" *ngIf="menuitem.type === 'sub'">
+                  <mat-icon>{{ menuitem.icon }}</mat-icon>
+                  <span>{{ menuitem.name | translate }}</span>
+                  <span fxFlex></span>
+                  <span class="menu-badge mat-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{
+                    badge.value
+                  }}</span>
+                  <mat-icon class="menu-caret">arrow_drop_down</mat-icon>
+                </a>
+                <mat-nav-list class="sub-menu" *ngIf="menuitem.type === 'sub'">
+                  <mat-list-item *ngFor="let childItem of menuitem.children" routerLinkActive="open">
+                    <a
+                      [routerLink]="[childItem.state]"
+                      [queryParams]="{ action: childItem.paramValue }"
+                      class="relative"
+                      mat-ripple
+                      >{{ childItem.name | translate }}</a
+                    >
+                  </mat-list-item>
+                </mat-nav-list>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-nav-list>
+          </section>
+        </section>
+      </section>
+      <section class="bg-overlay"></section>
+    </mat-sidenav>
+
+    <!-- Header -->
+    <mat-toolbar class="main-header">
+      <section class="vertical-menu w-100">
+        <button mat-icon-button (click)="collapseSidebar = !collapseSidebar">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <section class="search-bar">
+          <form class="search-form">
+            <mat-icon>search</mat-icon>
+            <input type="text" placeholder="Search" />
+          </form>
+        </section>
+        <span fxFlex></span>
+        <button appToggleFullscreen mat-icon-button class="sm-disable">
+          <mat-icon>fullscreen</mat-icon>
+        </button>
+        <button [mat-menu-trigger-for]="user2" mat-icon-button class="ml-xs overflow-visible">
+          <mat-icon>message</mat-icon>
+        </button>
+        <mat-menu #user2="matMenu" class="opt-menu" x-position="after">
+          <section mat-menu-item class="head-menu grad-blue">
+            Message Menu
+          </section>
+          <button mat-menu-item>
+            <img width="40" src="assets/images/user-1.jpg" alt="" />
+            Next Update for angular 5
+          </button>
+          <button mat-menu-item>
+            <img width="40" src="assets/images/user-2.jpg" alt="" />
+            Check out our new admin theme
+          </button>
+          <button mat-menu-item>
+            <img width="40" src="assets/images/user-3.jpg" alt="" />
+            Expedita quo, laboriosam officia.
+          </button>
+          <button mat-menu-item>
+            <img width="40" src="assets/images/user-4.jpg" alt="" />
+            Lorem ipsum dolor sit amet consectetur.
+          </button>
+        </mat-menu>
+        <button mat-icon-button class="ml-xs overflow-visible">
+          <mat-icon>notifications</mat-icon>
+          <span class="notification-label">2</span>
+        </button>
+        <button [mat-menu-trigger-for]="user" mat-icon-button class="ml-xs">
+          <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #user="matMenu" class="opt-menu" x-position="before">
+          <section mat-menu-item class="head-menu grad-blue">
+            Settings
+          </section>
+          <button mat-menu-item>
+            <mat-icon>account_box</mat-icon>
+            Profile
+          </button>
+          <button mat-menu-item>
+            <mat-icon>account_box</mat-icon>
+            User Guide
+          </button>
+          <button mat-menu-item>
+            <mat-icon>list</mat-icon>
+            Account Manager
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            Disable notifications
+          </button>
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            Settings
+          </button>
+          <button mat-menu-item [routerLink]="['']" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            Sign Out
+          </button>
+        </mat-menu>
+      </section>
+    </mat-toolbar>
+
+    <!-- Body Container -->
+    <section class="body-container">
+      <router-outlet></router-outlet>
+    </section>
+  </mat-sidenav-container>
+</section>
+
+<ngx-loading [show]="loaderService.isBusy"></ngx-loading>

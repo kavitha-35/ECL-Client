@@ -1,0 +1,11 @@
+@import "../../../../assets/styles/scss/color";
+
+#section-header-container {
+  color: $primary-color;
+
+  header {
+    font-size: 16px;
+    padding-left: 8px;
+    border-left: 3px solid $primary-color;
+  }
+}

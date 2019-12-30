@@ -1,0 +1,66 @@
+<section id="organisation-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">home_work </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Organisations
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage Organisation </mat-card-subtitle>
+      </section>
+
+      <!-- Add Organisation Button -->
+      <section class="organisation-button-wrapper">
+        <button mat-stroked-button (click)="onAddOrganisationButtonClicked()">Add Organisation</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-organisation-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+    </app-organisation-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-organisation-list
+      [organisations]="organisations | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-organisation-list
+          >
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-organisation-list-data-table
+        [organisations]="organisations | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (editOrganisationClicked)="onEditOrganisationClicked()"
+        [isBusy]="isFetchingOrganisations"
+      ></app-organisation-list-data-table>
+    </ng-template>
+
+    <mat-paginator
+        [length]="organisations.length"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+  </mat-card>
+</section>

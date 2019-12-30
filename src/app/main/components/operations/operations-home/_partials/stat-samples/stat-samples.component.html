@@ -1,0 +1,50 @@
+<table mat-table [dataSource]="logistics" class="full-width">
+  <!-- ID -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Logistic ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Clinic -->
+  <ng-container matColumnDef="clinic">
+    <th mat-header-cell *matHeaderCellDef>Clinic</th>
+    <td mat-cell *matCellDef="let element">{{ element.clinic.name }}</td>
+  </ng-container>
+
+  <!-- Called by -->
+  <ng-container matColumnDef="calledBy">
+    <th mat-header-cell *matHeaderCellDef>Called by</th>
+    <td mat-cell *matCellDef="let element">{{ element.calledBy.name }}</td>
+  </ng-container>
+
+  <!-- Assigned To (Driver) -->
+  <ng-container matColumnDef="driver">
+    <th mat-header-cell *matHeaderCellDef>Assigned To (Driver)</th>
+    <td mat-cell *matCellDef="let element">{{ element.driver.name }}</td>
+  </ng-container>
+
+  <!-- Scheduled Date -->
+  <ng-container matColumnDef="scheduledOn">
+    <th mat-header-cell *matHeaderCellDef>Scheduled Date</th>
+    <td mat-cell *matCellDef="let element">{{ element.scheduledOn | date }}</td>
+  </ng-container>
+
+  <!-- Requested On -->
+  <ng-container matColumnDef="modifiedOn">
+    <th mat-header-cell *matHeaderCellDef>Requested On</th>
+    <td mat-cell *matCellDef="let element">{{ element.modifiedOn | date }}</td>
+  </ng-container>
+
+  <!-- Status -->
+  <ng-container matColumnDef="status">
+    <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element">
+      <section class="status-card">
+        {{ element.status.name }}
+      </section>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

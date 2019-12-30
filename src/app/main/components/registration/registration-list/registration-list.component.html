@@ -1,0 +1,24 @@
+<section class="animated fadeIn">
+  <mat-card>
+    <mat-card-title>Registration List</mat-card-title>
+    <mat-card-subtitle>Registration List for the Organisation</mat-card-subtitle>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content  *ngIf="registrations$ | async as registrations">
+      <app-registration-table
+        [registrations]="registrations | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (registrationSelected)="onRegistrationSelected($event)"
+      >
+      </app-registration-table>
+
+      <mat-paginator
+        [length]="registrations.length"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageSize]="pageSize"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</section>

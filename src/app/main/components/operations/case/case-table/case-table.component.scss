@@ -1,0 +1,30 @@
+$status-card-background: #F44335;
+$status-card-color: #ffffff;
+
+#case-table-container {
+  .status-card {
+    border: $status-card-background 1px solid;
+    border-radius: 4px;
+
+    background: $status-card-background;
+    color: $status-card-color;
+
+    text-align: center;
+    padding: 0 6px;
+  }
+
+  .actions-wrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      padding: 0;
+      line-height: 1;
+      min-width: 32px;
+    }
+
+    .action-button {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+}

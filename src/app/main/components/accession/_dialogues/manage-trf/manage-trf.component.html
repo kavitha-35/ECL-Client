@@ -1,0 +1,66 @@
+<section id="manage-TRF-container">
+  <mat-card>
+    <mat-card-title>Manage Temperature</mat-card-title>
+    <mat-card-subtitle>Accession for Logistics</mat-card-subtitle>
+
+    <mat-card-content>
+      <section class="message-info">
+        <section>Clinic</section>
+        <section>{{ selectedLogisticModel.clinic.name}}</section>
+      </section>
+      <section class="message-info">
+        <section>Called By</section>
+        <section>{{ selectedLogisticModel.calledBy.name }}</section>
+      </section>
+
+      <section class="no-trf-section">
+        <section>No of TRF(s)</section>
+        <section> 3 </section>
+      </section>
+      <section class="temperature-section">
+        <section>Temperature</section>
+        <section> 30 </section>
+      </section>
+
+      <section class="type-stat-section">
+        <section class="type-section">
+          <mat-label>Type</mat-label>
+          <mat-checkbox disabled>AMBIENT</mat-checkbox>
+          <mat-checkbox disabled>REFRIGERATED</mat-checkbox>
+          <mat-checkbox disabled>FROZEN</mat-checkbox>
+        </section>
+
+        <section class="stat-section">
+          <mat-label>Stat</mat-label>
+          <mat-radio-group>
+            <mat-radio-button class="example-radio-button" disabled [value]="true">
+              Yes
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" disabled [value]="false">
+              No
+            </mat-radio-button>
+          </mat-radio-group>
+        </section>
+      </section>
+
+      <section>
+        <h6>Accession</h6>
+
+        <section class="accession-container">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Accession Temperature" />
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Comment(s)" />
+          </mat-form-field>
+        </section>
+
+      </section>
+
+      <section class="action-buttons-wrapper save-action-section">
+        <button mat-raised-button color="primary" matDialogClose>Save</button>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

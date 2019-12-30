@@ -1,0 +1,313 @@
+<section id="organisation-container">
+  <mat-card class="organisation-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Organisations" subTitle="Edit Organisation" icon="fa-calendar"> </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!-- Outsource Management Form -->
+          <form class="organisation-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Lab Name -->
+                <mat-form-field>
+                  <mat-label>Clinic Name</mat-label>
+                  <input matInput placeholder="Clinic Name" />
+                </mat-form-field>
+
+                <!-- Type -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Relation</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="main">
+                      Main
+                    </mat-option>
+                    <mat-option value="branch">
+                      Branch
+                    </mat-option>
+                    <mat-option value="private">
+                      Private
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Address -->
+                <mat-form-field>
+                  <mat-label>Address</mat-label>
+                  <input matInput placeholder="Address" />
+                </mat-form-field>
+
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input matInput placeholder="Telephone" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" />
+                </mat-form-field>
+
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" />
+                </mat-form-field>
+
+                <!-- Area-->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Area</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Region-->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Region</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Country -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Country</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="uae">
+                      UAE
+                    </mat-option>
+                    <mat-option value="india">
+                      India
+                    </mat-option>
+                    <mat-option value="England">
+                      England
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Sales Rep -->
+                <mat-form-field>
+                  <mat-label>Sales Representative</mat-label>
+                  <input matInput placeholder="Sales Representative" />
+                </mat-form-field>
+
+                <!-- Contact Person -->
+                <mat-form-field>
+                  <mat-label>Contact Person</mat-label>
+                  <input matInput placeholder="Contact Person" />
+                </mat-form-field>
+
+                <!-- Contact Number -->
+                <mat-form-field>
+                  <mat-label>Contact Number</mat-label>
+                  <input matInput placeholder="Contact Number" />
+                </mat-form-field>
+
+                <!-- Email -->
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" />
+                </mat-form-field>
+
+                <!-- Business Hours -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Business Hours</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="24">
+                      24 Hours
+                    </mat-option>
+                    <mat-option value="12">
+                      12 Hours
+                    </mat-option>
+                    <mat-option value="fixed">
+                      Fixed Time
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Remark -->
+                <mat-form-field>
+                  <mat-label>Remarks</mat-label>
+                  <input matInput placeholder="if any" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Locale Information -->
+            <section class="locale-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="locale Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="locale-information-content">
+                <!-- Language -->
+                <mat-form-field>
+                  <mat-label>Language</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="english">
+                      English
+                    </mat-option>
+                    <mat-option value="arabic">
+                      Arabic
+                    </mat-option>
+                    <mat-option value="hindi">
+                      Hindi
+                    </mat-option>
+                    <mat-option value="portuguese">
+                      Portuguse
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Time Zone -->
+                <mat-form-field>
+                  <mat-label>Time Zone</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Finance Information -->
+            <section class="finance-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Finance Information"></app-section-header>
+              <!-- Content -->
+              <section class="finance-information-content">
+                <!-- Currency -->
+                <mat-form-field>
+                  <mat-label>Currency</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Payment Mode -->
+                <mat-form-field>
+                  <mat-label>Payment Mode</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                    <mat-option value="netBanking">
+                      Net Banking
+                    </mat-option>
+                    <mat-option value="credit">
+                      Credit Card
+                    </mat-option>
+                    <mat-option value="debit">
+                      Debit Card
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Payment Type -->
+                <mat-form-field>
+                  <mat-label>Payment Type</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="prepaid">
+                      Prepaid
+                    </mat-option>
+                    <mat-option value="postpaid">
+                      Post Paid
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Credit Limit -->
+                <mat-form-field>
+                  <mat-label>Credit Limit</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Current Due-->
+                <mat-form-field>
+                  <mat-label>Current Due</mat-label>
+                  <input matInput placeholder="Current Due" />
+                </mat-form-field>
+
+                <!-- Revenue Target -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Revenue Target</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="1">
+                      1 Year
+                    </mat-option>
+                    <mat-option value="quarter">
+                      Quarter
+                    </mat-option>
+                    <mat-option value="month">
+                      Month
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Report and Bill Status -->
+                <mat-form-field>
+                  <mat-label>Report and Bill Status</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option>
+                      show reports and bills to patients
+                    </mat-option>
+                    <mat-option>
+                      show only reports to the patient
+                    </mat-option>
+                    <mat-option>
+                      never show the report to patients
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="User Credentials Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="user-credentials-content">
+                <!-- User Id -->
+                <mat-form-field>
+                  <mat-label>User Id</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!--  Branch -->
+                <mat-form-field>
+                  <mat-label>Branch</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Save Changes</button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>

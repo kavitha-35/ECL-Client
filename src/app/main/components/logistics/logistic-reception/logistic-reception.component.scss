@@ -1,0 +1,11 @@
+#logistic-reception-container {
+  .mat-card-title-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    button {
+      padding: 0;
+      line-height: 0;
+    }
+  }
+}

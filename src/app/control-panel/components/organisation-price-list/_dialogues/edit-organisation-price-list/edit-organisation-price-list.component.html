@@ -1,0 +1,89 @@
+<section id="organisation-container">
+    <mat-card class="organisation-mat-card">
+      <!--  Dialog Caption -->
+      <section>
+        <app-dialog-caption title="Organisations" subTitle="Edit Organisation Price List" icon="fa-calendar"> </app-dialog-caption>
+      </section>
+  
+      <!-- Dialog Content -->
+      <section>
+        <!-- Mat Card Header -->
+        <app-mat-dialog-header></app-mat-dialog-header>
+  
+        <!-- Mat Card Content -->
+        <mat-dialog-content class="outsource-dialog">
+          <section>
+            <!-- Outsource Management Form -->
+            <form class="organisation-form">
+              <!-- Basic Information -->
+              <section class="basic-wrapper">
+                <!-- Header -->
+                <app-section-header title="Basic Information"></app-section-header>
+  
+                <!-- Content -->
+                <section class="basic-content">
+                  <!-- Clinic ID -->
+                  <mat-form-field>
+                    <mat-label>Clinic ID</mat-label>
+                    <input matInput placeholder="Clinic ID" />
+                  </mat-form-field>
+  
+                  <!-- Organization Name -->
+                  <mat-form-field class="mt-n7">
+                    <mat-label>Organization Name</mat-label>
+                    <mat-select disableOptionCentering>
+                      <mat-option value="main">
+                        Main
+                      </mat-option>
+                      <mat-option value="branch">
+                        Branch
+                      </mat-option>
+                      <mat-option value="private">
+                        Private
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Test ID -->
+                  <mat-form-field>
+                    <mat-label>Test ID</mat-label>
+                    <input matInput placeholder="Test ID" />
+                  </mat-form-field>
+  
+                  <!-- DOS Code -->
+                  <mat-form-field>
+                    <mat-label>DOS Code</mat-label>
+                    <input matInput placeholder="DOS Code" />
+                  </mat-form-field>
+  
+                  <!-- MRP -->
+                  <mat-form-field>
+                    <mat-label>MRP</mat-label>
+                    <input matInput placeholder="MRP" />
+                  </mat-form-field>
+  
+                  <!-- Net -->
+                  <mat-form-field>
+                    <mat-label>Net</mat-label>
+                    <input matInput placeholder="Net" />
+                  </mat-form-field>
+  
+                  <!-- CPT -->
+                  <mat-form-field>
+                    <mat-label>CPT</mat-label>
+                    <input matInput placeholder="CPT" />
+                  </mat-form-field>
+                </section>
+              </section>
+            </form>
+  
+            <section class="action-buttons-wrapper">
+              <button mat-button color="primary" matDialogClose>Clear</button>
+              <button mat-raised-button color="primary" cdkFocusInitial>Save Changes</button>
+            </section>
+          </section>
+        </mat-dialog-content>
+      </section>
+    </mat-card>
+  </section>
+  

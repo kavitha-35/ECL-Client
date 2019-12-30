@@ -1,0 +1,14 @@
+#add-case-container {
+  .add-case {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 24px;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0;
+  }
+}

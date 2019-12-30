@@ -1,0 +1,27 @@
+<section class="animated fadeIn">
+  <mat-card>
+    <!-- Mat Card Title -->
+    <mat-card-title>
+      <section class="mat-card-title-container">
+        <section>
+          Reference Range Lists
+        </section>
+        <section>
+          <button mat-button color="primary" (click)="onAddReferenceRangeButtonClicked()">+ Add Reference Range</button>
+        </section>
+      </section>
+    </mat-card-title>
+
+    <!-- Mat Card SubTitle -->
+    <mat-card-subtitle> Manage Reference Range(s) </mat-card-subtitle>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Reference Range Data Table -->
+    <app-reference-range-data-table
+      (editReferenceRangeClicked)="onEditReferenceRangeClicked()"
+      [isBusy]="isFetchingReferenceRange"
+    ></app-reference-range-data-table>
+  </mat-card>
+</section>

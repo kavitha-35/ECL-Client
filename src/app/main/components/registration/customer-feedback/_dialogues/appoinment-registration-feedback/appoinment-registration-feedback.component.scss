@@ -1,0 +1,24 @@
+section {
+  mat-label {
+    span {
+      color: red;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100vh;
+}
+
+form {
+  section {
+    width: 100vh;
+    padding: 20px 0;
+  }
+}
+
+
+mat-radio-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}

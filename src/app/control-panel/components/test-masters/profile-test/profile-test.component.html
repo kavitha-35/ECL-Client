@@ -1,0 +1,27 @@
+<section class="animated fadeIn">
+  <mat-card>
+    <!-- Mat Card Title -->
+    <mat-card-title>
+      <section class="mat-card-title-container">
+        <section>
+          Profile Test Lists
+        </section>
+        <section>
+          <button mat-button color="primary" (click)="onAddProfileTestButtonClicked()">+ Add Test Profile</button>
+        </section>
+      </section>
+    </mat-card-title>
+
+    <!-- Mat Card SubTitle -->
+    <mat-card-subtitle> Manage Profile Test(s) </mat-card-subtitle>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Profile Test List Data Table -->
+    <app-profile-test-list-data-table
+      (editProfileTestClicked)="onEditProfileTestClicked($event)"
+      [isBusy]="isFetchingProfileTests"
+    ></app-profile-test-list-data-table>
+  </mat-card>
+</section>

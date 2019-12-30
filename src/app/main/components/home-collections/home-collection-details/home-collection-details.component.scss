@@ -1,0 +1,23 @@
+#home-collection-details-container {
+  .patient-information {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+  }
+
+  .referral-information {
+    @extend .patient-information;
+    margin: 6px 0;
+  }
+
+  .home-collection-details {
+    @extend .patient-information;
+    margin: 6px 0;
+  }
+
+  .comment-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 12px 0;
+  }
+}

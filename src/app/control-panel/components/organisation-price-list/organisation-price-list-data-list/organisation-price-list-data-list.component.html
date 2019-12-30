@@ -1,0 +1,56 @@
+<section id="organisation-list-container">
+    <section *ngFor="let element of organisations">
+      <section class="title-wrapper">
+        <section class="title">#{{ element.id }} / {{ element.clinicName }}</section>
+        <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+        <mat-menu #statusMenu="matMenu">
+          <button mat-menu-item>Edit</button>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+      </section>
+      <section class="action-buttons-container">
+        <button mat-button>
+          <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+        </button>
+      </section>
+      <section class="organisation-container">
+        <!-- clinic ID -->
+        <section class="sub-title">Clinic ID</section>
+        <section>{{ element.clinicId }}</section>
+  
+        <!-- Organization Name -->
+        <section class="sub-title">Organization name</section>
+        <section>{{ element.organisationName }}</section>
+  
+        <!-- Test ID -->
+        <section class="sub-title">Test ID</section>
+        <section>{{ element.testId }}</section>
+  
+        <!-- Dos Code -->
+        <section class="sub-title">Dos Code</section>
+        <section>{{ element.dosCode }}</section>
+  
+        <!-- MRP -->
+        <section class="sub-title">MRP</section>
+        <section>{{ element.mrp }}</section>
+  
+        <!--Net -->
+        <section class="sub-title">Net</section>
+        <section>{{ element.net }}</section>
+  
+        <!-- Cpt -->
+        <section class="sub-title">CPT</section>
+        <section>{{ element.cpt }}</section>
+  
+      </section>
+    </section>
+  </section>
+  

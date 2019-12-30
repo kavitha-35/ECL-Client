@@ -1,0 +1,62 @@
+<section id="home-collection-list-container">
+        <section *ngFor="let homeCollection of homeCollections">
+          <section class="title-wrapper">
+            <section class="title">#{{ homeCollection.id }} / {{ homeCollection.patientName }} / {{ homeCollection.scheduleDate }}</section>
+            <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+            <mat-menu #statusMenu="matMenu">
+                    <button mat-menu-item>Unassigned</button>
+                    <button mat-menu-item>Assigned</button>
+                    <button mat-menu-item>In Progress</button>
+                    <button mat-menu-item>Completed</button>
+                    <button mat-menu-item>Cancelled</button>
+            </mat-menu>
+          </section>
+          <section class="action-buttons-container">
+            <button mat-button>
+              <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+            </button>
+      
+            <button mat-button>
+              <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+            </button>
+      
+            <button mat-button>
+              <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+            </button>
+          </section>
+          <section class="home-collection-container">
+            <!-- Home Collection ID -->
+            <section class="sub-title">Home Collection ID</section>
+            <section>{{ homeCollection.id }}</section>
+      
+            <!-- Patient Name -->
+            <section class="sub-title">Patient Name</section>
+            <section>{{ homeCollection.patientName }}</section>
+      
+            <!-- Date Of Birth -->
+            <section class="sub-title">Date Of Birth</section>
+            <section>{{ homeCollection.dateOfBirth }}</section>
+      
+            <!-- Gender -->
+            <section class="sub-title">Gender</section>
+            <section>{{ homeCollection.gender.name }}</section>
+      
+            <!-- Mobile Number -->
+            <section class="sub-title">Mobile Number</section>
+            <section>{{ homeCollection.mobileNumber }}</section>
+      
+            <!-- Phone Number -->
+            <section class="sub-title">Phone Number</section>
+            <section>{{ homeCollection.phoneNumber }}</section>
+      
+            <!-- Home Collection Schedule -->
+            <section class="sub-title"> Schedule</section>
+            <section>{{ homeCollection.scheduleDate }}</section>
+      
+            <!-- Status -->
+            <section class="sub-title">Status</section>
+            <section>{{ homeCollection.status.name }}</section>
+          </section>
+        </section>
+      </section>
+      

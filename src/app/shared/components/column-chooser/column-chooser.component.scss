@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/scss/color";
+
+#column-chooser-container {
+  .mat-icon {
+    padding-right: 28px;
+  }
+}
+
+.column-chooser-menu {
+  width: 200px;
+
+  .title {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    font-size: 16px;
+    color: $primary-color;
+  }
+
+  .filter-text {
+    padding: 0.5rem 0.5rem 0 0.5rem;
+  }
+}

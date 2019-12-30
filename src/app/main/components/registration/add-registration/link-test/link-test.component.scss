@@ -1,0 +1,133 @@
+$test-profile-label-color: #9c27b0;
+$test-label-color: #4a90e2;
+
+#link-tests-list-container {
+  table {
+    td {
+      padding: 0;
+    }
+
+    .details-row {
+      height: 0;
+    }
+
+    .mat-column-nestedSymbol {
+      flex: 0 0 20px;
+
+      min-width: 20px;
+      max-width: 20px;
+    }
+    .mat-column-id {
+      flex: 0 0 50px;
+
+      min-width: 50px;
+      max-width: 50px;
+    }
+    .mat-column-name {
+      flex: 0 0 100px;
+
+      min-width: 100px;
+      max-width: 100px;
+    }
+    .mat-column-averageTat {
+      flex: 0 0 100px;
+
+      min-width: 100px;
+      max-width: 100px;
+    }
+    .mat-column-price {
+      flex: 0 0 50px;
+
+      min-width: 50px;
+      max-width: 50px;
+    }
+    .mat-column-sample {
+      flex: 0 0 100px;
+
+      min-width: 100px;
+      max-width: 100px;
+    }
+    .mat-column-container {
+      flex: 0 0 100px;
+
+      min-width: 100px;
+      max-width: 100px;
+    }
+    .mat-column-isOutSourced {
+      flex: 0 0 100px;
+
+      min-width: 100px;
+      max-width: 100px;
+    }
+    .mat-column-type {
+      flex: 0 0 100px;
+
+      min-width: 100px;
+      max-width: 100px;
+    }
+    .mat-column-action {
+      flex: 0 0 50px;
+
+      min-width: 50px;
+      max-width: 50px;
+    }
+
+    .test-profile-label {
+      border: $test-profile-label-color 1px solid;
+      border-radius: 4px;
+
+      background: $test-profile-label-color;
+      color: #ffffff;
+
+      text-align: center;
+      padding: 0 6px;
+    }
+
+    .test-label {
+      border: $test-label-color 1px solid;
+      border-radius: 4px;
+
+      background: $test-label-color;
+      color: #ffffff;
+
+      text-align: center;
+      padding: 0 6px;
+    }
+
+    .actions-wrapper {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 0;
+        line-height: 1;
+        min-width: 32px;
+      }
+
+      .unlink-button {
+        visibility: hidden;
+        color: #f44335;
+      }
+
+      .link-button {
+        visibility: hidden;
+      }
+
+      .action-button {
+        color: rgba(0, 0, 0, 0.54);
+      }
+    }
+
+    .mat-row:hover {
+      cursor: pointer;
+
+      .unlink-button {
+        visibility: visible;
+      }
+
+      .link-button {
+        visibility: visible;
+      }
+    }
+  }
+}

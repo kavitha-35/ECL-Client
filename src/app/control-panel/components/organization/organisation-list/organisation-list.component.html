@@ -1,0 +1,78 @@
+<section id="organisation-list-container">
+  <section *ngFor="let element of organisations">
+    <section class="title-wrapper">
+      <section class="title">#{{ element.id }} / {{ element.clinicName }}</section>
+      <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+      <mat-menu #statusMenu="matMenu">
+        <button mat-menu-item>Edit</button>
+        <button mat-menu-item>Delete</button>
+      </mat-menu>
+    </section>
+    <section class="action-buttons-container">
+      <button mat-button>
+        <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+      </button>
+    </section>
+    <section class="organisation-container">
+      <!-- clinic ID -->
+      <section class="sub-title">Clinic ID</section>
+      <section>{{ element.id }}</section>
+
+      <!-- Clinic Name -->
+      <section class="sub-title">Clinic Name</section>
+      <section>{{ element.clinicName }}</section>
+
+      <!-- Address -->
+      <section class="sub-title">Address</section>
+      <section>{{ element.address }}</section>
+
+      <!-- P.O box -->
+      <section class="sub-title">P.O box</section>
+      <section>{{ element.postBox }}</section>
+
+      <!-- Telephone -->
+      <section class="sub-title">Telephone</section>
+      <section>{{ element.telephone }}</section>
+
+      <!--Fax -->
+      <section class="sub-title">Fax</section>
+      <section>{{ element.fax }}</section>
+
+      <!-- Web -->
+      <section class="sub-title">Web</section>
+      <section>{{ element.web }}</section>
+
+      <!-- Region -->
+      <section class="sub-title">Region</section>
+      <section>{{ element.region }}</section>
+
+      <!-- Country -->
+      <section class="sub-title">Country</section>
+      <section>{{ element.country }}</section>
+
+      <!-- Sales Representative -->
+      <section class="sub-title">Sales Representative</section>
+      <section>{{ element.salesRepresentative }}</section>
+
+      <!-- Contact Person -->
+      <section class="sub-title">Contact Number</section>
+      <section>{{ element.contactNumber }}</section>
+
+      <!-- Contact Person -->
+      <section class="sub-title">Contact Person</section>
+      <section>{{ element.contactPerson }}</section>
+
+      <!-- Email -->
+      <section class="sub-title">Email</section>
+      <section>{{ element.email }}</section>
+    </section>
+  </section>
+</section>

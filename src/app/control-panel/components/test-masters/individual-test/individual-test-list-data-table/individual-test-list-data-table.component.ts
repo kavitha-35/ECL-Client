@@ -1,0 +1,58 @@
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { TestModel } from 'app/control-panel/models/tests/test.model';
+import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
+import { GridColumnModel } from 'app/shared/models/grid-column.model';
+
+@Component({
+  selector: 'app-individual-test-list-data-table',
+  templateUrl: './individual-test-list-data-table.component.html',
+  styleUrls: ['./individual-test-list-data-table.component.scss'],
+})
+export class IndividualTestListDataTableComponent implements OnInit {
+  @Input() tests: IndividualTestModel[];
+  @Input() isBusy: boolean;
+  @Output() editTestClicked = new EventEmitter<TestModel>();
+  @Output() deleteTestClicked = new EventEmitter<string>();
+  public displayedColumns: string[];
+  public filteredColumns: GridColumnModel[];
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this._initializeDisplayedColumns();
+  }
+
+  public onEditTestClicked(test: TestModel): void {
+    this.editTestClicked.emit(test);
+  }
+
+  public onDeleteTestClicked(testId: string): void {
+    this.deleteTestClicked.emit(testId);
+  }
+
+  public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
+    this.displayedColumns = selectedColumns.map((x) => x.columnName);
+  }
+
+  private _initializeDisplayedColumns(): void {
+    this.filteredColumns = [
+      { columnName: 'id', displayValue: 'ID', isSelected: true },
+      { columnName: 'activity', displayValue: 'Activity', isSelected: true },
+      { columnName: 'testCategory', displayValue: 'Test Category', isSelected: false },
+      { columnName: 'accreditiationSymbol', displayValue: 'Accreditiation Symbol', isSelected: false },
+      { columnName: 'integrationCode', displayValue: 'Integration Code', isSelected: true },
+      { columnName: 'testComponent', displayValue: 'Test Component', isSelected: true },
+      { columnName: 'processingCenter', displayValue: 'Processing Center', isSelected: false },
+      { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
+      { columnName: 'method', displayValue: 'Method', isSelected: true },
+      { columnName: 'unit', displayValue: 'Unit', isSelected: true },
+      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: true },
+      { columnName: 'tat', displayValue: 'TAT', isSelected: true },
+      { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
+      { columnName: 'comments', displayValue: 'Comments', isSelected: true },
+      { columnName: 'action', displayValue: 'Action', isSelected: true }
+    ];
+    const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
+    this.displayedColumns = selectedColumns.map((x) => x.columnName);
+  }
+}

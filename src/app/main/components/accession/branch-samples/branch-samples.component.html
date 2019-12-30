@@ -1,0 +1,65 @@
+<section id="branch-samples-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >offline_pin
+        </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Branch Sample(s)
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Manage Branch Sample(s) </mat-card-subtitle>
+      </section>
+
+      <!-- Add branch-samples Button -->
+      <section class="branch-samples-button-wrapper">
+        <button mat-stroked-button (click)="onAddSampleButtonClicked()">Add Sample</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-branch-samples-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    ></app-branch-samples-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+      <!-- Test List -->
+      <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+      <!-- List View -->
+      <ng-template #listView>
+        <app-branch-samples-list [sampleModels]="sampleModels | slice: pageEvent.pageIndex:pageEvent.pageSize | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-branch-samples-list>
+      </ng-template>
+
+      <!-- Table View -->
+      <ng-template #tableView>
+        <app-branch-sample-table
+          [sampleModels]="sampleModels | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        >
+        </app-branch-sample-table>
+      </ng-template>
+
+      <mat-paginator
+        [length]="sampleModels.length"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+  </mat-card>
+</section>

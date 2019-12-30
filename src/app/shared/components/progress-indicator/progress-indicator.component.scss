@@ -1,0 +1,19 @@
+.progress-indicator-container {
+  min-height: 200px;
+  width: 100%;
+
+  display: flex;
+  flex-flow: column;
+
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+
+  color: #673ab7;
+
+  .progress-label {
+    margin-top: 0.3rem;
+    color: #673ab7;
+  }
+}

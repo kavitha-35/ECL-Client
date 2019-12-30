@@ -1,0 +1,80 @@
+<mat-sidenav-container class="app-inner background-none shadow-none mail-db">
+  <mat-sidenav #mailnav [mode]="isOver() ? 'over' : 'side'" [opened]="!isOver()" class="mail-sidebar pl-xs pr-xs">
+    <mat-nav-list class="messages-nav">
+      <button _ngcontent-c21="" class="compose-btn mat-warn mat-raised-button mb-1"><span>New Mail</span></button>
+      <a href="javascript:;" mat-list-item>
+        <mat-icon class="mat-text-muted">inbox</mat-icon>
+        <span>Inbox</span>
+      </a>
+      <a href="javascript:;" mat-list-item>
+        <mat-icon class="mat-text-muted">send</mat-icon>
+        <span>Sent</span>
+      </a>
+      <a href="javascript:;" mat-list-item>
+        <mat-icon class="mat-text-muted">drafts</mat-icon>
+        <span>Draft</span>
+      </a>
+      <a href="javascript:;" mat-list-item>
+        <mat-icon class="mat-text-muted">stars</mat-icon>
+        <span>Important</span>
+      </a>
+      <a href="javascript:;" mat-list-item>
+        <mat-icon class="mat-text-muted">error</mat-icon>
+        <span>Spam</span>
+      </a>
+      <a href="javascript:;" mat-list-item>
+        <mat-icon class="mat-text-muted">delete</mat-icon>
+        <span>Trash</span>
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <section class="main-content" fxLayout="row" fxLayoutAlign="center start">
+    <section fxFlex.gt-sm="90" fxFlex.gt-xs="95" fxFlex="100">
+      <section class="messages-list">
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let message of messages">
+            <mat-expansion-panel-header>
+              <section class="mat-content">
+                <section class="w-100">
+                  <section *ngIf="!message.icon" class="hide-on-open img-thumb">
+                    <img alt="" class="message-icon" src="{{ message.avatar }}" />
+                  </section>
+                  <section *ngIf="message.icon" class="hide-on-open">
+                    <mat-icon [ngClass]="message.iconClass" class="mr-1">{{ message.icon }}</mat-icon>
+                  </section>
+                  <section class="pr-1 hide-on-open name-user" style="min-width: 150px;">
+                    <span>{{ message.from }}</span>
+                  </section>
+
+                  <section class="text-ellipsis">
+                    <span>{{ message.subject }}</span>
+                  </section>
+                  <span fxFlex></span>
+                  <section class="pl-1 text-xs-right text-ellipsis hide-on-open" fxShow="false" fxShow.gt-sm>
+                    <small class="text-xs-muted">{{ message.date | date: 'fullDate' }}</small>
+                  </section>
+                </section>
+              </section>
+            </mat-expansion-panel-header>
+            <section>
+              <mat-card class="p-2">
+                <mat-card-header>
+                  <img mat-card-avatar *ngIf="message.icon" src="{{ message.avatar }}" class="ml-0" />
+                  <mat-icon *ngIf="message.icon" mat-card-avatar [ngClass]="message.iconClass" class="ml-1">{{
+                    message.icon
+                  }}</mat-icon>
+                  <mat-card-title>{{ message.from }}</mat-card-title>
+                  <mat-card-subtitle>{{ message.date | date: 'fullDate' }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="pl-0">
+                  <section [innerHTML]="message.body"></section>
+                </mat-card-content>
+              </mat-card>
+            </section>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </section>
+    </section>
+  </section>
+</mat-sidenav-container>

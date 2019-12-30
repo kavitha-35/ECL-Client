@@ -1,0 +1,150 @@
+@import "color";
+
+.full-width {
+  width: 100%;
+}
+
+.sub-title {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.collapse {
+  visibility: collapse;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mt-n7 {
+  margin-top: -7px;
+}
+
+.mr-12 {
+  margin-right: 12px;
+}
+
+.no-shadow {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.align-right {
+  text-align: right;
+  justify-content: flex-end;
+}
+.mat-row:hover {
+  background: whitesmoke;
+  .hide {
+    visibility: visible;
+  }
+}
+
+.mat-dialogue-no-padding .mat-dialog-container {
+  padding: 0;
+}
+
+.green {
+  color: #008000;
+}
+
+.red {
+  color: #E11F24;
+}
+
+.orange {
+  color: #911E61;
+}
+
+.deep-orange {
+  color: #D65D39;
+}
+
+.dark-blue {
+  color: #034F79;
+}
+
+.purple {
+  color: #79248A;
+}
+
+.tan-blue {
+  color: #0755AD;
+}
+
+.white {
+  color: white;
+}
+
+.grad-blue {
+  background: #4065E0;
+  color: #ffffff;
+}
+
+.grad-not-blue {
+  background: #1BDAE4;
+  color: #ffffff;
+}
+
+.grad-green {
+  background: #1EC9B4;
+  color: #fff;
+}
+
+.grad-orange {
+  background: #EEB21E;
+  color: #fff;
+}
+
+.card {
+  height: 220px;
+  color: #fff;
+
+  padding: 24px;
+  margin-right: 12px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 1fr 1fr auto;
+
+
+  .title {
+    font-size: 28px;
+  }
+
+  .sub-title {
+    font-size: 18px;
+    color: white;
+  }
+
+  .content {
+    height: 70px;
+  }
+
+  .number {
+    font-size: 50px;
+    display: inline-block;
+  }
+}
+
+.card:hover{
+  transform: scale(1.1);
+  transition: transform .2s;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.section-header {
+  font-size: 20px;
+  color: $primary-color;
+}

@@ -1,0 +1,67 @@
+<section id="individual-test-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card Title -->
+        <app-mat-dialog-header title="Search" subTitle="Search for Individual Test(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!--  Id -->
+        <mat-form-field>
+          <mat-label>Id</mat-label>
+          <input matInput placeholder="Name" />
+        </mat-form-field>
+  
+        <!-- Status -->
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <input matInput placeholder="Status" />
+        </mat-form-field>
+  
+        <!-- Test Category -->
+        <mat-form-field>
+          <mat-label>Test Category</mat-label>
+          <input matInput placeholder="Test Category" />
+        </mat-form-field>
+  
+        <!-- Test Component -->
+        <mat-form-field>
+          <mat-label>Test Component</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Processing Center -->
+        <mat-form-field>
+          <mat-label>Processing Center</mat-label>
+          <input matInput maxlength="25" placeholder="Email"  />
+        </mat-form-field>
+  
+        <!--Outsource Vendor Code -->
+        <mat-form-field>
+          <mat-label>Outsource Vendor Code</mat-label>
+          <input matInput placeholder="Outsource Vendor Code" />
+        </mat-form-field>
+  
+        <!-- TAT -->
+        <mat-form-field>
+          <mat-label>TAT</mat-label>
+          <input matInput placeholder="TAT" />
+        </mat-form-field>
+  
+        <!-- unit -->
+        <mat-form-field>
+          <mat-label>Unit</mat-label>
+          <input matInput placeholder="Unit" />
+        </mat-form-field>
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

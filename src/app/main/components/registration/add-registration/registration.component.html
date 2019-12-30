@@ -1,0 +1,47 @@
+<section class="animated fadeIn">
+  <mat-card>
+    <mat-card-title>Registration</mat-card-title>
+    <mat-card-subtitle>Registration for patient </mat-card-subtitle>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <mat-horizontal-stepper>
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Personal Information</ng-template>
+            <app-patient-registration [isReVisitRegistration]="isReVisitRegistration"></app-patient-registration>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Referral Information</ng-template>
+            <app-patient-referral-information></app-patient-referral-information>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Test(s) Information</ng-template>
+            <app-patient-tests-information></app-patient-tests-information>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Insurance Details</ng-template>
+            <app-insurance-details></app-insurance-details>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <form>
+            <ng-template matStepLabel>Documents Upload</ng-template>
+            <app-patient-verification></app-patient-verification>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</section>

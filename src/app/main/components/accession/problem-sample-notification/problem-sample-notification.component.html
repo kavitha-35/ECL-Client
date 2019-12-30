@@ -1,0 +1,62 @@
+<section id="problem-sample-notification-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >offline_pin
+        </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Problem Sample Notification
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Manage Problem Sample Notification </mat-card-subtitle>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-problem-sample-notification-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    ></app-problem-sample-notification-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-problem-sample-notification-data-list
+        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      ></app-problem-sample-notification-data-list>
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-problem-sample-notification-table
+        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      >
+      </app-problem-sample-notification-table>
+    </ng-template>
+
+    <mat-paginator
+      [length]="logisticsCollections.length"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = $event"
+    >
+    </mat-paginator>
+  </mat-card>
+</section>

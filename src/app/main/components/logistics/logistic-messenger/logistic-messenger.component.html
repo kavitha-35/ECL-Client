@@ -1,0 +1,32 @@
+<section id="logistic-messenger-container" class="animated fadeIn">
+  <mat-card>
+    <!-- Mat Card Title -->
+    <mat-card-title>
+      <section class="mat-card-title-container">
+        <section>
+          Messenger(s)
+        </section>
+        <section>
+          <button mat-button color="primary" (click)="onAddLogisticsClicked()">
+            + Add Logistic
+          </button>
+        </section>
+      </section>
+    </mat-card-title>
+
+    <!-- Mat Card SubTitle -->
+    <mat-card-subtitle> Manage Messenger(s) </mat-card-subtitle>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <!-- Logistics List -->
+      <app-logistic-list
+        isUpdateTrfButtonVisible="true"
+        [logisticsCollections]="logistics"
+        (updateTrfButtonClicked)="onUpdateTrfButtonClicked($event)">
+      </app-logistic-list>
+    </mat-card-content>
+  </mat-card>
+</section>

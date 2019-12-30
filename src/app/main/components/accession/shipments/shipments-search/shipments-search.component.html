@@ -1,0 +1,54 @@
+<section id="shipments-filter-container" class="full-width">
+  <mat-card>
+    <section>
+      <!-- Mat Card header -->
+      <app-mat-dialog-header title="Search" subTitle="Search Shipment(s)"></app-mat-dialog-header>
+      <mat-divider></mat-divider>
+    </section>
+
+    <!--Mat Card Filter Content-->
+    <section class="filter-field">
+      <!-- Clinic -->
+      <mat-form-field>
+        <mat-label>Clinic</mat-label>
+        <input matInput placeholder="Clinic" />
+      </mat-form-field>
+
+      <!-- Called by -->
+      <mat-form-field>
+        <mat-label>Called by</mat-label>
+        <input matInput placeholder="Called by" />
+      </mat-form-field>
+
+      <!-- Assigned To (Driver) -->
+      <mat-form-field>
+        <mat-label>Assigned To (Driver)</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <!-- Scheduled Date -->
+      <mat-form-field>
+        <mat-label>Scheduled Date</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <!-- Requested On-->
+      <mat-form-field>
+        <mat-label>Requested On</mat-label>
+        <input matInput maxlength="25" placeholder="Email" type="email" />
+      </mat-form-field>
+
+      <!-- Status -->
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <input matInput placeholder="P.O.Box" />
+      </mat-form-field>
+    </section>
+
+    <!-- Apply Filter Button -->
+    <section class="buttons-wrapper">
+      <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+      <button mat-stroked-button color="primary">Search</button>
+    </section>
+  </mat-card>
+</section>

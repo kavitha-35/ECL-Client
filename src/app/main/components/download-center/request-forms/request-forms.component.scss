@@ -1,0 +1,11 @@
+#request-forms-container {
+    .mat-icon {
+        font-size: 54px;
+        color: #673ab7;
+    }
+
+    .request-form {
+        display: grid;
+        grid-template-columns: 1fr 8fr 1fr;
+    }
+}

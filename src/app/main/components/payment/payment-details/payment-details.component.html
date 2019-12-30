@@ -1,0 +1,49 @@
+<section id="payment-details-container">
+  <mat-card>
+    <mat-card-title>Payment Details</mat-card-title>
+    <mat-card-subtitle>Add Payment for the selected Test(s)</mat-card-subtitle>
+    <mat-card-content>
+
+      <!-- Test Details -->
+      <h6>Selected Test Details</h6>
+      <app-link-tests-list [linkedTests]="linkedTests$ | async"></app-link-tests-list>
+
+      <!-- Payment Information -->
+      <h6>Payment Information</h6>
+      <section class="payment-information-container">
+        <section class="payment-information">
+          <!-- Total Amount Due -->
+          <section class="sub-title">
+            Total Amount
+          </section>
+          <section>245.00 INR</section>
+
+          <!-- Amount Paid -->
+          <section class="sub-title">
+            Amount Paid
+          </section>
+          <section>0.00 INR</section>
+
+          <!-- Due Amount -->
+          <section class="sub-title">
+            Due Amount
+          </section>
+          <section>245.00 INR</section>
+
+          <!-- Pay Amount -->
+          <mat-form-field>
+            <mat-label>Pay Amount</mat-label>
+            <input matInput placeholder="0.00" />
+          </mat-form-field>
+
+        </section>
+      </section>
+
+      <section>
+        <section fxLayout="row" fxFlex="100" fxFlexAlign="center center" class="mt-2 mb-2" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary" class="ml-2 mr-2">Pay Bill</button>
+        </section>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

@@ -1,0 +1,53 @@
+.message-info,
+.no-trf-section,
+.temperature-section,
+.type-section,
+.stat-section,
+.specimen-item-section {
+  padding: 5px 0 0 0;
+}
+
+.message-info,
+.temperature-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  mat-form-field {
+    margin-top: -20px;
+  }
+  :nth-child(2n-1) {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.no-trf-section,
+.specimen-item-section,
+.stat-section {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  :nth-child(1) {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  mat-radio-group {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+}
+
+.type-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 3fr;
+  mat-label {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.save-action-section {
+  display: flex;
+  justify-content: center;
+}
+
+.accession-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 12px;
+}

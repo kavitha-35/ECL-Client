@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/scss/color";
+
+#dialog-caption-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: $white-color;
+  background: $primary-color;
+  height: 100%;
+
+  .title {
+    font-size: 1.25rem;
+    padding: 1rem 0 0 0;
+  }
+
+  .sub-title {
+    color: $dirty-white-color;
+  }
+}

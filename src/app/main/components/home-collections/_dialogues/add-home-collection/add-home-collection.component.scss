@@ -1,0 +1,40 @@
+#add-home-collection-container {
+  .user-details-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 24px;
+
+    .pt-13 {
+      padding-top: 13px;
+    }
+  }
+
+  .referral-information-container {
+    @extend .user-details-container;
+  }
+
+  .home-collection-information-container {
+    @extend .user-details-container;
+  }
+
+  .office-use-information-container {
+    @extend .user-details-container;
+  }
+
+  .comment-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 12px 0px;
+
+    .mr-48 {
+      margin-right: 48px;
+    }
+  }
+}

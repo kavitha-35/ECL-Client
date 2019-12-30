@@ -1,0 +1,28 @@
+#shared-registration-details-container {
+  .information-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'patient-information illustration' 'referral-information illustration';
+
+    .patient-information {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 6px;
+      grid-area: patient-information;
+    }
+
+    .referral-information {
+      @extend .patient-information;
+      grid-area: referral-information;
+      margin-top: 6px;
+    }
+
+    .illustration {
+      grid-area: illustration;
+
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+#visit-details-information-container {
+  padding: 24px 0 24px 0;
+
+  .visit-details-information {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .label {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+}

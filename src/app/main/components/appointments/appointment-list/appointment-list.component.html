@@ -1,0 +1,59 @@
+<section id="appointment-list-container">
+  <section *ngFor="let appointment of appointments">
+    <section class="title-wrapper">
+      <section class="title">#{{ appointment.id }} / {{ appointment.name }} / {{ appointment.from }}</section>
+      <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+      <mat-menu #statusMenu="matMenu">
+        <button mat-menu-item>Pending</button>
+        <button mat-menu-item>Cancelled</button>
+        <button mat-menu-item>Confirmed</button>
+      </mat-menu>
+    </section>
+    <section class="action-buttons-container">
+        <button mat-button>
+          <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+        </button>
+      </section>
+    <section class="appointment-container">
+      <!-- Appointment ID -->
+      <section class="sub-title">Appointment ID</section>
+      <section>{{ appointment.id }}</section>
+
+      <!-- Patient Name -->
+      <section class="sub-title">Patient Name</section>
+      <section>{{ appointment.name }}</section>
+
+      <!-- Date Of Birth -->
+      <section class="sub-title">Date Of Birth</section>
+      <section>{{ appointment.dateOfBirth }}</section>
+
+      <!-- Gender -->
+      <section class="sub-title">Gender</section>
+      <section>{{ appointment.gender.name }}</section>
+
+      <!-- Mobile Number -->
+      <section class="sub-title">Mobile Number</section>
+      <section>{{ appointment.mobileNumber }}</section>
+
+      <!-- Phone Number -->
+      <section class="sub-title">Phone Number</section>
+      <section>{{ appointment.phoneNumber }}</section>
+
+      <!-- Appointment Schedule -->
+      <section class="sub-title">Appointment Schedule</section>
+      <section>{{ appointment.from }}</section>
+
+      <!-- Status -->
+      <section class="sub-title">Status</section>
+      <section>{{ appointment.status.name }}</section>
+    </section>
+  </section>
+</section>

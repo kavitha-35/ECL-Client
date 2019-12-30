@@ -1,0 +1,16 @@
+@import '../../../../assets/styles/scss/color';
+
+#mat-dialog-header-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  .close-icon {
+    padding: 20px;
+    color: $primary-color;
+  }
+
+  .close-icon:hover {
+    transition: transform 0.1s;
+    color: $warning-color;
+  }
+}

@@ -1,0 +1,15 @@
+#add-worksheet-container {
+  .add-worksheet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 12px;
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 12px 0;
+  }
+}

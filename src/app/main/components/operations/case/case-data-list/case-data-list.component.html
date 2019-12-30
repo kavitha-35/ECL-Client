@@ -1,0 +1,57 @@
+<section id="case-list-container">
+  <section *ngFor="let element of caseList">
+    <section class="title-wrapper">
+      <section class="title">
+        #{{ element.id }} / {{ element.name }}
+      </section>
+      <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+      <mat-menu #statusMenu="matMenu"> </mat-menu>
+    </section>
+    <section class="action-buttons-container">
+      <button mat-button>
+        <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+      </button>
+    </section>
+    <section class="cases">
+      <!-- SID -->
+      <section class="sub-title">SID</section>
+      <section>{{ element.id }}</section>
+
+      <!-- Name -->
+      <section class="sub-title">Name</section>
+      <section>{{ element.name }}</section>
+
+      <!-- Email  -->
+      <section class="sub-title">Email</section>
+      <section>{{ element.email }}</section>
+
+      <!--Organization -->
+      <section class="sub-title">Organization</section>
+      <section>{{ element.organization }}</section>
+
+      <!-- Mobile Number -->
+      <section class="sub-title">Mobile Number</section>
+      <section>{{ element.mobile }}</section>
+
+      <!-- Reported By -->
+      <section class="sub-title">Reported By</section>
+      <section>{{ element.reportedBy }}</section>
+
+      <!--Root Cause -->
+      <section class="sub-title">Root Cause</section>
+      <section>{{ element.rootCause }}</section>
+
+      <!-- Status -->
+      <section class="sub-title">Status</section>
+      <section>{{ element.status }}</section>
+    </section>
+  </section>
+</section>

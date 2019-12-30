@@ -1,0 +1,17 @@
+#send-message-container {
+  .contact-us-form-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .contact-us-form {
+      display: grid;
+      padding: 80px 0;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

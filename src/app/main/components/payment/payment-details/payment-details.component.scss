@@ -1,0 +1,14 @@
+#payment-details-container {
+  .payment-information-container {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    grid-gap: 6px;
+    grid-template-areas: '. payment-details';
+
+    .payment-information {
+      grid-area: payment-details;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

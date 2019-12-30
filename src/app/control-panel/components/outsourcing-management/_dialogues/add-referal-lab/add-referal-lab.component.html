@@ -1,0 +1,205 @@
+<section id="outsource-management-container">
+  <mat-card class="outsource-management-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Outsource Management" subTitle="Add a Outsource Lab" icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!-- Outsource Management Form -->
+          <form class="outsource-management-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Lab Name -->
+                <mat-form-field>
+                  <mat-label>Lab Name</mat-label>
+                  <input matInput placeholder="Lab Name" />
+                </mat-form-field>
+
+                <!-- Relation -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Relation</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="intra">
+                      Intra
+                    </mat-option>
+                    <mat-option value="inter">
+                      Inter
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Address -->
+                <mat-form-field>
+                  <mat-label>Address</mat-label>
+                  <input matInput placeholder="Address" />
+                </mat-form-field>
+
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input matInput placeholder="Telephone" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" />
+                </mat-form-field>
+
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" />
+                </mat-form-field>
+
+                <!-- Region-->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Region</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Country -->
+                <mat-form-field>
+                  <mat-label>Country</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="uae">
+                      UAE
+                    </mat-option>
+                    <mat-option value="india">
+                      India
+                    </mat-option>
+                    <mat-option value="England">
+                      England
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Interfacing Type -->
+                <mat-form-field>
+                  <mat-label>Interfacing Type</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="uni">
+                      Unidirectional
+                    </mat-option>
+                    <mat-option value="bi">
+                      Bidirectional
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Sales Rep -->
+                <mat-form-field>
+                  <mat-label>Sales Representative</mat-label>
+                  <input matInput placeholder="Sales Representative" />
+                </mat-form-field>
+
+                <!-- Courier -->
+                <mat-form-field>
+                  <mat-label>Courier</mat-label>
+                  <input matInput placeholder="Courier" />
+                </mat-form-field>
+
+                <!-- Contact Person -->
+                <mat-form-field>
+                  <mat-label>Contact Person Mobile Number</mat-label>
+                  <input matInput placeholder="Mobile Number" />
+                </mat-form-field>
+
+                <!-- Email -->
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="email" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Payment Information -->
+            <section class="payment-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Payment Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="payment-information-content">
+                <!-- Payment Mode -->
+                <mat-form-field>
+                  <mat-label>Payment Mode</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                    <mat-option value="netBanking">
+                      Net Banking
+                    </mat-option>
+                    <mat-option value="credit">
+                      Credit Card
+                    </mat-option>
+                    <mat-option value="debit">
+                      Debit Card
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Credit Period -->
+                <mat-form-field>
+                  <mat-label>Credit Period</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Login Information -->
+            <section class="login-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Login Information"></app-section-header>
+              <!-- Content -->
+              <section class="login-information-content">
+                <!-- URL -->
+                <mat-form-field>
+                  <mat-label>URL</mat-label>
+                  <input matInput placeholder="URL" />
+                </mat-form-field>
+
+                <!-- UserName -->
+                <mat-form-field>
+                  <mat-label>Username</mat-label>
+                  <input matInput placeholder="URL" />
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="URL" />
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Add Outsourcing Management</button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>

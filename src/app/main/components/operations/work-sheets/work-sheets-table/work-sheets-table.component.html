@@ -1,0 +1,61 @@
+<section id="work-sheet-list-container">
+  <table mat-table [dataSource]="workSheetList" class="full-width">
+    <!-- ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>SID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Patient Name -->
+    <ng-container matColumnDef="patientName">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.patientName }}</td>
+    </ng-container>
+
+    <!-- Date -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+
+    <!-- Clinic -->
+    <ng-container matColumnDef="clinic">
+      <th mat-header-cell *matHeaderCellDef>Clinic</th>
+      <td mat-cell *matCellDef="let element">{{ element.clinic }}</td>
+    </ng-container>
+
+    <!-- Test Code -->
+    <ng-container matColumnDef="testCode">
+      <th mat-header-cell *matHeaderCellDef>Test Code</th>
+      <td mat-cell *matCellDef="let element">{{ element.testCode }}</td>
+    </ng-container>
+
+    <!-- Test Name -->
+    <ng-container matColumnDef="testName">
+      <th mat-header-cell *matHeaderCellDef>Test Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.testName }}</td>
+    </ng-container>
+
+    <!-- Comment/ Remarks -->
+    <ng-container matColumnDef="comment">
+      <th mat-header-cell *matHeaderCellDef>Comment</th>
+      <td mat-cell *matCellDef="let element">{{ element.comment }}</td>
+    </ng-container>
+
+    <!--Action-->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>
+        <section class="actions-wrapper">
+          <app-column-chooser [columns]="filteredColumns" (closed)="onColumnChooserClosed($event)"></app-column-chooser>
+        </section>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <section class="actions-wrapper">
+        </section>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

@@ -1,0 +1,90 @@
+@import "../material.variables";
+@import "../mixins/bi-app/bi-app-ltr";
+@import "../app.variables";
+@import "../mixins";
+
+$hover-font-color:#fff;
+:host /deep/ {
+mat-list.profile-list mat-list-item .mat-list-item-content {
+  padding: 0!important;
+  font-size: 13px!important;
+}
+
+.profile-post {
+  textarea {
+    border: 0;
+    width: 100%;
+    padding: 8px;
+    outline: 0;
+    border-radius: $border-radius-base $border-radius-base 0 0 ;
+    font-size: $font-size-base;
+  }
+}
+
+.activity-stream {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 42px;
+    bottom: 0;
+    left: 42px;
+    width: 1px;
+    background-color: mat-color($foreground, divider);
+  }
+  .mat-card {
+    background-color: transparent;
+  }
+  .mat-card-content {
+    padding-top: 0;
+    padding-left: 78px;
+  }
+}
+
+}
+
+
+[dir="rtl"] :host /deep/ {
+  .activity-stream {
+    &::before {
+      left: auto;
+      right: 42px;
+    }
+    .mat-card-content {
+      padding-left: o;
+      padding-right: 78px;
+    }
+  }
+}
+    
+    .hover-parent {
+        box-shadow: 0 2px 4px -1px rgba( 0, 0, 0, .14), 0 4px 5px 0 rgba( 0, 0, 0, .098), 0 1px 10px 0 rgba( 0, 0, 0, .084);
+        transition: 0.3s ease-in-out 0s;
+        position: relative;
+        overflow: hidden;
+        .hover-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+            opacity: 0;
+            transition: 0.3s ease-in-out 0s;
+            right: 0;
+            bottom: 0;
+            .hover-overlay-content {
+                color: $hover-font-color;
+                transition: 0.3s ease-in-out 0s;
+                transform: translateY(60px);
+            }
+        }
+        &:hover {
+            box-shadow: 0 2px 4px -1px rgba( 0, 0, 0, .2), 0 4px 5px 0 rgba( 0, 0, 0, .4), 0 1px 10px 0 rgba( 0, 0, 0, .07);
+            .hover-overlay {
+                opacity: 1;
+                .hover-overlay-content {
+                    transform: translate(0);
+                }
+            }
+        }
+    }

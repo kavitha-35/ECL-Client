@@ -1,0 +1,65 @@
+<section id="organisation-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">home_work </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Organisation Price list
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage Organisation Price List</mat-card-subtitle>
+      </section>
+
+      <!-- Add Organisation Button -->
+      <section class="organisation-button-wrapper">
+        <button mat-stroked-button (click)="onAddOrganisationPriceListButtonClicked()">
+          Add Organisation Price List
+        </button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-organisation-price-list-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    >
+    </app-organisation-price-list-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-organisation-price-list-data-list
+        [organisations]="organisations | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      ></app-organisation-price-list-data-list>
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-organisation-price-list-data-table
+        [organisations]="organisations | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (editOrganisationClicked)="onEditOrganisationPriceListClicked()"
+        [isBusy]="isFetchingOrganisations"
+      ></app-organisation-price-list-data-table>
+    </ng-template>
+
+    <mat-paginator [length]="organisations.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator>
+  </mat-card>
+</section>

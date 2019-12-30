@@ -1,0 +1,96 @@
+#home-dashboard-container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'home-collection         appointment            account                 doctors'
+    'calender                calender               calender                calender'
+    'news-feed-1             news-feed-2            news-feed-3             news-feed-4'
+    'map                     map                    leaflet                 leaflet'
+    'weather                 weather                contact-us              contact-us'
+    'patient-feedback        patient-feedback       patient-feedback        patient-feedback'
+    'account-feedback        account-feedback       account-feedback        account-feedback';
+
+
+  .account-card-wrapper {
+    grid-area: account;
+  }
+
+  .doctors-card-wrapper {
+    grid-area: doctors;
+  }
+
+  .appointments-card-wrapper {
+    grid-area: appointment;
+  }
+
+  .home-collection-card-wrapper {
+    grid-area: home-collection;
+  }
+
+  .news-feed-1 {
+    grid-area: news-feed-1;
+  }
+
+  .news-feed-2 {
+    grid-area: news-feed-2;
+  }
+
+  .news-feed-3 {
+    grid-area: news-feed-3;
+  }
+
+  .news-feed-4 {
+    grid-area: news-feed-4;
+  }
+
+  .map-wrapper {
+    grid-area: map;
+
+    padding: 5px;
+  }
+
+  .leaflet-wrapper {
+    grid-area: leaflet;
+
+    padding: 5px;
+  }
+
+  .calendar-card-wrapper {
+    grid-area: calender;
+
+    padding: 5px;
+  }
+
+  .news-feed-wrapper {
+    padding: 5px;
+
+    .news-section {
+      min-height: 250px;
+    }
+  }
+
+  .contact-us-wrapper {
+    grid-area: contact-us;
+
+    .contact-us-section {
+      padding: 0 24px 24px 24px;
+    }
+  }
+
+  .patient-feedback-wrapper {
+    grid-area: patient-feedback;
+  }
+
+  .accounts-feedback-wrapper {
+    grid-area: account-feedback;
+  }
+
+  .weather-widget {
+    grid-area: weather;
+  }
+
+  agm-map {
+    height: 300px;
+  }
+}

@@ -1,0 +1,22 @@
+<section id="tests-information-container">
+  <section class="mat-card-title-container">
+    <section>
+      <button mat-button color="primary" (click)="onAddLinkTestButtonClicked()">
+        + Link Test
+      </button>
+    </section>
+  </section>
+  <mat-divider></mat-divider>
+  <app-link-test [linkedTests]="linkedTests" showDeleteIcon="true"></app-link-test>
+
+  <!-- No Linked Record(s) Message -->
+  <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3" *ngIf="!linkedTests">
+    No Linked Tests
+  </section>
+</section>
+<section>
+  <section fxLayout="row" fxFlex="100" fxFlexAlign="center center" class="mt-2 mb-2" fxLayoutAlign="center center">
+    <button mat-button color="primary" class="ml-2 mr-2" matStepperPrevious>Back</button>
+    <button mat-raised-button color="primary" class="ml-2 mr-2" matStepperNext>Next</button>
+  </section>
+</section>

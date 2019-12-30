@@ -1,0 +1,37 @@
+<section id="user-details-container">
+  <mat-card>
+    <mat-card-title>User Details</mat-card-title>
+    <mat-card-subtitle>Details for User</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <h6>User Information</h6>
+      <section class="information-wrapper">
+        <section class="user-information">
+          <!-- user's Name -->
+          <section class="sub-title">Name</section>
+          <section>{{ userDetail.name }}</section>
+
+          <!-- user's Name -->
+          <section class="sub-title">Role</section>
+          <section>{{ userDetail.role.name }}</section>
+
+          <!-- user's Gender -->
+          <section class="sub-title">Gender</section>
+          <section>{{ userDetail.gender }}</section>
+
+          <!-- user's Area -->
+          <section class="sub-title">Area</section>
+          <section>{{ userDetail.area }}</section>
+
+          <!-- user's City -->
+          <section class="sub-title">City</section>
+          <section>{{ userDetail.city }}</section>
+        </section>
+
+        <section class="illustration">
+          <img src="../../../../../assets/images/mat-card-2.png" alt="" />
+        </section>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

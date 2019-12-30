@@ -1,0 +1,30 @@
+<section id="request-forms-container">
+  <mat-card>
+    <!-- Mat Card Title -->
+    <mat-card-title>Request Forms</mat-card-title>
+
+    <!-- Mat Card Subtitle -->
+    <mat-card-subtitle>Download Request Forms</mat-card-subtitle>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Mat Card Content -->
+    <mat-card-content>
+      <section class="request-form" *ngFor="let requestForm of requestForms">
+        <section>
+          <section *ngIf="requestForm.type === 'pdf'; then pdf; else jpeg">here is ignored</section>
+          <ng-template #pdf><mat-icon>picture_as_pdf</mat-icon></ng-template>
+          <ng-template #jpeg><mat-icon>photo_library</mat-icon></ng-template>
+        </section>
+        <section>
+          <section>{{ requestForm.title }}</section>
+          <section class="sub-title">Type: {{ requestForm.type }}</section>
+        </section>
+        <section>
+          <button mat-flat-button color="primary" (click)="onDownloadButtonClicked(requestForm.url)">Download</button>
+        </section>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

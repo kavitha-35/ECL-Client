@@ -1,0 +1,144 @@
+<form #sample="ngForm">
+  <section>
+    <mat-card>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header title="Add Sample" subTitle="Adds new sample for testing"></app-mat-dialog-header>
+    <mat-divider></mat-divider>
+      <mat-card-content>
+        <section>
+
+          <!-- General Information -->
+          <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
+
+            <!-- Sample Name -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Sample name</mat-label>
+              <input matInput placeholder="Sample name" name="name" />
+            </mat-form-field>
+
+            <!--Sample Type -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Sample Type</mat-label>
+              <mat-select
+                placeholder="Sample Type"
+                name="sampleTypeId"
+                disableOptionCentering>
+                <mat-option>Sample Type 1</mat-option>
+                <mat-option>Sample Type 2</mat-option>
+                <mat-option>Sample Type 3</mat-option>
+                <mat-option>Sample Type 4</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Container type-->
+            <mat-form-field fxFlex="50">
+              <mat-label>Container Type</mat-label>
+              <mat-select
+                placeholder="Container Type"
+                disableOptionCentering>
+                <mat-option>
+                  <section>
+                    <span>
+                      <i class="fa fa-circle red-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Container Type 1
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option>
+                  <section>
+                    <span>
+                      <i class="fa fa-circle blue-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Container Type 2
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option>
+                  <section>
+                    <span>
+                      <i class="fa fa-circle blue-violet" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Container Type 3
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option>
+                  <section>
+                    <span>
+                      <i class="fa fa-circle cadet-blue" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Container Type 4
+                    </span>
+                  </section>
+                </mat-option>
+                <mat-option>
+                  <section>
+                    <span>
+                      <i class="fa fa-circle forest-green" aria-hidden="true"></i>
+                    </span>
+                    <span class="container-label">
+                      Container Type 5
+                    </span>
+                  </section>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Short Code -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Accession Id</mat-label>
+              <input
+                matInput
+                type="number"
+                placeholder="Accession Id"
+                name="accessionId"/>
+            </mat-form-field>
+
+            <!-- Use Prefix or Postfix -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Use Prefix or Postfix</mat-label>
+              <mat-select
+                placeholder="Use prefix or Postfix"
+                name="isPrefix"
+                disableOptionCentering>
+                <mat-option [value]="true">Prefix</mat-option>
+                <mat-option [value]="false">Postfix</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Sample Description -->
+            <mat-form-field fxFlex="100">
+              <mat-label>Sample Description</mat-label>
+              <input matInput placeholder="Description" name="description" />
+            </mat-form-field>
+
+            <!-- Collection Instruction -->
+            <mat-form-field fxFlex="100">
+              <mat-label>Collection Instruction</mat-label>
+              <input matInput placeholder="Instruction" name="instruction" />
+            </mat-form-field>
+          </section>
+        </section>
+
+        <!-- Dialog Actions -->
+        <section mat-dialog-actions>
+          <section
+            class="mt-1 mb-1 full-width"
+            fxLayout="row"
+            fxFlexAlign="center center"
+            fxLayoutAlign="center center">
+            <button mat-button color="primary" matDialogClose>Cancel</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>
+              Add Sample(s)
+            </button>
+          </section>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</form>

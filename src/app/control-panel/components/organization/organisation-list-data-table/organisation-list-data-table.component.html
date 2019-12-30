@@ -1,0 +1,96 @@
+<section id="organisation-list-data-table-component-container">
+  <mat-divider></mat-divider>
+  <table mat-table [dataSource]="organisations" class="full-width">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Clinic Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Clinic</th>
+      <td mat-cell *matCellDef="let element">{{ element.clinicName }}</td>
+    </ng-container>
+
+    <!-- Type -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Type</th>
+      <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+    </ng-container>
+
+    <!-- Post Box -->
+    <ng-container matColumnDef="postBox">
+      <th mat-header-cell *matHeaderCellDef>Post Box</th>
+      <td mat-cell *matCellDef="let element">{{ element.postBox }}</td>
+    </ng-container>
+
+    <!-- Address -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+    </ng-container>
+
+    <!-- Area -->
+    <ng-container matColumnDef="area">
+      <th mat-header-cell *matHeaderCellDef>Area</th>
+      <td mat-cell *matCellDef="let element">{{ element.area }}</td>
+    </ng-container>
+
+    <!-- Email -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <!-- Contact Person -->
+    <ng-container matColumnDef="contactPerson">
+      <th mat-header-cell *matHeaderCellDef>Sales Representative</th>
+      <td mat-cell *matCellDef="let element">{{ element.contactPerson }}</td>
+    </ng-container>
+
+    <!-- Contact Number -->
+    <ng-container matColumnDef="contactNumber">
+      <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+      <td mat-cell *matCellDef="let element">{{ element.contactNumber }}</td>
+    </ng-container>
+
+    <!-- Sales Representative -->
+    <ng-container matColumnDef="salesRepresentative">
+      <th mat-header-cell *matHeaderCellDef>Sales Representative</th>
+      <td mat-cell *matCellDef="let element">{{ element.salesRepresentative }}</td>
+    </ng-container>
+
+    <!--Action-->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>
+        <section class="actions-wrapper">
+          <app-column-chooser [columns]="filteredColumns" (closed)="onColumnChooserClosed($event)"></app-column-chooser>
+        </section>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <section class="actions-wrapper">
+          <button class="edit-button" mat-button color="primary" (click)="onEditOrganisationClicked()" disableRipple>
+            <mat-icon>edit_outline</mat-icon>
+          </button>
+          <button class="delete-button" mat-button color="warn" disableRipple>
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </section>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <section *ngIf="isBusy">
+    <app-progress-indicator label="Fetching Organisation(s)"></app-progress-indicator>
+  </section>
+
+  <section *ngIf="!organisations && !isBusy">
+    <section class="mt-3 mb-3 mat-card-subtitle" fxFlex fxLayoutAlign="center center">
+      No Organisation(s) Found
+    </section>
+  </section>
+</section>

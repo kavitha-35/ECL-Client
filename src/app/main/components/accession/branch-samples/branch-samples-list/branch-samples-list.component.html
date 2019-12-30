@@ -1,0 +1,43 @@
+<section id="branch-samples-list-container">
+  <section *ngFor="let sampleModel of sampleModels">
+    <section class="title-wrapper">
+      <section class="title">#{{ sampleModel.id }} / {{ sampleModel.name }}</section>
+      <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+      <mat-menu #statusMenu="matMenu"> </mat-menu>
+    </section>
+    <section class="action-buttons-container">
+      <button mat-button>
+        <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+      </button>
+    </section>
+    <section class="branch-samples-container">
+      <!-- ID -->
+      <section class="sub-title">ID</section>
+      <section>{{ sampleModel.id }}</section>
+
+      <!-- Sample Name -->
+      <section class="sub-title">Sample Name</section>
+      <section>{{ sampleModel.name }}</section>
+
+      <!-- Sample Type -->
+      <section class="sub-title">Sample Type</section>
+      <section>{{ sampleModel.sampleType.name }}</section>
+
+      <!-- Container Type -->
+      <section class="sub-title">Container Type</section>
+      <section>{{ sampleModel.containerType.name }}</section>
+
+      <!-- Accession Id -->
+      <section class="sub-title">Accession Id</section>
+      <section>{{ sampleModel.accessionId }}</section>
+    </section>
+  </section>
+</section>

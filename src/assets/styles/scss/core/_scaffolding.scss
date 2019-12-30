@@ -1,0 +1,104 @@
+/*---------------
+1.1 Scaffolding
+---------------*/
+$mat-font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+html {
+  font-size: 16px;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+
+  min-height: 100%;
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: $font-weight-base;
+  font-size: $font-size-base;
+  color: rgba(mat-color($foreground, base), 0.87);
+  line-height: 1.5;
+  font-family: $mat-font-family;
+  &.pace-done {
+    background: #6b6b6b;
+  }
+}
+
+[tabindex='-1']:focus {
+  outline: none;
+}
+
+select,
+button,
+textarea,
+input {
+  vertical-align: baseline;
+}
+
+html, body {
+  &[dir=rtl], &[dir=ltr] {
+     unicode-bidi: embed
+  }
+}
+
+bdo[dir=rtl] {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+bdo[dir=ltr] {
+  direction: ltr;
+  unicode-bidi: bidi-override;
+}
+
+
+.mat-card.settings-panel {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 350px;
+  z-index: 9;
+  top:58px;
+}
+.bg-img > div {
+  float: left;
+  width: 50%;
+  padding: 0.75rem;
+  border-radius: 10px;
+
+  img{
+  border-radius:10px;
+  box-shadow:1.5px 2.6px 13px 0 rgba(0, 35, 136, 0.3);
+  }
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+.demo-checkbox {
+  .mat-checkbox, .mat-checkbox-layout {
+    width: 100%;
+  }
+  .mat-checkbox-layout .mat-checkbox-label {
+    flex: 1;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+  }
+}

@@ -1,0 +1,62 @@
+<section id="pending-accession-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >offline_pin
+        </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Pending Accession
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Manage Pending Accessions for Patients </mat-card-subtitle>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-pending-accession-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    ></app-pending-accession-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-pending-accession-list
+        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      ></app-pending-accession-list>
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-pending-accession-table
+        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      >
+      </app-pending-accession-table>
+    </ng-template>
+
+    <mat-paginator
+      [length]="logisticsCollections.length"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = $event"
+    >
+    </mat-paginator>
+  </mat-card>
+</section>

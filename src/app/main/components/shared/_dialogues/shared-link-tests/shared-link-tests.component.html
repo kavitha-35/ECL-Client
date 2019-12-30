@@ -1,0 +1,35 @@
+<section mat-dialog-content>
+  <section class="animated fadeIn">
+    <mat-card>
+      <!-- Mat Card header -->
+      <app-mat-dialog-header
+        title="Link Test(s)"
+        subTitle="Search for Test(s) and link them to appointment"
+      ></app-mat-dialog-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <section>
+          <!-- Search TextBox -->
+          <section>
+            <mat-form-field class="full-width">
+              <input matInput type="text" placeholder="Search for Test(s)" [(ngModel)]="searchQuery" />
+              <button mat-button matSuffix mat-icon-button (click)="onSearchButtonClicked()">
+                <mat-icon>search</mat-icon>
+              </button>
+            </mat-form-field>
+          </section>
+
+          <!-- Mat Data Table -->
+          <app-link-tests-list [linkedTests]="linkedTests$ | async" showLinkIcon="true"></app-link-tests-list>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</section>
+
+<section mat-dialog-actions>
+  <section class="full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
+    <button mat-button color="primary" matDialogClose>Close</button>
+    <button mat-raised-button color="primary" cdkFocusInitial>Link Selected Test(s)</button>
+  </section>
+</section>

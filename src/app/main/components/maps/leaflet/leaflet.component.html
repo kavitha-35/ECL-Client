@@ -1,0 +1,18 @@
+<section id="leaflet-maps-container">
+  <mat-card>
+    <!-- Mat Card Title -->
+    <mat-card-title>Google Maps</mat-card-title>
+
+    <!-- Mat Card Subtitle -->
+    <mat-card-subtitle>View Map Location</mat-card-subtitle>
+
+    <mat-divider></mat-divider>
+
+    <!-- Mat Card Content -->
+    <mat-card-content>
+      <agm-map [latitude]="+12.9542946" [longitude]="+77.490852">
+        <agm-marker [latitude]="+12.9542946" [longitude]="+77.490852"></agm-marker>
+      </agm-map>
+    </mat-card-content>
+  </mat-card>
+</section>

@@ -1,0 +1,55 @@
+<section id="work-sheet-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card header -->
+        <app-mat-dialog-header title="Search" subTitle="Search Worksheet(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!-- SID -->
+        <mat-form-field>
+          <mat-label>SID</mat-label>
+          <input matInput placeholder="SID" />
+        </mat-form-field>
+  
+        <!-- Name -->
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" />
+        </mat-form-field>
+  
+        <!-- Date -->
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Clinic -->
+        <mat-form-field>
+          <mat-label>Clinic</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Test Code-->
+        <mat-form-field>
+          <mat-label>Test Code</mat-label>
+          <input matInput placeholder="Test Code"  />
+        </mat-form-field>
+  
+        <!-- Test Name -->
+        <mat-form-field>
+          <mat-label>Test Name</mat-label>
+          <input matInput placeholder="Test Name" />
+        </mat-form-field>
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

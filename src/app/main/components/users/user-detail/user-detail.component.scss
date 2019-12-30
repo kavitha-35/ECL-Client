@@ -1,0 +1,22 @@
+#user-details-container {
+    .information-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'user-information illustration';
+  
+      .user-information {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 6px;
+        grid-area: user-information;
+      }
+      .illustration {
+        grid-area: illustration;
+  
+        img {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  

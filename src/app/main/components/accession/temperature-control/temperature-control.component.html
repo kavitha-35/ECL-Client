@@ -1,0 +1,59 @@
+<section id="temperature-control-container" class="animated fadeIn">
+    <mat-card>
+      <section class="mat-header-container">
+        <!-- Mat Header Image -->
+        <section class="mat-header-image-wrapper">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">offline_pin </mat-icon>
+        </section>
+  
+        <!-- Mat Header Title -->
+        <section>
+          <!-- Mat Card Title -->
+          <mat-card-title>
+            <section class="mat-card-title-container">
+              <section>
+                  Temperature Control(s)
+              </section>
+            </section>
+          </mat-card-title>
+  
+          <!-- Mat Card SubTitle -->
+          <mat-card-subtitle> Manage Temperature Control(s) </mat-card-subtitle>
+        </section>
+      </section>
+  
+      <!-- Mat Table Ribbon -->
+      <app-temperature-control-ribbon-menu
+        (showListViewButtonClicked)="onShowListViewButtonClicked()"
+        (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+      ></app-temperature-control-ribbon-menu>
+  
+      <mat-divider></mat-divider>
+      <!-- Test List -->
+      <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+  
+      <!-- List View -->
+      <ng-template #listView>
+        <app-temperature-control-list [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-temperature-control-list>
+      </ng-template>
+  
+      <!-- Temperature Control  Table -->
+      <ng-template #tableView>
+          <app-temperature-control-table
+          [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+          (rowSelected)="onRowSelected($event)"
+        >
+        </app-temperature-control-table
+      >
+
+      </ng-template>
+  
+      <mat-paginator
+        [length]="logisticsCollections.length"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+    </mat-card>
+  </section>
+  

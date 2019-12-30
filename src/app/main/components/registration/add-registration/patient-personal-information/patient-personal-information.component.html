@@ -1,0 +1,129 @@
+<section id="patient-personal-information-container">
+  <section class="search-patients-wrapper" *ngIf="isReVisitRegistration">
+    <mat-form-field class="search-mat-form-field">
+      <input type="text" matInput placeholder="Search Patients" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </section>
+  <form autocomplete="off" class="patient-information-form">
+    <!-- Payment Type -->
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select disableOptionCentering>
+        <mat-option>CASH</mat-option>
+        <mat-option>CREDIT</mat-option>
+        <mat-option>INSURANCE</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Name -->
+    <mat-form-field class="mt-7">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        maxlength="25"
+        placeholder="Name"
+        [(ngModel)]="addPatientRequest.name"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <!-- DOB -->
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Date of birth" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Gender -->
+    <section class="mt-13">
+      <label for="gender">Gender</label>
+      <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="addPatientRequest.genderId">
+        <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
+        <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <!-- LANDLINE -->
+    <mat-form-field>
+      <mat-label>Landline</mat-label>
+      <input
+        matInput
+        [(ngModel)]="addPatientRequest.primaryContactNumber"
+        placeholder="Landline"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mobile</mat-label>
+      <input
+        matInput
+        [(ngModel)]="addPatientRequest.secondaryContactNumber"
+        placeholder="Mobile"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <!-- Email ID -->
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="addPatientRequest.primaryEmail"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+
+    <!-- Address Line 1 -->
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Address Line 1" />
+    </mat-form-field>
+
+    <!-- Postal Code -->
+    <mat-form-field>
+      <mat-label>P.O.Box</mat-label>
+      <input matInput maxlength="10" placeholder="PO Box" />
+    </mat-form-field>
+
+    <!-- Area -->
+    <mat-form-field>
+      <mat-label>Area</mat-label>
+      <mat-select disableOptionCentering>
+        <mat-option>Area 1</mat-option>
+        <mat-option>Area 2</mat-option>
+        <mat-option>Area 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- City -->
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <mat-select disableOptionCentering>
+        <mat-option>City 1</mat-option>
+        <mat-option>City 2</mat-option>
+        <mat-option>City 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Country -->
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select disableOptionCentering>
+        <mat-option>Country 1</mat-option>
+        <mat-option>Country 2</mat-option>
+        <mat-option>Country 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <!-- Buttons Container -->
+  <section class="action-buttons-container">
+    <button mat-button color="primary" class="mr-48">Clear</button>
+    <button mat-raised-button color="primary" matStepperNext *ngIf="isReVisitRegistration">Update</button>
+    <button mat-raised-button color="primary" matStepperNext *ngIf="!isReVisitRegistration">Next</button>
+  </section>
+</section>

@@ -1,0 +1,112 @@
+<form #testprofile="ngForm">
+  <section>
+    <mat-card>
+          <!-- Mat Card header -->
+    <app-mat-dialog-header title="Add Profile Tests" subTitle="Adds new Profile test for testing"></app-mat-dialog-header>
+    <mat-divider></mat-divider>
+      <mat-card-content>
+        <section>
+          <!-- General Information -->
+          <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
+            <!-- Department -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Department</mat-label>
+              <mat-select placeholder="Select Department"> </mat-select>
+            </mat-form-field>
+
+            <!-- Test Profile Name -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Test Profile name</mat-label>
+              <input matInput placeholder="Test Profile Name" name="name" />
+            </mat-form-field>
+
+            <!-- DOS Code -->
+            <mat-form-field fxFlex="25">
+              <mat-label>DOS Code</mat-label>
+              <input matInput placeholder="DOS Code" name="dosCode" />
+            </mat-form-field>
+
+            <!-- Profile Test CPT Code -->
+            <mat-form-field fxFlex="25">
+              <mat-label>CPT Code</mat-label>
+              <input matInput placeholder="CPT Code" name="cptCode" />
+            </mat-form-field>
+
+            <!-- Outsource Id -->
+            <mat-form-field fxFlex="50">
+              <mat-label>outsourceId</mat-label>
+              <input matInput placeholder="outsourceId" name="outsourceId" />
+            </mat-form-field>
+
+            <!-- Integration Code -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Integration Code</mat-label>
+              <input
+                matInput
+                placeholder="Integration Code"
+                name="integrationCode"
+              />
+            </mat-form-field>
+
+            <!-- MinimumSellingPrice -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Minimum selling price</mat-label>
+              <input matInput placeholder="Minimum selling price" name="minimumSellingPrice" />
+            </mat-form-field>
+
+            <!-- Revenue CAP -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Revenue CAP</mat-label>
+              <input matInput placeholder="Revenue CAP" name="revenueCap" />
+            </mat-form-field>
+
+            <!-- Specimen-->
+            <mat-form-field fxFlex="25">
+              <mat-label>Specimen</mat-label>
+              <mat-select placeholder="Select Specimen"> </mat-select>
+            </mat-form-field>
+
+            <!-- Storage -->
+            <mat-form-field fxFlex="25">
+              <mat-label>Storage</mat-label>
+              <mat-select placeholder="Select Storage"> </mat-select>
+            </mat-form-field>
+
+            <!-- Gross -->
+            <mat-form-field fxFlex="25">
+              <mat-label>Gross</mat-label>
+              <input matInput placeholder="gross" name="gross" />
+            </mat-form-field>
+
+            <!-- Net -->
+            <mat-form-field fxFlex="25">
+              <mat-label>Net</mat-label>
+              <input matInput placeholder="Net" name="net" />
+            </mat-form-field>
+
+            <!-- profilePrice -->
+            <mat-form-field fxFlex="50">
+              <mat-label>Profile Price</mat-label>
+              <input matInput placeholder="Profile Price" name="profilePrice" />
+            </mat-form-field>
+          </section>
+
+          <!-- Dialog Actions -->
+          <section mat-dialog-actions>
+            <section
+              class="mt-1 mb-1 full-width"
+              fxLayout="row"
+              fxFlexAlign="center center"
+              fxLayoutAlign="center center"
+            >
+              <button mat-button color="primary" matDialogClose>Cancel</button>
+              <button mat-raised-button color="primary" cdkFocusInitial>
+                Add Profile Test(s)
+              </button>
+            </section>
+          </section>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</form>

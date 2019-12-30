@@ -1,0 +1,46 @@
+<section>
+    <mat-card>
+          <!-- Mat Card header -->
+    <app-mat-dialog-header title="Edit Equipment" subTitle="Edits the Equipment"></app-mat-dialog-header>
+    <mat-divider></mat-divider>
+      <mat-card-content>
+        <!-- General Information -->
+        <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
+          <!-- Brand -->
+          <mat-form-field fxFlex="50">
+            <mat-label>Brand</mat-label>
+            <input matInput placeholder="Brand" name="brand" />
+          </mat-form-field>
+  
+          <!-- Machine-->
+          <mat-form-field fxFlex="50">
+            <mat-label>Machine</mat-label>
+            <input matInput placeholder="Machine" name="machine" />
+          </mat-form-field>
+  
+          <!-- Model -->
+          <mat-form-field fxFlex="50">
+            <mat-label>Model</mat-label>
+            <input matInput placeholder="Model" name="model" />
+          </mat-form-field>
+  
+          <!-- Serial Number -->
+          <mat-form-field fxFlex="50">
+            <mat-label>Serial Number</mat-label>
+            <input matInput placeholder="Serial Number" name="serial" />
+          </mat-form-field>
+        </section>
+  
+        <!-- Dialog Actions -->
+        <section mat-dialog-actions>
+          <section class="mt-1 mb-1 full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
+            <button mat-button color="primary" matDialogClose>Cancel</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditEquipmentClicked()">
+              Save Change(s)
+            </button>
+          </section>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  

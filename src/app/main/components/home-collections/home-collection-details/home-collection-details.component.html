@@ -1,0 +1,79 @@
+<section id="home-collection-details-container">
+  <mat-card>
+    <mat-card-title>Home Collection Details</mat-card-title>
+    <mat-card-subtitle>Details for Selected Patient</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <section>
+        <mat-card-title>Patient Information</mat-card-title>
+        <mat-card-content>
+          <section class="patient-information">
+            <!-- Patient Name -->
+            <section class="sub-title">Patient Name</section>
+            <section>{{ selectedHomeCollection.patientName }}</section>
+
+            <!-- Patient Phone Number -->
+            <section class="sub-title">Phone Number</section>
+            <section>{{ selectedHomeCollection.phoneNumber }}</section>
+
+            <!-- Patient Mobile Number -->
+            <section class="sub-title">Mobile Number</section>
+            <section>{{ selectedHomeCollection.mobileNumber }}</section>
+
+            <!-- Patient EMail Address -->
+            <section class="sub-title">Email Address</section>
+            <section>{{ selectedHomeCollection.email }}</section>
+
+            <!-- Patient DOB -->
+            <section class="sub-title">Date Of Birth</section>
+            <section>{{ selectedHomeCollection.dateOfBirth }}</section>
+          </section>
+        </mat-card-content>
+
+        <mat-card-title>Referral Information</mat-card-title>
+        <mat-card-content>
+          <section class="referral-information">
+            <!-- Organization Name -->
+            <section class="sub-title">Organization Name</section>
+            <section>{{ selectedHomeCollection.referral.organization.name }}</section>
+
+            <!-- Doctor Name -->
+            <section class="sub-title">Doctor Name</section>
+            <section>{{ selectedHomeCollection.referral.doctor.name }}</section>
+          </section>
+        </mat-card-content>
+
+        <mat-card-title>Home Collection Details</mat-card-title>
+        <mat-card-content>
+          <section class="home-collection-details">
+            <!-- Scheduled Date -->
+            <section class="sub-title">Scheduled Date</section>
+            <section>{{ selectedHomeCollection.scheduleDate }}</section>
+
+            <!-- Area -->
+            <section class="sub-title">Area</section>
+            <section>{{ selectedHomeCollection.area }}</section>
+
+            <!-- City -->
+            <section class="sub-title">City</section>
+            <section>{{ selectedHomeCollection.city }}</section>
+
+            <!-- Postal Code -->
+            <section class="sub-title">Postal Code</section>
+            <section>{{ selectedHomeCollection.postalCode }}</section>
+
+            <!-- Country -->
+            <section class="sub-title">Country</section>
+            <section>{{ selectedHomeCollection.country }}</section>
+          </section>
+
+          <section class="comment-container">
+            <!-- Comments -->
+            <section class="sub-title">Comments</section>
+            <section>{{ selectedHomeCollection.comment }}</section>
+          </section>
+        </mat-card-content>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

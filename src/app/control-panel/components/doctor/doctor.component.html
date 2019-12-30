@@ -1,0 +1,28 @@
+<section class="animated fadeIn">
+    <mat-card>
+      <!-- Mat Card Title -->
+      <mat-card-title>
+        <section class="mat-card-title-container">
+          <section>
+            Doctor Lists
+          </section>
+          <section>
+            <button mat-button color="primary" (click)="onAddDoctorButtonClicked()">+ Add Doctor</button>
+          </section>
+        </section>
+      </mat-card-title>
+  
+      <!-- Mat Card SubTitle -->
+      <mat-card-subtitle> Manage Doctor(s) </mat-card-subtitle>
+  
+      <!-- Mat Divider -->
+      <mat-divider></mat-divider>
+  
+      <!--Doctor Data Table -->
+      <app-doctor-list-data-table
+        (editDoctorClicked)="onEditDoctorClicked()"
+        [isBusy]="isFetchingDoctor"
+      ></app-doctor-list-data-table>
+    </mat-card>
+  </section>
+  

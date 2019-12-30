@@ -1,0 +1,59 @@
+<section id="problem-sample-notification-container">
+    <section *ngFor="let logisticsCollection of logisticsCollections">
+      <section class="title-wrapper">
+        <section class="title">
+          #{{ logisticsCollection.id }} / {{ logisticsCollection.clinic.name }} /
+          {{ logisticsCollection.scheduledOn | date }}
+        </section>
+        <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+        <mat-menu #statusMenu="matMenu">
+          <button mat-menu-item>Waiting List</button>
+          <button mat-menu-item>Problem Sample Notification</button>
+          <button mat-menu-item>Waiting List</button>
+        </mat-menu>
+      </section>
+      <section class="action-buttons-container">
+        <button mat-button>
+          <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+        </button>
+      </section>
+      <section class="problem-sample-notification">
+        <!-- Logistic ID -->
+        <section class="sub-title">Logistic ID</section>
+        <section>{{ logisticsCollection.id }}</section>
+  
+        <!-- Clinic -->
+        <section class="sub-title">Clinic</section>
+        <section>{{ logisticsCollection.clinic.name }}</section>
+  
+        <!-- Called by -->
+        <section class="sub-title">Called by</section>
+        <section>{{ logisticsCollection.calledBy.name }}</section>
+  
+        <!-- Assigned To (Driver) -->
+        <section class="sub-title">Assigned To (Driver)</section>
+        <section>{{ logisticsCollection.driver.name }}</section>
+  
+        <!-- Scheduled Date -->
+        <section class="sub-title">Scheduled Date</section>
+        <section>{{ logisticsCollection.scheduledOn | date }}</section>
+  
+        <!-- Requested On -->
+        <section class="sub-title">Requested On</section>
+        <section>{{ logisticsCollection.modifiedOn | date }}</section>
+  
+        <!-- Status -->
+        <section class="sub-title">Status</section>
+        <section>{{ logisticsCollection.status.name }}</section>
+      </section>
+    </section>
+  </section>
+  

@@ -1,0 +1,25 @@
+#appointment-details-container {
+  .mat-card-content {
+
+    .appointments-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'appointment-details appointments-illustration';
+    }
+
+    .appointment-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-area: appointment-details;
+      grid-gap: 12px;
+    }
+
+    .appointments-illustration {
+      grid-area: appointments-illustration;
+
+      img {
+        opacity: 0.25;
+      }
+    }
+  }
+}

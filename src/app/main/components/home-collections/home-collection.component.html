@@ -1,0 +1,70 @@
+<section id="home-collection-container" class="animated fadeIn">
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">home </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Home Collection Lists
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Manage Home Collection(s) </mat-card-subtitle>
+      </section>
+
+      <!-- Add Home Collection Button -->
+      <section class="add-home-collection-button-wrapper">
+        <button mat-stroked-button (click)="onAddHomeCollectionClicked()">
+          Add Home Collection
+        </button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-home-collection-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    ></app-home-collection-ribbon-menu>
+
+    <mat-divider></mat-divider>
+
+    <section *ngIf="homeCollections$ | async as homeCollections">
+      <!-- Test List -->
+      <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+      <!-- List View -->
+      <ng-template #listView>
+        <app-home-collection-list
+          [homeCollections]="homeCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        ></app-home-collection-list>
+      </ng-template>
+
+      <!-- Home Collection Table -->
+      <ng-template #tableView
+        ><app-home-collection-table
+          [homeCollections]="homeCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+          [isBusy]="isLoadingData$ | async"
+          (rowSelected)="onRowSelected($event)"
+        >
+        </app-home-collection-table
+      ></ng-template>
+
+      <mat-paginator
+        [length]="homeCollections.length"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageSize]="pageSize"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+    </section>
+  </mat-card>
+</section>

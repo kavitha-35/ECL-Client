@@ -1,0 +1,61 @@
+<section id="work-sheets-container" class="animated fadeIn">
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >rate_review
+        </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Worksheet(s)
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Manage Worksheet(s) </mat-card-subtitle>
+      </section>
+
+      <!-- Add WorkSheet Button -->
+      <section class="work-sheet-button-wrapper">
+        <button mat-stroked-button (click)="onAddWorkSheetButtonClicked()">
+          Add WorkSheet
+        </button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-work-sheet-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    ></app-work-sheet-ribbon-menu>
+
+    <mat-divider></mat-divider>
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-worksheet-list
+        [workSheetList]="workSheetList | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      ></app-worksheet-list>
+    </ng-template>
+
+    <!--  Table View -->
+    <ng-template #tableView>
+      <app-work-sheets-table
+        [workSheetList]="workSheetList | slice: pageEvent.pageIndex:pageEvent.pageSize"
+      ></app-work-sheets-table>
+    </ng-template>
+
+    <mat-paginator [length]="workSheetList.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator>
+  </mat-card>
+</section>

@@ -1,0 +1,67 @@
+<section id="individual-test-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">streetview </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Individual Test Master
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage Individual Test Master </mat-card-subtitle>
+      </section>
+
+      <!-- Add Appointment Button -->
+      <section class="individual-test-button-wrapper">
+        <button mat-stroked-button (click)="onAddIndividualTestButtonClicked()">Add Individual Test</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-individual-test-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+    </app-individual-test-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+        <app-individual-test-list
+        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-individual-test-list
+          >
+      </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-individual-test-list-data-table
+        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [isBusy]="isFetchingTests"
+        (editTestClicked)="onEditTestClicked($event)"
+        (deleteTestClicked)="onDeleteTestClicked($event)"
+      ></app-individual-test-list-data-table>
+    </ng-template>
+
+    <mat-paginator
+        [length]="tests.length"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator>
+  </mat-card>
+</section>

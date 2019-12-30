@@ -1,0 +1,108 @@
+<section>
+  <mat-card>
+    <!-- Mat Card header -->
+    <app-mat-dialog-header title="Add Doctor" subTitle="Adds new Doctor"></app-mat-dialog-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <!-- General Information -->
+      <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
+        <!-- Doctor Name -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Doctor Name</mat-label>
+          <input matInput placeholder="Doctor Name" name="name" />
+        </mat-form-field>
+
+        <!-- Contact -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Contact Number</mat-label>
+          <input matInput placeholder="contact" name="contact" />
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" name="email" />
+        </mat-form-field>
+
+        <!-- DOB -->
+        <mat-form-field fxFlex="50">
+          <input matInput [matDatepicker]="DOB" placeholder="Date of birth" />
+          <mat-datepicker-toggle matSuffix [for]="DOB"></mat-datepicker-toggle>
+          <mat-datepicker #DOB></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Date of Anniversary -->
+        <mat-form-field fxFlex="50">
+          <input matInput [matDatepicker]="anniversary" placeholder="Date of Anniversary" />
+          <mat-datepicker-toggle matSuffix [for]="anniversary"></mat-datepicker-toggle>
+          <mat-datepicker #anniversary></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Address -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Address</mat-label>
+          <textarea matInput placeholder="Address" name="address"></textarea>
+        </mat-form-field>
+
+        <!-- Area -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Area</mat-label>
+          <input matInput placeholder="Area" name="area" />
+        </mat-form-field>
+
+        <!-- city -->
+        <mat-form-field fxFlex="50">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="City" name="city" />
+        </mat-form-field>
+
+        <!-- Country -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Country</mat-label>
+          <input matInput placeholder="Country" name="Country" />
+        </mat-form-field>
+
+        <!-- Postal Code -->
+        <mat-form-field fxFlex="50">
+          <mat-label>PIN Code</mat-label>
+          <input matInput placeholder="Postal Code" name="postalCode" />
+        </mat-form-field>
+
+        <!-- Doctor Passkey -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Doctor Passkey</mat-label>
+          <input matInput placeholder="Doctor Passkey" name="doctorPassKey" />
+        </mat-form-field>
+
+        <!-- Doctor Speciality -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Doctor Speciality</mat-label>
+          <mat-select placeholder="Doctor Speciality"> </mat-select>
+        </mat-form-field>
+
+        <!-- Department -->
+        <mat-form-field fxFlex="50">
+          <mat-label>Department</mat-label>
+          <mat-select placeholder="Department"> </mat-select>
+        </mat-form-field>
+
+        <!-- MISC Values -->
+        <section fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="15px">
+          <mat-checkbox class="options-check-box" name="sendSMS">Send SMS</mat-checkbox>
+          <mat-checkbox class="options-check-box" name="sendEmail">Send Email</mat-checkbox>
+          <mat-checkbox class="options-check-box" name="sendBillingSMS">Referrel</mat-checkbox>
+        </section>
+      </section>
+
+      <!-- Dialog Actions -->
+      <section mat-dialog-actions>
+        <section class="mt-1 mb-1 full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
+          <button mat-button color="primary" matDialogClose>Cancel</button>
+          <button mat-raised-button color="primary" cdkFocusInitial>
+            Add Doctor(s)
+          </button>
+        </section>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

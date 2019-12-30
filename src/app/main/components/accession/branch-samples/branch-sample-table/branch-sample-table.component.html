@@ -1,0 +1,43 @@
+<section id="branch-samples-container">
+  <table mat-table [dataSource]="sampleModels" class="full-width">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>SL NO</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Sample Name -->
+    <ng-container matColumnDef="SampleName">
+      <th mat-header-cell *matHeaderCellDef>SAMPLE NAME</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Sample Type -->
+    <ng-container matColumnDef="SampleType">
+      <th mat-header-cell *matHeaderCellDef>SAMPLE TYPE</th>
+      <td mat-cell *matCellDef="let element">{{ element.sampleType.name }}</td>
+    </ng-container>
+
+    <!-- Container Type -->
+    <ng-container matColumnDef="ContainerType">
+      <th mat-header-cell *matHeaderCellDef>CONTAINER TYPE</th>
+      <td mat-cell *matCellDef="let element">{{ element.containerType.name }}</td>
+    </ng-container>
+
+      <!--Action-->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>
+      <section class="actions-wrapper">
+        <app-column-chooser [columns]="filteredColumns" (closed)="onColumnChooserClosed($event)"></app-column-chooser>
+      </section>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <section class="actions-wrapper">
+      </section>
+    </td>
+  </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

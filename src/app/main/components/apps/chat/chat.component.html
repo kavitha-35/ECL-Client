@@ -1,0 +1,115 @@
+<section style="height:64px;"></section>
+<section fxLayout="row" fxLayoutAlign="center start">
+  <section fxFlex.gt-md="100" fxFlex.gt-sm="90" fxFlex="100">
+    <mat-card class="mat-card-top">
+      <mat-sidenav-container>
+        <mat-sidenav #chatnav [mode]="isOver() ? 'over' : 'side'" [opened]="!isOver()">
+          <mat-toolbar>
+            <a class="toolbar-avatar">
+              <img src="assets/images/avatar.jpg" />
+            </a>
+            <span fxFlex></span>
+            <button [mat-menu-trigger-for]="user" mat-icon-button>
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #user="matMenu" x-position="before">
+              <button mat-menu-item>Visit Profile</button>
+              <button mat-menu-item>Account Settings</button>
+              <button mat-menu-item>Signout</button>
+            </mat-menu>
+          </mat-toolbar>
+          <hr />
+          <mat-nav-list>
+            <mat-list-item (click)="onSelect(message)" *ngFor="let message of messages">
+              <img mat-list-avatar src="{{ message.photo }}" alt="" />
+              <h3 mat-line>{{ message.from }}</h3>
+              <p mat-line>{{ message.subject }}</p>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-sidenav>
+        <mat-toolbar class="chat-toolbar">
+          <button (click)="chatnav.toggle()" class="mr-1" mat-icon-button>
+            <mat-icon>short_text</mat-icon>
+          </button>
+          <a class="toolbar-avatar mr-1">
+            <img src="{{ selectedMessage.photo }}" />
+          </a>
+          <section fxFlex>
+            <h5 class="ma-0">{{ selectedMessage.from }}</h5>
+            <h6 class="ma-0 mat-text-muted">Online</h6>
+          </section>
+          <button [mat-menu-trigger-for]="them" mat-icon-button class="ml-1">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #them="matMenu" x-position="before">
+            <button mat-menu-item>Call</button>
+            <button mat-menu-item>Video Call</button>
+            <button mat-menu-item>Settings</button>
+          </mat-menu>
+        </mat-toolbar>
+        <hr />
+        <mat-card-content>
+          <section class="chat-conversation-user them">
+            <section class="chat-conversation-message">
+              <p>
+                Lorem ipsum dolor sit..<span class="chat-date">{{ 1427207139000 | date: 'fullDate' }}</span>
+              </p>
+            </section>
+          </section>
+          <section class="chat-conversation-user them">
+            <section class="chat-conversation-message">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing.<span class="chat-date">{{
+                  1427412725000 | date: 'fullDate'
+                }}</span>
+              </p>
+            </section>
+          </section>
+          <section class="chat-conversation-user me">
+            <section class="chat-conversation-message">
+              <p>
+                consectetur adipisicing<span class="chat-date">{{ 1427546580000 | date: 'fullDate' }}</span>
+              </p>
+            </section>
+          </section>
+          <section class="chat-conversation-user them">
+            <section class="chat-conversation-message">
+              <p>
+                ipsum dolor sit.<span class="chat-date">{{ 1428275520000 | date: 'fullDate' }}</span>
+              </p>
+            </section>
+          </section>
+          <section class="chat-conversation-user me">
+            <section class="chat-conversation-message">
+              <p>
+                dolor sit amet, consectetur adipisicing<span class="chat-date">{{
+                  1428830580000 | date: 'fullDate'
+                }}</span>
+              </p>
+            </section>
+          </section>
+          <section class="chat-conversation-user them">
+            <section class="chat-conversation-message">
+              <p>
+                dolor sit amet, consectetur adipisicing.<span class="chat-date">{{
+                  1429363920000 | date: 'fullDate'
+                }}</span>
+              </p>
+            </section>
+          </section>
+        </mat-card-content>
+        <hr />
+        <mat-card-actions>
+          <section fxLayout="row" layout-align="start center">
+            <mat-form-field class="mr-1 ml-1" fxFlex>
+              <input matInput placeholder="Send message" />
+            </mat-form-field>
+            <button mat-fab>
+              <mat-icon>send</mat-icon>
+            </button>
+          </section>
+        </mat-card-actions>
+      </mat-sidenav-container>
+    </mat-card>
+  </section>
+</section>

@@ -1,0 +1,86 @@
+<section id="individual-test-list-container">
+  <section *ngFor="let element of tests">
+    <section class="title-wrapper">
+      <section class="title">#{{ element.id }}</section>
+      <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+      <mat-menu #statusMenu="matMenu">
+        <button mat-menu-item>Edit</button>
+        <button mat-menu-item>Delete</button>
+      </mat-menu>
+    </section>
+    <section class="action-buttons-container">
+      <button mat-button>
+        <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+      </button>
+    </section>
+    <section class="individual-test-container">
+      <!-- ID -->
+      <section class="sub-title">ID</section>
+      <section>{{ element.id }}</section>
+
+      <!-- Active -->
+      <section class="sub-title">Active</section>
+      <section>{{ element.active }}</section>
+
+      <!-- Test Category -->
+      <section class="sub-title">Test Category</section>
+      <section>{{ element.testCategory }}</section>
+
+      <!-- Accreditation Symbol  -->
+      <section class="sub-title">Accreditation Symbol</section>
+      <section>{{ element.accreditationSymbol }}</section>
+
+      <!-- Test Component -->
+      <section class="sub-title">Test Component</section>
+      <section>{{ element.testComponent }}</section>
+
+      <!--Processing Center -->
+      <section class="sub-title">Processing Center</section>
+      <section>{{ element.processingCenter }}</section>
+
+      <!-- Outsource Vendor Code -->
+      <section class="sub-title">Outsource Vendor Code</section>
+      <section>{{ element.outsourceVendorCode }}</section>
+
+      <!-- Method -->
+      <section class="sub-title">Method</section>
+      <section>{{ element.method }}</section>
+
+      <!-- Unit -->
+      <section class="sub-title">Unit</section>
+      <section>{{ element.unit }}</section>
+
+      <!-- Reference Range -->
+      <section class="sub-title">Reference Range</section>
+      <section>{{ element.referenceRange }}</section>
+
+      <!--TAT -->
+      <section class="sub-title">TAT</section>
+      <section>{{ element.tat }}</section>
+
+      <!-- CPT Amount -->
+      <section class="sub-title">CPT Amount</section>
+      <section>{{ element.cptAmount }}</section>
+
+      <!-- Integration code -->
+      <section class="sub-title">Integration Code</section>
+      <section>{{ element.integrationCode }}</section>
+
+      <!-- Accreditation-->
+      <section class="sub-title">Accreditation</section>
+      <section>{{ element.accreditation }}</section>
+
+      <!-- Comments -->
+      <section class="sub-title">Comments</section>
+      <section>{{ element.comments }}</section>
+    </section>
+  </section>
+</section>

@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>Additional Test(s)</mat-card-title>
+  <mat-card-subtitle>Add Additional Test(s) for the Visit</mat-card-subtitle>
+  <mat-card-content>
+    <!-- Search Box for Patients -->
+    <app-search-patient-visit></app-search-patient-visit>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Patients List -->
+    <app-shared-registration-list
+      showLinkIcon="true"
+      (linkButtonClicked)="onLinkButtonClicked($event)"
+      [registrations]="registrations"
+      (registrationSelected)="onRegistrationSelected($event)">
+    </app-shared-registration-list>
+  </mat-card-content>
+</mat-card>

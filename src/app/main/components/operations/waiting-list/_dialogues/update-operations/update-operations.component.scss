@@ -1,0 +1,18 @@
+#update-operations-container {
+  .pt-14 {
+    padding-top: 14px;
+  }
+
+  .patient-information-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    margin-top: 12px;
+  }
+
+  .tests-information-container {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    margin-top: 12px;
+  }
+}

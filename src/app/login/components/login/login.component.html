@@ -1,0 +1,45 @@
+<section class="form-bg">
+  <section fxLayout="row" fxLayoutAlign="center center" class="pt-2">
+    <section fxLayout="column" fxFlex.xl="40" fxFlex.lg="40" fxFlex.md="50" fxFlex.sm="80" fxFlex.xs="90">
+      <mat-card class="login-session">
+        <section fxLayoutAlign="center center">
+          <img src="assets/images/logo.png" class="leftSection" width="50%" />
+        </section>
+
+        <!-- Login Form Container -->
+        <section>
+          <h2 class="base-border">Login Form</h2>
+          <p *ngIf="isInvalidCredentials" style="color: indianred">Invalid Credentials</p>
+          <p>Enter Your Login Details</p>
+          <form #form="ngForm" (ngSubmit)="login(form)">
+            <section fxLayout="column" fxLayoutAlign="start stretch">
+              <!-- Email ID -->
+              <mat-form-field class="full-width">
+                <input matInput placeholder="E-Mail" type="text" name="email" required [(ngModel)]="email" />
+              </mat-form-field>
+
+              <!-- Password -->
+              <mat-form-field class="mb-1 full-width">
+                <input
+                  matInput
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  required
+                  [(ngModel)]="password"
+                />
+              </mat-form-field>
+              <button class="mat-green" mat-raised-button>SIGN IN</button>
+            </section>
+          </form>
+          <p class="mat-text-warn mb-0">
+            <a [routerLink]="['/forgot-email']">Forgot email?</a> /
+            <a [routerLink]="['/forgot-password']">Forgot password?</a>
+          </p>
+        </section>
+      </mat-card>
+    </section>
+  </section>
+</section>
+
+<ngx-loading [show]="isBusy"></ngx-loading>

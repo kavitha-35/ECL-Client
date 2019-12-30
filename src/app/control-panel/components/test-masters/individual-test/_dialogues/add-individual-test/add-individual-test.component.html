@@ -1,0 +1,137 @@
+<section id="individual-test-container">
+  <mat-card class="individual-test-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Individual Test Master" subTitle="Add a Individual Test" icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!--Individual Test Form -->
+          <form class="individual-test-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Individual Test Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Test Category -->
+                <mat-form-field>
+                  <mat-label>Test Category</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="inhouse">
+                      In House
+                    </mat-option>
+                    <mat-option value="outsource">
+                      Outsource
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Active-->
+                <section class="pt-19">
+                  <mat-slide-toggle color="primary">Active</mat-slide-toggle>
+                </section>
+
+                <!-- Accreditation Symbol -->
+                <mat-form-field>
+                  <mat-label>Accreditation Symbol</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="#">
+                      #
+                    </mat-option>
+                    <mat-option value="*">
+                      *
+                    </mat-option>
+                    <mat-option value="**">
+                      **
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Test Component -->
+                <mat-form-field>
+                  <mat-label>Test Component</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Processing center -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Processing center</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Outsource Vendor Code-->
+                <mat-form-field>
+                  <mat-label>Outsource Vendor Code</mat-label>
+                  <input matInput placeholder="Outsouce Vendor Code" />
+                </mat-form-field>
+
+                <!-- Method -->
+                <mat-form-field>
+                  <mat-label>Method</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Unit-->
+                <mat-form-field>
+                  <mat-label>Unit</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Reference Range -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Reference Range</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- TAT -->
+                <mat-form-field>
+                  <mat-label>TAT</mat-label>
+                  <input matInput placeholder="TAT" />
+                </mat-form-field>
+
+                <!-- CPT Amount -->
+                <mat-form-field>
+                  <mat-label>CPT Amount</mat-label>
+                  <input matInput placeholder="CPT Amount" />
+                </mat-form-field>
+
+                <!-- Integration Code -->
+                <mat-form-field>
+                  <mat-label>Integration Code</mat-label>
+                  <input matInput placeholder="Integration Code" />
+                </mat-form-field>
+
+                <!-- Reference Range -->
+                <mat-form-field>
+                  <mat-label>Reference Range</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- Comments -->
+                <mat-form-field>
+                  <mat-label>Comments</mat-label>
+                  <input matInput placeholder="Comments" />
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary">Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Add Individual Test</button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>

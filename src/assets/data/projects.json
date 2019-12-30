@@ -1,0 +1,27 @@
+[
+    {
+        "project": "PROJECT HOLLISTON",
+        "date": 142727139000,
+        "progress": 15
+    },
+    {
+        "project": "PROJECT NGH",
+        "date": 142741725000,
+        "progress": 26
+    },
+    {
+        "project": "PROJECT ARMADA",
+        "date": 142754658000,
+        "progress": 50
+    },
+    {
+        "project": "PROJECT VALISE",
+        "date": 142789164000,
+        "progress": 80
+    },
+    {
+        "project": "PROJECT KOMODO",
+        "date": 142883058000,
+        "progress": 30
+    }
+]

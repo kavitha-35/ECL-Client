@@ -1,0 +1,192 @@
+<section id="add-appointment-container">
+  <mat-card class="add-appointment-mat-card">
+
+    <!-- Add Appointment Dialog Caption -->
+    <section>
+      <app-dialog-caption
+        title="Add Appointment"
+        subTitle="Schedule/ Book Appointment"
+        icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
+
+    <!-- Add Appointment Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-card-content>
+        <section>
+
+          <!-- Add Appointment Form -->
+          <form class="add-appointment-form">
+
+            <!-- Demographics -->
+            <section class="demographics-wrapper">
+
+              <!-- Header -->
+              <app-section-header title="Demographics"></app-section-header>
+
+              <!-- Content -->
+              <section class="demographics-content">
+
+              <!-- Name -->
+              <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" />
+              </mat-form-field>
+
+              <!-- Date of Birth -->
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+              <!-- Gender -->
+              <section class="pt-13">
+                <label for="gender" class="sub-title">Gender</label>
+                <mat-radio-group id="gender" name="gender" label="Gender">
+                  <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
+                  <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <!-- Landline Number -->
+              <mat-form-field>
+                <mat-label>Landline Number</mat-label>
+                <input matInput />
+              </mat-form-field>
+
+              <!-- Mobile Number -->
+              <mat-form-field>
+                <mat-label>Mobile Number</mat-label>
+                <input matInput />
+              </mat-form-field>
+
+              <!-- Email -->
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput maxlength="25" placeholder="Email" type="email" />
+              </mat-form-field>
+
+              </section>
+
+            </section>
+
+            <!-- Address Information -->
+            <section class="address-information-wrapper">
+
+              <!-- Header -->
+              <app-section-header title="Address Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="address-information-content">
+
+              <!-- P.O.Box -->
+              <mat-form-field>
+                <mat-label>P.O.Box</mat-label>
+                <input matInput placeholder="P.O.Box" />
+              </mat-form-field>
+
+              <!-- Area -->
+              <mat-form-field class="mt-n7">
+                <mat-label>Area</mat-label>
+                <mat-select disableOptionCentering>
+                  <mat-option value="gulfarea">
+                    Gulf Area
+                  </mat-option>
+                  <mat-option value="deira">
+                    Deira
+                  </mat-option>
+                  <mat-option value="burdubai">
+                    Bur Dubai
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <!-- City -->
+              <mat-form-field>
+                <mat-label>City</mat-label>
+                <mat-select disableOptionCentering>
+                  <mat-option value="abudhabi">
+                    Abu Dhabi
+                  </mat-option>
+                  <mat-option value="ajman">
+                    Ajman
+                  </mat-option>
+                  <mat-option value="dubai">
+                    Dubai
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <!-- Country -->
+              <mat-form-field>
+                <mat-label>Country</mat-label>
+                <mat-select disableOptionCentering>
+                  <mat-option value="uae">
+                    UAE
+                  </mat-option>
+                  <mat-option value="india">
+                    India
+                  </mat-option>
+                  <mat-option value="England">
+                    India
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Schedule Information -->
+            <section class="schedule-information-wrapper">
+
+              <!-- Header -->
+              <app-section-header title="Schedule Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="schedule-information-content">
+
+              <!-- Appointment Date and Time -->
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Appointment Date and Time"
+                  [owlDateTimeTrigger]="Appointment"
+                  [owlDateTime]="Appointment"
+                />
+                <owl-date-time #Appointment></owl-date-time>
+              </mat-form-field>
+
+              </section>
+            </section>
+
+            <!-- Comment Information -->
+            <section class="comment-information-wrapper">
+
+              <!-- Header -->
+              <app-section-header title="Comment"></app-section-header>
+
+              <section>
+
+              <!-- Comment -->
+              <mat-form-field class="comment-mat-field full-width">
+                <mat-label>Comment</mat-label>
+                <input matInput placeholder="Comment" />
+              </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Add Appointment</button>
+          </section>
+        </section>
+      </mat-card-content>
+    </section>
+
+  </mat-card>
+</section>

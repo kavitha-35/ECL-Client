@@ -1,0 +1,10 @@
+.uploads-container {
+  display: grid;
+
+  grid-template-columns: repeat(3, auto 1fr);
+  grid-gap: 24px;
+
+  .label {
+    padding-top: 10px;
+  }
+}

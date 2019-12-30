@@ -1,0 +1,82 @@
+<section id="appointment-list-container">
+  <table mat-table [dataSource]="filteredAppointments" class="full-width">
+    <!-- Appointment ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Appointment ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Patient Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Gender -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Gender</th>
+      <td mat-cell *matCellDef="let element">{{ element.gender.name }}</td>
+    </ng-container>
+
+    <!-- Email Address -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>
+        <section class="column-header-wrapper">
+          <mat-label>Email Address</mat-label>
+          <app-row-filter [allItems]="emailFilterList" (closed)="onFilterClosed($event)"></app-row-filter>
+        </section>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <!-- Mobile Number -->
+    <ng-container matColumnDef="mobileNumber">
+      <th mat-header-cell *matHeaderCellDef>Mobile Number</th>
+      <td mat-cell *matCellDef="let element">{{ element.mobileNumber }}</td>
+    </ng-container>
+
+    <!-- Appointment Time -->
+    <ng-container matColumnDef="from">
+      <th mat-header-cell *matHeaderCellDef>Appointment Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.from }}</td>
+    </ng-container>
+
+    <!-- Status -->
+    <ng-container matColumnDef="status">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <section class="status-card">
+          {{ element.status.name }}
+        </section>
+      </td>
+    </ng-container>
+
+    <!--Action-->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>
+        <section class="actions-wrapper">
+          <app-column-chooser [columns]="filteredColumns" (closed)="onColumnChooserClosed($event)"></app-column-chooser>
+        </section>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <section class="actions-wrapper">
+          <button class="edit-button" mat-button color="primary" disableRipple>
+            <mat-icon>edit_outline</mat-icon>
+          </button>
+          <button class="action-button" mat-button color="primary" disableRipple [matMenuTriggerFor]="statusMenu"
+            (click)="onMenuButtonClicked($event)">
+            <mat-icon>more_vert_outline</mat-icon>
+          </button>
+          <mat-menu #statusMenu="matMenu">
+            <button mat-menu-item>Pending</button>
+            <button mat-menu-item>Cancelled</button>
+            <button mat-menu-item>Confirmed</button>
+          </mat-menu>
+        </section>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)"></tr>
+  </table>
+</section>

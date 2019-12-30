@@ -1,0 +1,73 @@
+<section id="shared-registration-details-container">
+  <mat-card>
+    <mat-card-title>Registration Details</mat-card-title>
+    <mat-card-subtitle>Details for Patient's Registration</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <h6>Patient Information</h6>
+      <section class="information-wrapper">
+        <section class="patient-information">
+
+          <!-- Patient's Name -->
+          <section class="sub-title">Name</section>
+          <section>{{ registrationDetail.name }}</section>
+
+          <!-- Patient's Gender -->
+          <section class="sub-title">Gender</section>
+          <section>{{ registrationDetail.gender.name }}</section>
+
+          <!-- Patient's Phone Number -->
+          <section class="sub-title">Phone Number</section>
+          <section>{{ registrationDetail.phoneNumber }}</section>
+
+          <!-- Patient's Mobile Number -->
+          <section class="sub-title">Mobile Number</section>
+          <section>{{ registrationDetail.mobileNumber }}</section>
+
+          <!-- Patient's Email Address -->
+          <section class="sub-title">Email Address</section>
+          <section>{{ registrationDetail.email }}</section>
+
+          <!-- Patient's Date of Birth -->
+          <section class="sub-title">Date Of Birth</section>
+          <section>{{ registrationDetail.dateOfBirth }}</section>
+
+          <!-- Patient's Area -->
+          <section class="sub-title">Area</section>
+          <section>{{ registrationDetail.area }}</section>
+
+          <!-- Patient's City -->
+          <section class="sub-title">City</section>
+          <section>{{ registrationDetail.city }}</section>
+
+          <!-- Patient's Postal Code -->
+          <section class="sub-title">Postal Code</section>
+          <section>{{ registrationDetail.postalCode }}</section>
+
+          <!-- Status -->
+          <section class="sub-title">Status</section>
+          <section>{{ registrationDetail.status.name }}</section>
+
+        </section>
+
+        <section class="referral-information">
+          <!-- Referral Information -->
+          <section class="sub-title">Organization</section>
+          <section>{{ registrationDetail.referralOrganization.name }}</section>
+
+          <!-- Referral Doctor -->
+          <section class="sub-title">Doctor</section>
+          <section>{{ registrationDetail.referralDoctor.name }}</section>
+        </section>
+
+        <section class="illustration">
+          <img src="../../../../../assets/images/mat-card-2.png" alt="">
+        </section>
+      </section>
+
+      <h6>Linked Tests</h6>
+      <app-link-tests-list [linkedTests]="registrationDetail.tests"></app-link-tests-list>
+
+    </mat-card-content>
+  </mat-card>
+</section>

@@ -1,0 +1,44 @@
+<section id="branch-samples-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card header -->
+        <app-mat-dialog-header title="Search" subTitle="Search Branch Sample(s)"></app-mat-dialog-header>
+      <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!-- Sample Name -->
+        <mat-form-field>
+          <mat-label>Sample Name</mat-label>
+          <input matInput placeholder="Sample Name" />
+        </mat-form-field>
+  
+        <!-- Sample Type -->
+        <mat-form-field>
+          <mat-label>Sample Type</mat-label>
+          <input matInput placeholder="Sample Type" />
+        </mat-form-field>
+  
+        <!-- Accession Id -->
+        <mat-form-field>
+          <mat-label>Accession Id</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Status -->
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <input matInput placeholder="status" />
+        </mat-form-field>
+  
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+          <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+          <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

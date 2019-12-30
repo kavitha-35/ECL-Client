@@ -1,0 +1,30 @@
+#waiting-list-data-list-container {
+  .title-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    background: #034f79;
+
+    .title {
+      color: white;
+      padding: 3px 12px;
+    }
+  }
+
+  .waiting-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .action-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
+    padding-right: 2rem;
+
+    button {
+      padding: 0 0.5rem;
+      min-width: 0px;
+    }
+  }
+}
