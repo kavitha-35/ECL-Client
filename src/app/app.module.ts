@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -64,6 +65,11 @@ import { WorkSheetSearchComponent } from './main/components/operations/work-shee
 import { ResultsAuthorizationDataSearchComponent } from './main/components/operations/results-authorization/results-authorization-data-search/results-authorization-data-search.component';
 import { CaseSearchComponent } from './main/components/operations/case/case-search/case-search.component';
 
+
+// custom providers
+import { ApiService, ConfigService, IndividualTestService, OutsourceService, DepartmentService } from './providers';
+
+
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -102,6 +108,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatDatepickerModule,
     MatSelectModule,
     MatCardModule,
+    HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -151,7 +158,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },
+    ApiService,
+    ConfigService,
+    IndividualTestService,
+    OutsourceService,
+    DepartmentService
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

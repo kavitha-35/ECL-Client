@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, Input, EventEmitter } from '@angular/core';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
+import { DepartmentService } from './../../../../providers'
 
 @Component({
   selector: 'app-department-data-table',
@@ -15,11 +16,23 @@ export class DepartmentDataTableComponent implements OnInit {
   @Output() deleteDepartmentClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-  constructor() {}
+
+  constructor(private departmentService: DepartmentService) { }
 
   ngOnInit(): void {
+    this.getDepartments();
     this._initializeDisplayedColumns();
   }
+
+  getDepartments() {
+    this.departmentService.getDepartments().subscribe((response) => {
+      if (response) {
+        console.log(response)
+      }
+    }, (error) => {
+    });
+  }
+
   public onEditDepartmentClicked(): void {
     this.editDepartmentClicked.emit();
   }
@@ -32,6 +45,7 @@ export class DepartmentDataTableComponent implements OnInit {
     console.table(selectedColumns);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
+
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
       { columnName: 'departmentname', displayValue: 'Department Name', isSelected: true },
