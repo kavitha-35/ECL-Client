@@ -1,0 +1,56 @@
+<section id="reference-range-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card Title -->
+        <app-mat-dialog-header title="Search" subTitle="Search for Reference Range(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!--  Id -->
+        <mat-form-field>
+          <mat-label> Id</mat-label>
+          <input matInput placeholder="Id" />
+        </mat-form-field>
+  
+        <!-- Test Code -->
+        <mat-form-field>
+          <mat-label>Test Code</mat-label>
+          <input matInput placeholder="Test Code" />
+        </mat-form-field>
+  
+        <!-- Test Name -->
+        <mat-form-field>
+          <mat-label>Test Name</mat-label>
+          <input matInput placeholder="Test Name" />
+        </mat-form-field>
+  
+        <!-- Machine -->
+        <mat-form-field>
+          <mat-label>Machine</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Type -->
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <input matInput  placeholder="Type"  />
+        </mat-form-field>
+  
+        <!-- Units -->
+        <mat-form-field>
+          <mat-label>Units</mat-label>
+          <input matInput placeholder="Units" />
+        </mat-form-field>
+  
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

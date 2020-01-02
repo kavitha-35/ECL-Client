@@ -1,0 +1,39 @@
+<section id="department-list-container">
+    <section *ngFor="let element of departments">
+      <section class="title-wrapper">
+        <section class="title">#{{ element.departmentName }} / {{ element.departmentType }}</section>
+        <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+        <mat-menu #statusMenu="matMenu">
+          <button mat-menu-item>Edit</button>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+      </section>
+      <section class="action-buttons-container">
+        <button mat-button>
+          <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+        </button>
+      </section>
+      <section class="department-container">
+        <!-- Department Name -->
+        <section class="sub-title">Department Name</section>
+        <section>{{ element.departmentName }}</section>
+  
+        <!-- Department Type -->
+        <section class="sub-title">Department Type</section>
+        <section>{{ element.departmentType }}</section>
+  
+        <!-- Doctor Name -->
+        <section class="sub-title">Doctor Name</section>
+        <section>{{ element.doctorName }}</section>
+      </section>
+    </section>
+  </section>
+  

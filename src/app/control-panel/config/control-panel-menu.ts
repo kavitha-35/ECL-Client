@@ -34,9 +34,8 @@ const MENUITEMS: Menu[] = [
   {
     state: 'department',
     name: 'Department',
-    type: 'sub',
+    type: 'link',
     icon: 'polymer',
-    children: [{ state: 'not-found', name: 'Add Department' }, { state: 'not-found', name: 'Department List' }],
   },
   {
     state: 'method',

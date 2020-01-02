@@ -1,0 +1,32 @@
+#department-ribbon-menu-container {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, auto);
+    padding-bottom: 0.5rem;
+    margin: 0 1rem;
+  
+    .fa:hover {
+      transform: scale(1.2);
+      transition: transform .1s;
+    }
+  
+    .view-buttons-wrapper {
+      margin-left: 1rem;
+      margin-right: 1rem;
+  
+      button {
+        padding: 0 0.5rem;
+        min-width: 0px;
+      }
+    }
+  
+    .export-buttons-wrapper {
+      margin-right: 1rem;
+  
+      button {
+        padding: 0 0.5rem;
+        min-width: 0px;
+      }
+    }
+  
+  }
+  

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ReferenceRangeModel } from 'app/control-panel/models/reference-range/reference-range. model';
+import { GridColumnModel } from 'app/shared/models/grid-column.model';
 
 @Component({
   selector: 'app-reference-range-data-table',
@@ -7,45 +8,16 @@ import { ReferenceRangeModel } from 'app/control-panel/models/reference-range/re
   styleUrls: ['./reference-range-data-table.component.scss'],
 })
 export class ReferenceRangeDataTableComponent implements OnInit {
+  @Input() referenceRanges: ReferenceRangeModel[];
   @Input() isBusy: boolean;
   @Output() editReferenceRangeClicked = new EventEmitter();
   @Output() deleteReferenceRangeClicked = new EventEmitter();
-
-  public referenceRanges: ReferenceRangeModel[];
-
-  displayedColumns: string[] = ['code', 'name', 'units', 'type', 'result', 'min', 'max', 'action'];
+  public displayedColumns: string[];
+  public filteredColumns: GridColumnModel[];
   constructor() {}
 
   ngOnInit(): void {
-    this.referenceRanges = [
-      {
-        testCode: '123',
-        testName: 'Blood',
-        units: '50mg',
-        type: '-',
-        result: 'critical',
-        minCriticalValue: '180',
-        maxCriticalValue: '220',
-      },
-      {
-        testCode: '143',
-        testName: 'Hameoglobin',
-        units: '10mg',
-        type: '-',
-        result: 'Normal',
-        minCriticalValue: '140',
-        maxCriticalValue: '180',
-      },
-      {
-        testCode: '543',
-        testName: 'Malaria',
-        units: '60mg',
-        type: '-',
-        result: 'Normal',
-        minCriticalValue: '90',
-        maxCriticalValue: '150',
-      },
-    ];
+    this._initializeDisplayedColumns();
   }
 
   public onEditReferenceRangeClicked(): void {
@@ -54,5 +26,24 @@ export class ReferenceRangeDataTableComponent implements OnInit {
 
   public onDeleteReferenceRangeClicked(): void {
     this.deleteReferenceRangeClicked.emit();
+  }
+
+  public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
+    this.displayedColumns = selectedColumns.map((x) => x.columnName);
+  }
+
+  private _initializeDisplayedColumns(): void {
+    this.filteredColumns = [
+      { columnName: 'code', displayValue: 'Code', isSelected: true },
+      { columnName: 'name', displayValue: 'Name', isSelected: true },
+      { columnName: 'units', displayValue: 'Units', isSelected: true },
+      { columnName: 'type', displayValue: 'Type', isSelected: true },
+      { columnName: 'result', displayValue: 'Result', isSelected: true },
+      { columnName: 'min', displayValue: 'Min', isSelected: true },
+      { columnName: 'max', displayValue: 'Max', isSelected: true },
+      { columnName: 'action', displayValue: 'Action', isSelected: true },
+    ];
+    const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
+    this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
 }
