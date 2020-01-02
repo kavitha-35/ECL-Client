@@ -27,7 +27,14 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NgChatModule } from 'ng-chat';
-import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatIconModule, MatPaginatorModule, MatSlideToggleModule } from '@angular/material';
+import {
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatPaginatorModule,
+  MatSlideToggleModule,
+} from '@angular/material';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AgmCoreModule } from '@agm/core';
 import { ControlPanelRouting } from './control-panel.routing';
@@ -87,6 +94,16 @@ import { OrganisationPriceListDataListComponent } from './components/organisatio
 import { OrganisationPriceListSearchComponent } from './components/organisation-price-list/organisation-price-list-search/organisation-price-list-search.component';
 import { AddOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/add-organisation-price-list/add-organisation-price-list.component';
 import { EditOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/edit-organisation-price-list/edit-organisation-price-list.component';
+import { ReferenceRangeRibbonMenuComponent } from './components/refernce-range/reference-range-ribbon-menu/reference-range-ribbon-menu.component';
+import { ReferenceRangeSearchComponent } from './components/refernce-range/reference-range-search-component/reference-range-search-component.component';
+import { ReferenceRangeListComponent } from './components/refernce-range/reference-range-list/reference-range-list.component';
+import { DepartmentComponent } from './components/department/department.component';
+import { DepartmentDataListComponent } from './components/department/department-data-list/department-data-list.component';
+import { DepartmentDataTableComponent } from './components/department/department-data-table/department-data-table.component';
+import { DepartmentRibbonMenuComponent } from './components/department/department-ribbon-menu/department-ribbon-menu.component';
+import { DepartmentSearchComponent } from './components/department/department-search/department-search.component';
+import { AddDepartmentComponent } from './components/department/_dialogues/add-department/add-department.component';
+import { EditDepartmentComponent } from './components/department/_dialogues/edit-department/edit-department.component';
 
 @NgModule({
   declarations: [
@@ -144,13 +161,20 @@ import { EditOrganisationPriceListComponent } from './components/organisation-pr
     OrganisationPriceListDataListComponent,
     OrganisationPriceListSearchComponent,
     AddOrganisationPriceListComponent,
-    EditOrganisationPriceListComponent
+    EditOrganisationPriceListComponent,
+    ReferenceRangeRibbonMenuComponent,
+    ReferenceRangeSearchComponent,
+    ReferenceRangeListComponent,
+    DepartmentComponent,
+    DepartmentDataListComponent,
+    DepartmentDataTableComponent,
+    DepartmentRibbonMenuComponent,
+    DepartmentSearchComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    DepartmentSearchComponent,
   ],
-  providers: [
-    DatePipe,
-    ControlPanelMenu,
-    MatDatepickerModule,
-  ],
+  providers: [DatePipe, ControlPanelMenu, MatDatepickerModule],
   imports: [
     RouterModule,
     CommonModule,
@@ -195,9 +219,7 @@ import { EditOrganisationPriceListComponent } from './components/organisation-pr
     }),
     AgmCoreModule,
   ],
-  exports: [
-    RouterModule, ControlPanelComponent
-  ],
+  exports: [RouterModule, ControlPanelComponent],
   entryComponents: [
     AddCombinedTestComponent,
     EditCombinedTestComponent,
@@ -222,7 +244,11 @@ import { EditOrganisationPriceListComponent } from './components/organisation-pr
     OrganisationsSearchComponent,
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
-    OrganisationPriceListSearchComponent
+    OrganisationPriceListSearchComponent,
+    ReferenceRangeSearchComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    DepartmentSearchComponent,
   ],
 })
 export class ControlPanelModule {}

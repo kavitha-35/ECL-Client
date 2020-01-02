@@ -1,0 +1,37 @@
+<section id="department-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card Title -->
+        <app-mat-dialog-header title="Search" subTitle="Search for Department(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!--  Department Name -->
+        <mat-form-field>
+          <mat-label>Department Name</mat-label>
+          <input matInput placeholder="Department Name" />
+        </mat-form-field>
+  
+        <!-- Department Type -->
+        <mat-form-field>
+          <mat-label>Department Type</mat-label>
+          <input matInput placeholder="Department Type" />
+        </mat-form-field>
+  
+        <!-- Doctor Name -->
+        <mat-form-field>
+          <mat-label>Doctor Name</mat-label>
+          <input matInput placeholder="Doctor Name" />
+        </mat-form-field>
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

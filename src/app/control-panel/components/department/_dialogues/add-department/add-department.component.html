@@ -1,0 +1,65 @@
+<section id="department-container">
+  <mat-card class="department-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Departments" subTitle="Add Department" icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!-- Outsource Management Form -->
+          <form class="department-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Department Name -->
+                <mat-form-field>
+                  <mat-label>Department Name</mat-label>
+                  <input matInput placeholder="Depatment Name" />
+                </mat-form-field>
+
+                <!-- Department Type -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Department Type</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="biochemistry">
+                      Bio Chemistry
+                    </mat-option>
+                    <mat-option value="microbiology">
+                      Micro Biology
+                    </mat-option>
+                    <mat-option value="molecularbiology">
+                      Molecular Biology
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Doctor Name -->
+                <mat-form-field>
+                  <mat-label>Doctor Name</mat-label>
+                  <input matInput placeholder="Doctor Name" />
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Add Department</button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>
