@@ -67,7 +67,7 @@ import { CaseSearchComponent } from './main/components/operations/case/case-sear
 
 
 // custom providers
-import { ApiService, ConfigService, IndividualTestService, OutsourceService, DepartmentService } from './providers';
+import { ApiService, ConfigService, IndividualTestService, OutsourceService, DepartmentService, HumanResourceService } from './providers';
 
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -162,7 +162,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ConfigService,
     IndividualTestService,
     OutsourceService,
-    DepartmentService
+    DepartmentService,
+    HumanResourceService
   ],
   bootstrap: [AppComponent],
 })

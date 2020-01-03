@@ -13,6 +13,7 @@ import { HomeDashboardComponent } from './components/dashboards/home-dashboard/h
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { OrganisationPriceListComponent } from './components/organisation-price-list/organisation-price-list.component';
 import { DepartmentComponent } from './components/department/department.component';
+import { HumanResourceComponent } from './components/human-resource/human-resource.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
       {
         path: 'department',
         component: DepartmentComponent,
+      },
+      {
+        path: 'human-resource',
+        component: HumanResourceComponent,
       },
       {
         path: 'reference-range',

@@ -1,0 +1,63 @@
+<section id="human-resource-filter-container" class="full-width">
+  <mat-card>
+    <section>
+      <!-- Mat Card Title -->
+      <app-mat-dialog-header title="Search" subTitle="Search for Human resource(s)"></app-mat-dialog-header>
+      <mat-divider></mat-divider>
+    </section>
+
+    <!--Mat Card Filter Content-->
+    <section class="filter-field">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" />
+      </mat-form-field>
+
+      <mat-form-field class="mt-n7">
+        <mat-label>Department</mat-label>
+        <mat-select disableOptionCentering>
+          <mat-option value="biochemistry">
+            Bio Chemistry
+          </mat-option>
+          <mat-option value="microbiology">
+            Micro Biology
+          </mat-option>
+          <mat-option value="molecularbiology">
+            Molecular Biology
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Alternate Email</mat-label>
+        <input matInput placeholder="Alternate Email" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Contact No</mat-label>
+        <input matInput placeholder="Contact No" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Alternate Contact No</mat-label>
+        <input matInput placeholder="Alternate Contact No" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Default Url</mat-label>
+        <input matInput placeholder="Default Url" />
+      </mat-form-field>
+    </section>
+
+    <!-- Apply Filter Button -->
+    <section class="buttons-wrapper">
+      <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+      <button mat-stroked-button color="primary">Search</button>
+    </section>
+  </mat-card>
+</section>

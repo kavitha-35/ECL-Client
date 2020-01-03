@@ -1,0 +1,84 @@
+@import '../../../../../../assets/styles/scss/color';
+
+@mixin forms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 24px;
+}
+
+@mixin margin-bottom-18 {
+  margin-bottom: 18px;
+}
+
+#human-resource-container {
+  .human-resource-mat-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+
+    .outsource-dialog {
+      margin: auto;
+    }
+
+    .human-resource-form {
+      .basic-wrapper {
+        @include margin-bottom-18;
+
+        .basic-content {
+          @include forms-grid;
+
+          .pt-13 {
+            padding-top: 13px;
+          }
+        }
+      }
+
+      .locale-information-wrapper {
+        @include margin-bottom-18;
+
+        .locale-information-content {
+          @include forms-grid;
+        }
+      }
+
+      .finance-information-wrapper {
+        @include margin-bottom-18;
+
+        .finance-information-content {
+          @include forms-grid;
+        }
+      }
+
+      .finance-information-wrapper {
+        @include margin-bottom-18;
+
+        .finance-information-content {
+          @include forms-grid;
+        }
+      }
+
+      .user-credentials-information-wrapper {
+        @include margin-bottom-18;
+
+        .user-credentials-content {
+          @include forms-grid;
+        }
+      }
+
+      .comment-information-wrapper {
+        @include margin-bottom-18;
+      }
+    }
+
+    .action-buttons-wrapper {
+      display: flex;
+      margin: 12px;
+
+      justify-content: center;
+      align-items: center;
+
+      button {
+        margin-left: 24px;
+      }
+    }
+  }
+}

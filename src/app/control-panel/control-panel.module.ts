@@ -105,6 +105,14 @@ import { DepartmentSearchComponent } from './components/department/department-se
 import { AddDepartmentComponent } from './components/department/_dialogues/add-department/add-department.component';
 import { EditDepartmentComponent } from './components/department/_dialogues/edit-department/edit-department.component';
 
+import { HumanResourceComponent } from './components/human-resource/human-resource.component';
+import { HumanResourceDataListComponent } from './components/human-resource/human-resource-data-list/human-resource-data-list.component';
+import { HumanResourceDataTableComponent } from './components/human-resource/human-resource-data-table/human-resource-data-table.component';
+import { HumanResourceRibbonMenuComponent } from './components/human-resource/human-resource-ribbon-menu/human-resource-ribbon-menu.component';
+import { HumanResourceSearchComponent } from './components/human-resource/human-resource-search/human-resource-search.component';
+import { AddHumanResourceComponent } from './components/human-resource/_dialogues/add-human-resource/add-human-resource.component';
+import { EditHumanResourceComponent } from './components/human-resource/_dialogues/edit-human-resource/edit-human-resource.component';
+
 @NgModule({
   declarations: [
     ControlPanelComponent,
@@ -173,6 +181,15 @@ import { EditDepartmentComponent } from './components/department/_dialogues/edit
     AddDepartmentComponent,
     EditDepartmentComponent,
     DepartmentSearchComponent,
+
+    HumanResourceComponent,
+    HumanResourceDataListComponent,
+    HumanResourceDataTableComponent,
+    HumanResourceRibbonMenuComponent,
+    HumanResourceSearchComponent,
+    AddHumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceSearchComponent,
   ],
   providers: [DatePipe, ControlPanelMenu, MatDatepickerModule],
   imports: [
@@ -249,6 +266,10 @@ import { EditDepartmentComponent } from './components/department/_dialogues/edit
     AddDepartmentComponent,
     EditDepartmentComponent,
     DepartmentSearchComponent,
+
+    AddHumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceSearchComponent,
   ],
 })
 export class ControlPanelModule {}

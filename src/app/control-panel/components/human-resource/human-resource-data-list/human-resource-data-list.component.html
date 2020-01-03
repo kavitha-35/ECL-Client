@@ -1,0 +1,34 @@
+<section id="human-resource-list-container">
+    <section *ngFor="let element of humanResources">
+      <section class="title-wrapper">
+        <section class="title">#{{ element.name }}</section>
+        <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+        <mat-menu #statusMenu="matMenu">
+          <button mat-menu-item>Edit</button>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+      </section>
+      <section class="action-buttons-container">
+        <button mat-button>
+          <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+        </button>
+        <button mat-button>
+          <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+        </button>
+        <button mat-button>
+          <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+        </button>
+      </section>
+      <section class="human-resource-container">
+        <section class="sub-title">Name</section>
+        <section>{{ element.name }}</section>
+        
+        <section class="sub-title">Email</section>
+        <section>{{ element.email }}</section>
+        
+        <section class="sub-title">Alternate Email</section>
+        <section>{{ element.alternateEmail }}</section>
+      </section>
+    </section>
+  </section>
+  

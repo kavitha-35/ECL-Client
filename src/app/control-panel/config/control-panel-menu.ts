@@ -66,8 +66,8 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'rate_review',
     children: [
-      { state: 'not-found', name: 'Add Employee' },
-      { state: 'not-found', name: 'Employee List' },
+      { state: 'human-resource', name: 'Add Employee' },
+      { state: 'human-resource', name: 'Employee List' },
       { state: 'not-found', name: 'User Privilage' },
     ],
   },
