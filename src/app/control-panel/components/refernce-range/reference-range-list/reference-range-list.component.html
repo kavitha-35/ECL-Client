@@ -1,0 +1,50 @@
+<section id="reference-range-list-container">
+  <section *ngFor="let element of referenceRange">
+    <section class="title-wrapper">
+      <section class="title">#{{ element.id }} / {{ element.testCode }}</section>
+      <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+      <mat-menu #statusMenu="matMenu">
+        <button mat-menu-item>Edit</button>
+        <button mat-menu-item>Delete</button>
+      </mat-menu>
+    </section>
+    <section class="action-buttons-container">
+      <button mat-button>
+        <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+      </button>
+
+      <button mat-button>
+        <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+      </button>
+    </section>
+    <section class="reference-range-container">
+      <!--  ID -->
+      <section class="sub-title">ID</section>
+      <section>{{ element.id }}</section>
+
+      <!-- Test Code -->
+      <section class="sub-title">Test Code</section>
+      <section>{{ element.testCode }}</section>
+
+      <!-- Machine -->
+      <section class="sub-title">Machine</section>
+      <section>{{ element.machine }}</section>
+
+      <!-- Test Name -->
+      <section class="sub-title">Test Name</section>
+      <section>{{ element.testName }}</section>
+
+      <!-- Units -->
+      <section class="sub-title">Units</section>
+      <section>{{ element.units }}</section>
+
+      <!--Type -->
+      <section class="sub-title">Type</section>
+      <section>{{ element.type }}</section>
+    </section>
+  </section>
+</section>

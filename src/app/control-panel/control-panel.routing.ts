@@ -13,6 +13,7 @@ import { HomeDashboardComponent } from './components/dashboards/home-dashboard/h
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { OrganisationPriceListComponent } from './components/organisation-price-list/organisation-price-list.component';
 import { MethodsComponent } from './components/methods/methods.component';
+import { DepartmentComponent } from './components/department/department.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
       {
         path: 'equipment',
         component: EquipmentComponent,
+      },
+      {
+        path: 'department',
+        component: DepartmentComponent,
       },
       {
         path: 'reference-range',

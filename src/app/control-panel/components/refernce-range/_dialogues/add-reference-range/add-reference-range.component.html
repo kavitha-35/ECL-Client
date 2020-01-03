@@ -1,120 +1,124 @@
-<section>
-  <mat-card>
-    <!-- Mat Card header -->
-    <app-mat-dialog-header title="Add Reference Range" subTitle="Adds new Reference Range"></app-mat-dialog-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
-      <!-- General Information -->
-      <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
-        <!-- Test Code -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Test Code</mat-label>
-          <input matInput placeholder="Test Code" name="testCode" />
-        </mat-form-field>
+<section id="reference-range-container">
+  <mat-card class="reference-range-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Reference Range" subTitle="Add Reference Range" icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
 
-        <!-- Machine-->
-        <mat-form-field fxFlex="50">
-          <mat-label>Machine</mat-label>
-          <mat-select placeholder="Machine"></mat-select>
-        </mat-form-field>
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
 
-        <!-- Test Name -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Test Name</mat-label>
-          <input matInput placeholder="Test Name" name="testName" />
-        </mat-form-field>
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!-- Outsource Management Form -->
+          <form class="reference-range-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
 
-        <!-- Units -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Units</mat-label>
-          <input matInput placeholder="Units" name="units" />
-        </mat-form-field>
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Lab Name -->
+                <mat-form-field>
+                  <mat-label>Test Code</mat-label>
+                  <input matInput placeholder="Test Code" name="testCode" />
+                </mat-form-field>
 
-        <!-- Type-->
-        <mat-form-field fxFlex="50">
-          <mat-label>Type</mat-label>
-          <input matInput placeholder="Type" name="type" />
-        </mat-form-field>
+                <!-- Machine-->
+                <mat-form-field>
+                  <mat-label>Machine</mat-label>
+                  <mat-select placeholder="Machine"></mat-select>
+                </mat-form-field>
 
-        <!-- Alternate Result -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Alternate Result</mat-label>
-          <input matInput placeholder="Alternate Result" name="result" />
-        </mat-form-field>
+                <!-- Test Name -->
+                <mat-form-field>
+                  <mat-label>Test Name</mat-label>
+                  <input matInput placeholder="Test Name" name="testName" />
+                </mat-form-field>
 
-        <!-- Age Lower -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Age Lower</mat-label>
-          <input matInput placeholder="Age Lower" name="lowerAge" />
-        </mat-form-field>
+                <!-- Units -->
+                <mat-form-field>
+                  <mat-label>Units</mat-label>
+                  <input matInput placeholder="Units" name="units" />
+                </mat-form-field>
 
-        <!-- Age Upper -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Age Upper</mat-label>
-          <input matInput placeholder="Age Upper" name="upperAge" />
-        </mat-form-field>
+                <!-- Type-->
+                <mat-form-field>
+                  <mat-label>Type</mat-label>
+                  <input matInput placeholder="Type" name="type" />
+                </mat-form-field>
 
-        <!-- Reference Range Females -->
-        <section fxLayout="row wrap" fxLayoutAlign="start end" fxFlex="50" fxLayoutGap="20px grid">
-          <section fxFlex="50" class="mat-card-subtitle">Reference Range Female</section>
+                <!-- Alternate Result -->
+                <mat-form-field>
+                  <mat-label>Alternate Result</mat-label>
+                  <input matInput placeholder="Alternate Result" name="result" />
+                </mat-form-field>
 
-          <!-- Minimum -->
-          <mat-form-field fxFlex="25">
-            <mat-label>Minimum</mat-label>
-            <input matInput placeholder="Minimum" name="femaleMinimum" />
-          </mat-form-field>
+                <!-- Age Lower -->
+                <mat-form-field>
+                  <mat-label>Age Lower</mat-label>
+                  <input matInput placeholder="Age Lower" name="lowerAge" />
+                </mat-form-field>
 
-          <!-- maximum -->
-          <mat-form-field fxFlex="25">
-            <mat-label>Maximum</mat-label>
-            <input matInput placeholder="Maximum" name="femaleMaximum" />
-          </mat-form-field>
+                <!-- Age Upper -->
+                <mat-form-field>
+                  <mat-label>Age Upper</mat-label>
+                  <input matInput placeholder="Age Upper" name="upperAge" />
+                </mat-form-field>
+
+                <!-- Reference Range Females -->
+                <!-- Minimum -->
+                <mat-form-field>
+                  <mat-label>Minimum Reference Range Female</mat-label>
+                  <input matInput placeholder="Minimum" name="femaleMinimum" />
+                </mat-form-field>
+
+                <!-- maximum -->
+                <mat-form-field>
+                  <mat-label>Maximum Reference Range Female</mat-label>
+                  <input matInput placeholder="Maximum" name="femaleMaximum" />
+                </mat-form-field>
+
+                <!-- Reference Range Males -->
+                <!-- Minimum -->
+                <mat-form-field>
+                  <mat-label>Minimum Reference Range Male</mat-label>
+                  <input matInput placeholder="Minimum" name="maleMinimum" />
+                </mat-form-field>
+
+                <!-- Maximum -->
+                <mat-form-field>
+                  <mat-label>Maximum Reference Range Male</mat-label>
+                  <input matInput placeholder="Maximum" name="maleMaximum" />
+                </mat-form-field>
+
+                <!-- Critical Reference Range -->
+                <!-- Minimum -->
+                <mat-form-field>
+                  <mat-label>Minimum Critical Reference Range</mat-label>
+                  <input matInput placeholder="Minimum" name="criticalMinimum" />
+                </mat-form-field>
+
+                <!-- Maximum -->
+                <mat-form-field>
+                  <mat-label>Maximum Critical Reference Range</mat-label>
+                  <input matInput placeholder="Maximum" name="CriticalMaximum" />
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Add Reference Range</button>
+          </section>
         </section>
-
-        <!-- Reference Range Males -->
-        <section fxLayout="row wrap" fxLayoutAlign="start end" fxFlex="50" fxLayoutGap="20px grid">
-          <section fxFlex="50" class="mat-card-subtitle">Reference Range Female</section>
-
-          <!-- Minimum -->
-          <mat-form-field fxFlex="25">
-            <mat-label>Minimum</mat-label>
-            <input matInput placeholder="Minimum" name="maleMinimum" />
-          </mat-form-field>
-
-          <!-- Maximum -->
-          <mat-form-field fxFlex="25">
-            <mat-label>Maximum</mat-label>
-            <input matInput placeholder="Maximum" name="maleMaximum" />
-          </mat-form-field>
-        </section>
-
-        <!-- Critical Reference Range -->
-        <section fxLayout="row wrap" fxLayoutAlign="start end" fxFlex="50" fxLayoutGap="20px grid">
-          <section fxFlex="50" class="mat-card-subtitle">Critical Reference Range</section>
-
-          <!-- Minimum -->
-          <mat-form-field fxFlex="25">
-            <mat-label>Minimum</mat-label>
-            <input matInput placeholder="Minimum" name="criticalMinimum" />
-          </mat-form-field>
-
-          <!-- Maximum -->
-          <mat-form-field fxFlex="25">
-            <mat-label>Maximum</mat-label>
-            <input matInput placeholder="Maximum" name="CriticalMaximum" />
-          </mat-form-field>
-        </section>
-      </section>
-
-      <!-- Dialog Actions -->
-      <section mat-dialog-actions>
-        <section class="mt-1 mb-1 full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
-          <button mat-button color="primary" matDialogClose>Cancel</button>
-          <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddReferenceRangeClicked()">
-            Add Reference Range(s)
-          </button>
-        </section>
-      </section>
-    </mat-card-content>
+      </mat-dialog-content>
+    </section>
   </mat-card>
 </section>

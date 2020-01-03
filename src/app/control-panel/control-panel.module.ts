@@ -27,7 +27,14 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NgChatModule } from 'ng-chat';
-import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatIconModule, MatPaginatorModule, MatSlideToggleModule } from '@angular/material';
+import {
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatPaginatorModule,
+  MatSlideToggleModule,
+} from '@angular/material';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AgmCoreModule } from '@agm/core';
 import { ControlPanelRouting } from './control-panel.routing';
@@ -95,6 +102,16 @@ import { MethodSearchComponent } from './components/methods/method-search/method
 import { AddMethodComponent } from './components/methods/_dialogues/add-method/add-method.component';
 import { EditMethodComponent } from './components/methods/_dialogues/edit-method/edit-method.component';
 
+import { ReferenceRangeRibbonMenuComponent } from './components/refernce-range/reference-range-ribbon-menu/reference-range-ribbon-menu.component';
+import { ReferenceRangeSearchComponent } from './components/refernce-range/reference-range-search-component/reference-range-search-component.component';
+import { ReferenceRangeListComponent } from './components/refernce-range/reference-range-list/reference-range-list.component';
+import { DepartmentComponent } from './components/department/department.component';
+import { DepartmentDataListComponent } from './components/department/department-data-list/department-data-list.component';
+import { DepartmentDataTableComponent } from './components/department/department-data-table/department-data-table.component';
+import { DepartmentRibbonMenuComponent } from './components/department/department-ribbon-menu/department-ribbon-menu.component';
+import { DepartmentSearchComponent } from './components/department/department-search/department-search.component';
+import { AddDepartmentComponent } from './components/department/_dialogues/add-department/add-department.component';
+import { EditDepartmentComponent } from './components/department/_dialogues/edit-department/edit-department.component';
 
 @NgModule({
   declarations: [
@@ -159,13 +176,25 @@ import { EditMethodComponent } from './components/methods/_dialogues/edit-method
     MethodListDataTableComponent,
     MethodListComponent,
     MethodRibbonMenuComponent,
-    MethodSearchComponent
+    MethodSearchComponent,
   ],
   providers: [
     DatePipe,
     ControlPanelMenu,
     MatDatepickerModule,
+    ReferenceRangeRibbonMenuComponent,
+    ReferenceRangeSearchComponent,
+    ReferenceRangeListComponent,
+    DepartmentComponent,
+    DepartmentDataListComponent,
+    DepartmentDataTableComponent,
+    DepartmentRibbonMenuComponent,
+    DepartmentSearchComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    DepartmentSearchComponent,
   ],
+
   imports: [
     RouterModule,
     CommonModule,
@@ -210,9 +239,7 @@ import { EditMethodComponent } from './components/methods/_dialogues/edit-method
     }),
     AgmCoreModule,
   ],
-  exports: [
-    RouterModule, ControlPanelComponent
-  ],
+  exports: [RouterModule, ControlPanelComponent],
   entryComponents: [
     AddCombinedTestComponent,
     EditCombinedTestComponent,
@@ -240,7 +267,11 @@ import { EditMethodComponent } from './components/methods/_dialogues/edit-method
     OrganisationPriceListSearchComponent,
     AddMethodComponent,
     EditMethodComponent,
-    MethodSearchComponent
+    MethodSearchComponent,
+    ReferenceRangeSearchComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    DepartmentSearchComponent,
   ],
 })
 export class ControlPanelModule {}

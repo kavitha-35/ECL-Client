@@ -1,27 +1,62 @@
-<section class="animated fadeIn">
+<section id="reference-range-container" class="animated fadeIn">
+  <!-- Material Card -->
   <mat-card>
-    <!-- Mat Card Title -->
-    <mat-card-title>
-      <section class="mat-card-title-container">
-        <section>
-          Reference Range Lists
-        </section>
-        <section>
-          <button mat-button color="primary" (click)="onAddReferenceRangeButtonClicked()">+ Add Reference Range</button>
-        </section>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">payment </mat-icon>
       </section>
-    </mat-card-title>
 
-    <!-- Mat Card SubTitle -->
-    <mat-card-subtitle> Manage Reference Range(s) </mat-card-subtitle>
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Reference Range
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage Reference Range </mat-card-subtitle>
+      </section>
+
+      <!-- Add Appointment Button -->
+      <section class="reference-range-button-wrapper">
+        <button mat-stroked-button (click)="onAddReferenceRangeButtonClicked()">Add Reference Range</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-reference-range-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+    </app-reference-range-ribbon-menu>
 
     <!-- Mat Divider -->
     <mat-divider></mat-divider>
 
-    <!-- Reference Range Data Table -->
-    <app-reference-range-data-table
-      (editReferenceRangeClicked)="onEditReferenceRangeClicked()"
-      [isBusy]="isFetchingReferenceRange"
-    ></app-reference-range-data-table>
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-reference-range-list
+      [referenceRange]="referenceRange | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-reference-range-list
+          >
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-reference-range-data-table
+        [referenceRanges]="referenceRange | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (editReferenceRangeClicked)="onEditReferenceRangeClicked()"
+        [isBusy]="isFetchingReferenceRange"
+      ></app-reference-range-data-table>
+    </ng-template>
+
+    <mat-paginator [length]="referenceRange.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator>
   </mat-card>
 </section>

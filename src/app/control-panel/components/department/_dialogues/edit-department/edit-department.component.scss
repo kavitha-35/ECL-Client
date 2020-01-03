@@ -1,4 +1,4 @@
-@import "../../../../../../assets/styles/scss/color";
+@import '../../../../../../assets/styles/scss/color';
 
 @mixin forms-grid {
   display: grid;
@@ -10,8 +10,8 @@
   margin-bottom: 18px;
 }
 
-#reference-range-container {
-  .reference-range-mat-card {
+#department-container {
+  .organisation-mat-card {
     display: grid;
     grid-template-columns: 220px 1fr;
 
@@ -19,7 +19,7 @@
       margin: auto;
     }
 
-    .reference-range-form {
+    .department-form {
       .basic-wrapper {
         @include margin-bottom-18;
 
@@ -32,18 +32,34 @@
         }
       }
 
-      .payment-information-wrapper {
+      .locale-information-wrapper {
         @include margin-bottom-18;
 
-        .payment-information-content {
+        .locale-information-content {
           @include forms-grid;
         }
       }
 
-      .login-information-wrapper {
+      .finance-information-wrapper {
         @include margin-bottom-18;
 
-        .login-information-content {
+        .finance-information-content {
+          @include forms-grid;
+        }
+      }
+
+      .finance-information-wrapper {
+        @include margin-bottom-18;
+
+        .finance-information-content {
+          @include forms-grid;
+        }
+      }
+
+      .user-credentials-information-wrapper {
+        @include margin-bottom-18;
+
+        .user-credentials-content {
           @include forms-grid;
         }
       }
