@@ -1,29 +1,63 @@
-<section class="animated fadeIn">
+<section id="combined-test-container" class="animated fadeIn">
+  <!-- Material Card -->
   <mat-card>
-    <!-- Mat Card Title -->
-    <mat-card-title>
-      <section class="mat-card-title-container">
-        <section>
-          Test Lists
-        </section>
-        <section>
-          <button mat-button color="primary" (click)="onAddTestButtonClicked()">+ Add Test</button>
-        </section>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">streetview </mat-icon>
       </section>
-    </mat-card-title>
 
-    <!-- Mat Card SubTitle -->
-    <mat-card-subtitle> Manage Test(s) </mat-card-subtitle>
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Combined Test
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage Combined Test </mat-card-subtitle>
+      </section>
+
+      <!-- Add Combined Test Button -->
+      <section class="combined-test-button-wrapper">
+        <button mat-stroked-button (click)="onAddCombinedTestButtonClicked()">Add Combined Test</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-combined-test-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+    </app-combined-test-ribbon-menu>
 
     <!-- Mat Divider -->
     <mat-divider></mat-divider>
 
-    <!-- Combined Test List Data Table -->
-    <app-combined-test-list-data-table
-      [tests]="tests"
-      [isBusy]="isFetchingTests"
-      (editTestClicked)="onEditTestClicked($event)"
-      (deleteTestClicked)="onDeleteTestClicked($event)"
-    ></app-combined-test-list-data-table>
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-combined-test-list
+        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-combined-test-list
+          >
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-combined-test-list-data-table
+        [tests]="tests"
+        [isBusy]="isFetchingTests"
+        (editCombinedTestClicked)="onEditTestClicked($event)"
+        (manageButtonClicked)="onManageButtonClicked($event)"
+      ></app-combined-test-list-data-table>
+    </ng-template>
+
+    <mat-paginator [length]="tests.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator>
   </mat-card>
 </section>

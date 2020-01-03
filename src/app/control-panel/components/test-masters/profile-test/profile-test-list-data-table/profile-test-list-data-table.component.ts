@@ -5,6 +5,8 @@ import { LinkTestToProfiletestComponent } from '../_dialogues/link-test-to-profi
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ProfileTestModel } from 'app/control-panel/models/test-master/profile-test/profile-test.model';
 import { TestModel } from 'app/control-panel/models/tests/test.model';
+import { GridColumnModel } from 'app/shared/models/grid-column.model';
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
 
 @Component({
   selector: 'app-profile-test-list-data-table',
@@ -19,225 +21,49 @@ import { TestModel } from 'app/control-panel/models/tests/test.model';
   ],
 })
 export class ProfileTestListDataTableComponent implements OnInit {
+  @Input() tests: ProfileTestModel[];
   @Output() editProfileTestClicked = new EventEmitter<ProfileTestModel>();
+  @Output() manageButtonClicked: EventEmitter<string>;
   @Input() isBusy: boolean;
   public expandedElement: ProfileTestModel[];
-  public linkedTests: TestModel[];
-  public profileTest: ProfileTestModel[] = [
-    {
-      name: '11-DeSoXYCORTICOSTTERONE',
-      id: '1',
-      outsourceId: 123,
-      integrationCode: '123',
-      minimumSellingPrice: 123,
-      revenueCap: 123,
-      profilePrice: 123,
-      status: 'Not verified',
-      tests: [
-        {
-          id: 1,
-          name: 'Malaria',
-          testCode: '12345',
-          shortText: 'xxxxx',
-          categoryId: 12345,
-          integrationCode: '6543',
-          description: 'xxxxxx',
-          isAutoDispatch: false,
-          isBillOnlyTest: false,
-          isReportMasked: false,
-          isNABLTest: false,
-          isNA: false,
-          isPrintPriorityNA: false,
-          isOutSourceTest: false,
-          isDiscardDiscount: false,
-          isCAP: false,
-          isNoReportToPatient: false,
-          price: 550,
-          price2: 600,
-          minimumSellingPrice: 450,
-          cost: 500,
-          revenueCAP: 100,
-          targetTATDays: 10,
-          targetTATHours: 10,
-          targetTATMinutes: 10,
-          sampleId: 10,
-        },
-        {
-          id: 3,
-          name: 'Dengu',
-          testCode: '12345',
-          shortText: 'xxxxx',
-          categoryId: 12345,
-          integrationCode: '6543',
-          description: 'xxxxxx',
-          isAutoDispatch: false,
-          isBillOnlyTest: false,
-          isReportMasked: false,
-          isNABLTest: false,
-          isNA: false,
-          isPrintPriorityNA: false,
-          isOutSourceTest: false,
-          isDiscardDiscount: false,
-          isCAP: false,
-          isNoReportToPatient: false,
-          price: 550,
-          price2: 600,
-          minimumSellingPrice: 450,
-          cost: 500,
-          revenueCAP: 100,
-          targetTATDays: 10,
-          targetTATHours: 10,
-          targetTATMinutes: 10,
-          sampleId: 10,
-        },
-        {
-          id: 2,
-          name: 'Sugar',
-          testCode: '12345',
-          shortText: 'xxxxx',
-          categoryId: 12345,
-          integrationCode: '6543',
-          description: 'xxxxxx',
-          isAutoDispatch: false,
-          isBillOnlyTest: false,
-          isReportMasked: false,
-          isNABLTest: false,
-          isNA: false,
-          isPrintPriorityNA: false,
-          isOutSourceTest: false,
-          isDiscardDiscount: false,
-          isCAP: false,
-          isNoReportToPatient: false,
-          price: 550,
-          price2: 600,
-          minimumSellingPrice: 450,
-          cost: 500,
-          revenueCAP: 100,
-          targetTATDays: 10,
-          targetTATHours: 10,
-          targetTATMinutes: 10,
-          sampleId: 10,
-        },
-      ],
-    },
-    {
-      name: '5-AMINOSALYLIC ACID',
-      id: '1',
-      outsourceId: 123,
-      integrationCode: '123',
-      minimumSellingPrice: 123,
-      revenueCap: 123,
-      profilePrice: 123,
-      status: 'Not verified',
-      tests: [
-        {
-          id: 1,
-          name: 'Malaria',
-          testCode: '12345',
-          shortText: 'xxxxx',
-          categoryId: 12345,
-          integrationCode: '6543',
-          description: 'xxxxxx',
-          isAutoDispatch: false,
-          isBillOnlyTest: false,
-          isReportMasked: false,
-          isNABLTest: false,
-          isNA: false,
-          isPrintPriorityNA: false,
-          isOutSourceTest: false,
-          isDiscardDiscount: false,
-          isCAP: false,
-          isNoReportToPatient: false,
-          price: 550,
-          price2: 600,
-          minimumSellingPrice: 450,
-          cost: 500,
-          revenueCAP: 100,
-          targetTATDays: 10,
-          targetTATHours: 10,
-          targetTATMinutes: 10,
-          sampleId: 10,
-        },
-        {
-          id: 3,
-          name: 'Dengu',
-          testCode: '12345',
-          shortText: 'xxxxx',
-          categoryId: 12345,
-          integrationCode: '6543',
-          description: 'xxxxxx',
-          isAutoDispatch: false,
-          isBillOnlyTest: false,
-          isReportMasked: false,
-          isNABLTest: false,
-          isNA: false,
-          isPrintPriorityNA: false,
-          isOutSourceTest: false,
-          isDiscardDiscount: false,
-          isCAP: false,
-          isNoReportToPatient: false,
-          price: 550,
-          price2: 600,
-          minimumSellingPrice: 450,
-          cost: 500,
-          revenueCAP: 100,
-          targetTATDays: 10,
-          targetTATHours: 10,
-          targetTATMinutes: 10,
-          sampleId: 10,
-        },
-        {
-          id: 2,
-          name: 'Sugar',
-          testCode: '12345',
-          shortText: 'xxxxx',
-          categoryId: 12345,
-          integrationCode: '6543',
-          description: 'xxxxxx',
-          isAutoDispatch: false,
-          isBillOnlyTest: false,
-          isReportMasked: false,
-          isNABLTest: false,
-          isNA: false,
-          isPrintPriorityNA: false,
-          isOutSourceTest: false,
-          isDiscardDiscount: false,
-          isCAP: false,
-          isNoReportToPatient: false,
-          price: 550,
-          price2: 600,
-          minimumSellingPrice: 450,
-          cost: 500,
-          revenueCAP: 100,
-          targetTATDays: 10,
-          targetTATHours: 10,
-          targetTATMinutes: 10,
-          sampleId: 10,
-        },
-      ],
-    },
-  ];
-  displayedColumns: string[] = ['nestedSymbol', 'name', 'integration', 'price', 'status', 'action'];
-  constructor(private readonly matDialog: MatDialog) {}
+  public displayedColumns: string[];
+  public filteredColumns: GridColumnModel[];
 
-  ngOnInit(): void {}
+  constructor(private readonly matDialog: MatDialog) {
+    this.manageButtonClicked = new EventEmitter<string>();
+  }
+
+  ngOnInit(): void {
+    this._initializeDisplayedColumns();
+  }
 
   public onEditProfileTestClicked(profiletest: ProfileTestModel): void {
     this.editProfileTestClicked.emit(profiletest);
   }
 
-  public onAddLinkTestButtonClicked(): void {
-    const matDialogConfig: MatDialogConfig = {
-      disableClose: true,
-      width: '1400px',
-      height: '440px',
-      panelClass: 'mat-dialogue-no-padding',
-    };
+  public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
+    this.displayedColumns = selectedColumns.map((x) => x.columnName);
+  }
+  public onManageButtonClicked(dosCode: string): void {
+    this.manageButtonClicked.emit(dosCode);
+  }
 
-    this.matDialog
-      .open(LinkTestToProfiletestComponent, matDialogConfig)
-      .afterClosed()
-      .pipe(take(1))
-      .subscribe((linkedTests) => (this.linkedTests = linkedTests));
+  private _initializeDisplayedColumns(): void {
+    this.filteredColumns = [
+      { columnName: 'nestedSymbol', displayValue: 'ID', isSelected: true },
+      { columnName: 'name', displayValue: 'Activity', isSelected: true },
+      { columnName: 'testId', displayValue: 'Test Category', isSelected: false },
+      { columnName: 'cptCode', displayValue: 'Accreditiation Symbol', isSelected: false },
+      { columnName: 'testName', displayValue: 'Integration Code', isSelected: true },
+      { columnName: 'price', displayValue: 'Processing Center', isSelected: false },
+      { columnName: 'storage', displayValue: 'Outsource Vendor Code', isSelected: true },
+      { columnName: 'department', displayValue: 'Method', isSelected: true },
+      { columnName: 'location', displayValue: 'Unit', isSelected: true },
+      { columnName: 'currency', displayValue: 'Reference Range', isSelected: true },
+      { columnName: 'status', displayValue: 'TAT', isSelected: true },
+      { columnName: 'action', displayValue: 'Action', isSelected: true },
+    ];
+    const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
+    this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
 }

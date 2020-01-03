@@ -46,21 +46,21 @@
       <!-- List View -->
       <ng-template #listView>
         <app-department-data-list
-          [departments]="departments | slice: pageEvent.pageIndex:pageEvent.pageSize"
+          [departments]="departments"
         ></app-department-data-list>
       </ng-template>
   
       <!-- Table View -->
       <ng-template #tableView>
         <app-department-data-table
-          [departments]="departments | slice: pageEvent.pageIndex:pageEvent.pageSize"
+          [departments]="departments"
           (editDepartmentClicked)="onEditDepartmentClicked()"
           [isBusy]="isFetchingDepartments"
         ></app-department-data-table>
       </ng-template>
   
-      <mat-paginator [length]="departments.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
-      </mat-paginator>
+      <!-- <mat-paginator [length]="departments.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"> -->
+      <!-- </mat-paginator> -->
     </mat-card>
   </section>
   

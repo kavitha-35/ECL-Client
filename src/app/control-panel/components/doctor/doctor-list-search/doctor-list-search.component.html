@@ -1,0 +1,54 @@
+<section id="doctor-filter-container" class="full-width">
+  <mat-card>
+    <section>
+      <!-- Mat Card Title -->
+      <app-mat-dialog-header title="Search" subTitle="Search for Doctor(s)"></app-mat-dialog-header>
+      <mat-divider></mat-divider>
+    </section>
+
+    <!--Mat Card Filter Content-->
+    <section class="filter-field">
+      <!--  Doctor Name -->
+      <mat-form-field>
+        <mat-label>Doctor Name</mat-label>
+        <input matInput placeholder="Doctor Name" />
+      </mat-form-field>
+
+      <!-- Date of Birth -->
+      <mat-form-field>
+        <mat-label>Date Of Birth</mat-label>
+        <input matInput placeholder="Date Of Birth" />
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field>
+        <mat-label>Email Id</mat-label>
+        <input matInput placeholder="Email" />
+      </mat-form-field>
+
+      <!-- Speciality -->
+      <mat-form-field>
+        <mat-label>Speciality</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <!-- Department -->
+      <mat-form-field>
+        <mat-label>Department</mat-label>
+        <input matInput maxlength="25" placeholder="Department" />
+      </mat-form-field>
+
+      <!-- Country-->
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <input matInput placeholder="Country" />
+      </mat-form-field>
+    </section>
+
+    <!-- Apply Filter Button -->
+    <section class="buttons-wrapper">
+      <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+      <button mat-stroked-button color="primary">Search</button>
+    </section>
+  </mat-card>
+</section>
