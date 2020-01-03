@@ -28,7 +28,7 @@ const MENUITEMS: Menu[] = [
       { state: 'organisation', name: 'Add Organisation'},
       { state: 'doctor', name: 'Add Doctor' },
       { state: 'organisation-price-list', name: 'Add Organisation Price List' },
-      { state: 'not-found', name: 'Organisation List' },
+      { state: 'organisation', name: 'Organisation List' },
     ],
   },
   {
