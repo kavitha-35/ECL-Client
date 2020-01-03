@@ -1,10 +1,39 @@
-.mat-card-title-container {
+#combined-test-container {
+  .mat-header-container {
     display: grid;
-    grid-template-columns: 1fr auto;
-  
-    button {
-      padding: 0;
-      line-height: 0;
+    grid-template-columns: auto 1fr auto;
+
+    .mat-header-image-wrapper {
+      padding: 1rem 0.5rem 0 1rem;
+
+      .mat-icon {
+        font-size: 32px;
+        color: #034F79;
+      }
+    }
+
+    .mat-card-title-container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      button {
+        padding: 0;
+        line-height: 0;
+      }
+    }
+
+    .combined-test-button-wrapper {
+      padding: 1rem;
     }
   }
-  
+
+  .combined-test-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+
+    .combined-test-button {
+      margin-bottom: 12px;
+      margin-right: 12px;
+    }
+  }
+}

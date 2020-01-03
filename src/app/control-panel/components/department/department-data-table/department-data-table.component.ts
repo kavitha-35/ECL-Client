@@ -20,6 +20,7 @@ export class DepartmentDataTableComponent implements OnInit {
   ngOnInit(): void {
     this._initializeDisplayedColumns();
   }
+
   public onEditDepartmentClicked(): void {
     this.editDepartmentClicked.emit();
   }
@@ -34,8 +35,8 @@ export class DepartmentDataTableComponent implements OnInit {
   }
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
+      { columnName: 'id', displayValue: 'Department Id', isSelected: true },
       { columnName: 'departmentname', displayValue: 'Department Name', isSelected: true },
-      { columnName: 'departmenttype', displayValue: 'Department Type', isSelected: true },
       { columnName: 'doctorname', displayValue: 'Doctor Name', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];

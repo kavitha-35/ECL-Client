@@ -1,127 +1,120 @@
-<section>
-  <mat-card>
-    <!-- Mat Card header -->
-    <app-mat-dialog-header title="Add Test" subTitle="Adds new test for testing"></app-mat-dialog-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
-      <!-- General Information -->
-      <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
-        <!-- Department -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Department</mat-label>
-          <mat-select placeholder="Select Department"> </mat-select>
-        </mat-form-field>
+<section id="combined-test-container">
+  <mat-card class="combined-test-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Combined Test Master" subTitle="Add a Combined Test" icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
 
-        <!-- Test Name -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Test Name</mat-label>
-          <input matInput placeholder="Test name" name="name" />
-        </mat-form-field>
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
 
-        <!-- Test Code -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Test Code</mat-label>
-          <input matInput placeholder="Test Code" name="testCode" />
-        </mat-form-field>
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!--combined Test Form -->
+          <form class="combined-test-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Combined Test Information"></app-section-header>
 
-        <!-- DOS Code -->
-        <mat-form-field fxFlex="25">
-          <mat-label>DOS Code</mat-label>
-          <input matInput placeholder="DOS Code" name="dosCode" />
-        </mat-form-field>
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- ECl Code-->
+                <mat-form-field>
+                  <mat-label>ECl DOS Code</mat-label>
+                  <input matInput placeholder="Outsouce Vendor Code" />
+                </mat-form-field>
 
-        <!-- Combine Test CPT Code -->
-        <mat-form-field fxFlex="25">
-          <mat-label>CPT Code</mat-label>
-          <input matInput placeholder="CPT Code" name="cptCode" />
-        </mat-form-field>
+                <!-- Test Id-->
+                <mat-form-field>
+                  <mat-label>Test Id</mat-label>
+                  <input matInput placeholder="Test Id" />
+                </mat-form-field>
 
-        <!-- Short Code -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Short Code</mat-label>
-          <input matInput placeholder="Short Code" name="shortText" />
-        </mat-form-field>
+                <!-- CPT Code-->
+                <mat-form-field>
+                  <mat-label>CPT Code</mat-label>
+                  <input matInput placeholder="Test Id" />
+                </mat-form-field>
 
-        <!-- Integration Code -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Integration Code</mat-label>
-          <input matInput placeholder="Integration Code" name="integrationCode" />
-        </mat-form-field>
+                <!-- Test Name-->
+                <mat-form-field>
+                  <mat-label>Test Name</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
 
-        <!-- Category -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Category</mat-label>
-          <input matInput placeholder="Category" name="categoryId" />
-        </mat-form-field>
+                <!-- Specimmen-->
+                <mat-form-field>
+                  <mat-label>Specimen</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
 
-        <!-- Price -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Price</mat-label>
-          <input matInput placeholder="Price" name="price" />
-        </mat-form-field>
+                <!-- Specimmen -->
+                <mat-form-field>
+                  <mat-label>Specimen Type</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
 
-        <!-- Cost of the Test -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Cost of Test</mat-label>
-          <input matInput placeholder="Cost of Test" name="cost" />
-        </mat-form-field>
+                <!-- Storage-->
+                <mat-form-field>
+                  <mat-label>Storage</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
 
-        <!-- Minimum Selling Price -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Minimum Selling Price</mat-label>
-          <input matInput placeholder="Minimum Selling Price" name="minimumSellingPrice" />
-        </mat-form-field>
+                <!-- Department-->
+                <mat-form-field>
+                  <mat-label>Department</mat-label>
+                  <input matInput placeholder="Department" />
+                </mat-form-field>
 
-        <!-- Revenue CAP -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Revenue CAP</mat-label>
-          <input matInput placeholder="Revenue CAP" name="revenueCAP" />
-        </mat-form-field>
+                <!--Patient Fee-->
+                <mat-form-field>
+                  <mat-label>Patient Fee</mat-label>
+                  <input matInput placeholder="Patient Fee" />
+                </mat-form-field>
 
-        <!-- Specimen-->
-        <mat-form-field fxFlex="25">
-          <mat-label>Specimen</mat-label>
-          <mat-select placeholder="Select Specimen"> </mat-select>
-        </mat-form-field>
+                <!-- Net Fee-->
+                <mat-form-field>
+                  <mat-label>Net Fee</mat-label>
+                  <input matInput placeholder="Net Fee" />
+                </mat-form-field>
+                <!-- Location -->
+                <mat-form-field>
+                  <mat-label>Location</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
 
-        <!-- Storage -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Storage</mat-label>
-          <mat-select placeholder="Select Storage"> </mat-select>
-        </mat-form-field>
+                <!-- Currency-->
+                <mat-form-field>
+                  <mat-label>Currency</mat-label>
+                  <input matInput placeholder="Currency" />
+                </mat-form-field>
 
-        <!-- Gross -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Gross</mat-label>
-          <input matInput placeholder="gross" name="gross" />
-        </mat-form-field>
+                <!-- Report Format -->
+                <mat-form-field>
+                  <mat-label>Report Format</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
 
-        <!-- Net -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Net</mat-label>
-          <input matInput placeholder="Net" name="net" />
-        </mat-form-field>
+                <!-- Description -->
+                <mat-form-field>
+                  <mat-label>Description</mat-label>
+                  <input matInput placeholder="Description" />
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
 
-        <!-- report Format -->
-        <mat-form-field fxFlex="25">
-          <mat-label>Report Format</mat-label>
-          <mat-select placeholder="Select Report Format"> </mat-select>
-        </mat-form-field>
-
-        <!-- Description -->
-        <mat-form-field fxFlex="75">
-          <mat-label>Description</mat-label>
-          <textarea matInput placeholder="Description" name="description"></textarea>
-        </mat-form-field>
-      </section>
-
-      <!-- Dialog Actions -->
-      <section mat-dialog-actions>
-        <section class="mt-1 mb-1 full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
-          <button mat-button color="primary" matDialogClose>Cancel</button>
-          <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddTestClicked()">Add Test(s)</button>
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary">Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Add Combined Test</button>
+          </section>
         </section>
-      </section>
-    </mat-card-content>
+      </mat-dialog-content>
+    </section>
   </mat-card>
 </section>
