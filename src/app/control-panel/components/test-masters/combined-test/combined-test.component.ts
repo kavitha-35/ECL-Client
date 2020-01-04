@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, PageEvent } from '@angular/material';
 import { TestService } from 'app/main/services/test.service';
 import { take } from 'rxjs/operators';
 import { AddCombinedTestComponent } from './_dialogues/add-combined-test/add-combined-test.component';
 import { EditCombinedTestComponent } from './_dialogues/edit-combined-test/edit-combined-test.component';
 import { TestModel } from 'app/control-panel/models/tests/test.model';
+import { DISPLAY_MODE } from 'app/main/models/constants';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
 
 @Component({
   selector: 'app-combined-test',
@@ -12,120 +15,45 @@ import { TestModel } from 'app/control-panel/models/tests/test.model';
   styleUrls: ['./combined-test.component.scss'],
 })
 export class CombinedTestComponent implements OnInit {
-  public tests: TestModel[];
-  public lastSavedTest: TestModel;
+  public tests: CombinedTestModel[];
+  public showListView: boolean;
+  public pageEvent: PageEvent;
+  public pageSizeOptions: number[];
+  public lastSavedTest: CombinedTestModel;
   public isFetchingTests: boolean;
+
   matDialogConfig: MatDialogConfig = {
-    disableClose: true,
-    width: '1400px',
     panelClass: 'mat-dialogue-no-padding',
+    width: '1400px',
+    autoFocus: false,
   };
 
-  constructor(private readonly matDialog: MatDialog, private readonly testService: TestService) {}
-
-  ngOnInit(): void {
-    this.tests = [
-      {
-        id: 1,
-        name: 'Malaria',
-        testCode: '12345',
-        shortText: 'xxxxx',
-        categoryId: 12345,
-        integrationCode: '6543',
-        description: 'xxxxxx',
-        isAutoDispatch: false,
-        isBillOnlyTest: false,
-        isReportMasked: false,
-        isNABLTest: false,
-        isNA: false,
-        isPrintPriorityNA: false,
-        isOutSourceTest: false,
-        isDiscardDiscount: false,
-        isCAP: false,
-        isNoReportToPatient: false,
-        price: 550,
-        price2: 600,
-        minimumSellingPrice: 450,
-        cost: 500,
-        revenueCAP: 100,
-        targetTATDays: 10,
-        targetTATHours: 10,
-        targetTATMinutes: 10,
-        sampleId: 10,
-      },
-      {
-        id: 3,
-        name: 'Dengu',
-        testCode: '12345',
-        shortText: 'xxxxx',
-        categoryId: 12345,
-        integrationCode: '6543',
-        description: 'xxxxxx',
-        isAutoDispatch: false,
-        isBillOnlyTest: false,
-        isReportMasked: false,
-        isNABLTest: false,
-        isNA: false,
-        isPrintPriorityNA: false,
-        isOutSourceTest: false,
-        isDiscardDiscount: false,
-        isCAP: false,
-        isNoReportToPatient: false,
-        price: 550,
-        price2: 600,
-        minimumSellingPrice: 450,
-        cost: 500,
-        revenueCAP: 100,
-        targetTATDays: 10,
-        targetTATHours: 10,
-        targetTATMinutes: 10,
-        sampleId: 10,
-      },
-      {
-        id: 2,
-        name: 'Sugar',
-        testCode: '12345',
-        shortText: 'xxxxx',
-        categoryId: 12345,
-        integrationCode: '6543',
-        description: 'xxxxxx',
-        isAutoDispatch: false,
-        isBillOnlyTest: false,
-        isReportMasked: false,
-        isNABLTest: false,
-        isNA: false,
-        isPrintPriorityNA: false,
-        isOutSourceTest: false,
-        isDiscardDiscount: false,
-        isCAP: false,
-        isNoReportToPatient: false,
-        price: 550,
-        price2: 600,
-        minimumSellingPrice: 450,
-        cost: 500,
-        revenueCAP: 100,
-        targetTATDays: 10,
-        targetTATHours: 10,
-        targetTATMinutes: 10,
-        sampleId: 10,
-      },
-    ];
+  constructor(
+    private readonly matDialog: MatDialog,
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly _router: Router,
+  ) {
+    this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
+    this.pageSizeOptions = [10, 25, 50, 100];
   }
 
-  public onAddTestButtonClicked(): void {
+  ngOnInit(): void {
+    this._initializeValues();
+    this._activatedRoute.queryParams.subscribe((queryParams) => {
+      this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
+    });
+  }
+
+  public onManageButtonClicked(dosCode: string): void {
+    this._router.navigate(['/control-panel/combined-test-details'], { queryParams: { id: dosCode } });
+  }
+
+  public onAddCombinedTestButtonClicked(): void {
     this.matDialog
       .open(AddCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
       .subscribe((testToBeAdded: TestModel) => {});
-  }
-
-  public loadTests(): void {
-    this.isFetchingTests = true;
-    this.testService.getTestsByDepartmentId('1').subscribe((data) => {
-      this.tests = data;
-      this.isFetchingTests = false;
-    });
   }
 
   public onEditTestClicked(test: TestModel): void {
@@ -137,5 +65,52 @@ export class CombinedTestComponent implements OnInit {
       .subscribe((testToBeEdited: TestModel) => {});
   }
 
+  public onShowListViewButtonClicked(): void {
+    this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });
+  }
+
+  public onShowTableViewButtonClicked(): void {
+    this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
+  }
+
   public onDeleteTestClicked(testId: string): void {}
+
+  public _initializeValues(): void {
+    this.tests = [
+      {
+        dosCode: 'ECL-767',
+        testId: '1313741',
+        cptCode: '82465',
+        testName: 'cholestrol,Total',
+        specimen: '2 ml serum',
+        specimenType: 'serum',
+        storage: 'refrigerated',
+        department: 'biochemistry',
+        patientFee: '40.00',
+        netFee: '10.00',
+        location: 'dubai',
+        currency: 'dihram',
+        reportFormat: '',
+        individualTest: [
+          {
+            id: '1708027',
+            active: 'Active',
+            testCategory: 'outsource',
+            accreditationSymbol: '**',
+            testComponent: 'blood',
+            processingCenter: 'pathcare',
+            outsourceVendorCode: 'HM052',
+            method: 'CLIA',
+            unit: '2 ml',
+            referenceRange: '3.00 to 40.00',
+            tat: '1',
+            cptAmount: '4.00',
+            integrationCode: 'T105',
+            accreditation: 'not enable',
+            comments: 'String',
+          },
+        ],
+      },
+    ];
+  }
 }

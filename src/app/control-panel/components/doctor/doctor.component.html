@@ -1,28 +1,68 @@
-<section class="animated fadeIn">
+  <section id="doctor-container" class="animated fadeIn">
+    <!-- Material Card -->
     <mat-card>
-      <!-- Mat Card Title -->
-      <mat-card-title>
-        <section class="mat-card-title-container">
-          <section>
-            Doctor Lists
-          </section>
-          <section>
-            <button mat-button color="primary" (click)="onAddDoctorButtonClicked()">+ Add Doctor</button>
-          </section>
+      <section class="mat-header-container">
+        <!-- Mat Header Image -->
+        <section class="mat-header-image-wrapper">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">home_work </mat-icon>
         </section>
-      </mat-card-title>
   
-      <!-- Mat Card SubTitle -->
-      <mat-card-subtitle> Manage Doctor(s) </mat-card-subtitle>
+        <!-- Mat Header Title -->
+        <section>
+          <!-- Mat Card Title -->
+          <mat-card-title>
+            <section class="mat-card-title-container">
+              <section>
+                Doctor
+              </section>
+            </section>
+          </mat-card-title>
+  
+          <!-- Mat Card SubTitle -->
+          <mat-card-subtitle> View/Manage Doctor</mat-card-subtitle>
+        </section>
+  
+        <!-- Add doctor Button -->
+        <section class="doctor-button-wrapper">
+          <button mat-stroked-button (click)="onAddDoctorButtonClicked()">Add Doctor Button </button>
+        </section>
+      </section>
+  
+      <!-- Mat Table Ribbon -->
+      <app-doctor-list-ribbon-menu
+        (showListViewButtonClicked)="onShowListViewButtonClicked()"
+        (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+      </app-doctor-list-ribbon-menu>
   
       <!-- Mat Divider -->
       <mat-divider></mat-divider>
   
-      <!--Doctor Data Table -->
-      <app-doctor-list-data-table
-        (editDoctorClicked)="onEditDoctorClicked()"
-        [isBusy]="isFetchingDoctor"
-      ></app-doctor-list-data-table>
+      <!-- Test List -->
+      <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+  
+      <!-- List View -->
+      <ng-template #listView>
+        <app-doctor-list
+        [doctors]="doctors | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-doctor-list
+            >
+      </ng-template>
+  
+      <!-- Table View -->
+      <ng-template #tableView>
+        <app-doctor-list-data-table
+        [doctors]="doctors | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (editDoctorClicked)="onEditDoctorButtonClicked()"
+        [isBusy]="isFetchingDoctors"
+        ></app-doctor-list-data-table>
+      </ng-template>
+  
+      <mat-paginator
+          [length]="doctors.length"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="pageEvent = $event"
+        >
+        </mat-paginator>
     </mat-card>
   </section>
+  
   

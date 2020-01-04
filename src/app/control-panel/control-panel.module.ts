@@ -112,6 +112,18 @@ import { DepartmentRibbonMenuComponent } from './components/department/departmen
 import { DepartmentSearchComponent } from './components/department/department-search/department-search.component';
 import { AddDepartmentComponent } from './components/department/_dialogues/add-department/add-department.component';
 import { EditDepartmentComponent } from './components/department/_dialogues/edit-department/edit-department.component';
+import { DoctorListComponent } from './components/doctor/doctor-list/doctor-list.component';
+import { DoctorListRibbonMenuComponent } from './components/doctor/doctor-list-ribbon-menu/doctor-list-ribbon-menu.component';
+import { DoctorListSearchComponent } from './components/doctor/doctor-list-search/doctor-list-search.component';
+import { ProfileTestRibbonMenuComponent } from './components/test-masters/profile-test/profile-test-ribbon-menu/profile-test-ribbon-menu.component';
+import { ProfileTestSearchComponent } from './components/test-masters/profile-test/profile-test-search/profile-test-search.component';
+import { ProfileTestListComponent } from './components/test-masters/profile-test/profile-test-list/profile-test-list.component';
+import { ProfileTestDetailsComponent } from './components/test-masters/profile-test/profile-test-details/profile-test-details.component';
+import { CombinedTestDetailsComponent } from './components/test-masters/combined-test/combined-test-details/combined-test-details.component';
+import { CombinedTestListComponent } from './components/test-masters/combined-test/combined-test-list/combined-test-list.component';
+import { CombinedTestRibbonMenuComponent } from './components/test-masters/combined-test/combined-test-ribbon-menu/combined-test-ribbon-menu.component';
+import { LinkTestToCombinedTestComponent } from './components/test-masters/combined-test/_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
+import { CombinedTestSearchComponent } from './components/test-masters/combined-test/combined-test-search/combined-test-search.component';
 
 @NgModule({
   declarations: [
@@ -193,6 +205,18 @@ import { EditDepartmentComponent } from './components/department/_dialogues/edit
     AddDepartmentComponent,
     EditDepartmentComponent,
     DepartmentSearchComponent,
+    DoctorListComponent,
+    DoctorListRibbonMenuComponent,
+    DoctorListSearchComponent,
+    ProfileTestRibbonMenuComponent,
+    ProfileTestSearchComponent,
+    ProfileTestListComponent,
+    ProfileTestDetailsComponent,
+    CombinedTestDetailsComponent,
+    CombinedTestListComponent,
+    CombinedTestRibbonMenuComponent,
+    CombinedTestSearchComponent,
+    LinkTestToCombinedTestComponent,
   ],
 
   imports: [
@@ -272,6 +296,10 @@ import { EditDepartmentComponent } from './components/department/_dialogues/edit
     AddDepartmentComponent,
     EditDepartmentComponent,
     DepartmentSearchComponent,
+    DoctorListSearchComponent,
+    ProfileTestSearchComponent,
+    CombinedTestSearchComponent,
+    LinkTestToCombinedTestComponent,
   ],
 })
 export class ControlPanelModule {}
