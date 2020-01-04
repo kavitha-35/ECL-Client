@@ -25,7 +25,6 @@ export class HumanResourceComponent implements OnInit {
     width: '1400px',
     autoFocus: false,
   };
-
   constructor(
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
@@ -41,7 +40,6 @@ export class HumanResourceComponent implements OnInit {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
   }
-  
   public onAddHumanResourceButtonClicked(): void {
     this.matDialog
       .open(AddHumanResourceComponent, this.matDialogConfig)
@@ -94,5 +92,4 @@ export class HumanResourceComponent implements OnInit {
       }
     ];
   }
-
 }

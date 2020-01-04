@@ -25,7 +25,6 @@ export class IndividualTestComponent implements OnInit {
     width: '1400px',
     autoFocus: false,
   };
-
   constructor(
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,

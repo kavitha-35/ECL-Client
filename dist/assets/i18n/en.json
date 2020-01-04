@@ -1,6 +1,0 @@
-{
-  "PATIENT_NAME_SHOULDNOTBEEMPTY_ERROR": "Patient's Name is Mandatory",
-  "PATIENT_EMAIL_SHOULDNOTBEEMPTY_ERROR": "Patient's Email is Mandatory",
-  "PATIENT_PRIMARYCONTACTNUMBER_SHOULDNOTBEEMPTY_ERROR": "Patient's Contact Number is Mandatory",
-  "PATIENT_GENDER_SHOULDNOTBEEMPTY_ERROR": "Patient's Gender is Mandatory"
-}

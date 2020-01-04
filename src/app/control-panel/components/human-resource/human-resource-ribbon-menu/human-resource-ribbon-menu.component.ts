@@ -33,5 +33,4 @@ export class HumanResourceRibbonMenuComponent {
   public onShowTableViewButtonClicked(): void {
     this.showTableViewButtonClicked.emit();
   }
-  
 }

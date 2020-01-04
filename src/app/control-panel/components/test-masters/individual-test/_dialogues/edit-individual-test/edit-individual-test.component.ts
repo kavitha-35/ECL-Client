@@ -8,7 +8,6 @@ import { TestModel } from 'app/control-panel/models/tests/test.model';
   styleUrls: ['./edit-individual-test.component.scss']
 })
 export class EditIndividualTestComponent implements OnInit {
-
   constructor(private readonly dialogRef: MatDialogRef<EditIndividualTestComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: TestModel) {
   }

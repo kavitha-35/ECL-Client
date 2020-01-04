@@ -1,7 +1,0 @@
-{
-  "/lis-server/*": {
-    "target": "http://quality.dyndns-web.com:8008/",
-    "secure": false,
-    "logLevel": "debug"
-  }
-}

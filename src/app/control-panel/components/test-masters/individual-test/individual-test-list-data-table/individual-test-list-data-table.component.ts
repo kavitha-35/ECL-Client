@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { TestModel } from 'app/control-panel/models/tests/test.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
-import { IndividualTestService } from './../../../../../providers'
 
 @Component({
   selector: 'app-individual-test-list-data-table',
@@ -16,21 +15,10 @@ export class IndividualTestListDataTableComponent implements OnInit {
   @Output() deleteTestClicked = new EventEmitter<string>();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-
-  constructor(private individualTestService: IndividualTestService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getIndividualTest();
     this._initializeDisplayedColumns();
-  }
-
-  getIndividualTest() {
-    this.individualTestService.getIndividualTest().subscribe((response) => {
-      if (response.status == true) {
-        this.tests = response.data;
-      }
-    }, (error) => {
-    });
   }
 
   public onEditTestClicked(test: TestModel): void {

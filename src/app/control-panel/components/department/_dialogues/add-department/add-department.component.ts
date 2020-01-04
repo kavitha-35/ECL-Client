@@ -1,56 +1,25 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { DepartmentService } from './../../../../../providers'
+import { NgForm } from '@angular/forms';
+import { DepartmentService } from 'app/control-panel/services/department.service';
 
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
   styleUrls: ['./add-department.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddDepartmentComponent implements OnInit {
-  public isPrepaid: boolean;
-  public isPostpaid: boolean;
+  constructor(
+    private readonly dialogRef: MatDialogRef<AddDepartmentComponent>,
+    private readonly _departmentService: DepartmentService,
+  ) {}
 
-  // todo
-  // please set a model schema for department
-  public department = {
-    departmentName: "",
-    departmentType: "",
-    doctor: ""
-  }
-  
-  constructor(private readonly dialogRef: MatDialogRef<AddDepartmentComponent>, private departmentService: DepartmentService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    this.isPrepaid = true;
-    this.isPostpaid = false;
-  }
-
-  public onAddOrganisationClicked(): void {}
-
-  public addDepartment() {
-    console.log('add new department');
-    let payload = {
-      "departmentName": "Bio chemis",
-      "departmentType": "1",
-      "doctor": "2"
-    }
-    this.departmentService.addDepartment(payload).subscribe((response) => {
-      if (response) {
-        console.log(response)
-      }
-    }, (error) => {
+  onAddDepartmentClicked(department: NgForm): void {
+    this._departmentService.addDepartment(department.form.value).subscribe((data) => {
+      this.dialogRef.close();
     });
-  }
-
-  public paymentType(payment: string): void {
-    if (payment === 'postpaid') {
-      this.isPostpaid = true;
-      this.isPrepaid = false;
-    } else {
-      this.isPrepaid = true;
-      this.isPostpaid = false;
-    }
   }
 }

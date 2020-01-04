@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 import { PageEvent, MatDialogConfig, MatDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
 import { EditDepartmentComponent } from './_dialogues/edit-department/edit-department.component';
 import { AddDepartmentComponent } from './_dialogues/add-department/add-department.component';
+import { DepartmentService } from 'app/control-panel/services/department.service';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -29,13 +30,15 @@ export class DepartmentComponent implements OnInit {
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
+    private readonly _departmentService: DepartmentService,
+    private readonly cRef: ChangeDetectorRef,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
-    this._initializeValues();
+    this.getAllDepartment();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -45,7 +48,9 @@ export class DepartmentComponent implements OnInit {
       .open(AddDepartmentComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe(() => {
+        this.getAllDepartment();
+      });
   }
 
   public onEditDepartmentClicked(): void {
@@ -60,19 +65,18 @@ export class DepartmentComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });
   }
 
+  public getAllDepartment(): void {
+    this.isFetchingDepartments = true;
+    this._departmentService.getAllDepartments().subscribe((data) => {
+      this.departments = data;
+      this.isFetchingDepartments = false;
+      this.cRef.detectChanges();
+    });
+  }
+
   public onShowTableViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
   public onDeleteTestClicked(testId: string): void {}
-
-  public _initializeValues(): void {
-    this.departments = [
-      {
-        departmentName: 'string',
-        departmentType: 'string',
-        doctorName: 'string',
-      },
-    ];
-  }
 }

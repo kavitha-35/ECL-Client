@@ -7,7 +7,6 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./add-individual-test.component.scss']
 })
 export class AddIndividualTestComponent implements OnInit {
-
   constructor(private readonly dialogRef: MatDialogRef<AddIndividualTestComponent>) { }
 
   ngOnInit(): void { }

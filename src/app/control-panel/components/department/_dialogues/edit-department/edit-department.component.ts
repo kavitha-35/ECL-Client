@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { DepartmentService } from './../../../../../providers'
+import { DepartmentService } from 'app/control-panel/services/department.service';
 
 @Component({
   selector: 'app-edit-department',
@@ -14,12 +14,13 @@ export class EditDepartmentComponent implements OnInit {
   // todo
   // please set a model schema for department
   public department = {
-    departmentName: "",
-    departmentType: "",
-    doctor: ""
+    departmentName: '',
+    departmentType: '',
+    doctor: ''
   }
-
-  constructor(private departmentService: DepartmentService) { }
+  constructor(
+    private _departmentService: DepartmentService
+  ) { }
 
   ngOnInit(): void {
     this.isPrepaid = true;
@@ -28,20 +29,7 @@ export class EditDepartmentComponent implements OnInit {
 
   public onEditDepartmentClicked(): void {}
 
-  public editDepartment() {
-    console.log('edit department');
-    let departmentId = 1;
-    let payload = {
-      "departmentName": "Bio chemis",
-      "departmentType": "1",
-      "doctor": "2"
-    };
-    this.departmentService.updateDepartment(departmentId, payload).subscribe((response) => {
-      if (response) {
-        console.log(response)
-      }
-    }, (error) => {
-    });
+  public editDepartment(): void {
   }
 
   public paymentType(payment: string): void {

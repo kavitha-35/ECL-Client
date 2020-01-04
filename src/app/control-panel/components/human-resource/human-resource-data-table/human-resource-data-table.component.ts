@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, Input, EventEmitter } from '@angular/core';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { HumanResourceModel } from 'app/control-panel/models/human-resource/human-resource.model';
-import { HumanResourceService } from './../../../../providers'
 
 @Component({
   selector: 'app-human-resource-data-table',
@@ -10,30 +9,17 @@ import { HumanResourceService } from './../../../../providers'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HumanResourceDataTableComponent implements OnInit {
-
   @Input() humanResources: HumanResourceModel[];
   @Input() isBusy: boolean;
   @Output() editHumanResourceClicked = new EventEmitter();
   @Output() deleteHumanResourceClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-
-  constructor(private humanResourceService: HumanResourceService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getHumanResources();
     this._initializeDisplayedColumns();
   }
-
-  getHumanResources() {
-    this.humanResourceService.getHumanResources().subscribe((response) => {
-      if (response) {
-        console.log(response)
-      }
-    }, (error) => {
-    });
-  }
-
   public onEditHumanResourceClicked(): void {
     this.editHumanResourceClicked.emit();
   }

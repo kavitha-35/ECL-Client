@@ -13,7 +13,6 @@ export class IndividualTestRibbonMenuComponent {
   @Output() public showTableViewButtonClicked = new EventEmitter();
 
   @ViewChild('filterPosition', { static: false }) filterPosition: ElementRef;
-
   constructor(private readonly _matDialog: MatDialog) {}
 
   public onFilterButtonClicked(): void {

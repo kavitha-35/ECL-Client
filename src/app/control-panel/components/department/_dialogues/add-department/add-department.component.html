@@ -15,7 +15,7 @@
       <mat-dialog-content class="outsource-dialog">
         <section>
           <!-- Outsource Management Form -->
-          <form class="department-form">
+          <form class="department-form" #department="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -26,20 +26,20 @@
                 <!-- Department Name -->
                 <mat-form-field>
                   <mat-label>Department Name</mat-label>
-                  <input matInput placeholder="Depatment Name" />
+                  <input matInput placeholder="Depatment Name" name=departmentName ngModel #departmentName="ngModel" />
                 </mat-form-field>
 
                 <!-- Department Type -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Department Type</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="biochemistry">
+                  <mat-select disableOptionCentering name=departmentType ngModel #departmentType="ngModel">
+                    <mat-option value="1">
                       Bio Chemistry
                     </mat-option>
-                    <mat-option value="microbiology">
+                    <mat-option value="2">
                       Micro Biology
                     </mat-option>
-                    <mat-option value="molecularbiology">
+                    <mat-option value="3">
                       Molecular Biology
                     </mat-option>
                   </mat-select>
@@ -48,7 +48,17 @@
                 <!-- Doctor Name -->
                 <mat-form-field>
                   <mat-label>Doctor Name</mat-label>
-                  <input matInput placeholder="Doctor Name" />
+                  <mat-select disableOptionCentering name=doctor ngModel #doctor="ngModel" >
+                    <mat-option value="Vasanth">
+                      Vasanath
+                    </mat-option>
+                    <mat-option value="Akash">
+                       Akash
+                    </mat-option>
+                    <mat-option value="Ravindar">
+                      Ravindar
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
               </section>
             </section>
@@ -56,7 +66,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="addDepartment()">Add Department</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddDepartmentClicked(department)">Add Department</button>
           </section>
         </section>
       </mat-dialog-content>

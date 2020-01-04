@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, Input, EventEmitter } from '@angular/core';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
-import { DepartmentService } from './../../../../providers'
 
 @Component({
   selector: 'app-department-data-table',
@@ -16,21 +15,10 @@ export class DepartmentDataTableComponent implements OnInit {
   @Output() deleteDepartmentClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-
-  constructor(private departmentService: DepartmentService) { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.getDepartments();
     this._initializeDisplayedColumns();
-  }
-
-  getDepartments() {
-    this.departmentService.getDepartments().subscribe((response) => {
-      if (response) {
-        console.log(response)
-      }
-    }, (error) => {
-    });
   }
 
   public onEditDepartmentClicked(): void {
@@ -45,11 +33,10 @@ export class DepartmentDataTableComponent implements OnInit {
     console.table(selectedColumns);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
-
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
+      { columnName: 'id', displayValue: 'Department Id', isSelected: true },
       { columnName: 'departmentname', displayValue: 'Department Name', isSelected: true },
-      { columnName: 'departmenttype', displayValue: 'Department Type', isSelected: true },
       { columnName: 'doctorname', displayValue: 'Doctor Name', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];

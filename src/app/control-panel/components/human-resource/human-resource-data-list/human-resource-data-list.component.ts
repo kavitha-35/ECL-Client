@@ -8,11 +8,8 @@ import { HumanResourceModel } from 'app/control-panel/models/human-resource/huma
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HumanResourceDataListComponent implements OnInit {
-
   @Input() humanResources: HumanResourceModel[];
-  
   constructor() { }
 
   ngOnInit(): void {}
-
 }
