@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ROUTE_CONFIG } from 'app/shared/models/constant';
 import { DepartmentModel } from '../models/department/department.model';
 import { Observable } from 'rxjs';
+import { AddDepartmentRequestModel } from '../models/department/add-department.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +27,7 @@ export class DepartmentService {
     return this.httpClient.post<DepartmentModel>(apiUrl, department, { headers: headers });
   }
 
-  updateDepartment(departmentId: string, department: DepartmentModel): Observable<DepartmentModel> {
+  updateDepartment(departmentId: string, department: AddDepartmentRequestModel): Observable<DepartmentModel> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${departmentId}`;
