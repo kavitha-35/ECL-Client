@@ -189,11 +189,6 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     MethodListComponent,
     MethodRibbonMenuComponent,
     MethodSearchComponent,
-  ],
-  providers: [
-    DatePipe,
-    ControlPanelMenu,
-    MatDatepickerModule,
     ReferenceRangeRibbonMenuComponent,
     ReferenceRangeSearchComponent,
     ReferenceRangeListComponent,
@@ -217,6 +212,11 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     CombinedTestRibbonMenuComponent,
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
+  ],
+  providers: [
+    DatePipe,
+    ControlPanelMenu,
+    MatDatepickerModule,
   ],
 
   imports: [
