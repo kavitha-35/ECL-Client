@@ -6,15 +6,17 @@ import { DepartmentSearchComponent } from '../department-search/department-searc
   selector: 'app-department-ribbon-menu',
   templateUrl: './department-ribbon-menu.component.html',
   styleUrls: ['./department-ribbon-menu.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DepartmentRibbonMenuComponent {
   @Output() public showListViewButtonClicked = new EventEmitter();
   @Output() public showTableViewButtonClicked = new EventEmitter();
+  @Output() public exportToExcel = new EventEmitter();
+  @Output() public exportToPdf = new EventEmitter();
 
   @ViewChild('filterPosition', { static: false }) filterPosition: ElementRef;
 
-  constructor(private readonly _matDialog: MatDialog) { }
+  constructor(private readonly _matDialog: MatDialog) {}
 
   onFilterButtonClicked(): void {
     const matDialogConfig: MatDialogConfig = {
@@ -30,5 +32,13 @@ export class DepartmentRibbonMenuComponent {
 
   public onShowTableViewButtonClicked(): void {
     this.showTableViewButtonClicked.emit();
+  }
+
+  public onExportToExcelClicked(): void {
+    this.exportToExcel.emit();
+  }
+
+  public onExportToPfdClicked(): void {
+    this.exportToPdf.emit();
   }
 }

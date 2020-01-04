@@ -1,7 +1,7 @@
 <section id="department-list-container">
     <section *ngFor="let element of departments">
       <section class="title-wrapper">
-        <section class="title">#{{ element.departmentName }} / {{ element.departmentType }}</section>
+        <section class="title">#{{ element.departmentId}} / {{ element.departmentName }}</section>
         <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
         <mat-menu #statusMenu="matMenu">
           <button mat-menu-item>Edit</button>
@@ -22,17 +22,21 @@
         </button>
       </section>
       <section class="department-container">
+
+         <!-- Department ID -->
+         <section class="sub-title">Department ID</section>
+         <section>{{ element.departmentId }}</section>
         <!-- Department Name -->
         <section class="sub-title">Department Name</section>
         <section>{{ element.departmentName }}</section>
   
         <!-- Department Type -->
-        <section class="sub-title">Department Type</section>
-        <section>{{ element.departmentType }}</section>
+        <!-- <section class="sub-title">Department Type</section>
+        <section>{{ element.departmentType }}</section> -->
   
         <!-- Doctor Name -->
         <section class="sub-title">Doctor Name</section>
-        <section>{{ element.doctorName }}</section>
+        <section>{{ element.doctor.doctorName }}</section>
       </section>
     </section>
   </section>
