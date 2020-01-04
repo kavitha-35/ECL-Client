@@ -12,6 +12,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeDashboardComponent } from './components/dashboards/home-dashboard/home-dashboard.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { OrganisationPriceListComponent } from './components/organisation-price-list/organisation-price-list.component';
+import { MethodsComponent } from './components/methods/methods.component';
 import { DepartmentComponent } from './components/department/department.component';
 
 export const routes: Routes = [
@@ -50,6 +51,10 @@ export const routes: Routes = [
       {
         path: 'combined-test',
         component: CombinedTestComponent,
+      },
+      {
+        path: 'method',
+        component: MethodsComponent,
       },
       {
         path: 'individual-test',

@@ -94,6 +94,14 @@ import { OrganisationPriceListDataListComponent } from './components/organisatio
 import { OrganisationPriceListSearchComponent } from './components/organisation-price-list/organisation-price-list-search/organisation-price-list-search.component';
 import { AddOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/add-organisation-price-list/add-organisation-price-list.component';
 import { EditOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/edit-organisation-price-list/edit-organisation-price-list.component';
+import { MethodsComponent } from './components/methods/methods.component';
+import { MethodListDataTableComponent } from './components/methods/method-list-data-table/method-list-data-table.component';
+import { MethodListComponent } from './components/methods/method-list/method-list.component';
+import { MethodRibbonMenuComponent } from './components/methods/method-ribbon-menu/method-ribbon-menu.component';
+import { MethodSearchComponent } from './components/methods/method-search/method-search.component';
+import { AddMethodComponent } from './components/methods/_dialogues/add-method/add-method.component';
+import { EditMethodComponent } from './components/methods/_dialogues/edit-method/edit-method.component';
+
 import { ReferenceRangeRibbonMenuComponent } from './components/refernce-range/reference-range-ribbon-menu/reference-range-ribbon-menu.component';
 import { ReferenceRangeSearchComponent } from './components/refernce-range/reference-range-search-component/reference-range-search-component.component';
 import { ReferenceRangeListComponent } from './components/refernce-range/reference-range-list/reference-range-list.component';
@@ -174,6 +182,13 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     OrganisationPriceListSearchComponent,
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
+    MethodsComponent,
+    AddMethodComponent,
+    EditMethodComponent,
+    MethodListDataTableComponent,
+    MethodListComponent,
+    MethodRibbonMenuComponent,
+    MethodSearchComponent,
     ReferenceRangeRibbonMenuComponent,
     ReferenceRangeSearchComponent,
     ReferenceRangeListComponent,
@@ -198,7 +213,12 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
   ],
-  providers: [DatePipe, ControlPanelMenu, MatDatepickerModule],
+  providers: [
+    DatePipe,
+    ControlPanelMenu,
+    MatDatepickerModule,
+  ],
+
   imports: [
     RouterModule,
     CommonModule,
@@ -269,6 +289,9 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
     OrganisationPriceListSearchComponent,
+    AddMethodComponent,
+    EditMethodComponent,
+    MethodSearchComponent,
     ReferenceRangeSearchComponent,
     AddDepartmentComponent,
     EditDepartmentComponent,
