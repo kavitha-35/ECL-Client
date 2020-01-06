@@ -1,0 +1,86 @@
+@import '../../../../../../assets/styles/scss/color';
+
+@mixin forms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 24px;
+}
+
+@mixin margin-bottom-18 {
+  margin-bottom: 18px;
+}
+
+#humanresource-container {
+  .humanresource-mat-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+
+    .humanresource-dialog {
+      margin: auto;
+    }
+
+    .humanresource-form {
+      .basic-wrapper {
+        @include margin-bottom-18;
+
+        .basic-content {
+          @include forms-grid;
+
+          .pt-13 {
+            padding-top: 13px;
+          }
+        }
+      }
+
+      .user-credential-wrapper {
+        @include margin-bottom-18;
+
+        .user-credential-content {
+          @include forms-grid;
+        }
+      }
+
+      .user-privellege-wrapper {
+        @include margin-bottom-18;
+
+        .user-privellege-content {
+          @include forms-grid;
+        }
+      }
+
+      .user-privellege-wrapper {
+        @include margin-bottom-18;
+
+        .user-privellege-content {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-column-gap: 24px;
+        }
+      }
+
+      .user-credentials-wrapper {
+        @include margin-bottom-18;
+
+        .user-credentials-content {
+          @include forms-grid;
+        }
+      }
+
+      .comment-information-wrapper {
+        @include margin-bottom-18;
+      }
+    }
+
+    .action-buttons-wrapper {
+      display: flex;
+      margin: 12px;
+
+      justify-content: center;
+      align-items: center;
+
+      button {
+        margin-left: 24px;
+      }
+    }
+  }
+}

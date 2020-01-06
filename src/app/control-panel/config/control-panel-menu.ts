@@ -9,6 +9,12 @@ const MENUITEMS: Menu[] = [
     icon: 'apps',
   },
   {
+    state: 'human-resource',
+    name: 'Human Resource',
+    type: 'link',
+    icon: 'apps',
+  },
+  {
     state: 'testmaster',
     name: 'Test Masters',
     type: 'sub',

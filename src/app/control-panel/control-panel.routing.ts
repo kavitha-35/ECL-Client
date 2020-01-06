@@ -12,6 +12,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeDashboardComponent } from './components/dashboards/home-dashboard/home-dashboard.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { OrganisationPriceListComponent } from './components/organisation-price-list/organisation-price-list.component';
+import { HumanResourceComponent } from './components/human-resource/human-resource.component';
 
 export const routes: Routes = [
   {
@@ -53,6 +54,10 @@ export const routes: Routes = [
       {
         path: 'profile-test',
         component: ProfileTestComponent,
+      },
+      {
+        path: 'human-resource',
+        component: HumanResourceComponent,
       },
       {
         path: 'not-found',

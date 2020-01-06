@@ -1,0 +1,55 @@
+<section id="humanresource-list-container">
+    <section *ngFor="let element of humanResources">
+      <section class="title-wrapper">
+        <section class="title">#{{ element.id }} / {{ element.clinicName }}</section>
+        <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
+        <mat-menu #statusMenu="matMenu">
+          <button mat-menu-item>Edit</button>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+      </section>
+      <section class="action-buttons-container">
+        <button mat-button>
+          <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
+        </button>
+  
+        <button mat-button>
+          <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
+        </button>
+      </section>
+      <section class="humanresource-container">
+        <!-- clinic ID -->
+        <section class="sub-title">Employee Name</section>
+        <section>{{ element.name }}</section>
+  
+        <!-- Clinic Name -->
+        <section class="sub-title">Department</section>
+        <section>{{ element.department }}</section>
+  
+        <!-- Address -->
+        <section class="sub-title">Date Of Birth</section>
+        <section>{{ element.dateOfBirth }}</section>
+  
+        <!-- P.O box -->
+        <section class="sub-title">Email</section>
+        <section>{{ element.email }}</section>
+  
+        <!-- Telephone -->
+        <section class="sub-title">Alternate Email</section>
+        <section>{{ element.alternateEmail }}</section>
+  
+        <!--Fax -->
+        <section class="sub-title">Contact Number</section>
+        <section>{{ element.contactNumber }}</section>
+  
+        <!-- Web -->
+        <section class="sub-title">Alternate Contact Number</section>
+        <section>{{ element.alternateContactNumber }}</section>
+      </section>
+    </section>
+  </section>
+  

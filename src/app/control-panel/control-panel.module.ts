@@ -87,6 +87,13 @@ import { OrganisationPriceListDataListComponent } from './components/organisatio
 import { OrganisationPriceListSearchComponent } from './components/organisation-price-list/organisation-price-list-search/organisation-price-list-search.component';
 import { AddOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/add-organisation-price-list/add-organisation-price-list.component';
 import { EditOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/edit-organisation-price-list/edit-organisation-price-list.component';
+import { HumanResourceComponent } from './components/human-resource/human-resource.component';
+import { EditHumanResourceComponent } from './components/human-resource/_dialogues/edit-human-resource/edit-human-resource.component';
+import { HumanResourceSearchComponent } from './components/human-resource/human-resource-search/human-resource-search.component';
+import { HumanResourceRibbonMenuComponent } from './components/human-resource/human-resource-ribbon-menu/human-resource-ribbon-menu.component';
+import { HumanResourceDataTableComponent } from './components/human-resource/human-resource-data-table/human-resource-data-table.component';
+import { HumanResourceDataListComponent } from './components/human-resource/human-resource-data-list/human-resource-data-list.component';
+import { AddHumanResourceComponent } from './components/human-resource/_dialogues/add-human-resource/add-human-resource.component';
 
 @NgModule({
   declarations: [
@@ -144,7 +151,14 @@ import { EditOrganisationPriceListComponent } from './components/organisation-pr
     OrganisationPriceListDataListComponent,
     OrganisationPriceListSearchComponent,
     AddOrganisationPriceListComponent,
-    EditOrganisationPriceListComponent
+    EditOrganisationPriceListComponent,
+    HumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceSearchComponent,
+    HumanResourceRibbonMenuComponent,
+    HumanResourceDataTableComponent,
+    HumanResourceDataListComponent,
+    AddHumanResourceComponent
   ],
   providers: [
     DatePipe,
@@ -222,7 +236,10 @@ import { EditOrganisationPriceListComponent } from './components/organisation-pr
     OrganisationsSearchComponent,
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
-    OrganisationPriceListSearchComponent
+    OrganisationPriceListSearchComponent,
+    AddHumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceSearchComponent,
   ],
 })
 export class ControlPanelModule {}
