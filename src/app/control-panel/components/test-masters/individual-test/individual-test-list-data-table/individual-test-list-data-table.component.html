@@ -4,19 +4,13 @@
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>Test ID</th>
-      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-    </ng-container>
-
-    <!-- Activity -->
-    <ng-container matColumnDef="activity">
-      <th mat-header-cell *matHeaderCellDef>Activity</th>
-      <td mat-cell *matCellDef="let element">{{ element.active }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.individualTestId }}</td>
     </ng-container>
 
     <!-- Test Category -->
     <ng-container matColumnDef="testCategory">
       <th mat-header-cell *matHeaderCellDef>Test Category</th>
-      <td mat-cell *matCellDef="let element">{{ element.testCategory }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.testCategory.testCategoryName }}</td>
     </ng-container>
 
     <!-- Accreditiation Symbol -->
@@ -31,8 +25,8 @@
       <td mat-cell *matCellDef="let element">{{ element.integrationCode }}</td>
     </ng-container>
 
-    <!-- Test Component -->
-    <ng-container matColumnDef="testComponent">
+    <!-- Test Name -->
+    <ng-container matColumnDef="testName">
       <th mat-header-cell *matHeaderCellDef>Test Component</th>
       <td mat-cell *matCellDef="let element">{{ element.testComponent }}</td>
     </ng-container>
@@ -40,7 +34,7 @@
     <!-- Processing Center -->
     <ng-container matColumnDef="processingCenter">
       <th mat-header-cell *matHeaderCellDef>Processing Center</th>
-      <td mat-cell *matCellDef="let element">{{ element.processingCenter }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.processingCenter.processingCenterName }}</td>
     </ng-container>
 
     <!-- Outsource Vendor Code -->
@@ -52,19 +46,13 @@
     <!-- Method -->
     <ng-container matColumnDef="method">
       <th mat-header-cell *matHeaderCellDef>Method</th>
-      <td mat-cell *matCellDef="let element">{{ element.method }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.method.methodName }}</td>
     </ng-container>
 
     <!--Unit -->
     <ng-container matColumnDef="unit">
       <th mat-header-cell *matHeaderCellDef>Unit</th>
-      <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
-    </ng-container>
-
-    <!--Reference Range -->
-    <ng-container matColumnDef="referenceRange">
-      <th mat-header-cell *matHeaderCellDef>Reference Range</th>
-      <td mat-cell *matCellDef="let element">{{ element.referenceRange }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.unit.unitName }}</td>
     </ng-container>
 
     <!--TAT -->
@@ -76,7 +64,7 @@
     <!--CPT Amount-->
     <ng-container matColumnDef="cptAmount">
       <th mat-header-cell *matHeaderCellDef>CPT Amount</th>
-      <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.cptAmount }}</td>
     </ng-container>
 
     <!--Accreditation -->
@@ -89,6 +77,16 @@
     <ng-container matColumnDef="comments">
       <th mat-header-cell *matHeaderCellDef>Comment</th>
       <td mat-cell *matCellDef="let element">{{ element.comments }}</td>
+    </ng-container>
+
+    <!-- Activity -->
+    <ng-container matColumnDef="activity">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <section class="status-card">
+          {{ element. ActiveStatus }}
+        </section>
+      </td>
     </ng-container>
 
     <!--Action-->
