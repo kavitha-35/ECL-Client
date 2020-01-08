@@ -44,7 +44,6 @@ export class AddDepartmentComponent implements OnInit {
   public getDoctor(): void {
     this._doctorService.getAllDoctor().subscribe((data) => {
       this.doctor = data;
-      console.log(data);
     });
   }
 }
