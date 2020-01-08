@@ -43,19 +43,19 @@
 
     <!-- List View -->
     <ng-template #listView>
-      <app-method-list [method]="method | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-method-list>
+      <app-method-list [method]="method"></app-method-list>
     </ng-template>
 
     <!-- Table View -->
     <ng-template #tableView>
       <app-method-list-data-table
-        [method]="method | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [method]="method"
         (editMethodClicked)="onEditMethodClicked()"
-        [isBusy]="isFetchingMethod"
+        [isBusy]="isFetchingMethods"
       ></app-method-list-data-table>
     </ng-template>
 
-    <mat-paginator [length]="method.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
-    </mat-paginator>
+    <!-- <mat-paginator [length]="method.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator> -->
   </mat-card>
 </section>

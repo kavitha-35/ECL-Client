@@ -65,6 +65,14 @@ export class DoctorComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
+  public getAllMethod(): void {
+    this.isFetchingMethods = true;
+    this._methodService.getAllMethod().subscribe((data: MethodModel[]) => {
+      this.method = data;
+      this.isFetchingMethods = false;
+      this.cRef.detectChanges();
+    });
+
   public onDeleteTestClicked(testId: string): void {}
 
   public _initializeValues(): void {
