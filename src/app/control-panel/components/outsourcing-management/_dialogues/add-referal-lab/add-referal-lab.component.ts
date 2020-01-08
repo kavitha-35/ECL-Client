@@ -8,7 +8,9 @@ import { MatDialogRef } from '@angular/material';
 })
 export class AddReferalLabComponent {
 
-  constructor(private readonly _dialogRef: MatDialogRef<AddReferalLabComponent>) { }
+  constructor(
+    private readonly _dialogRef: MatDialogRef<AddReferalLabComponent>,
+    ) { }
 
   public onAddReferalLabClicked(): void {
     this._dialogRef.close();
