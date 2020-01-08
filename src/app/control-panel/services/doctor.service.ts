@@ -14,10 +14,7 @@ export class DoctorService {
 
   getAllDoctor(): Observable<DoctorModel[]> {
     let headers = new HttpHeaders();
-    headers = headers
-      .set('Content-Type', 'application/json; charset=utf-8')
-      .set('Auth-Key', 'liskey')
-      .set('Access-Control-Max-Age', '3600');
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
     return this.httpClient.get<DoctorModel[]>(apiUrl, { headers: headers });
   }

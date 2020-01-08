@@ -67,7 +67,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Processing center</mat-label>
                   <mat-select disableOptionCentering name="processingCentreId" ngModel #processingCentreId="ngModel">
-                    <mat-option *ngFor="let options of processingCenter" value="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of processingCenter" [value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -96,8 +96,7 @@
                 <mat-form-field>
                   <mat-label>Unit</mat-label>
                   <mat-select disableOptionCentering name="unitId" ngModel #unitId="ngModel">
-                    <mat-option value="1">Unit 1</mat-option>
-                    <mat-option value="2">Unit 2</mat-option>
+                    <mat-option *ngFor="let options of units" [value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
 

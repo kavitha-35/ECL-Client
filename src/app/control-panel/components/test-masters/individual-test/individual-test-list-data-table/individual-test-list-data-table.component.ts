@@ -26,7 +26,7 @@ export class IndividualTestListDataTableComponent implements OnInit {
     this.editTestClicked.emit(test);
   }
 
-  public onDeleteTestClicked(testId: string): void {
+  public onDeleteClicked(testId: string): void {
     this.deleteTestClicked.emit(testId);
   }
 
