@@ -43,25 +43,25 @@
     <!-- List View -->
     <ng-template #listView>
         <app-individual-test-list
-        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-individual-test-list
+        [tests]="tests"></app-individual-test-list
           >
       </ng-template>
 
     <!-- Table View -->
     <ng-template #tableView>
       <app-individual-test-list-data-table
-        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [tests]="tests"
         [isBusy]="isFetchingTests"
-        (editTestClicked)="onEditTestClicked($event)"
+        (editTestClicked)="onEditIndividualTestClicked($event)"
         (deleteTestClicked)="onDeleteTestClicked($event)"
       ></app-individual-test-list-data-table>
     </ng-template>
 
-    <mat-paginator
+    <!-- <mat-paginator
         [length]="tests.length"
         [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = $event"
       >
-      </mat-paginator>
+      </mat-paginator> -->
   </mat-card>
 </section>

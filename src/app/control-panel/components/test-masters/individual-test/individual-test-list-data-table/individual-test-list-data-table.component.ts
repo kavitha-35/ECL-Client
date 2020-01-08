@@ -11,7 +11,7 @@ import { GridColumnModel } from 'app/shared/models/grid-column.model';
 export class IndividualTestListDataTableComponent implements OnInit {
   @Input() tests: IndividualTestModel[];
   @Input() isBusy: boolean;
-  @Output() editTestClicked = new EventEmitter<TestModel>();
+  @Output() editTestClicked = new EventEmitter<IndividualTestModel>();
   @Output() deleteTestClicked = new EventEmitter<string>();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
@@ -22,7 +22,7 @@ export class IndividualTestListDataTableComponent implements OnInit {
     this._initializeDisplayedColumns();
   }
 
-  public onEditTestClicked(test: TestModel): void {
+  public onEditTestClicked(test: IndividualTestModel): void {
     this.editTestClicked.emit(test);
   }
 
@@ -37,19 +37,17 @@ export class IndividualTestListDataTableComponent implements OnInit {
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
       { columnName: 'id', displayValue: 'ID', isSelected: true },
-      { columnName: 'activity', displayValue: 'Activity', isSelected: true },
+      { columnName: 'testName', displayValue: 'Test Name', isSelected: true },
       { columnName: 'testCategory', displayValue: 'Test Category', isSelected: false },
-      { columnName: 'accreditiationSymbol', displayValue: 'Accreditiation Symbol', isSelected: false },
       { columnName: 'integrationCode', displayValue: 'Integration Code', isSelected: true },
-      { columnName: 'testComponent', displayValue: 'Test Component', isSelected: true },
       { columnName: 'processingCenter', displayValue: 'Processing Center', isSelected: false },
       { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
       { columnName: 'method', displayValue: 'Method', isSelected: true },
       { columnName: 'unit', displayValue: 'Unit', isSelected: true },
-      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: true },
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
       { columnName: 'comments', displayValue: 'Comments', isSelected: true },
+      { columnName: 'activity', displayValue: 'Activity', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true }
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);

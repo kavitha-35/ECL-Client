@@ -14,7 +14,7 @@
       <mat-dialog-content class="doctor-dialog">
         <section>
           <!-- Outsource Management Form -->
-          <form class="doctor-form">
+          <form class="doctor-form" #doctor="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -25,7 +25,7 @@
                 <!-- Designation -->
                 <mat-form-field>
                   <mat-label>Designation</mat-label>
-                  <input matInput placeholder="Designation" />
+                  <input matInput placeholder="Designation" name="designation" ngModel #designation="ngModel"/>
                 </mat-form-field>
 
                 <!-- Doctor Name -->
@@ -181,7 +181,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Add Doctor</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddDoctorButtonClicked(doctor)">Add Doctor</button>
           </section>
         </section>
       </mat-dialog-content>
