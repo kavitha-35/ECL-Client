@@ -1,0 +1,70 @@
+<section id="department-container" class="animated fadeIn">
+    <!-- Material Card -->
+    <mat-card>
+      <section class="mat-header-container">
+        <!-- Mat Header Image -->
+        <section class="mat-header-image-wrapper">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">home_work </mat-icon>
+        </section>
+  
+        <!-- Mat Header Title -->
+        <section>
+          <!-- Mat Card Title -->
+          <mat-card-title>
+            <section class="mat-card-title-container">
+              <section>
+                Department
+              </section>
+            </section>
+          </mat-card-title>
+  
+          <!-- Mat Card SubTitle -->
+          <mat-card-subtitle> View/Manage Department</mat-card-subtitle>
+        </section>
+  
+        <!-- Add Department Button -->
+        <section class="department-button-wrapper">
+          <button mat-stroked-button (click)="onAddDepartmentButtonClicked()">
+            Add Department
+          </button>
+        </section>
+      </section>
+  
+      <!-- Mat Table Ribbon -->
+      <app-department-ribbon-menu
+        (showListViewButtonClicked)="onShowListViewButtonClicked()"
+        (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+        (exportToExcel)="onExportToExcelButtonClicked()"
+        (exportToPdf)="onExportToPdfButtonClicked()"
+      >
+      </app-department-ribbon-menu>
+  
+      <!-- Mat Divider -->
+      <mat-divider></mat-divider>
+  
+      <!-- Test List -->
+      <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+  
+      <!-- List View -->
+      <ng-template #listView>
+        <app-department-data-list
+          [departments]="departments"
+        ></app-department-data-list>
+      </ng-template>
+  
+      <!-- Table View -->
+      <ng-template #tableView>
+        <app-department-data-table
+          [departments]="departments"
+          [departmentSubject]="departmentSubject"
+          (editDepartmentClicked)="onEditDepartmentClicked($event)"
+          (deleteDepartmentClicked)="onDeleteDepartmentClicked($event)"
+          [isBusy]="isFetchingDepartments"
+        ></app-department-data-table>
+      </ng-template>
+  
+      <!-- <mat-paginator [length]="departments.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"> -->
+      <!-- </mat-paginator> -->
+    </mat-card>
+  </section>
+  

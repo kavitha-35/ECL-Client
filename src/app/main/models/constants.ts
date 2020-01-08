@@ -5,5 +5,7 @@ export const REGISTRATION_ROUTER_ACTIONS = {
 
 export const DISPLAY_MODE = {
   TABLE: 'table',
-  LIST: 'list'
-}
+  LIST: 'list',
+  EXCEL: 'excel',
+  PDF : 'pdf'
+};

@@ -1,0 +1,70 @@
+<section id="department-container">
+  <mat-card class="organisation-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Departments" subTitle="Edit Department" icon="fa-calendar"> </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!-- Outsource Management Form -->
+          <form class="department-form" #department="ngForm">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Department ID-->
+                <mat-form-field>
+                  <mat-label>Department ID</mat-label>
+                  <input matInput placeholder="Department ID" name=id [(ngModel)]="selectedForEdit.departmentId" disabled />
+                </mat-form-field>
+
+                <!-- Department -->
+                <mat-form-field>
+                  <mat-label>Department Name</mat-label>
+                  <input matInput placeholder="Department" name=departmentName [(ngModel)]="selectedForEdit.departmentName" />
+                </mat-form-field>
+
+                <!-- Department Type -->
+                <!-- <mat-form-field>
+                    <mat-label>Department Type</mat-label>
+                    <input matInput placeholder="Department Type" />
+                  </mat-form-field> -->
+
+                <!-- Doctor Name -->
+                <mat-form-field>
+                  <mat-label>Doctor Name</mat-label>
+                  <mat-select disableOptionCentering name=doctor [(ngModel)]="selectedForEdit.doctor.doctorName" >
+                    <mat-option value="Vasanth">
+                      Vasanath
+                    </mat-option>
+                    <mat-option value="Akash">
+                       Akash
+                    </mat-option>
+                    <mat-option value="Ravindar">
+                      Ravindar
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditDepartmentClicked(department)">Save Changes</button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>

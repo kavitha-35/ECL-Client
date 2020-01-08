@@ -27,7 +27,14 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NgChatModule } from 'ng-chat';
-import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatIconModule, MatPaginatorModule, MatSlideToggleModule } from '@angular/material';
+import {
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
+  MatPaginatorModule,
+  MatSlideToggleModule,
+} from '@angular/material';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AgmCoreModule } from '@agm/core';
 import { ControlPanelRouting } from './control-panel.routing';
@@ -94,6 +101,36 @@ import { HumanResourceRibbonMenuComponent } from './components/human-resource/hu
 import { HumanResourceDataTableComponent } from './components/human-resource/human-resource-data-table/human-resource-data-table.component';
 import { HumanResourceDataListComponent } from './components/human-resource/human-resource-data-list/human-resource-data-list.component';
 import { AddHumanResourceComponent } from './components/human-resource/_dialogues/add-human-resource/add-human-resource.component';
+import { MethodsComponent } from './components/methods/methods.component';
+import { MethodListDataTableComponent } from './components/methods/method-list-data-table/method-list-data-table.component';
+import { MethodListComponent } from './components/methods/method-list/method-list.component';
+import { MethodRibbonMenuComponent } from './components/methods/method-ribbon-menu/method-ribbon-menu.component';
+import { MethodSearchComponent } from './components/methods/method-search/method-search.component';
+import { AddMethodComponent } from './components/methods/_dialogues/add-method/add-method.component';
+import { EditMethodComponent } from './components/methods/_dialogues/edit-method/edit-method.component';
+
+import { ReferenceRangeRibbonMenuComponent } from './components/refernce-range/reference-range-ribbon-menu/reference-range-ribbon-menu.component';
+import { ReferenceRangeSearchComponent } from './components/refernce-range/reference-range-search-component/reference-range-search-component.component';
+import { ReferenceRangeListComponent } from './components/refernce-range/reference-range-list/reference-range-list.component';
+import { DepartmentComponent } from './components/department/department.component';
+import { DepartmentDataListComponent } from './components/department/department-data-list/department-data-list.component';
+import { DepartmentDataTableComponent } from './components/department/department-data-table/department-data-table.component';
+import { DepartmentRibbonMenuComponent } from './components/department/department-ribbon-menu/department-ribbon-menu.component';
+import { DepartmentSearchComponent } from './components/department/department-search/department-search.component';
+import { AddDepartmentComponent } from './components/department/_dialogues/add-department/add-department.component';
+import { EditDepartmentComponent } from './components/department/_dialogues/edit-department/edit-department.component';
+import { DoctorListComponent } from './components/doctor/doctor-list/doctor-list.component';
+import { DoctorListRibbonMenuComponent } from './components/doctor/doctor-list-ribbon-menu/doctor-list-ribbon-menu.component';
+import { DoctorListSearchComponent } from './components/doctor/doctor-list-search/doctor-list-search.component';
+import { ProfileTestRibbonMenuComponent } from './components/test-masters/profile-test/profile-test-ribbon-menu/profile-test-ribbon-menu.component';
+import { ProfileTestSearchComponent } from './components/test-masters/profile-test/profile-test-search/profile-test-search.component';
+import { ProfileTestListComponent } from './components/test-masters/profile-test/profile-test-list/profile-test-list.component';
+import { ProfileTestDetailsComponent } from './components/test-masters/profile-test/profile-test-details/profile-test-details.component';
+import { CombinedTestDetailsComponent } from './components/test-masters/combined-test/combined-test-details/combined-test-details.component';
+import { CombinedTestListComponent } from './components/test-masters/combined-test/combined-test-list/combined-test-list.component';
+import { CombinedTestRibbonMenuComponent } from './components/test-masters/combined-test/combined-test-ribbon-menu/combined-test-ribbon-menu.component';
+import { LinkTestToCombinedTestComponent } from './components/test-masters/combined-test/_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
+import { CombinedTestSearchComponent } from './components/test-masters/combined-test/combined-test-search/combined-test-search.component';
 
 @NgModule({
   declarations: [
@@ -152,22 +189,51 @@ import { AddHumanResourceComponent } from './components/human-resource/_dialogue
     OrganisationPriceListSearchComponent,
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
-    HumanResourceComponent,
+    CombinedTestRibbonMenuComponent,
+    CombinedTestSearchComponent,
+    LinkTestToCombinedTestComponent,
+    AddHumanResourceComponent,
     EditHumanResourceComponent,
-    HumanResourceSearchComponent,
-    HumanResourceRibbonMenuComponent,
-    HumanResourceDataTableComponent,
     HumanResourceDataListComponent,
-    AddHumanResourceComponent
+    HumanResourceDataTableComponent,
+    HumanResourceRibbonMenuComponent,
+    HumanResourceSearchComponent,
+    HumanResourceComponent,
+    MethodsComponent,
+    MethodListDataTableComponent,
+    MethodListComponent,
+    MethodRibbonMenuComponent,
+    AddMethodComponent,
+    EditMethodComponent,
+    MethodSearchComponent,
+    DepartmentDataListComponent,
+    DepartmentDataTableComponent,
+    DepartmentRibbonMenuComponent,
+    DepartmentComponent,
+    ReferenceRangeSearchComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    DepartmentSearchComponent,
+    DoctorListSearchComponent,
+    ProfileTestSearchComponent,
+    ReferenceRangeRibbonMenuComponent,
+    ReferenceRangeListComponent,
+    DoctorListComponent,
+    DoctorListRibbonMenuComponent,
+    ProfileTestRibbonMenuComponent,
+    ProfileTestListComponent,
+    ProfileTestDetailsComponent,
+    CombinedTestDetailsComponent,
+    CombinedTestListComponent
   ],
   providers: [
     DatePipe,
     ControlPanelMenu,
     MatDatepickerModule,
   ],
+
   imports: [
     RouterModule,
-    CommonModule,
     SharedModule,
     MatIconModule,
     MatSidenavModule,
@@ -177,7 +243,6 @@ import { AddHumanResourceComponent } from './components/human-resource/_dialogue
     MatMenuModule,
     MatTabsModule,
     MatSelectModule,
-    MatCheckboxModule,
     FormsModule,
     MatProgressBarModule,
     NgChatModule,
@@ -187,7 +252,6 @@ import { AddHumanResourceComponent } from './components/human-resource/_dialogue
     MatExpansionModule,
     MatFormFieldModule,
     MatToolbarModule,
-    MatExpansionModule,
     MatButtonModule,
     MatSnackBarModule,
     FlexModule,
@@ -203,15 +267,14 @@ import { AddHumanResourceComponent } from './components/human-resource/_dialogue
     NgxLoadingModule,
     MatStepperModule,
     MatChipsModule,
+    MatCheckboxModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
     AgmCoreModule,
   ],
-  exports: [
-    RouterModule, ControlPanelComponent
-  ],
+  exports: [RouterModule, ControlPanelComponent],
   entryComponents: [
     AddCombinedTestComponent,
     EditCombinedTestComponent,
@@ -240,6 +303,17 @@ import { AddHumanResourceComponent } from './components/human-resource/_dialogue
     AddHumanResourceComponent,
     EditHumanResourceComponent,
     HumanResourceSearchComponent,
+    AddMethodComponent,
+    EditMethodComponent,
+    MethodSearchComponent,
+    ReferenceRangeSearchComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    DepartmentSearchComponent,
+    DoctorListSearchComponent,
+    ProfileTestSearchComponent,
+    CombinedTestSearchComponent,
+    LinkTestToCombinedTestComponent,
   ],
 })
 export class ControlPanelModule {}

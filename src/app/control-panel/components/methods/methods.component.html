@@ -1,0 +1,61 @@
+<section id="method-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">apps </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Method
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Method </mat-card-subtitle>
+      </section>
+
+      <!-- Add Appointment Button -->
+      <section class="method-button-wrapper">
+        <button mat-stroked-button (click)="onAddMethodButtonClicked()">Add Method</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-method-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    >
+    </app-method-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+      <app-method-list [method]="method | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-method-list>
+    </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-method-list-data-table
+        [method]="method | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        (editMethodClicked)="onEditMethodClicked()"
+        [isBusy]="isFetchingMethod"
+      ></app-method-list-data-table>
+    </ng-template>
+
+    <mat-paginator [length]="method.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator>
+  </mat-card>
+</section>

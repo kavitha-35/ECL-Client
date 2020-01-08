@@ -1,13 +1,17 @@
-import { TestModel } from 'app/control-panel/models/tests/test.model';
+import { CombinedTestModel } from '../combined-test/combined-test.model';
 
 export interface ProfileTestModel {
-    id: string,
-    name: string,
-    outsourceId: number,
-    integrationCode: string,
-    minimumSellingPrice: number,
-    revenueCap: number,
-    profilePrice: number;
-    status: string;
-    tests: TestModel[];
+  dosCode: string;
+  testId: string;
+  cptCode: string;
+  testName: string;
+  specimen: string;
+  specimenType: string;
+  storage: string;
+  department: string;
+  patientFee: string;
+  netFee: string;
+  location: string;
+  currency: string;
+  combinedTest: CombinedTestModel[];
 }

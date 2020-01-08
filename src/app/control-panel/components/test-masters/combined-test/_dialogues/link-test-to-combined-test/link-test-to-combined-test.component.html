@@ -1,0 +1,153 @@
+<section class="link-test-container animated fadeIn">
+    <mat-card>
+      <!-- Mat Card header -->
+      <app-mat-dialog-header
+        title="Link Profile Test(s)"
+        subTitle="Search for Combine Test(s) and link them to Profile Test"
+      ></app-mat-dialog-header>
+      <mat-divider></mat-divider>
+      <mat-dialog-content style="margin: auto;">
+        <section>
+          <!-- Search TextBox -->
+          <section style="align-content: flex-end;">
+            <mat-form-field >
+              <input matInput type="text"  [(ngModel)]="searchQuery" />
+              <button mat-button matSuffix mat-icon-button (click)="onSearchButtonClicked()">
+                <mat-icon>search</mat-icon>
+              </button>
+            </mat-form-field>
+          </section>
+  
+          <!-- Mat Data Table -->
+          <table mat-table [dataSource]="tests" class="full-width">
+           <!-- ID Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Test ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <!-- Activity -->
+      <ng-container matColumnDef="activity">
+        <th mat-header-cell *matHeaderCellDef>Activity</th>
+        <td mat-cell *matCellDef="let element">{{ element.active }}</td>
+      </ng-container>
+  
+      <!-- Test Category -->
+      <ng-container matColumnDef="testCategory">
+        <th mat-header-cell *matHeaderCellDef>Test Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.testCategory }}</td>
+      </ng-container>
+  
+      <!-- Accreditiation Symbol -->
+      <ng-container matColumnDef="accreditiationSymbol">
+        <th mat-header-cell *matHeaderCellDef>Accreditiation Symbol</th>
+        <td mat-cell *matCellDef="let element">{{ element.accreditationSymbol }}</td>
+      </ng-container>
+  
+      <!-- Integration code -->
+      <ng-container matColumnDef="integrationCode">
+        <th mat-header-cell *matHeaderCellDef>Integration Code</th>
+        <td mat-cell *matCellDef="let element">{{ element.integrationCode }}</td>
+      </ng-container>
+  
+      <!-- Test Component -->
+      <ng-container matColumnDef="testComponent">
+        <th mat-header-cell *matHeaderCellDef>Test Component</th>
+        <td mat-cell *matCellDef="let element">{{ element.testComponent }}</td>
+      </ng-container>
+  
+      <!-- Processing Center -->
+      <ng-container matColumnDef="processingCenter">
+        <th mat-header-cell *matHeaderCellDef>Processing Center</th>
+        <td mat-cell *matCellDef="let element">{{ element.processingCenter }}</td>
+      </ng-container>
+  
+      <!-- Outsource Vendor Code -->
+      <ng-container matColumnDef="outsourceVendorCode">
+        <th mat-header-cell *matHeaderCellDef>Outsource Vendor Code</th>
+        <td mat-cell *matCellDef="let element">{{ element.outsourceVendorCode }}</td>
+      </ng-container>
+  
+      <!-- Method -->
+      <ng-container matColumnDef="method">
+        <th mat-header-cell *matHeaderCellDef>Method</th>
+        <td mat-cell *matCellDef="let element">{{ element.method }}</td>
+      </ng-container>
+  
+      <!--Unit -->
+      <ng-container matColumnDef="unit">
+        <th mat-header-cell *matHeaderCellDef>Unit</th>
+        <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
+      </ng-container>
+  
+      <!--Reference Range -->
+      <ng-container matColumnDef="referenceRange">
+        <th mat-header-cell *matHeaderCellDef>Reference Range</th>
+        <td mat-cell *matCellDef="let element">{{ element.referenceRange }}</td>
+      </ng-container>
+  
+      <!--TAT -->
+      <ng-container matColumnDef="tat">
+        <th mat-header-cell *matHeaderCellDef>TAT</th>
+        <td mat-cell *matCellDef="let element">{{ element.tat }}</td>
+      </ng-container>
+  
+      <!--CPT Amount-->
+      <ng-container matColumnDef="cptAmount">
+        <th mat-header-cell *matHeaderCellDef>CPT Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
+      </ng-container>
+  
+      <!--Accreditation -->
+      <ng-container matColumnDef="accreditation">
+        <th mat-header-cell *matHeaderCellDef>Accreditation</th>
+        <td mat-cell *matCellDef="let element">{{ element.accreditation }}</td>
+      </ng-container>
+  
+      <!--Comments -->
+      <ng-container matColumnDef="comments">
+        <th mat-header-cell *matHeaderCellDef>Comment</th>
+        <td mat-cell *matCellDef="let element">{{ element.comments }}</td>
+      </ng-container>
+      
+            <!--Action-->
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef>
+                <section class="actions-wrapper">
+                  <app-column-chooser
+                    [columns]="filteredColumns"
+                    (closed)="onColumnChooserClosed($event)"
+                  ></app-column-chooser>
+                </section>
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <section class="actions-wrapper">
+                  <button class="edit-button" mat-button color="primary" disableRipple (click)="onAddCombinedTestClicked()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                  <button class="delete-button" mat-button color="warn" disableRipple>
+                    <mat-icon>delete_outline</mat-icon>
+                  </button>
+                </section>
+              </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+  
+          <!-- No Record(s) Message -->
+          <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3" *ngIf="!tests">
+            No Tests Found
+          </section>
+        </section>
+      </mat-dialog-content>
+      <section mat-dialog-actions>
+        <section class="full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
+          <button mat-button color="primary" matDialogClose>Cancel</button>
+          <button mat-raised-button color="primary" cdkFocusInitial>Link Selected Test(s)</button>
+        </section>
+      </section>
+    </mat-card>
+  </section>
+  

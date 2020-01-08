@@ -1,27 +1,67 @@
-<section class="animated fadeIn">
+<section id="profile-test-container" class="animated fadeIn">
+  <!-- Material Card -->
   <mat-card>
-    <!-- Mat Card Title -->
-    <mat-card-title>
-      <section class="mat-card-title-container">
-        <section>
-          Profile Test Lists
-        </section>
-        <section>
-          <button mat-button color="primary" (click)="onAddProfileTestButtonClicked()">+ Add Test Profile</button>
-        </section>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">streetview </mat-icon>
       </section>
-    </mat-card-title>
 
-    <!-- Mat Card SubTitle -->
-    <mat-card-subtitle> Manage Profile Test(s) </mat-card-subtitle>
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              Profile Test
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage Profile Test </mat-card-subtitle>
+      </section>
+
+      <!-- Add Appointment Button -->
+      <section class="profile-test-button-wrapper">
+        <button mat-stroked-button (click)="onAddProfileTestButtonClicked()">Add Profile Test</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-profile-test-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+    </app-profile-test-ribbon-menu>
 
     <!-- Mat Divider -->
     <mat-divider></mat-divider>
 
-    <!-- Profile Test List Data Table -->
-    <app-profile-test-list-data-table
-      (editProfileTestClicked)="onEditProfileTestClicked($event)"
-      [isBusy]="isFetchingProfileTests"
-    ></app-profile-test-list-data-table>
+    <!-- Test List -->
+    <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+    <!-- List View -->
+    <ng-template #listView>
+        <app-profile-test-list
+        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-profile-test-list
+          >
+      </ng-template>
+
+    <!-- Table View -->
+    <ng-template #tableView>
+      <app-profile-test-list-data-table
+        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [isBusy]="isFetchingTests"
+        (editProfileTestClicked)="onEditTestClicked($event)"
+        (manageButtonClicked)="onManageButtonClicked($event)"
+      ></app-profile-test-list-data-table>
+    </ng-template>
+
+    <mat-paginator
+        [length]="tests.length"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = $event"
+      > 
+      </mat-paginator>
   </mat-card>
 </section>
