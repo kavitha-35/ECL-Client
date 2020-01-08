@@ -8,12 +8,7 @@ const MENUITEMS: Menu[] = [
     type: 'link',
     icon: 'apps',
   },
-  {
-    state: 'human-resource',
-    name: 'Human Resource',
-    type: 'link',
-    icon: 'apps',
-  },
+
   {
     state: 'testmaster',
     name: 'Test Masters',
@@ -71,7 +66,7 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'rate_review',
     children: [
-      { state: 'not-found', name: 'Add Employee' },
+      { state: 'human-resource', name: 'Add Employee' },
       { state: 'not-found', name: 'Employee List' },
       { state: 'not-found', name: 'User Privilage' },
     ],
