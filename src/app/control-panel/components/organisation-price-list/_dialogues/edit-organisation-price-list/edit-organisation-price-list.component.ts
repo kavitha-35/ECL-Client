@@ -4,25 +4,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-edit-organisation-price-list',
   templateUrl: './edit-organisation-price-list.component.html',
   styleUrls: ['./edit-organisation-price-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditOrganisationPriceListComponent implements OnInit {
-  public isPrepaid: boolean;
-  public isPostpaid: boolean;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.isPrepaid = true;
-    this.isPostpaid = false;
-  }
+  ngOnInit(): void {}
   public onEditOrganisationClicked(): void {}
-  public paymentType(payment: string): void {
-    if (payment === 'postpaid') {
-      this.isPostpaid = true;
-      this.isPrepaid = false;
-    } else {
-      this.isPrepaid = true;
-      this.isPostpaid = false;
-    }
-  }
 }

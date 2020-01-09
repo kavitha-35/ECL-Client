@@ -1,0 +1,60 @@
+<section id="humanresource-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card Title -->
+        <app-mat-dialog-header title="Search" subTitle="Search for Employee(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!--  Employee Name -->
+        <mat-form-field>
+          <mat-label>Employee Name</mat-label>
+          <input matInput placeholder="Employee Name" />
+        </mat-form-field>
+  
+        <!-- Department -->
+        <mat-form-field>
+          <mat-label>Department</mat-label>
+          <input matInput placeholder="Department" />
+        </mat-form-field>
+  
+        <!-- Date Of Birth -->
+        <mat-form-field>
+          <mat-label>Date Of Birth</mat-label>
+          <input matInput placeholder="DOB" />
+        </mat-form-field>
+  
+        <!-- E-mail -->
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Email" />
+        </mat-form-field>
+  
+        <!-- Alternate E-mail -->
+        <mat-form-field>
+          <mat-label>Alternate E-mail</mat-label>
+          <input matInput placeholder="Alternate Email"  />
+        </mat-form-field>
+  
+        <!-- Contact Number -->
+        <mat-form-field>
+          <mat-label>Contact Number</mat-label>
+          <input matInput placeholder="Contact Number" />
+        </mat-form-field>
+  
+        <!-- Alternate Contact Number -->
+        <mat-form-field>
+          <mat-label>Alternate Contact Number</mat-label>
+          <input matInput placeholder="Alternate Contact Number" />
+        </mat-form-field>
+      </section>
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  
