@@ -45,25 +45,26 @@
       <!-- List View -->
       <ng-template #listView>
         <app-outsourcing-management-list
-        [labs]="outsourcedLab | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-outsourcing-management-list
+        [labs]="outsourcedLab"></app-outsourcing-management-list
           >
       </ng-template>
 
       <!-- Table View -->
       <ng-template #tableView>
         <app-referal-lab-list-data-table
-        [labs]="outsourcedLab | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [labs]="outsourcedLab"
         (editReferalLabClicked)="onEditReferalLabClicked()"
+        (deleteReferalLabClicked)="onDeleteReferalLabClicked($event)"
         [isBusy]="isFetchingReferalLab"
       ></app-referal-lab-list-data-table>
       </ng-template>
 
-      <mat-paginator
+      <!-- <mat-paginator
         [length]="outsourcedLab.length"
         [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = $event"
       >
-      </mat-paginator>
+      </mat-paginator> -->
   </mat-card>
 </section>
 

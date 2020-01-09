@@ -11,7 +11,7 @@ export class ReferalLabListDataTableComponent implements OnInit {
   @Input() labs : OutsourcingManagementModel[];
   @Input() isBusy: boolean;
   @Output() editReferalLabClicked = new EventEmitter();
-  @Output() deleteReferalLabClicked = new EventEmitter();
+  @Output() deleteReferalLabClicked = new EventEmitter<string>();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -25,8 +25,8 @@ export class ReferalLabListDataTableComponent implements OnInit {
     this.editReferalLabClicked.emit();
   }
 
-  public onDeleteReferalLabClicked(): void {
-    this.deleteReferalLabClicked.emit();
+  public onDeleteReferalLabClicked(outsourceId: string): void {
+    this.deleteReferalLabClicked.emit(outsourceId);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
@@ -46,7 +46,6 @@ export class ReferalLabListDataTableComponent implements OnInit {
       { columnName: 'region', displayValue: 'Region', isSelected: true },
       { columnName: 'country', displayValue: 'Country', isSelected: true },
       { columnName: 'salesRepresentative', displayValue: 'Sales Representative', isSelected: true },
-      { columnName: 'courier', displayValue: 'Courier', isSelected: true },
       { columnName: 'contactMobileNumber', displayValue: 'Mobile Number', isSelected: true },
       { columnName: 'mail', displayValue: 'Mail', isSelected: false },
       { columnName: 'action', displayValue: 'Action', isSelected: true },

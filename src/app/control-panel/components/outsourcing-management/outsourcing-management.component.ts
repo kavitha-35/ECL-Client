@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialogConfig, MatDialog, PageEvent } from '@angular/material';
 import { AddReferalLabComponent } from './_dialogues/add-referal-lab/add-referal-lab.component';
 import { take } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import { EditReferalLabComponent } from './_dialogues/edit-referal-lab/edit-refe
 import { ActivatedRoute, Router } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
 import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
+import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
 
 @Component({
   selector: 'app-outsourcing-management',
@@ -13,10 +14,10 @@ import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing
   styleUrls: ['./outsourcing-management.component.scss'],
 })
 export class OutsourcingManagementComponent implements OnInit {
-  public outsourcedLab       : OutsourcingManagementModel[];
-  public showListView        : boolean;
-  public pageEvent           : PageEvent;
-  public pageSizeOptions     : number[];
+  public outsourcedLab: OutsourcingManagementModel[];
+  public showListView: boolean;
+  public pageEvent: PageEvent;
+  public pageSizeOptions: number[];
   public isFetchingReferalLab: boolean;
   matDialogConfig: MatDialogConfig = {
     panelClass: 'mat-dialogue-no-padding',
@@ -28,13 +29,15 @@ export class OutsourcingManagementComponent implements OnInit {
     private readonly _matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
+    private readonly _outsourcingManagementService: OutsourceManagementService,
+    private readonly changeRef: ChangeDetectorRef,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
-    this._initializeValues();
+    this.getAllOutsoure();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -44,7 +47,10 @@ export class OutsourcingManagementComponent implements OnInit {
     this._matDialog
       .open(AddReferalLabComponent, this.matDialogConfig)
       .afterClosed()
-      .pipe(take(1));
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllOutsoure();
+      });
   }
 
   public onEditReferalLabClicked(): void {
@@ -52,6 +58,15 @@ export class OutsourcingManagementComponent implements OnInit {
       .open(EditReferalLabComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1));
+  }
+
+  public getAllOutsoure(): void {
+    this.isFetchingReferalLab = true;
+    this._outsourcingManagementService.getAllOutsourcing().subscribe((data) => {
+      this.outsourcedLab = data;
+      this.isFetchingReferalLab = false;
+      this.changeRef.detectChanges();
+    });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -62,92 +77,9 @@ export class OutsourcingManagementComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  private _initializeValues(): void {
-    this.outsourcedLab =  [
-      {
-        id: '1',
-        basicInformation: {
-          labName: 'clininal laboratories',
-          relation: true,
-          address: 'business center,floor 1, office 107',
-          postBox: '345 234',
-          telephone: '971 423 44152',
-          fax: '+1 323 555 1234' ,
-          web: 'clinicalaboratories.com',
-          region: 'al barsha',
-          country: 'dubai',
-          interfacingType: true,
-          salesRepresentative: 'ahmed',
-          courier: 'zain',
-          contactMobile: '971 341 54421',
-          mail: 'zain123@outlook.com',
-        },
-        paymentInformation: {
-          paymentMode: 'credit',
-          creditPeriod: '60 days'
-        },
-        loginInformation: {
-          url: 'https://westernclinicallaboratorieslis.com',
-          userName: 'eclreport',
-          password: 'admin@890',
-        },
-      },
-      {
-        id: '2',
-        basicInformation: {
-          labName: 'clininal laboratories',
-          relation: true,
-          address: 'business center,floor 1, office 107',
-          postBox: '345 234',
-          telephone: '971 423 44152',
-          fax: '+1 323 555 1234' ,
-          web: 'clinicalaboratories.com',
-          region: 'al barsha',
-          country: 'dubai',
-          interfacingType: true,
-          salesRepresentative: 'ahmed',
-          courier: 'zain',
-          contactMobile: '971 341 54421',
-          mail: 'zain123@outlook.com',
-        },
-        paymentInformation: {
-          paymentMode: 'credit',
-          creditPeriod: '60 days'
-        },
-        loginInformation: {
-          url: 'https://westernclinicallaboratorieslis.com',
-          userName: 'eclreport',
-          password: 'admin@890',
-        },
-      },
-      {
-        id: '3',
-        basicInformation: {
-          labName: 'clininal laboratories',
-          relation: true,
-          address: 'business center,floor 1, office 107',
-          postBox: '345 234',
-          telephone: '971 423 44152',
-          fax: '+1 323 555 1234' ,
-          web: 'clinicalaboratories.com',
-          region: 'al barsha',
-          country: 'dubai',
-          interfacingType: true,
-          salesRepresentative: 'ahmed',
-          courier: 'zain',
-          contactMobile: '971 341 54421',
-          mail: 'zain123@outlook.com',
-        },
-        paymentInformation: {
-          paymentMode: 'credit',
-          creditPeriod: '60 days'
-        },
-        loginInformation: {
-          url: 'https://westernclinicallaboratorieslis.com',
-          userName: 'eclreport',
-          password: 'admin@890',
-        },
-      }
-    ];
+  public onDeleteReferalLabClicked(outsourceId: string): void {
+    this._outsourcingManagementService.deleteOutsourcing(outsourceId).subscribe(() => {
+      this.getAllOutsoure();
+    });
   }
 }

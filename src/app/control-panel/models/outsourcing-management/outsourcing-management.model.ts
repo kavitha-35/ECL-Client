@@ -1,36 +1,33 @@
-import { ɵngrx_modules_store_store_a } from '@ngrx/store';
-
 export interface OutsourcingManagementModel {
-  id: string;
-  basicInformation: BasicInformationModel;
-  paymentInformation: PaymentInformationModel;
-  loginInformation: LoginInformationModel;
-}
-
-interface BasicInformationModel {
+  outsourceId: number;
+  labCode: string;
   labName: string;
-  relation: boolean;
+  relation: string;
   address: string;
-  postBox: string;
+  poNumber: string;
   telephone: string;
   fax: string;
   web: string;
-  region: string;
-  country: string;
-  interfacingType: boolean;
-  salesRepresentative: string;
-  courier: string;
-  contactMobile: string;
-  mail: string;
-}
-
-interface PaymentInformationModel {
-  paymentMode: string;
+  region: RegionModel;
+  country: CountryModel;
+  interfacingType: string;
+  courier: [];
+  contactPerson: string;
+  email: string;
+  paymentMethod: string;
   creditPeriod: string;
+  creditLimit: string;
+  url: string;
+  username: string;
+  passowrd: string;
 }
 
-interface LoginInformationModel {
-  url: string;
-  userName: string;
-  password: string;
+interface RegionModel {
+  regionId: number;
+  regionName: string;
+}
+
+interface CountryModel {
+  countryId: number;
+  countryName: string;
 }

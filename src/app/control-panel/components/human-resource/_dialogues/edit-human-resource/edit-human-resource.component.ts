@@ -4,26 +4,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-edit-human-resource',
   templateUrl: './edit-human-resource.component.html',
   styleUrls: ['./edit-human-resource.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditHumanResourceComponent implements OnInit {
-  public isPrepaid: boolean;
-  public isPostpaid: boolean;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.isPrepaid = true;
-    this.isPostpaid = false;
-  }
+  ngOnInit(): void {}
 
   public onEditHumanResourceClicked(): void {}
-  public paymentType(payment: string): void {
-    if (payment === 'postpaid') {
-      this.isPostpaid = true;
-      this.isPrepaid = false;
-    } else {
-      this.isPrepaid = true;
-      this.isPostpaid = false;
-    }
-  }
 }
