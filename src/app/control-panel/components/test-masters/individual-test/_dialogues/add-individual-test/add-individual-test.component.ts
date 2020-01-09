@@ -28,7 +28,6 @@ export class AddIndividualTestComponent implements OnInit {
   }
 
   public onAddIndividualTestButtonClicked(individualTest: NgForm): void {
-    console.log(individualTest.form.value);
     this._individualTestService.addIndividualTest(individualTest.form.value).subscribe(() => {
       this.dialogRef.close();
     });
@@ -37,13 +36,11 @@ export class AddIndividualTestComponent implements OnInit {
   public getProcessingCenter(): void {
     this.lookUpService.getLookUp('processingCenter').subscribe((data: LookUpModel[]) => {
       this.processingCenter = data;
-      console.log(this.processingCenter);
     });
   }
   public getUnits(): void {
     this.lookUpService.getLookUp('unit').subscribe((data: LookUpModel[]) => {
       this.units = data;
-      console.log(this.units);
     });
   }
 

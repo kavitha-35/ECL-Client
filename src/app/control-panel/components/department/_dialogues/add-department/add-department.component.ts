@@ -14,8 +14,8 @@ import { DoctorModel } from 'app/control-panel/models/Doctor/doctor.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddDepartmentComponent implements OnInit {
-  public departmentType: LookUpModel[];
-  public doctor: DoctorModel[];
+  public departmentTypes: LookUpModel[];
+  public doctors: DoctorModel[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddDepartmentComponent>,
     private readonly _departmentService: DepartmentService,
@@ -36,14 +36,15 @@ export class AddDepartmentComponent implements OnInit {
 
   public getDepartmentType(): void {
     this._lookUpService.getLookUp('DepartmentType').subscribe((data: LookUpModel[]) => {
-      this.departmentType = data;
-      console.log(this.departmentType);
+      this.departmentTypes = data;
+      console.log(data);
     });
   }
 
   public getDoctor(): void {
     this._doctorService.getAllDoctor().subscribe((data) => {
-      this.doctor = data;
+      this.doctors = data;
+      console.log(data);
     });
   }
 }
