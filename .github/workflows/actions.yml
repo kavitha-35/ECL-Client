@@ -18,6 +18,6 @@ jobs:
     - name: Lint
       run: npm run lint
     - name: Build
-      run: npm run build -- --prod
+      run: node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --prod 
       env:
         CI: true
