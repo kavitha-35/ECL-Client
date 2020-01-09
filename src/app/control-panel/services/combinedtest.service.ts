@@ -12,25 +12,25 @@ export class CombinedTestService {
 
     constructor(private readonly httpClient: HttpClient) { }
 
-    getAllTests(): Observable<any[]> {
+    getAllTests(): Observable<Test[]> {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
         const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
-        return this.httpClient.get<any[]>(apiUrl, { headers: headers });
+        return this.httpClient.get<Test[]>(apiUrl, { headers: headers });
     }
 
-    addTest(test: Test): Observable<any> {
+    addTest(test: Test): Observable<Test> {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
         const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
-        return this.httpClient.post<any>(apiUrl, test, { headers: headers });
+        return this.httpClient.post<Test>(apiUrl, test, { headers: headers });
     }
 
-    updateTest(testId: string, test: Test): Observable<any> {
+    updateTest(testId: string, test: Test): Observable<Test> {
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
         const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${testId}`;
-        return this.httpClient.put<any>(apiUrl, test, { headers: headers });
+        return this.httpClient.put<Test>(apiUrl, test, { headers: headers });
     }
 
     deleteDepartment(departmentId: string): Observable<boolean> {

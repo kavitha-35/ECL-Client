@@ -28,7 +28,10 @@ export class EditCombinedTestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.test)
+    this.getSpecimen();
+    this.getSpecimenType();
+    this.getStorage();
+    this.getReportFormat();
   }
 
   public onEditTestClicked(): void {

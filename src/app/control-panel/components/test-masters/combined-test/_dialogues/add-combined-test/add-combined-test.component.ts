@@ -26,6 +26,9 @@ export class AddCombinedTestComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSpecimen();
+    this.getSpecimenType();
+    this.getStorage();
+    this.getReportFormat();
   }
 
   public onAddTestClicked(): void {
