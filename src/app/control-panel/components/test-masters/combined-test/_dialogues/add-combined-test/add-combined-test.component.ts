@@ -8,21 +8,22 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 @Component({
   selector: 'app-add-combined-test',
   templateUrl: './add-combined-test.component.html',
-  styleUrls: ['./add-combined-test.component.scss']
+  styleUrls: ['./add-combined-test.component.scss'],
 })
 export class AddCombinedTestComponent implements OnInit {
   public get lookUpService(): LookupService {
     return this._lookUpService;
   }
   test: Test = new Test();
-  specimen: any[] = [];
-  specimenType: any[] = [];
-  storage: any[] = [];
-  reportFormat: any[] = [];
-  constructor(private readonly dialogRef: MatDialogRef<AddCombinedTestComponent>,
+  specimen: LookUpModel[] = [];
+  specimenType: LookUpModel[] = [];
+  storage: LookUpModel[] = [];
+  reportFormat: LookUpModel[] = [];
+  constructor(
+    private readonly dialogRef: MatDialogRef<AddCombinedTestComponent>,
     private readonly _combinedTestService: CombinedTestService,
-    private readonly _lookUpService: LookupService) {
-  }
+    private readonly _lookUpService: LookupService,
+  ) {}
 
   ngOnInit(): void {
     this.getSpecimen();
@@ -35,8 +36,7 @@ export class AddCombinedTestComponent implements OnInit {
     this.dialogRef.close();
   }
 
-
-  addTest() {
+  addTest(): void {
     this._combinedTestService.addTest(this.test).subscribe((data) => {
       this.dialogRef.close();
     });
@@ -69,5 +69,4 @@ export class AddCombinedTestComponent implements OnInit {
       console.log(this.reportFormat);
     });
   }
-
 }

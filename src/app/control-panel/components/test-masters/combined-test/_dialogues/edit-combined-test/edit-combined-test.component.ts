@@ -8,22 +8,24 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 @Component({
   selector: 'app-edit-combined-test',
   templateUrl: './edit-combined-test.component.html',
-  styleUrls: ['./edit-combined-test.component.scss']
+  styleUrls: ['./edit-combined-test.component.scss'],
 })
 export class EditCombinedTestComponent implements OnInit {
   public get lookUpService(): LookupService {
     return this._lookUpService;
   }
   public test: Test;
-  specimen: any[] = [];
-  specimenType: any[] = [];
-  storage: any[] = [];
-  reportFormat: any[] = [];
+  specimen: LookUpModel[] = [];
+  specimenType: LookUpModel[] = [];
+  storage: LookUpModel[] = [];
+  reportFormat: LookUpModel[] = [];
 
-  constructor(private readonly dialogRef: MatDialogRef<EditCombinedTestComponent>,
+  constructor(
+    private readonly dialogRef: MatDialogRef<EditCombinedTestComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: Test,
     private readonly _combinedTestService: CombinedTestService,
-    private _lookUpService: LookupService, ) {
+    private _lookUpService: LookupService,
+  ) {
     this.test = data;
   }
 
@@ -35,7 +37,7 @@ export class EditCombinedTestComponent implements OnInit {
   }
 
   public onEditTestClicked(): void {
-    this._combinedTestService.updateTest(this.test.testId + "", this.test).subscribe((data) => {
+    this._combinedTestService.updateTest(this.test.testId + '', this.test).subscribe((data) => {
       this.dialogRef.close();
     });
   }
