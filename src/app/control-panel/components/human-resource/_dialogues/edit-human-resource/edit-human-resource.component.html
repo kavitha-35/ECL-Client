@@ -1,0 +1,137 @@
+<section id="humanresource-container">
+  <mat-card class="humanresource-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Human Resource" subTitle="Edit Human Resource" icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="humanresource-dialog">
+        <section>
+          <!-- HumanResource Management Form -->
+          <form class="humanresource-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Employee Name -->
+                <mat-form-field>
+                  <mat-label>Employee Name</mat-label>
+                  <input matInput placeholder="Employee Name" />
+                </mat-form-field>
+
+                <!-- Department -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Department</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
+                </mat-form-field>
+
+                <!-- DOB -->
+                <mat-form-field>
+                  <mat-label>Date Of Birth</mat-label>
+                  <input matInput placeholder="DOB" />
+                </mat-form-field>
+
+                <!-- E-mail -->
+                <mat-form-field>
+                  <mat-label>E-mail</mat-label>
+                  <input matInput placeholder="E-mail" />
+                </mat-form-field>
+
+                <!-- Alternate E-mail -->
+                <mat-form-field>
+                  <mat-label>Alternate E-mail</mat-label>
+                  <input matInput placeholder="Alternate E-mail" />
+                </mat-form-field>
+
+                <!-- Contact Number -->
+                <mat-form-field>
+                  <mat-label>Contact Number</mat-label>
+                  <input matInput placeholder="Contact Number" />
+                </mat-form-field>
+
+                <!-- Alternate Number -->
+                <mat-form-field>
+                  <mat-label>Alternate Contact Number</mat-label>
+                  <input matInput placeholder="Alternate Contact Number" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Locale Information -->
+            <section class="user-credential-wrapper">
+              <!-- Header -->
+              <app-section-header title="User Credential"></app-section-header>
+
+              <!-- Content -->
+              <section class="user-credential-content">
+                
+                <!-- Default URL -->
+                <mat-form-field>
+                  <mat-label>Default URL</mat-label>
+                  <input matInput placeholder="URL" />
+                </mat-form-field>
+
+                <!-- User Name -->
+                <mat-form-field>
+                  <mat-label>User Name</mat-label>
+                  <input matInput placeholder="User name" />
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- User Privellege -->
+            <section class="user-privellege-wrapper">
+              <!-- Header -->
+              <app-section-header title="User Privellege"></app-section-header>
+              <!-- Content -->
+              <section class="user-privellege-content">
+
+                <!-- Registration -->
+                <mat-checkbox>Registration</mat-checkbox>
+
+                <!-- Operation -->
+                <mat-checkbox>Operation</mat-checkbox>
+
+                <!-- Finance -->
+                <mat-checkbox>Finance</mat-checkbox>
+
+                <!-- Admin -->
+                <mat-checkbox>Admin</mat-checkbox>
+
+                <!-- Accession -->
+                <mat-checkbox>Accession</mat-checkbox>
+
+                <!-- Departments -->
+                <mat-checkbox>Departments</mat-checkbox>
+
+                <!-- Control Panel -->
+                <mat-checkbox>Control Pannel</mat-checkbox>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Save Changes</button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>

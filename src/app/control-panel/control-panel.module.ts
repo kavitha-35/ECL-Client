@@ -94,6 +94,13 @@ import { OrganisationPriceListDataListComponent } from './components/organisatio
 import { OrganisationPriceListSearchComponent } from './components/organisation-price-list/organisation-price-list-search/organisation-price-list-search.component';
 import { AddOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/add-organisation-price-list/add-organisation-price-list.component';
 import { EditOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/edit-organisation-price-list/edit-organisation-price-list.component';
+import { HumanResourceComponent } from './components/human-resource/human-resource.component';
+import { EditHumanResourceComponent } from './components/human-resource/_dialogues/edit-human-resource/edit-human-resource.component';
+import { HumanResourceSearchComponent } from './components/human-resource/human-resource-search/human-resource-search.component';
+import { HumanResourceRibbonMenuComponent } from './components/human-resource/human-resource-ribbon-menu/human-resource-ribbon-menu.component';
+import { HumanResourceDataTableComponent } from './components/human-resource/human-resource-data-table/human-resource-data-table.component';
+import { HumanResourceDataListComponent } from './components/human-resource/human-resource-data-list/human-resource-data-list.component';
+import { AddHumanResourceComponent } from './components/human-resource/_dialogues/add-human-resource/add-human-resource.component';
 import { MethodsComponent } from './components/methods/methods.component';
 import { MethodListDataTableComponent } from './components/methods/method-list-data-table/method-list-data-table.component';
 import { MethodListComponent } from './components/methods/method-list/method-list.component';
@@ -182,36 +189,42 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     OrganisationPriceListSearchComponent,
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
-    MethodsComponent,
-    AddMethodComponent,
-    EditMethodComponent,
-    MethodListDataTableComponent,
-    MethodListComponent,
-    MethodRibbonMenuComponent,
-    MethodSearchComponent,
-    ReferenceRangeRibbonMenuComponent,
-    ReferenceRangeSearchComponent,
-    ReferenceRangeListComponent,
-    DepartmentComponent,
-    DepartmentDataListComponent,
-    DepartmentDataTableComponent,
-    DepartmentRibbonMenuComponent,
-    DepartmentSearchComponent,
-    AddDepartmentComponent,
-    EditDepartmentComponent,
-    DepartmentSearchComponent,
-    DoctorListComponent,
-    DoctorListRibbonMenuComponent,
-    DoctorListSearchComponent,
-    ProfileTestRibbonMenuComponent,
-    ProfileTestSearchComponent,
-    ProfileTestListComponent,
-    ProfileTestDetailsComponent,
-    CombinedTestDetailsComponent,
-    CombinedTestListComponent,
     CombinedTestRibbonMenuComponent,
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
+    AddHumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceDataListComponent,
+    HumanResourceDataTableComponent,
+    HumanResourceRibbonMenuComponent,
+    HumanResourceSearchComponent,
+    HumanResourceComponent,
+    MethodsComponent,
+    MethodListDataTableComponent,
+    MethodListComponent,
+    MethodRibbonMenuComponent,
+    AddMethodComponent,
+    EditMethodComponent,
+    MethodSearchComponent,
+    DepartmentDataListComponent,
+    DepartmentDataTableComponent,
+    DepartmentRibbonMenuComponent,
+    DepartmentComponent,
+    ReferenceRangeSearchComponent,
+    AddDepartmentComponent,
+    EditDepartmentComponent,
+    DepartmentSearchComponent,
+    DoctorListSearchComponent,
+    ProfileTestSearchComponent,
+    ReferenceRangeRibbonMenuComponent,
+    ReferenceRangeListComponent,
+    DoctorListComponent,
+    DoctorListRibbonMenuComponent,
+    ProfileTestRibbonMenuComponent,
+    ProfileTestListComponent,
+    ProfileTestDetailsComponent,
+    CombinedTestDetailsComponent,
+    CombinedTestListComponent
   ],
   providers: [
     DatePipe,
@@ -221,7 +234,6 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
 
   imports: [
     RouterModule,
-    CommonModule,
     SharedModule,
     MatIconModule,
     MatSidenavModule,
@@ -231,7 +243,6 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     MatMenuModule,
     MatTabsModule,
     MatSelectModule,
-    MatCheckboxModule,
     FormsModule,
     MatProgressBarModule,
     NgChatModule,
@@ -241,7 +252,6 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     MatExpansionModule,
     MatFormFieldModule,
     MatToolbarModule,
-    MatExpansionModule,
     MatButtonModule,
     MatSnackBarModule,
     FlexModule,
@@ -257,6 +267,7 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     NgxLoadingModule,
     MatStepperModule,
     MatChipsModule,
+    MatCheckboxModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
@@ -289,6 +300,9 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
     OrganisationPriceListSearchComponent,
+    AddHumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceSearchComponent,
     AddMethodComponent,
     EditMethodComponent,
     MethodSearchComponent,
