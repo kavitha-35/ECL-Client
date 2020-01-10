@@ -122,28 +122,18 @@ const MENUITEMS: Menu[] = [
     children: [{ state: 'not-found', name: 'Add Promotion' }, { state: 'not-found', name: 'Promotion Corner List' }],
   },
   {
-    state: 'payment',
-    name: 'Payment Gateways',
+    state: 'gateways',
+    name: 'Gateways',
     type: 'sub',
     icon: 'pages',
     children: [
-      { state: 'not-found', name: 'Add Payment Gateway' },
-      { state: 'not-found', name: 'Payment Gateway List' },
+      { state: 'not-found', name: 'Payment Gateway' },
+      { state: 'not-found', name: 'Email Gateways' },
+      { state: 'not-found', name: 'SMS Gateway' },
+      { state: 'not-found', name: 'Whatsapp Gateways' },
+      { state: 'not-found', name: 'Email Gateways' },
+
     ],
-  },
-  {
-    state: 'email',
-    name: 'Email Gateways',
-    type: 'sub',
-    icon: 'pages',
-    children: [{ state: 'not-found', name: 'Add Email Gateway' }, { state: 'not-found', name: 'Email Gateway List' }],
-  },
-  {
-    state: 'sms',
-    name: 'SMS Gateways',
-    type: 'sub',
-    icon: 'pages',
-    children: [{ state: 'not-found', name: 'Add SMS Gateway' }, { state: 'not-found', name: 'SMS Gateway List' }],
   },
   {
     state: 'news',
@@ -151,16 +141,6 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'pages',
     children: [{ state: 'not-found', name: 'Add News' }, { state: 'not-found', name: 'News List' }],
-  },
-  {
-    state: 'whatsapp',
-    name: 'Whatsapp Gateways',
-    type: 'sub',
-    icon: 'pages',
-    children: [
-      { state: 'not-found', name: 'Add Whatsapp Gateways' },
-      { state: 'not-found', name: 'Whatsapp Gateway List' },
-    ],
   },
 ];
 

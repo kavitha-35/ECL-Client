@@ -2,8 +2,9 @@ import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/cor
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DepartmentService } from 'app/control-panel/services/department.service';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
-import { AddDepartmentRequestModel } from 'app/control-panel/models/department/add-department.model';
 import { NgForm } from '@angular/forms';
+import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
+import { LookupService } from 'app/control-panel/services/lookup.service';
 
 @Component({
   selector: 'app-edit-department',
@@ -12,20 +13,31 @@ import { NgForm } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditDepartmentComponent implements OnInit {
+  public departmentTypes: LookUpModel[];
   public selectedForEdit: DepartmentModel;
   constructor(
     private readonly dialogRef: MatDialogRef<EditDepartmentComponent>,
     private readonly _departmentService: DepartmentService,
+    private readonly _lookUpService: LookupService,
     @Inject(MAT_DIALOG_DATA) public data: DepartmentModel,
   ) {
     this.selectedForEdit = data;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDepartmentType();
+  }
   public onEditDepartmentClicked(department: NgForm): void {
-    department.form.value.departmentType = '1';
+    console.log(department.form.value);
     this._departmentService.updateDepartment(this.selectedForEdit.departmentId, department.form.value).subscribe(() => {
       this.dialogRef.close();
+    });
+  }
+
+  public getDepartmentType(): void {
+    this._lookUpService.getLookUp('DepartmentType').subscribe((data: LookUpModel[]) => {
+      this.departmentTypes = data;
+      console.log(data);
     });
   }
 }

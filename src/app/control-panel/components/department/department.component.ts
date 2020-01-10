@@ -87,6 +87,7 @@ export class DepartmentComponent implements OnInit {
     this.isFetchingDepartments = true;
     this._departmentService.getAllDepartments().subscribe((data) => {
       this.departments = data;
+      console.log(data);
       this.isFetchingDepartments = false;
       this.cRef.detectChanges();
     });

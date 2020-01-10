@@ -15,17 +15,14 @@ import { DoctorModel } from 'app/control-panel/models/Doctor/doctor.model';
 })
 export class AddDepartmentComponent implements OnInit {
   public departmentTypes: LookUpModel[];
-  public doctors: DoctorModel[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddDepartmentComponent>,
     private readonly _departmentService: DepartmentService,
     private readonly _lookUpService: LookupService,
-    private readonly _doctorService: DoctorService,
   ) {}
 
   ngOnInit(): void {
     this.getDepartmentType();
-    this.getDoctor();
   }
 
   onAddDepartmentClicked(department: NgForm): void {
@@ -41,10 +38,4 @@ export class AddDepartmentComponent implements OnInit {
     });
   }
 
-  public getDoctor(): void {
-    this._doctorService.getAllDoctor().subscribe((data) => {
-      this.doctors = data;
-      console.log(data);
-    });
-  }
 }

@@ -37,13 +37,6 @@
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Doctor Name -->
-                <mat-form-field>
-                  <mat-label>Doctor Name</mat-label>
-                  <mat-select disableOptionCentering name=doctor ngModel #doctor="ngModel" >
-                    <mat-option *ngFor="let options of doctors" [value]="options.DoctorId">{{options.DoctorName}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
               </section>
             </section>
           </form>
