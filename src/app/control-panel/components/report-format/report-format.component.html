@@ -1,0 +1,65 @@
+<section id="report-format-container" class="animated fadeIn">
+    <!-- Material Card -->
+    <mat-card>
+      <section class="mat-header-container">
+        <!-- Mat Header Image -->
+        <section class="mat-header-image-wrapper">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+            >apps
+          </mat-icon>
+        </section>
+  
+        <!-- Mat Header Title -->
+        <section>
+          <!-- Mat Card Title -->
+          <mat-card-title>
+            <section class="mat-card-title-container">
+              <section>
+                Report Format
+              </section>
+            </section>
+          </mat-card-title>
+  
+          <!-- Mat Card SubTitle -->
+          <mat-card-subtitle> View/Manage Report Format </mat-card-subtitle>
+        </section>
+  
+        <!-- Add Appointment Button -->
+        <section class="report-format-button-wrapper">
+          <button class="report-format-button" mat-stroked-button (click)="onAddReportFormatButtonClicked()">Add Report Format</button>
+        </section>
+      </section>
+  
+      <!-- Mat Table Ribbon -->
+      <app-report-format-ribbon-menu
+        (showListViewButtonClicked)="onShowListViewButtonClicked()"
+        (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+      </app-report-format-ribbon-menu>
+  
+      <!-- Mat Divider -->
+      <mat-divider></mat-divider>
+  
+        <!-- Test List -->
+        <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+  
+        <!-- List View -->
+        <ng-template #listView>
+          <app-report-format-data-list
+          [reportFormat]="reportFormat"></app-report-format-data-list
+            >
+        </ng-template>
+  
+        <!-- Table View -->
+        <ng-template #tableView>
+          <app-report-format-table
+          [reportFormat]="reportFormat"
+          (editReportFormatClicked)="onEditReportFormatClicked()"
+          (deleteReportFormatClicked)="onDeleteReportFormatClicked($event)"
+          [isBusy]="isFetchingReportFormat"
+        ></app-report-format-table>
+        </ng-template>
+
+    </mat-card>
+  </section>
+  
+  

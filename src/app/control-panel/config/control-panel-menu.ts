@@ -103,8 +103,8 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'get_app',
     children: [
-      { state: 'not-found', name: 'Add Format', paramValue: 'Format' },
-      { state: 'not-found', name: 'Format List', paramValue: 'Format' },
+      { state: 'report-format', name: 'Add Format' },
+      { state: 'report-format', name: 'Format List' },
     ],
   },
   {
