@@ -15,6 +15,7 @@ import { OrganisationPriceListComponent } from './components/organisation-price-
 import { HumanResourceComponent } from './components/human-resource/human-resource.component';
 import { MethodsComponent } from './components/methods/methods.component';
 import { DepartmentComponent } from './components/department/department.component';
+import { CombinedTestDetailsComponent } from './components/test-masters/combined-test/combined-test-details/combined-test-details.component';
 
 export const routes: Routes = [
   {
@@ -52,6 +53,10 @@ export const routes: Routes = [
       {
         path: 'combined-test',
         component: CombinedTestComponent,
+      },
+      {
+        path: 'combined-test-details',
+        component: CombinedTestDetailsComponent,
       },
       {
         path: 'method',

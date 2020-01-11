@@ -15,10 +15,10 @@ export class AddCombinedTestComponent implements OnInit {
     return this._lookUpService;
   }
   test: Test = new Test();
-  specimen: any[] = [];
-  specimenType: any[] = [];
-  storage: any[] = [];
-  reportFormat: any[] = [];
+  specimen: LookUpModel[] = [];
+  specimenType: LookUpModel[] = [];
+  storage: LookUpModel[] = [];
+  reportFormat: LookUpModel[] = [];
   constructor(
     private readonly dialogRef: MatDialogRef<AddCombinedTestComponent>,
     private readonly _combinedTestService: CombinedTestService,
