@@ -1,11 +1,10 @@
 export interface DepartmentModel {
   departmentId: string;
   departmentName: string;
-  departmentType: string;
-  doctor: DoctorModel;
+  departmentType: DepartmentTypeModel;
 }
 
-interface DoctorModel {
-  doctorId: string;
-  doctorName: string;
+interface DepartmentTypeModel {
+  departmentTypeId: string;
+  departmentTypeName: string;
 }

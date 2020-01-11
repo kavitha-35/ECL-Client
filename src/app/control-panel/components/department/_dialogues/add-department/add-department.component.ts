@@ -14,18 +14,15 @@ import { DoctorModel } from 'app/control-panel/models/Doctor/doctor.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddDepartmentComponent implements OnInit {
-  public departmentType: LookUpModel[];
-  public doctor: DoctorModel[];
+  public departmentTypes: LookUpModel[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddDepartmentComponent>,
     private readonly _departmentService: DepartmentService,
     private readonly _lookUpService: LookupService,
-    private readonly _doctorService: DoctorService,
   ) {}
 
   ngOnInit(): void {
     this.getDepartmentType();
-    this.getDoctor();
   }
 
   onAddDepartmentClicked(department: NgForm): void {
@@ -36,14 +33,9 @@ export class AddDepartmentComponent implements OnInit {
 
   public getDepartmentType(): void {
     this._lookUpService.getLookUp('DepartmentType').subscribe((data: LookUpModel[]) => {
-      this.departmentType = data;
-      console.log(this.departmentType);
+      this.departmentTypes = data;
+      console.log(data);
     });
   }
 
-  public getDoctor(): void {
-    this._doctorService.getAllDoctor().subscribe((data) => {
-      this.doctor = data;
-    });
-  }
 }
