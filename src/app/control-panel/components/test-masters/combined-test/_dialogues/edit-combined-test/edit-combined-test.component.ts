@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Test } from '../add-combined-test/test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
+import { CombinedTest } from '../../test.model';
 
 @Component({
   selector: 'app-edit-combined-test',
@@ -14,7 +14,7 @@ export class EditCombinedTestComponent implements OnInit {
   public get lookUpService(): LookupService {
     return this._lookUpService;
   }
-  public test: Test;
+  public test: CombinedTest;
   specimen: LookUpModel[] = [];
   specimenType: LookUpModel[] = [];
   storage: LookUpModel[] = [];
@@ -22,7 +22,7 @@ export class EditCombinedTestComponent implements OnInit {
 
   constructor(
     private readonly dialogRef: MatDialogRef<EditCombinedTestComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Test,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: CombinedTest,
     private readonly _combinedTestService: CombinedTestService,
     private _lookUpService: LookupService,
   ) {
