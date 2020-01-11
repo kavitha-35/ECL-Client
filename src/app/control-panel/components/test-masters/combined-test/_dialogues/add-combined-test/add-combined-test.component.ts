@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { CombinedTest } from '../../test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
+import { CombinedTest } from '../../test.model';
 
 @Component({
   selector: 'app-add-combined-test',
