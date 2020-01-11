@@ -8,7 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class PageNotFoundDataTableComponent implements OnInit {
   value: any[];
-  displayedColumns: [
+  displayedColumns: string[] = [
     'id',
     'name',
     'type',
