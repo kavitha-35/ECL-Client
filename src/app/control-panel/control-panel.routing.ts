@@ -17,6 +17,7 @@ import { MethodsComponent } from './components/methods/methods.component';
 import { DepartmentComponent } from './components/department/department.component';
 import { CombinedTestDetailsComponent } from './components/test-masters/combined-test/combined-test-details/combined-test-details.component';
 import { PageNotFoundComponent } from 'app/shared/components/page-not-found/page-not-found.component';
+import { ReportFormatComponent } from './components/report-format/report-format.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
       {
         path: 'department',
         component: DepartmentComponent,
+      },
+      {
+        path: 'report-format',
+        component: ReportFormatComponent,
       },
       {
         path: 'reference-range',
