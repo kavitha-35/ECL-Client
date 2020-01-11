@@ -1,0 +1,40 @@
+<section id="page-not-found-container" class="animated fadeIn">
+  <!-- Material Card -->
+  <mat-card>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">home_work </mat-icon>
+      </section>
+
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+              {{ title }}
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> View/Manage {{ title }} </mat-card-subtitle>
+      </section>
+
+      <!-- Add  Button -->
+      <section class="page-not-found-button-wrapper">
+        <button class="page-not-found-button" mat-stroked-button cdkFocusInitial>Add {{ title }}</button>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-page-not-found-ribbon-menu> </app-page-not-found-ribbon-menu>
+
+    <!-- Mat Divider -->
+    <mat-divider></mat-divider>
+
+    <!-- Table View -->
+      <app-page-not-found-data-table></app-page-not-found-data-table>
+  </mat-card>
+</section>

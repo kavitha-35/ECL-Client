@@ -27,6 +27,10 @@ import { RowFilterComponent } from './components/row-filter/row-filter.component
 import { DialogCaptionComponent } from './components/dialog-caption/dialog-caption.component';
 import { SectionHeaderComponent } from './components/section-header/section-header.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PageNotFoundRibbonMenuComponent } from './components/page-not-found/page-not-found-ribbon-menu/page-not-found-ribbon-menu.component';
+import { MatButtonModule, MatTableModule } from '@angular/material';
+import { PageNotFoundDataTableComponent } from './components/page-not-found/page-not-found-data-table/page-not-found-data-table.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     RowFilterComponent,
     DialogCaptionComponent,
     SectionHeaderComponent,
+    PageNotFoundComponent,
+    PageNotFoundRibbonMenuComponent,
+    PageNotFoundDataTableComponent,
   ],
   imports: [
     CommonModule,
@@ -58,6 +65,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatListModule,
     MatTooltipModule,
     NgArrayPipesModule,
+    MatButtonModule,
+    MatTableModule
   ],
   exports: [
     AccordionDirective,

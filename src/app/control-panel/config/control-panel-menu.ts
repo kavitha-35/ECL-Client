@@ -67,8 +67,8 @@ const MENUITEMS: Menu[] = [
     icon: 'rate_review',
     children: [
       { state: 'human-resource', name: 'Add Employee' },
-      { state: 'not-found', name: 'Employee List' },
-      { state: 'not-found', name: 'User Privilage' },
+      { state: 'human-resource', name: 'Employee List' },
+      { state: 'not-found', name: 'User Privilage', paramValue: 'User Privileage' },
     ],
   },
   {
@@ -77,9 +77,8 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'timeline',
     children: [
-      { state: 'not-found', name: 'Add Monthy Budget' },
-      { state: 'not-found', name: 'Add Sales Representative Budget' },
-      { state: 'not-found', name: 'List' },
+      { state: 'not-found', name: 'Add Monthy Budget', paramValue: 'Monthly Budget' },
+      { state: 'not-found', name: 'Add Sales Representative Budget', paramValue: 'Sales Representative' },
     ],
   },
   {
@@ -93,14 +92,20 @@ const MENUITEMS: Menu[] = [
     name: 'Comments',
     type: 'sub',
     icon: 'map',
-    children: [{ state: 'not-found', name: 'Add Comments' }, { state: 'not-found', name: 'Comments List' }],
+    children: [
+      { state: 'not-found', name: 'Add Comments', paramValue: 'Comment' },
+      { state: 'not-found', name: 'Comments List', paramValue: 'Comment' },
+    ],
   },
   {
     state: 'format',
     name: 'Format',
     type: 'sub',
     icon: 'get_app',
-    children: [{ state: 'not-found', name: 'Add Format' }, { state: 'not-found', name: 'Format List' }],
+    children: [
+      { state: 'not-found', name: 'Add Format', paramValue: 'Format' },
+      { state: 'not-found', name: 'Format List', paramValue: 'Format' },
+    ],
   },
   {
     state: 'coupons',
@@ -108,10 +113,10 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'storefront',
     children: [
-      { state: 'not-found', name: 'Add Coupon' },
-      { state: 'not-found', name: 'Coupon Management List' },
-      { state: 'not-found', name: 'Cart' },
-      { state: 'not-found', name: 'Checkout' },
+      { state: 'not-found', name: 'Add Coupon', paramValue: 'Coupon' },
+      { state: 'not-found', name: 'Coupon Management List', paramValue: 'Coupon Management' },
+      { state: 'not-found', name: 'Cart', paramValue: 'Cart' },
+      { state: 'not-found', name: 'Checkout', paramValue: 'Checkout' },
     ],
   },
   {
@@ -119,7 +124,10 @@ const MENUITEMS: Menu[] = [
     name: 'Promotion Corner',
     type: 'sub',
     icon: 'supervised_user_circle',
-    children: [{ state: 'not-found', name: 'Add Promotion' }, { state: 'not-found', name: 'Promotion Corner List' }],
+    children: [
+      { state: 'not-found', name: 'Add Promotion', paramValue: 'Promotion' },
+      { state: 'not-found', name: 'Promotion Corner List', paramValue: 'Promotion' },
+    ],
   },
   {
     state: 'gateways',
@@ -127,12 +135,10 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'pages',
     children: [
-      { state: 'not-found', name: 'Payment Gateway' },
-      { state: 'not-found', name: 'Email Gateways' },
-      { state: 'not-found', name: 'SMS Gateway' },
-      { state: 'not-found', name: 'Whatsapp Gateways' },
-      { state: 'not-found', name: 'Email Gateways' },
-
+      { state: 'not-found', name: 'Payment Gateway', paramValue: 'Payment Gateway' },
+      { state: 'not-found', name: 'Email Gateways', paramValue: 'Email GateWay' },
+      { state: 'not-found', name: 'SMS Gateway', paramValue: 'SMS Gateway' },
+      { state: 'not-found', name: 'Whatsapp Gateways', paramValue: 'WhatsaApp Gateway' },
     ],
   },
   {
@@ -140,7 +146,10 @@ const MENUITEMS: Menu[] = [
     name: 'News',
     type: 'sub',
     icon: 'pages',
-    children: [{ state: 'not-found', name: 'Add News' }, { state: 'not-found', name: 'News List' }],
+    children: [
+      { state: 'not-found', name: 'Add News', paramValue: 'News' },
+      { state: 'not-found', name: 'News List', paramValue: 'News' },
+    ],
   },
 ];
 
