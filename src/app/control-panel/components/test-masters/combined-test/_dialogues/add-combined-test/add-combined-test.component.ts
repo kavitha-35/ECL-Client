@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { Test } from './test.model';
+import { CombinedTest } from '../../test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
@@ -14,7 +14,7 @@ export class AddCombinedTestComponent implements OnInit {
   public get lookUpService(): LookupService {
     return this._lookUpService;
   }
-  test: Test = new Test();
+  test: CombinedTest = new CombinedTest();
   specimen: LookUpModel[] = [];
   specimenType: LookUpModel[] = [];
   storage: LookUpModel[] = [];

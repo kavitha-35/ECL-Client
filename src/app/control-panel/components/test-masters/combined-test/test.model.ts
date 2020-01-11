@@ -1,4 +1,4 @@
-export class Test {
+export class CombinedTest {
     eclDocCode: number;
     testId: number;
     cptCode: string;
