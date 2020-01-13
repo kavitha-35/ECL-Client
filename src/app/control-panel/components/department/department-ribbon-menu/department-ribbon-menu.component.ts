@@ -13,6 +13,7 @@ export class DepartmentRibbonMenuComponent {
   @Output() public showTableViewButtonClicked = new EventEmitter();
   @Output() public exportToExcel = new EventEmitter();
   @Output() public exportToPdf = new EventEmitter();
+  @Output() public exportToDoc = new EventEmitter();
 
   @ViewChild('filterPosition', { static: false }) filterPosition: ElementRef;
 
@@ -40,5 +41,9 @@ export class DepartmentRibbonMenuComponent {
 
   public onExportToPfdClicked(): void {
     this.exportToPdf.emit();
+  }
+
+  public onExportToDocClicked(): void {
+    this.exportToDoc.emit();
   }
 }

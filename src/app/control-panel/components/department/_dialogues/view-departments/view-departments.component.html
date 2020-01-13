@@ -1,0 +1,28 @@
+<section id="department-details-container">
+  <mat-card>
+    <mat-card-title>Department Details 
+        <i class="fa fa-times close-icon pointer" aria-hidden="true" (click)="onCloseButtonClicked()"></i></mat-card-title>
+    <mat-card-subtitle>Details for Selected Departments</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <section>
+        <mat-card-title>Department Information</mat-card-title>
+        <mat-card-content>
+          <section class="department-details">
+            <!-- department Id -->
+            <section class="sub-title">department Id</section>
+            <section>{{ selectedForView.departmentId }}</section>
+
+            <!-- department Name -->
+            <section class="sub-title">Department Name</section>
+            <section>{{ selectedForView.departmentName }}</section>
+
+            <!-- department Type Name -->
+            <section class="sub-title">Department Type</section>
+            <section>{{ selectedForView.departmentType.departmentTypeName }}</section>
+          </section>
+        </mat-card-content>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

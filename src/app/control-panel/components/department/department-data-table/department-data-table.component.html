@@ -1,6 +1,6 @@
 <section id="department-list-data-table-component-container" #TABLE  #pdfTable>
   <mat-divider></mat-divider>
-  <table mat-table [dataSource]="departments" class="full-width">
+  <table mat-table id="department-table"[dataSource]="departments" class="full-width">
     <!-- Department ID -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>Department Id</th>
@@ -28,6 +28,9 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <section class="actions-wrapper">
+          <button class="edit-button" mat-button color="primary" (click)="onViewDepartmentClicked(element)" disableRipple>
+            <mat-icon>visibility</mat-icon>
+          </button>
           <button class="edit-button" mat-button color="primary" (click)="onEditDepartmentClicked(element)" disableRipple>
             <mat-icon>edit_outline</mat-icon>
           </button>

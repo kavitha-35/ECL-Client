@@ -98,14 +98,10 @@ const MENUITEMS: Menu[] = [
     ],
   },
   {
-    state: 'format',
-    name: 'Format',
-    type: 'sub',
+    state: 'report-format',
+    name: 'Report Format',
+    type: 'link',
     icon: 'get_app',
-    children: [
-      { state: 'report-format', name: 'Add Format' },
-      { state: 'report-format', name: 'Format List' },
-    ],
   },
   {
     state: 'coupons',

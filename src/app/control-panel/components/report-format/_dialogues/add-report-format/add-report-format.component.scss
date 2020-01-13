@@ -1,4 +1,4 @@
-@import "../../../../../../assets/styles/scss/color";
+@import '../../../../../../assets/styles/scss/color';
 
 @mixin forms-grid {
   display: grid;
@@ -32,24 +32,12 @@
         }
       }
 
-      .payment-information-wrapper {
+      .resource-information-wrapper {
         @include margin-bottom-18;
 
-        .payment-information-content {
+        .resource-information-content {
           @include forms-grid;
         }
-      }
-
-      .login-information-wrapper {
-        @include margin-bottom-18;
-
-        .login-information-content {
-          @include forms-grid;
-        }
-      }
-
-      .comment-information-wrapper {
-        @include margin-bottom-18;
       }
     }
 
