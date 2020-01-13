@@ -1,3 +1,36 @@
 export interface ReportFormatModel {
   id: string;
+  paperSize: string;
+  fontSize: string;
+  fontType: string;
+  primarySignPosition: string;
+  signSize: string;
+  headerSize: string;
+  footerSize: string;
+  pageMargin: string;
+  showPdfHeader: boolean;
+  showPdfFooter: boolean;
+  verticalSpacing: string;
+  dateFormat: string;
+  minimumApproval: string;
+  maximumApproval: string;
+  patientName: boolean;
+  reportID: boolean;
+  floatingSignature: boolean;
+  hideReportName: boolean;
+  labCode: boolean;
+  patientAge: boolean;
+  reportDate: boolean;
+  registeredBy: boolean;
+  showHorizontalLine: boolean;
+  hpeNo: boolean;
+  registrationNo: boolean;
+  sampleDate: boolean;
+  reportedBy: boolean;
+  showOrganization: boolean;
+  calculatedAge: boolean;
+  referringDoctor: boolean;
+  sampleID: boolean;
+  endOfReport: boolean;
+  printDate: boolean;
 }

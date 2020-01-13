@@ -1,1 +1,247 @@
-<p>edit-report-format works!</p>
+<section id="report-format-container">
+    <mat-card class="report-format-mat-card">
+      <!--  Dialog Caption -->
+      <section>
+        <app-dialog-caption title="Report Format" subTitle="Edits Report Format" icon="fa-calendar"> </app-dialog-caption>
+      </section>
+  
+      <!-- Dialog Content -->
+      <section>
+        <!-- Mat Card Header -->
+        <app-mat-dialog-header></app-mat-dialog-header>
+  
+        <!-- Mat Card Content -->
+        <mat-dialog-content class="outsource-dialog">
+          <section>
+            <!-- Outsource Management Form -->
+            <form class="report-format-form">
+              <!-- Basic Information -->
+              <section class="basic-wrapper">
+                <!-- Header -->
+                <app-section-header title="Default Report Format"></app-section-header>
+  
+                <!-- Content -->
+                <section class="basic-content">
+                  <!-- Paper Size -->
+                  <mat-form-field>
+                    <mat-label>Paper Size</mat-label>
+                    <mat-select disableOptionCentering name="paperSize" ngModel #paperSize="ngModel">
+                      <mat-option value="1">
+                        A4
+                      </mat-option>
+                      <mat-option value="2">
+                        A3
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Font Size -->
+                  <mat-form-field>
+                    <mat-label>Font Size</mat-label>
+                    <mat-select disableOptionCentering name="fontSize" ngModel #fontSize="ngModel">
+                      <mat-option value="1">
+                        8
+                      </mat-option>
+                      <mat-option value="2">
+                        9
+                      </mat-option>
+                      <mat-option value="3">
+                        10
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Font Type-->
+                  <mat-form-field>
+                    <mat-label>Font Type</mat-label>
+                    <mat-select disableOptionCentering name="fontType" ngModel #fontType="ngModel">
+                      <mat-option value="1">
+                        Times New Roman
+                      </mat-option>
+                      <mat-option value="2">
+                        Calibri
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!--  Primary Sign Option -->
+                  <mat-form-field>
+                    <mat-label>Primary Sign Option</mat-label>
+                    <mat-select disableOptionCentering name="paperSize" ngModel #paperSize="ngModel">
+                      <mat-option value="1">
+                        Right
+                      </mat-option>
+                      <mat-option value="2">
+                        Left
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Sign Size -->
+                  <mat-form-field>
+                    <mat-label>Sign Size</mat-label>
+                    <input matInput placeholder="Sign Size" name="signSize" ngModel #signSize="ngModel" />
+                  </mat-form-field>
+  
+                  <!-- Header Size -->
+                  <mat-form-field>
+                    <mat-label>Header Size</mat-label>
+                    <input matInput placeholder="Header Size" name="headerSize" ngModel #headerSize="ngModel" />
+                  </mat-form-field>
+  
+                  <!-- Footer Size -->
+                  <mat-form-field>
+                    <mat-label>Footer Size </mat-label>
+                    <input matInput placeholder="Footer Size" name="footerSize" ngModel #footerSize="ngModel" />
+                  </mat-form-field>
+  
+                  <!-- Paper Margin -->
+                  <mat-form-field>
+                    <mat-label>Paper Margin</mat-label>
+                    <input matInput placeholder="Paper Margin" name="paperMargin" ngModel #paperMargin="ngModel" />
+                  </mat-form-field>
+  
+                  <!-- Pdf header -->
+                  <mat-checkbox>Show Pdf Header</mat-checkbox>
+  
+                  <!-- Pdf Footer -->
+                  <mat-checkbox>Show Pdf Footer</mat-checkbox>
+  
+                  <!-- Vertical Spacing-->
+                  <mat-form-field>
+                    <mat-label>Vertical Spacing</mat-label>
+                    <mat-select disableOptionCentering name="verticalSpacing" ngModel #verticalSpacing="ngModel">
+                      <mat-option value="1">
+                        Compressed
+                      </mat-option>
+                      <mat-option value="2">
+                        Cozy
+                      </mat-option>
+                      <mat-option value="3">
+                        None
+                      </mat-option>
+                      <mat-option value="4">
+                        Normal
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Date Format-->
+                  <mat-form-field>
+                    <mat-label>Date Format</mat-label>
+                    <mat-select disableOptionCentering name="dateFormat" ngModel #dateFormat="ngModel">
+                      <mat-option value="1">
+                        2/12/2019 2:04 AM
+                      </mat-option>
+                      <mat-option value="2">
+                        22/12/2019 14:04 PM
+                      </mat-option>
+                      <mat-option value="3">
+                        12/22/2019
+                      </mat-option>
+                      <mat-option value="4">
+                        22-12-2019
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Minimum Approval-->
+                  <mat-form-field>
+                    <mat-label>Minimum Approval</mat-label>
+                    <mat-select disableOptionCentering name="MinimumApproval" ngModel #minimumApproval="ngModel">
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Maximum Approval-->
+                  <mat-form-field>
+                    <mat-label>Maximum Approval</mat-label>
+                    <mat-select disableOptionCentering name="maximumApproval" ngModel #maximumApproval="ngModel">
+                    </mat-select>
+                  </mat-form-field>
+  
+                  <!-- Patient Name -->
+                  <mat-checkbox> Patient Name</mat-checkbox>
+  
+                  <!-- Report Id -->
+                  <mat-checkbox>Report Id</mat-checkbox
+                  ><!-- Floating Signature -->
+                  <mat-checkbox>Floating Signature</mat-checkbox>
+  
+                  <!-- Hide Report Name -->
+                  <mat-checkbox> Hide Report Name</mat-checkbox
+                  ><!-- Lab Code -->
+                  <mat-checkbox>Lab Code</mat-checkbox>
+  
+                  <!-- Patient Age -->
+                  <mat-checkbox>Patient Age</mat-checkbox
+                  ><!-- Report Date -->
+                  <mat-checkbox>Report Date</mat-checkbox>
+  
+                  <!-- Registered By -->
+                  <mat-checkbox>Registered By</mat-checkbox
+                  ><!-- Show Horizontal Line -->
+                  <mat-checkbox>Show Horizontal Line</mat-checkbox>
+  
+                  <!-- HPE No -->
+                  <mat-checkbox>HPE No</mat-checkbox
+                  ><!-- Registration Number -->
+                  <mat-checkbox>Registration Number</mat-checkbox>
+  
+                  <!-- Sample Date -->
+                  <mat-checkbox>Sample Date</mat-checkbox
+                  ><!-- Reported By -->
+                  <mat-checkbox>Reported By</mat-checkbox>
+  
+                  <!-- Show Organisation -->
+                  <mat-checkbox>Show Organisation</mat-checkbox
+                  ><!-- Calculated Age -->
+                  <mat-checkbox>Calculated Age</mat-checkbox>
+  
+                  <!-- Reffering Doctor -->
+                  <mat-checkbox>Reffering Doctor</mat-checkbox
+                  ><!-- Sample Id -->
+                  <mat-checkbox> Sample Id</mat-checkbox>
+  
+                  <!-- End Of Report -->
+                  <mat-checkbox> End Of Report </mat-checkbox
+                  ><!-- Print Date -->
+                  <mat-checkbox> Print Date</mat-checkbox>
+                </section>
+              </section>
+  
+              <!-- Resources Information -->
+              <section class="resource-information-wrapper">
+                <!-- Header -->
+                <app-section-header title="Resources"></app-section-header>
+  
+                <!-- Content -->
+                <section class="resource-information-content">
+                  <section class="label">
+                    PDF Header
+                    <button mat-button color="primary">
+                      Upload
+                    </button>
+                  </section>
+  
+                  <section class="label">
+                    PDF Footer
+                    <button mat-button color="primary">
+                      Upload
+                    </button>
+                  </section>
+                </section>
+              </section>
+            </form>
+  
+            <section class="action-buttons-wrapper">
+              <button mat-button color="primary" matDialogClose>Clear</button>
+              <button mat-raised-button color="primary">
+                Save Changes
+              </button>
+            </section>
+          </section>
+        </mat-dialog-content>
+      </section>
+    </mat-card>
+  </section>
+  

@@ -7,5 +7,6 @@ export const DISPLAY_MODE = {
   TABLE: 'table',
   LIST: 'list',
   EXCEL: 'excel',
-  PDF : 'pdf'
+  PDF: 'pdf',
+  DOC: 'doc',
 };
