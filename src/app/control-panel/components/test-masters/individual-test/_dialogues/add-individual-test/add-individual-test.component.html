@@ -15,7 +15,7 @@
       <mat-dialog-content class="outsource-dialog">
         <section>
           <!--Individual Test Form -->
-          <form class="individual-test-form">
+          <form class="individual-test-form" #test="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -26,11 +26,11 @@
                 <!-- Test Category -->
                 <mat-form-field>
                   <mat-label>Test Category</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="inhouse">
+                  <mat-select disableOptionCentering name="testCategoryId" ngModel #testCategory="ngModel">
+                    <mat-option value=1>
                       In House
                     </mat-option>
-                    <mat-option value="outsource">
+                    <mat-option value=2>
                       Outsource
                     </mat-option>
                   </mat-select>
@@ -38,20 +38,20 @@
 
                 <!-- Active-->
                 <section class="pt-19">
-                  <mat-slide-toggle color="primary">Active</mat-slide-toggle>
+                  <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
                 </section>
 
                 <!-- Accreditation Symbol -->
                 <mat-form-field>
                   <mat-label>Accreditation Symbol</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="#">
+                  <mat-select disableOptionCentering name="accrediationId" ngModel #accrediationId="ngModel">
+                    <mat-option value=1>
                       #
                     </mat-option>
-                    <mat-option value="*">
+                    <mat-option value=2>
                       *
                     </mat-option>
-                    <mat-option value="**">
+                    <mat-option value=3>
                       **
                     </mat-option>
                   </mat-select>
@@ -60,77 +60,96 @@
                 <!-- Test Component -->
                 <mat-form-field>
                   <mat-label>Test Component</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="Cholesterol">
-                      Cholesterol
-                    </mat-option>
-                    <mat-option value="Blood">
-                      Blood
-                    </mat-option>
-                  </mat-select>
+                  <input matInput placeholder="Test Component" name="testComponent" ngModel #testComponent="ngModel" />
                 </mat-form-field>
                 
 
                 <!-- Processing center -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Processing center</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering name="processingCentreId" ngModel #processingCentreId="ngModel">
+                    <mat-option *ngFor="let options of processingCenter" value="options.lookupId">{{options.keyValue}}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Outsource Vendor Code-->
                 <mat-form-field>
                   <mat-label>Outsource Vendor Code</mat-label>
-                  <input matInput placeholder="Outsouce Vendor Code" />
+                  <input
+                    matInput
+                    placeholder="Outsouce Vendor Code"
+                    name="outsourceVendorCode"
+                    ngModel
+                    #outSourceVendorCode="ngModel"
+                  />
                 </mat-form-field>
 
                 <!-- Method -->
                 <mat-form-field>
                   <mat-label>Method</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering name="methodId" ngModel #methodId="ngModel">
+                    <mat-option value="1">Method 1</mat-option>
+                    <mat-option value="2">Method 2</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Unit-->
                 <mat-form-field>
                   <mat-label>Unit</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering name="unitId" ngModel #unitId="ngModel">
+                    <mat-option value="1">Unit 1</mat-option>
+                    <mat-option value="2">Unit 2</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Reference Range -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Reference Range</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering name="referenceRangeId" ngModel #referenceRange="ngModel">
+                  <mat-option value=1>Reference Range 1</mat-option>
+                  <mat-option value=1>Reference Range 2</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- TAT -->
                 <mat-form-field>
                   <mat-label>TAT</mat-label>
-                  <input matInput placeholder="TAT" />
+                  <input matInput placeholder="TAT" name="tat" ngModel #tat="ngModel" />
                 </mat-form-field>
 
                 <!-- CPT Amount -->
                 <mat-form-field>
                   <mat-label>CPT Amount</mat-label>
-                  <input matInput placeholder="CPT Amount" />
+                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" />
                 </mat-form-field>
 
                 <!-- Integration Code -->
                 <mat-form-field>
                   <mat-label>Integration Code</mat-label>
-                  <input matInput placeholder="Integration Code" />
+                  <input
+                    matInput
+                    placeholder="Integration Code"
+                    name="integrationCode"
+                    ngModel
+                    #integrationCode="ngModel"
+                  />
                 </mat-form-field>
 
                 <!-- Comments -->
                 <mat-form-field>
                   <mat-label>Comments</mat-label>
-                  <input matInput placeholder="Comments" />
+                  <input matInput placeholder="Comments" name="comments" ngModel #comments="ngModel" />
                 </mat-form-field>
+
               </section>
             </section>
           </form>
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary">Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Add Individual Test</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddIndividualTestButtonClicked(test)">
+              Add Individual Test
+            </button>
           </section>
         </section>
       </mat-dialog-content>

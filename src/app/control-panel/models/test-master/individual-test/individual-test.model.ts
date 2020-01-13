@@ -1,3 +1,5 @@
+import { ReferenceRangeModel } from '../../reference-range/reference-range. model';
+
 export interface IndividualTestModel {
   id: string;
   active: string;
@@ -14,4 +16,9 @@ export interface IndividualTestModel {
   integrationCode: string;
   accreditation: string;
   comments: String;
+}
+
+interface TestCategory {
+  id: string;
+  name: string;
 }

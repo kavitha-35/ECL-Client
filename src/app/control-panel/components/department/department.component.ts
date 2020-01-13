@@ -7,7 +7,7 @@ import { EditDepartmentComponent } from './_dialogues/edit-department/edit-depar
 import { AddDepartmentComponent } from './_dialogues/add-department/add-department.component';
 import { take } from 'rxjs/operators';
 import { DepartmentService } from 'app/control-panel/services/department.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-department',
@@ -21,6 +21,7 @@ export class DepartmentComponent implements OnInit {
   public pageEvent: PageEvent;
   public pageSizeOptions: number[];
   public isFetchingDepartments: boolean;
+  departmentSubject: Subject<any> = new Subject();
 
   matDialogConfig: MatDialogConfig = {
     panelClass: 'mat-dialogue-no-padding',
@@ -54,12 +55,28 @@ export class DepartmentComponent implements OnInit {
       });
   }
 
-  public onEditDepartmentClicked(): void {
+  public onEditDepartmentClicked(department: DepartmentModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: department,
+    };
     this.matDialog
-      .open(EditDepartmentComponent, this.matDialogConfig)
+      .open(EditDepartmentComponent, matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe(() => {
+        this.getAllDepartment();
+      });
+  }
+
+  public onExportToExcelButtonClicked(): void {
+    this.departmentSubject.next('excel');
+  }
+
+  public onExportToPdfButtonClicked(): void {
+    this.departmentSubject.next('pdf');
   }
 
   public onShowListViewButtonClicked(): void {
@@ -79,5 +96,9 @@ export class DepartmentComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public onDeleteTestClicked(testId: string): void {}
+  public onDeleteDepartmentClicked(departmentId: string): void {
+    this._departmentService.deleteDepartment(departmentId).subscribe(() => {
+      this.getAllDepartment();
+    });
+  }
 }

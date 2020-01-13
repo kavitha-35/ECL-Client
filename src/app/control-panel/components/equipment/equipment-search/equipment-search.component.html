@@ -1,0 +1,47 @@
+<section id="equipment-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card Title -->
+        <app-mat-dialog-header title="Search" subTitle="Search for Equipment(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!-- Brand -->
+        <mat-form-field>
+            <mat-label>Brand</mat-label>
+            <mat-select disableOptionCentering name="brandId" ngModel #brandId="ngModel">
+              <mat-option *ngFor="let options of brands" [value]="options.lookupId">{{
+                options.keyValue
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Machine -->
+          <mat-form-field>
+            <mat-label>Machine</mat-label>
+            <input matInput placeholder="Machine" name="machine" ngModel #machine="ngModel" />
+          </mat-form-field>
+
+          <!-- Model -->
+          <mat-form-field>
+            <mat-label>Model</mat-label>
+            <input matInput placeholder="Model" name="model" ngModel #model="ngModel" />
+          </mat-form-field>
+
+          <!-- Serial No -->
+          <mat-form-field>
+            <mat-label>Serial No</mat-label>
+            <input matInput placeholder="Serial No" name="serialNo" ngModel #serialNo="ngModel" />
+          </mat-form-field>
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

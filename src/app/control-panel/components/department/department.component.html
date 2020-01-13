@@ -34,6 +34,8 @@
       <app-department-ribbon-menu
         (showListViewButtonClicked)="onShowListViewButtonClicked()"
         (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+        (exportToExcel)="onExportToExcelButtonClicked()"
+        (exportToPdf)="onExportToPdfButtonClicked()"
       >
       </app-department-ribbon-menu>
   
@@ -54,7 +56,9 @@
       <ng-template #tableView>
         <app-department-data-table
           [departments]="departments"
-          (editDepartmentClicked)="onEditDepartmentClicked()"
+          [departmentSubject]="departmentSubject"
+          (editDepartmentClicked)="onEditDepartmentClicked($event)"
+          (deleteDepartmentClicked)="onDeleteDepartmentClicked($event)"
           [isBusy]="isFetchingDepartments"
         ></app-department-data-table>
       </ng-template>

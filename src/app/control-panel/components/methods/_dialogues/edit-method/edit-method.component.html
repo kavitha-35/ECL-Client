@@ -24,24 +24,21 @@
                 <!-- Content -->
                 <section class="basic-content">
   
-                    <!-- Integration Code -->
+                    <!-- Method Name -->
                 <mat-form-field>
-                    <mat-label>Integration Code</mat-label>
-                    <input matInput placeholder="Integration Code" />
-                  </mat-form-field>
-  
-  
-                  <!-- Machine -->
-                  <mat-form-field>
-                    <mat-label>Machine</mat-label>
-                    <input matInput placeholder="Machine" />
-                  </mat-form-field>
-  
-                  <!-- Method Name -->
-           <mat-form-field>
-            <mat-label>Method Name</mat-label>
-            <input matInput placeholder="Method Name" />
-          </mat-form-field>
+                  <mat-label>Method Name</mat-label>
+                  <input matInput placeholder="Method Name" name="methodName" ngModel #methodName="ngModel" />
+                </mat-form-field>
+
+                <!-- Department -->
+                <mat-form-field>
+                  <mat-label>Department</mat-label>
+                  <mat-select disableOptionCentering name="departmentId" ngModel #departmentId="ngModel">
+                    <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
+                      options.departmentName
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
           
                 </section>
               </section>

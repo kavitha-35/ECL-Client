@@ -41,4 +41,3 @@ export class DoctorService {
     return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
   }
 }
-

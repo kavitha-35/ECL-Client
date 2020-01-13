@@ -124,6 +124,9 @@ import { CombinedTestListComponent } from './components/test-masters/combined-te
 import { CombinedTestRibbonMenuComponent } from './components/test-masters/combined-test/combined-test-ribbon-menu/combined-test-ribbon-menu.component';
 import { LinkTestToCombinedTestComponent } from './components/test-masters/combined-test/_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 import { CombinedTestSearchComponent } from './components/test-masters/combined-test/combined-test-search/combined-test-search.component';
+import { EquipmentListComponent } from './components/equipment/equipment-list/equipment-list.component';
+import { EquipmentRibbonMenuComponent } from './components/equipment/equipment-ribbon-menu/equipment-ribbon-menu.component';
+import { EquipmentSearchComponent } from './components/equipment/equipment-search/equipment-search.component';
 
 @NgModule({
   declarations: [
@@ -212,6 +215,9 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     CombinedTestRibbonMenuComponent,
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
+    EquipmentListComponent,
+    EquipmentRibbonMenuComponent,
+    EquipmentSearchComponent,
   ],
   providers: [
     DatePipe,
@@ -300,6 +306,8 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     ProfileTestSearchComponent,
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
+    EquipmentSearchComponent,
+    EquipmentRibbonMenuComponent
   ],
 })
 export class ControlPanelModule {}

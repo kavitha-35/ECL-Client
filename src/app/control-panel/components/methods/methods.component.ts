@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, PageEvent, MatDialogConfig } from '@angular/material';
 import { DISPLAY_MODE } from 'app/main/models/constants';
@@ -6,8 +6,9 @@ import { AddMethodComponent } from './_dialogues/add-method/add-method.component
 import { take } from 'rxjs/operators';
 import { EditMethodComponent } from './_dialogues/edit-method/edit-method.component';
 import { MethodModel } from 'app/control-panel/models/method/method.model';
-import { DepartmentService } from 'app/control-panel/services/department.service';
 import { MethodService } from 'app/control-panel/services/method.service';
+import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
+import { LookupService } from 'app/control-panel/services/lookup.service';
 
 @Component({
   selector: 'app-methods',
@@ -26,13 +27,13 @@ export class MethodsComponent implements OnInit {
     width: '1400px',
     autoFocus: false,
   };
-  cRef: any;
 
   constructor(
     private readonly _matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
     private readonly _methodService: MethodService,
+    private readonly cRef: ChangeDetectorRef,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
@@ -68,6 +69,7 @@ export class MethodsComponent implements OnInit {
     this.isFetchingMethods = true;
     this._methodService.getAllMethod().subscribe((data: MethodModel[]) => {
       this.method = data;
+      console.log(data);
       this.isFetchingMethods = false;
       this.cRef.detectChanges();
     });

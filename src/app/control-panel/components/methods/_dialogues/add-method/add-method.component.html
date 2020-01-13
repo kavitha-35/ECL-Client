@@ -2,8 +2,7 @@
   <mat-card class="method-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Method" subTitle="Add a Method " icon="fa-calendar">
-      </app-dialog-caption>
+      <app-dialog-caption title="Method" subTitle="Add a Method " icon="fa-calendar"> </app-dialog-caption>
     </section>
 
     <!-- Dialog Content -->
@@ -23,31 +22,30 @@
 
               <!-- Content -->
               <section class="basic-content">
-                <!-- Integration Code -->
+                <!-- Method Name -->
                 <mat-form-field>
-                  <mat-label>Integration Code</mat-label>
-                  <input matInput placeholder="Integration Code" name=integrationCode ngModel #integrationCode="ngModel" />
+                  <mat-label>Method Name</mat-label>
+                  <input matInput placeholder="Method Name" name="methodName" ngModel #methodName="ngModel" />
                 </mat-form-field>
 
-
-                <!-- Machine -->
+                <!-- Department -->
                 <mat-form-field>
-                  <mat-label>Machine</mat-label>
-                  <input matInput placeholder="Machine" name=machine ngModel #machine="ngModel" />
+                  <mat-label>Department</mat-label>
+                  <mat-select disableOptionCentering name="departmentId" ngModel #departmentId="ngModel">
+                    <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
+                      options.departmentName
+                    }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
-
-               <!-- Method Name -->
-           <mat-form-field>
-            <mat-label>Method Name</mat-label>
-            <input matInput placeholder="Method Name" name=methodName ngModel #methodName="ngModel" />
-          </mat-form-field>
               </section>
             </section>
           </form>
 
           <section class="action-buttons-wrapper">
-            <button mat-button color="primary" >Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddMethodClicked(method)">Add Method</button>
+            <button mat-button color="primary">Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddMethodClicked(method)">
+              Add Method
+            </button>
           </section>
         </section>
       </mat-dialog-content>

@@ -1,45 +1,66 @@
-<section>
-  <mat-card>
-    <!-- Mat Card header -->
-    <app-mat-dialog-header title="Add Equipment" subTitle="Adds new Equipment"></app-mat-dialog-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
-      <!-- General Information -->
-      <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
-        <!-- Brand -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Brand</mat-label>
-          <input matInput placeholder="Brand" name="brand" />
-        </mat-form-field>
+<section id="equipment-container">
+  <mat-card class="equipment-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Equipment" subTitle="Add a Equipment " icon="fa-calendar"> </app-dialog-caption>
+    </section>
 
-        <!-- Machine-->
-        <mat-form-field fxFlex="50">
-          <mat-label>Machine</mat-label>
-          <input matInput placeholder="Machine" name="machine" />
-        </mat-form-field>
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
 
-        <!-- Model -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Model</mat-label>
-          <input matInput placeholder="Model" name="model" />
-        </mat-form-field>
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="equipment-dialog">
+        <section>
+          <!-- equipment Form -->
+          <form class="equipment-form" #equipment="ngForm">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
 
-        <!-- Serial Number -->
-        <mat-form-field fxFlex="50">
-          <mat-label>Serial Number</mat-label>
-          <input matInput placeholder="Serial Number" name="serial" />
-        </mat-form-field>
-      </section>
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Brand -->
+                <mat-form-field>
+                  <mat-label>Brand</mat-label>
+                  <mat-select disableOptionCentering name="brandId" ngModel #brandId="ngModel">
+                    <mat-option *ngFor="let options of brands" [value]="options.brandId">{{
+                      options.brandName
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
 
-      <!-- Dialog Actions -->
-      <section mat-dialog-actions>
-        <section class="mt-1 mb-1 full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
-          <button mat-button color="primary" matDialogClose>Cancel</button>
-          <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddEquipmentClicked()">
-            Add Equipment(s)
-          </button>
+                <!-- Machine -->
+                <mat-form-field>
+                  <mat-label>Machine</mat-label>
+                  <input matInput placeholder="Machine" name="machine" ngModel #machine="ngModel" />
+                </mat-form-field>
+
+                <!-- Model -->
+                <mat-form-field>
+                  <mat-label>Model</mat-label>
+                  <input matInput placeholder="Model" name="model" ngModel #model="ngModel" />
+                </mat-form-field>
+
+                <!-- Serial No -->
+                <mat-form-field>
+                  <mat-label>Serial No</mat-label>
+                  <input matInput placeholder="Serial No" name="serialNo" ngModel #serialNo="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary">Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddEquipmentClicked(equipment)">
+              Add Equipment
+            </button>
+          </section>
         </section>
-      </section>
-    </mat-card-content>
+      </mat-dialog-content>
+    </section>
   </mat-card>
 </section>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialogConfig, MatDialog, PageEvent } from '@angular/material';
 import { take } from 'rxjs/operators';
 import { AddIndividualTestComponent } from './_dialogues/add-individual-test/add-individual-test.component';
@@ -6,6 +6,7 @@ import { EditIndividualTestComponent } from './_dialogues/edit-individual-test/e
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
+import { IndividualTestService } from 'app/control-panel/services/individual-test.service';
 
 @Component({
   selector: 'app-individual-test',
@@ -30,13 +31,15 @@ export class IndividualTestComponent implements OnInit {
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
+    private readonly _indiviualTestService: IndividualTestService,
+    private readonly changeRef: ChangeDetectorRef,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
-    this._initializeValues();
+    this.getAllIndividualTests();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -47,15 +50,35 @@ export class IndividualTestComponent implements OnInit {
       .open(AddIndividualTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe();
+      .subscribe(() => {
+        this.getAllIndividualTests();
+      });
   }
 
-  public onEditTestClicked(): void {
+  public getAllIndividualTests(): void {
+    this.isFetchingTests = true;
+    this._indiviualTestService.getAllIndividualTest().subscribe((data) => {
+      this.tests = data;
+      this.isFetchingTests = false;
+      console.log(this.tests);
+      this.changeRef.detectChanges();
+    });
+  }
+
+  public onEditIndividualTestClicked(individualTest: IndividualTestModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: individualTest,
+    };
     this.matDialog
-      .open(EditIndividualTestComponent, this.matDialogConfig)
+      .open(EditIndividualTestComponent, matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe();
+      .subscribe(() => {
+        this.getAllIndividualTests();
+      });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -66,61 +89,9 @@ export class IndividualTestComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public onDeleteTestClicked(testId: string): void {}
-
-  public _initializeValues(): void {
-    this.tests = [
-      {
-        id: '1708027',
-        active: 'Active',
-        testCategory: 'outsource',
-        accreditationSymbol: '**',
-        testComponent: 'blood',
-        processingCenter: 'pathcare',
-        outsourceVendorCode: 'HM052',
-        method: 'CLIA',
-        unit: '3 ml',
-        referenceRange: '',
-        tat: '10',
-        cptAmount: '246',
-        integrationCode: '-',
-        accreditation: 'not enable',
-        comments: 'String',
-      },
-      {
-        id: '1708027',
-        active: 'Active',
-        testCategory: 'outsource',
-        accreditationSymbol: '**',
-        testComponent: 'blood',
-        processingCenter: 'pathcare',
-        outsourceVendorCode: 'HM052',
-        method: 'CLIA',
-        unit: '3 ml',
-        referenceRange: '',
-        tat: '10',
-        cptAmount: '246',
-        integrationCode: '-',
-        accreditation: 'not enable',
-        comments: 'String',
-      },
-      {
-        id: '1708027',
-        active: 'Active',
-        testCategory: 'outsource',
-        accreditationSymbol: '**',
-        testComponent: 'blood',
-        processingCenter: 'pathcare',
-        outsourceVendorCode: 'HM052',
-        method: 'CLIA',
-        unit: '3 ml',
-        referenceRange: '',
-        tat: '10',
-        cptAmount: '246',
-        integrationCode: '-',
-        accreditation: 'not enable',
-        comments: 'String',
-      },
-    ];
+  public onDeleteIndividualTestClicked(testId: string): void {
+    this._indiviualTestService.deleteIndividualTest(testId).subscribe(() => {
+      this.getAllIndividualTests();
+    });
   }
 }
