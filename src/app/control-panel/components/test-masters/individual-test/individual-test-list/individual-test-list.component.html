@@ -1,7 +1,7 @@
 <section id="individual-test-list-container">
   <section *ngFor="let element of tests">
     <section class="title-wrapper">
-      <section class="title">#{{ element.id }}</section>
+      <section class="title">#{{element.individualTestId }}</section>
       <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
       <mat-menu #statusMenu="matMenu">
         <button mat-menu-item>Edit</button>
@@ -24,19 +24,15 @@
     <section class="individual-test-container">
       <!-- ID -->
       <section class="sub-title">ID</section>
-      <section>{{ element.id }}</section>
+      <section>{{ element.individualTestId }}</section>
 
       <!-- Active -->
-      <section class="sub-title">Active</section>
-      <section>{{ element.active }}</section>
+      <section class="sub-title">Status</section>
+      <section>{{ element.ActiveStatus }}</section>
 
       <!-- Test Category -->
       <section class="sub-title">Test Category</section>
-      <section>{{ element.testCategory }}</section>
-
-      <!-- Accreditation Symbol  -->
-      <section class="sub-title">Accreditation Symbol</section>
-      <section>{{ element.accreditationSymbol }}</section>
+      <section>{{ element.testCategory.testCategoryName}}</section>
 
       <!-- Test Component -->
       <section class="sub-title">Test Component</section>
@@ -44,7 +40,7 @@
 
       <!--Processing Center -->
       <section class="sub-title">Processing Center</section>
-      <section>{{ element.processingCenter }}</section>
+      <section>{{ element.processingCenter.processingCenterName }}</section>
 
       <!-- Outsource Vendor Code -->
       <section class="sub-title">Outsource Vendor Code</section>
@@ -52,15 +48,11 @@
 
       <!-- Method -->
       <section class="sub-title">Method</section>
-      <section>{{ element.method }}</section>
+      <section>{{ element.method.methodName }}</section>
 
       <!-- Unit -->
       <section class="sub-title">Unit</section>
-      <section>{{ element.unit }}</section>
-
-      <!-- Reference Range -->
-      <section class="sub-title">Reference Range</section>
-      <section>{{ element.referenceRange }}</section>
+      <section>{{ element.unit.unitName }}</section>
 
       <!--TAT -->
       <section class="sub-title">TAT</section>
@@ -73,10 +65,6 @@
       <!-- Integration code -->
       <section class="sub-title">Integration Code</section>
       <section>{{ element.integrationCode }}</section>
-
-      <!-- Accreditation-->
-      <section class="sub-title">Accreditation</section>
-      <section>{{ element.accreditation }}</section>
 
       <!-- Comments -->
       <section class="sub-title">Comments</section>

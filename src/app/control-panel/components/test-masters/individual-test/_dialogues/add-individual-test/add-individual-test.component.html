@@ -7,7 +7,7 @@
     </section>
 
     <!-- Dialog Content -->
-    <section>
+    <section>7
       <!-- Mat Card Header -->
       <app-mat-dialog-header></app-mat-dialog-header>
 
@@ -59,8 +59,8 @@
                  
                 <!-- Test Component -->
                 <mat-form-field>
-                  <mat-label>Test Component</mat-label>
-                  <input matInput placeholder="Test Component" name="testComponent" ngModel #testComponent="ngModel" />
+                  <mat-label>Test Name</mat-label>
+                  <input matInput placeholder="Test Name" name="individualTestName" ngModel #individualTestName="ngModel" />
                 </mat-form-field>
                 
 
@@ -68,7 +68,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Processing center</mat-label>
                   <mat-select disableOptionCentering name="processingCentreId" ngModel #processingCentreId="ngModel">
-                    <mat-option *ngFor="let options of processingCenter" value="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of processingCenter" [value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -97,8 +97,7 @@
                 <mat-form-field>
                   <mat-label>Unit</mat-label>
                   <mat-select disableOptionCentering name="unitId" ngModel #unitId="ngModel">
-                    <mat-option value="1">Unit 1</mat-option>
-                    <mat-option value="2">Unit 2</mat-option>
+                    <mat-option *ngFor="let options of units" [value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
 

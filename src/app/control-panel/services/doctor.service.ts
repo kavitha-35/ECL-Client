@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { DoctorModel } from '../models/Doctor/doctor.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { ROUTE_CONFIG } from 'app/shared/models/constant';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DoctorService {
-
-  private readonly routePrefix = 'doctor';
+  private readonly routePrefix = 'Doctor';
 
   constructor(private readonly httpClient: HttpClient) {}
 

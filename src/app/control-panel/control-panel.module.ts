@@ -94,6 +94,13 @@ import { OrganisationPriceListDataListComponent } from './components/organisatio
 import { OrganisationPriceListSearchComponent } from './components/organisation-price-list/organisation-price-list-search/organisation-price-list-search.component';
 import { AddOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/add-organisation-price-list/add-organisation-price-list.component';
 import { EditOrganisationPriceListComponent } from './components/organisation-price-list/_dialogues/edit-organisation-price-list/edit-organisation-price-list.component';
+import { HumanResourceComponent } from './components/human-resource/human-resource.component';
+import { EditHumanResourceComponent } from './components/human-resource/_dialogues/edit-human-resource/edit-human-resource.component';
+import { HumanResourceSearchComponent } from './components/human-resource/human-resource-search/human-resource-search.component';
+import { HumanResourceRibbonMenuComponent } from './components/human-resource/human-resource-ribbon-menu/human-resource-ribbon-menu.component';
+import { HumanResourceDataTableComponent } from './components/human-resource/human-resource-data-table/human-resource-data-table.component';
+import { HumanResourceDataListComponent } from './components/human-resource/human-resource-data-list/human-resource-data-list.component';
+import { AddHumanResourceComponent } from './components/human-resource/_dialogues/add-human-resource/add-human-resource.component';
 import { MethodsComponent } from './components/methods/methods.component';
 import { MethodListDataTableComponent } from './components/methods/method-list-data-table/method-list-data-table.component';
 import { MethodListComponent } from './components/methods/method-list/method-list.component';
@@ -127,6 +134,13 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
 import { EquipmentListComponent } from './components/equipment/equipment-list/equipment-list.component';
 import { EquipmentRibbonMenuComponent } from './components/equipment/equipment-ribbon-menu/equipment-ribbon-menu.component';
 import { EquipmentSearchComponent } from './components/equipment/equipment-search/equipment-search.component';
+import { ReportFormatComponent } from './components/report-format/report-format.component';
+import { AddReportFormatComponent } from './components/report-format/_dialogues/add-report-format/add-report-format.component';
+import { EditReportFormatComponent } from './components/report-format/_dialogues/edit-report-format/edit-report-format.component';
+import { ReportFormatRibbonMenuComponent } from './components/report-format/report-format-ribbon-menu/report-format-ribbon-menu.component';
+import { ReportFormatTableComponent } from './components/report-format/report-format-table/report-format-table.component';
+import { ReportFormatSearchComponent } from './components/report-format/report-format-search/report-format-search.component';
+import { ReportFormatDataListComponent } from './components/report-format/report-format-data-list/report-format-data-list.component';
 
 @NgModule({
   declarations: [
@@ -185,29 +199,38 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
     OrganisationPriceListSearchComponent,
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
+    CombinedTestRibbonMenuComponent,
+    CombinedTestSearchComponent,
+    LinkTestToCombinedTestComponent,
+    AddHumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceDataListComponent,
+    HumanResourceDataTableComponent,
+    HumanResourceRibbonMenuComponent,
+    HumanResourceSearchComponent,
+    HumanResourceComponent,
     MethodsComponent,
-    AddMethodComponent,
-    EditMethodComponent,
     MethodListDataTableComponent,
     MethodListComponent,
     MethodRibbonMenuComponent,
+    AddMethodComponent,
+    EditMethodComponent,
     MethodSearchComponent,
-    ReferenceRangeRibbonMenuComponent,
-    ReferenceRangeSearchComponent,
-    ReferenceRangeListComponent,
-    DepartmentComponent,
     DepartmentDataListComponent,
     DepartmentDataTableComponent,
     DepartmentRibbonMenuComponent,
-    DepartmentSearchComponent,
+    DepartmentComponent,
+    ReferenceRangeSearchComponent,
     AddDepartmentComponent,
     EditDepartmentComponent,
     DepartmentSearchComponent,
+    DoctorListSearchComponent,
+    ProfileTestSearchComponent,
+    ReferenceRangeRibbonMenuComponent,
+    ReferenceRangeListComponent,
     DoctorListComponent,
     DoctorListRibbonMenuComponent,
-    DoctorListSearchComponent,
     ProfileTestRibbonMenuComponent,
-    ProfileTestSearchComponent,
     ProfileTestListComponent,
     ProfileTestDetailsComponent,
     CombinedTestDetailsComponent,
@@ -218,6 +241,13 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
     EquipmentListComponent,
     EquipmentRibbonMenuComponent,
     EquipmentSearchComponent,
+    ReportFormatComponent,
+    AddReportFormatComponent,
+    EditReportFormatComponent,
+    ReportFormatRibbonMenuComponent,
+    ReportFormatTableComponent,
+    ReportFormatSearchComponent,
+    ReportFormatDataListComponent
   ],
   providers: [
     DatePipe,
@@ -227,7 +257,6 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
 
   imports: [
     RouterModule,
-    CommonModule,
     SharedModule,
     MatIconModule,
     MatSidenavModule,
@@ -237,7 +266,6 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
     MatMenuModule,
     MatTabsModule,
     MatSelectModule,
-    MatCheckboxModule,
     FormsModule,
     MatProgressBarModule,
     NgChatModule,
@@ -247,7 +275,6 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
     MatExpansionModule,
     MatFormFieldModule,
     MatToolbarModule,
-    MatExpansionModule,
     MatButtonModule,
     MatSnackBarModule,
     FlexModule,
@@ -263,6 +290,7 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
     NgxLoadingModule,
     MatStepperModule,
     MatChipsModule,
+    MatCheckboxModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
@@ -295,6 +323,9 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
     AddOrganisationPriceListComponent,
     EditOrganisationPriceListComponent,
     OrganisationPriceListSearchComponent,
+    AddHumanResourceComponent,
+    EditHumanResourceComponent,
+    HumanResourceSearchComponent,
     AddMethodComponent,
     EditMethodComponent,
     MethodSearchComponent,
@@ -307,7 +338,10 @@ import { EquipmentSearchComponent } from './components/equipment/equipment-searc
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
     EquipmentSearchComponent,
-    EquipmentRibbonMenuComponent
+    EquipmentRibbonMenuComponent,
+    AddReportFormatComponent,
+    EditReportFormatComponent,
+    ReportFormatSearchComponent
   ],
 })
 export class ControlPanelModule {}
