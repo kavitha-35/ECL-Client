@@ -15,7 +15,7 @@
       <mat-dialog-content class="outsource-dialog">
         <section>
           <!-- Outsource Management Form -->
-          <form class="reference-range-form">
+          <form class="reference-range-form" #referenceRange="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -26,88 +26,98 @@
                 <!-- Lab Name -->
                 <mat-form-field>
                   <mat-label>Test Code</mat-label>
-                  <input matInput placeholder="Test Code" name="testCode" />
+                  <input matInput placeholder="Test Code" name="testCode" ngModel #testCode="ngModel" />
                 </mat-form-field>
 
                 <!-- Machine-->
                 <mat-form-field>
                   <mat-label>Machine</mat-label>
-                  <mat-select placeholder="Machine"></mat-select>
+                  <mat-select placeholder="Machine" name="machine" ngModel #machine="ngModel">
+                    <mat-option value="8">
+                      Biotech
+                    </mat-option>
+                    <mat-option value="20">
+                      Radiology
+                    </mat-option>
+                    <mat-option value="21">
+                      Chemistry
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Test Name -->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="Test Name" name="testName" />
+                  <input matInput placeholder="Test Name" name="testName" ngModel #testName="ngModel" />
                 </mat-form-field>
 
                 <!-- Units -->
                 <mat-form-field>
                   <mat-label>Units</mat-label>
-                  <input matInput placeholder="Units" name="units" />
+                  <input matInput placeholder="Units" name="units" ngModel #units="ngModel" />
                 </mat-form-field>
 
                 <!-- Type-->
                 <mat-form-field>
                   <mat-label>Type</mat-label>
-                  <input matInput placeholder="Type" name="type" />
+                  <input matInput placeholder="Type" name="type" ngModel #type="ngModel" />
                 </mat-form-field>
 
                 <!-- Alternate Result -->
                 <mat-form-field>
                   <mat-label>Alternate Result</mat-label>
-                  <input matInput placeholder="Alternate Result" name="result" />
+                  <input matInput placeholder="Alternate Result" name="result" ngModel #result="ngModel" />
                 </mat-form-field>
 
                 <!-- Age Lower -->
                 <mat-form-field>
                   <mat-label>Age Lower</mat-label>
-                  <input matInput placeholder="Age Lower" name="lowerAge" />
+                  <input matInput placeholder="Age Lower" name="lowerAge" ngModel #lowerAge="ngModel" />
                 </mat-form-field>
 
                 <!-- Age Upper -->
                 <mat-form-field>
                   <mat-label>Age Upper</mat-label>
-                  <input matInput placeholder="Age Upper" name="upperAge" />
+                  <input matInput placeholder="Age Upper" name="upperAge" ngModel #upperAge="ngModel" />
                 </mat-form-field>
 
                 <!-- Reference Range Females -->
                 <!-- Minimum -->
                 <mat-form-field>
                   <mat-label>Minimum Reference Range Female</mat-label>
-                  <input matInput placeholder="Minimum" name="femaleMinimum" />
+                  <input matInput placeholder="Minimum" name="femaleMinimum" ngModel #femaleMinimum="ngModel" />
                 </mat-form-field>
 
                 <!-- maximum -->
                 <mat-form-field>
                   <mat-label>Maximum Reference Range Female</mat-label>
-                  <input matInput placeholder="Maximum" name="femaleMaximum" />
+                  <input matInput placeholder="Maximum" name="femaleMaximum" ngModel #femaleMaximum="ngModel" />
                 </mat-form-field>
 
                 <!-- Reference Range Males -->
                 <!-- Minimum -->
                 <mat-form-field>
                   <mat-label>Minimum Reference Range Male</mat-label>
-                  <input matInput placeholder="Minimum" name="maleMinimum" />
+                  <input matInput placeholder="Minimum" name="maleMinimum" ngModel #maleMinimum="ngModel" />
                 </mat-form-field>
 
                 <!-- Maximum -->
                 <mat-form-field>
                   <mat-label>Maximum Reference Range Male</mat-label>
-                  <input matInput placeholder="Maximum" name="maleMaximum" />
+                  <input matInput placeholder="Maximum" name="maleMaximum" ngModel #maleMaximum="ngModel" />
                 </mat-form-field>
 
                 <!-- Critical Reference Range -->
                 <!-- Minimum -->
                 <mat-form-field>
                   <mat-label>Minimum Critical Reference Range</mat-label>
-                  <input matInput placeholder="Minimum" name="criticalMinimum" />
+                  <input matInput placeholder="Minimum" name="criticalMinimum" ngModel #criticalMinimum="ngModel" />
                 </mat-form-field>
 
                 <!-- Maximum -->
                 <mat-form-field>
                   <mat-label>Maximum Critical Reference Range</mat-label>
-                  <input matInput placeholder="Maximum" name="CriticalMaximum" />
+                  <input matInput placeholder="Maximum" name="criticalMaximum" ngModel #criticalMaximum="ngModel" />
                 </mat-form-field>
               </section>
             </section>
@@ -115,7 +125,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Add Reference Range</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddReferenceRangeClicked(referenceRange)">Add Reference Range</button>
           </section>
         </section>
       </mat-dialog-content>

@@ -8,7 +8,7 @@ import { ReferenceRangeModel } from '../models/reference-range/reference-range. 
   providedIn: 'root'
 })
 export class ReferenceRangeService {
-  private readonly routePrefix = 'referanceRange';
+  private readonly routePrefix = 'referenceRange';
 
   constructor(private readonly httpClient: HttpClient) { }
 
