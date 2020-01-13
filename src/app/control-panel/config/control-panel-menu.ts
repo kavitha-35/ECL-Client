@@ -29,6 +29,7 @@ const MENUITEMS: Menu[] = [
       { state: 'organisation', name: 'Add Organisation' },
       { state: 'doctor', name: 'Add Doctor' },
       { state: 'organisation-price-list', name: 'Add Organisation Price List' },
+      { state: 'method', name: 'Method' },
       { state: 'not-found', name: 'Organisation List' },
     ],
   },
@@ -37,12 +38,6 @@ const MENUITEMS: Menu[] = [
     name: 'Department',
     type: 'link',
     icon: 'polymer',
-  },
-  {
-    state: 'method',
-    name: 'Method',
-    type: 'link',
-    icon: 'supervised_user_circle',
   },
   {
     state: 'reference-range',
@@ -98,14 +93,10 @@ const MENUITEMS: Menu[] = [
     ],
   },
   {
-    state: 'format',
-    name: 'Format',
-    type: 'sub',
+    state: 'report-format',
+    name: 'Report Format',
+    type: 'link',
     icon: 'get_app',
-    children: [
-      { state: 'report-format', name: 'Add Format' },
-      { state: 'report-format', name: 'Format List' },
-    ],
   },
   {
     state: 'coupons',

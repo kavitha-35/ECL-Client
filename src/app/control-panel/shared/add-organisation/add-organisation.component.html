@@ -22,21 +22,52 @@
 
               <!-- Content -->
               <section class="basic-content">
+                
                 <!-- Lab Name -->
                 <mat-form-field>
-                  <mat-label>Clinic Name</mat-label>
+                  <mat-label>Organization</mat-label>
                   <input matInput placeholder="Clinic Name" name="clinicName" ngModel #clinicName="ngModel" />
                 </mat-form-field>
 
-                <!-- Type -->
+                <!-- Active-->
+                <section class="pt-19">
+                  <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
+                </section>
+
+                <!-- Relation -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Relation</mat-label>
                   <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
-                    <mat-option *ngFor="let options of relations" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
+                    <mat-option value="1">
+                      Intra
+                    </mat-option>
+                    <mat-option value="2">
+                      Inter
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
+
+                <!-- Business Hours -->
+                <mat-form-field>
+                  <mat-label>Business Hour</mat-label>
+                  <input matInput placeholder="Address" name="address" ngModel #address="ngModel" />
+                </mat-form-field>
+
+                <!-- Remarks -->
+                <mat-form-field>
+                  <mat-label>Remarks</mat-label>
+                  <input matInput placeholder="Address" name="address" ngModel #address="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Locale Information -->
+            <section class="locale-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Address Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="locale-information-content">
 
                 <!-- Address -->
                 <mat-form-field>
@@ -68,24 +99,13 @@
                   <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
                 </mat-form-field>
 
-                <!-- Area-->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Area</mat-label>
-                  <mat-select disableOptionCentering name="area" ngModel #area="ngModel"> 
-                    <mat-option *ngFor="let options of areas" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-
                 <!-- Region-->
                 <mat-form-field class="mt-n7">
                   <mat-label>Region</mat-label>
                   <mat-select disableOptionCentering name="region" ngModel #region="ngModel">
                     <mat-option *ngFor="let options of regions" [value]="options.lookupId">{{
                       options.keyValue
-                    }}</mat-option></mat-select
-                  >
+                    }}</mat-option></mat-select>
                 </mat-form-field>
 
                 <!-- Country -->
@@ -97,17 +117,21 @@
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
+              </section>
+            </section>
 
-                <!-- Sales Rep -->
-                <mat-form-field>
-                  <mat-label>Sales Representative</mat-label>
-                  <input matInput placeholder="Sales Representative" name="salesRepresentative" ngModel #salesRepresentative="ngModel" />
-                </mat-form-field>
+            <!-- Locale Information -->
+            <section class="locale-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Contact Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="locale-information-content">
 
                 <!-- Contact Person -->
                 <mat-form-field>
                   <mat-label>Contact Person</mat-label>
-                  <input matInput placeholder="Contact Person" name="contactPerson" ngModel #contactPerson="ngModel"/>
+                  <input matInput placeholder="Contact Person" name="contactPerson" ngModel #contactPerson="ngModel" />
                 </mat-form-field>
 
                 <!-- Contact Number -->
@@ -119,34 +143,18 @@
                 <!-- Email -->
                 <mat-form-field>
                   <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel"/>
-                </mat-form-field>
-
-                <!-- Business Hours -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Business Hours</mat-label>
-                  <mat-select disableOptionCentering name="businessHour" ngModel #businessHour="ngModel">
-                    <mat-option *ngFor="let options of businessHours" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Remark -->
-                <mat-form-field>
-                  <mat-label>Remarks</mat-label>
-                  <input matInput placeholder="if any" name="remarks" ngModel #remarks="ngModel"/>
+                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
                 </mat-form-field>
               </section>
             </section>
-
             <!-- Locale Information -->
             <section class="locale-information-wrapper">
               <!-- Header -->
-              <app-section-header title="locale Information"></app-section-header>
+              <app-section-header title="Locale Information"></app-section-header>
 
               <!-- Content -->
               <section class="locale-information-content">
+                <!-- Contact Person -->
                 <!-- Language -->
                 <mat-form-field>
                   <mat-label>Language</mat-label>
@@ -163,25 +171,136 @@
                   <mat-select disableOptionCentering name="timeZone" ngModel #timeZone="ngModel">
                     <mat-option *ngFor="let options of timeZones" [value]="options.lookupId">{{
                       options.keyValue
-                    }}</mat-option> </mat-select>
+                    }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Locale Information -->
+            <section class="locale-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Uploads"></app-section-header>
+              <!-- Content -->
+              <section class="locale-information-content">
+
+                 <!-- Logo -->
+                <section class="label">
+                  Logo
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+
+                 <!-- Header -->
+                <section class="label">
+                  Header
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+
+                 <!-- Footer -->
+                <section class="label">
+                  Footer
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+              </section>
+            </section>
+
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="User Credentials Information"></app-section-header>
+              <!-- Content -->
+              <section class="user-credentials-content">
+                <!-- User Id -->
+                <mat-form-field>
+                  <mat-label>User Id</mat-label>
+                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" />
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Office Use"></app-section-header>
+              <!-- Content -->
+              <section class="user-credentials-content">
+
+                <!-- Clinic ID -->
+                <mat-form-field>
+                  <mat-label>Clinic ID</mat-label>
+                  <input matInput placeholder="Clinic ID" />
+                </mat-form-field>
+
+                <!-- Driver -->
+                <mat-form-field>
+                  <mat-label>Driver</mat-label>
+                  <input matInput placeholder="Driver" />
+                </mat-form-field>
+
+                <!-- Sales Rep -->
+                <mat-form-field>
+                  <mat-label>Sales Representative</mat-label>
+                  <input matInput placeholder="Sales Representative" />
+                </mat-form-field>
+
+                <!-- Country -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Email Report</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="uae">
+                      Part
+                    </mat-option>
+                    <mat-option value="india">
+                      Final
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Active SMS -->
+                <mat-checkbox>Active SMS</mat-checkbox>
+
+                <!-- Active E-mail -->
+                <mat-checkbox>Active E-mail</mat-checkbox>
+
+                <!-- Active Auto Invoice -->
+                <mat-checkbox>Active Auto Invoice</mat-checkbox>
+
+                <!-- Price List -->
+                <section class="label">
+                  Price List
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
               </section>
             </section>
 
             <!-- Finance Information -->
             <section class="finance-information-wrapper">
+
               <!-- Header -->
               <app-section-header title="Finance Information"></app-section-header>
+
               <!-- Content -->
               <section class="finance-information-content">
-                <!-- Currency -->
                 <mat-form-field>
                   <mat-label>Currency</mat-label>
-                  <mat-select disableOptionCentering name="currency" ngModel #currency="ngModel">
-                    <mat-option *ngFor="let options of currencies" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                     </mat-select>
+                  <mat-select disableOptionCentering name="paymentMode" ngModel #paymentMode="ngModel">
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Payment Mode -->
@@ -207,72 +326,40 @@
                 <mat-form-field>
                   <mat-label>Payment Type</mat-label>
                   <mat-select disableOptionCentering ngModel name="paymentType" #paymentType="ngModel">
-                    <mat-option *ngFor="let options of paymentTypes" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
+                    <mat-option value="cash">
+                      Postpaid
+                    </mat-option>
+                    <mat-option value="netBanking">
+                      PrePaid
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Credit Limit -->
                 <mat-form-field>
                   <mat-label>Credit Limit</mat-label>
-                  <input matInput placeholder="Credit Limit" name="creditLimit" ngModel #creditLimit="ngModel"/>
+                  <input matInput placeholder="Credit Limit" name="creditLimit" ngModel #creditLimit="ngModel" />
                 </mat-form-field>
 
                 <!-- Current Due-->
                 <mat-form-field>
                   <mat-label>Current Due</mat-label>
-                  <input matInput placeholder="Current Due" name="currentDue" ngModel #currentDue="ngModel"/>
+                  <input matInput placeholder="Current Due" name="currentDue" ngModel #currentDue="ngModel" />
                 </mat-form-field>
 
-                <!-- Revenue Target -->
+                <!-- Billing Cycle-->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Revenue Target</mat-label>
-                  <mat-select disableOptionCentering name="revenueTarget" ngModel #revenueTarget="ngModel">
-                    <mat-option *ngFor="let options of revenueTargets" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Report and Bill Status -->
-                <mat-form-field>
-                  <mat-label>Report and Bill Status</mat-label>
-                  <mat-select disableOptionCentering name="reportAndBilling" ngModel #reportAndBilling="ngModel">
-                    <mat-option *ngFor="let options of reportAndBillings" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </section>
-            </section>
-
-            <!-- User Credentials Information -->
-            <section class="user-credentials-information-wrapper">
-              <!-- Header -->
-              <app-section-header title="User Credentials Information"></app-section-header>
-
-              <!-- Content -->
-              <section class="user-credentials-content">
-                <!-- User Id -->
-                <mat-form-field>
-                  <mat-label>User Id</mat-label>
-                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel"/>
-                </mat-form-field>
-
-                <!-- Password -->
-                <mat-form-field>
-                  <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel"/>
-                </mat-form-field>
-
-                <!--  Branch -->
-                <mat-form-field>
-                  <mat-label>Branch</mat-label>
-                  <mat-select disableOptionCentering name="branch" ngModel #branch="ngModel"> 
-                    <mat-option *ngFor="let options of branches" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
+                  <mat-label>Billing Cycle</mat-label>
+                  <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
+                    <mat-option value="1">
+                      BiMonthly
+                    </mat-option>
+                    <mat-option value="2">
+                      Quarter Monthly
+                    </mat-option>
+                    <mat-option value="3">
+                      Half Monthly
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>
@@ -281,7 +368,9 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddOrganisationClicked(organisation)">Add Organisation</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddOrganisationClicked(organisation)">
+              Add Organisation
+            </button>
           </section>
         </section>
       </mat-dialog-content>

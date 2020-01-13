@@ -2,8 +2,7 @@
   <mat-card class="method-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Method" subTitle="Add a Method " icon="fa-calendar">
-      </app-dialog-caption>
+      <app-dialog-caption title="Method" subTitle="Add a Method " icon="fa-calendar"> </app-dialog-caption>
     </section>
 
     <!-- Dialog Content -->
@@ -15,7 +14,7 @@
       <mat-dialog-content class="method-dialog">
         <section>
           <!-- Method Form -->
-          <form class="method-form">
+          <form class="method-form" #method="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -23,19 +22,6 @@
 
               <!-- Content -->
               <section class="basic-content">
-                <!-- Integration Code -->
-                <mat-form-field>
-                  <mat-label>Integration Code</mat-label>
-                  <input matInput placeholder="Integration Code" />
-                </mat-form-field>
-
-
-                <!-- Machine -->
-                <mat-form-field>
-                  <mat-label>Machine</mat-label>
-                  <input matInput placeholder="Machine" />
-                </mat-form-field>
-
                 <!-- Method Name -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Method Name</mat-label>
@@ -53,8 +39,10 @@
           </form>
 
           <section class="action-buttons-wrapper">
-            <button mat-button color="primary" >Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Add Method</button>
+            <button mat-button color="primary">Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddMethodClicked(method)">
+              Add Method
+            </button>
           </section>
         </section>
       </mat-dialog-content>

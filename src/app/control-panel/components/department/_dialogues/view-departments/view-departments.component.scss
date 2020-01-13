@@ -1,0 +1,28 @@
+#department-details-container {
+  .patient-information {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+  }
+
+  .referral-information {
+    @extend .patient-information;
+    margin: 6px 0;
+  }
+
+  .department-details {
+    @extend .patient-information;
+    margin: 6px 0;
+  }
+  .close-icon {
+    float: right;
+    position: absolute;
+    right: 23px;
+  }
+
+  .comment-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 12px 0;
+  }
+}

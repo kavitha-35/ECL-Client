@@ -37,18 +37,13 @@ export class ReportFormatTableComponent implements OnInit {
 
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
-      { columnName: 'id', displayValue: 'Clinic ID', isSelected: true },
-      { columnName: 'name', displayValue: 'Lab Name', isSelected: true },
-      { columnName: 'address', displayValue: 'Address', isSelected: false },
-      { columnName: 'postBox', displayValue: 'Post Box', isSelected: false },
-      { columnName: 'telephone', displayValue: 'Telephone', isSelected: true },
-      { columnName: 'fax', displayValue: 'Fax', isSelected: true },
-      { columnName: 'web', displayValue: 'Web', isSelected: false },
-      { columnName: 'region', displayValue: 'Region', isSelected: true },
-      { columnName: 'country', displayValue: 'Country', isSelected: true },
-      { columnName: 'salesRepresentative', displayValue: 'Sales Representative', isSelected: true },
-      { columnName: 'contactMobileNumber', displayValue: 'Mobile Number', isSelected: true },
-      { columnName: 'mail', displayValue: 'Mail', isSelected: false },
+      { columnName: 'id', displayValue: 'ID', isSelected: true },
+      { columnName: 'paperSize', displayValue: 'Paper Size', isSelected: true },
+      { columnName: 'fontSize', displayValue: 'Font Size', isSelected: true },
+      { columnName: 'fontType', displayValue: 'Font Type', isSelected: true },
+      { columnName: 'headerSize', displayValue: 'Header Size', isSelected: true },
+      { columnName: 'footerSize', displayValue: 'Footer Size', isSelected: true },
+      { columnName: 'dateFormat', displayValue: 'Date Format', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter(x => x.isSelected);

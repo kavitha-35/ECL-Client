@@ -2,26 +2,14 @@
     <table mat-table [dataSource]="method" class="full-width">
       <!-- ID Column -->
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Clinic ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-      </ng-container>
-  
-      <!-- Integration Code -->
-      <ng-container matColumnDef="code">
-        <th mat-header-cell *matHeaderCellDef>Integration Code</th>
-        <td mat-cell *matCellDef="let element">{{ element.code }}</td>
-      </ng-container>
-  
-      <!-- Machine -->
-      <ng-container matColumnDef="machine">
-        <th mat-header-cell *matHeaderCellDef>Machine</th>
-        <td mat-cell *matCellDef="let element">{{ element.machine }}</td>
+        <th mat-header-cell *matHeaderCellDef>Method ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.methodId }}</td>
       </ng-container>
   
       <!-- Method Name -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Method Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.methodName }}</td>
       </ng-container>
   
       <!--Action-->

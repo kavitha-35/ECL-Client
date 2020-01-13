@@ -16,6 +16,7 @@ import { DISPLAY_MODE } from 'app/main/models/constants';
 import { ActivatedRoute } from '@angular/router';
 import * as jsPDF from 'jspdf';
 import { Subject } from 'rxjs';
+import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
 
 @Component({
   selector: 'app-department-data-table',
@@ -23,17 +24,18 @@ import { Subject } from 'rxjs';
   styleUrls: ['./department-data-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DepartmentDataTableComponent implements OnInit {
+export class DepartmentDataTableComponent implements OnInit, OnDestroy {
   @Input() departments: DepartmentModel[];
   @Input() isBusy: boolean;
   @Input() departmentSubject: Subject<any>;
   @Output() editDepartmentClicked = new EventEmitter();
   @Output() deleteDepartmentClicked = new EventEmitter();
+  @Output() viewDepartmentClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
   @ViewChild('TABLE', { static: false }) table: ElementRef;
   @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef;
-  constructor(private readonly _activatedRoute: ActivatedRoute) {}
+  constructor(private readonly _activatedRoute: ActivatedRoute, private readonly exportAsService: ExportAsService) {}
 
   ngOnInit(): void {
     this.departmentSubject.subscribe((data) => {
@@ -41,9 +43,20 @@ export class DepartmentDataTableComponent implements OnInit {
         this.downloadAsPDF();
       } else if (data === DISPLAY_MODE.EXCEL) {
         this.ExportTOExcel();
+      } else if (data === DISPLAY_MODE.DOC) {
+        this.exportAsDoc();
       }
     });
     this._initializeDisplayedColumns();
+  }
+  public exportAsDoc(): void {
+    console.log('clicked');
+    const exportAsConfig: ExportAsConfig = {
+      type: 'docx', // the type you want to download
+      elementId: 'department-table', // the id of html/table element,
+    };
+
+    this.exportAsService.save(exportAsConfig, 'department').subscribe(() => {});
   }
 
   public downloadAsPDF(): void {
@@ -62,6 +75,10 @@ export class DepartmentDataTableComponent implements OnInit {
 
   public onDeleteDepartmentClicked(departmentId: string): void {
     this.deleteDepartmentClicked.emit(departmentId);
+  }
+
+  public onViewDepartmentClicked(department: DepartmentModel): void {
+    this.viewDepartmentClicked.emit(department);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
@@ -85,5 +102,9 @@ export class DepartmentDataTableComponent implements OnInit {
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
+  }
+
+  ngOnDestroy(): void {
+    this.departmentSubject.unsubscribe();
   }
 }

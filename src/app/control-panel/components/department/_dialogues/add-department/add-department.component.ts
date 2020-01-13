@@ -26,6 +26,7 @@ export class AddDepartmentComponent implements OnInit {
   }
 
   onAddDepartmentClicked(department: NgForm): void {
+    console.log(department.form.value);
     this._departmentService.addDepartment(department.form.value).subscribe((data) => {
       this.dialogRef.close();
     });

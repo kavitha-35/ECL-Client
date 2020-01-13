@@ -8,6 +8,7 @@ import { AddDepartmentComponent } from './_dialogues/add-department/add-departme
 import { take } from 'rxjs/operators';
 import { DepartmentService } from 'app/control-panel/services/department.service';
 import { Observable, Subject } from 'rxjs';
+import { ViewDepartmentsComponent } from './_dialogues/view-departments/view-departments.component';
 
 @Component({
   selector: 'app-department',
@@ -79,6 +80,10 @@ export class DepartmentComponent implements OnInit {
     this.departmentSubject.next('pdf');
   }
 
+  onExportToDocButtonClicked(): void {
+    this.departmentSubject.next('doc');
+  }
+
   public onShowListViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });
   }
@@ -101,5 +106,21 @@ export class DepartmentComponent implements OnInit {
     this._departmentService.deleteDepartment(departmentId).subscribe(() => {
       this.getAllDepartment();
     });
+  }
+
+  public onViewDepartmentClicked(department: DepartmentModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: department,
+    };
+    this.matDialog
+      .open(ViewDepartmentsComponent, matDialogConfig)
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllDepartment();
+      });
   }
 }

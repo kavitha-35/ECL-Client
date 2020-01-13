@@ -131,6 +131,9 @@ import { CombinedTestListComponent } from './components/test-masters/combined-te
 import { CombinedTestRibbonMenuComponent } from './components/test-masters/combined-test/combined-test-ribbon-menu/combined-test-ribbon-menu.component';
 import { LinkTestToCombinedTestComponent } from './components/test-masters/combined-test/_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 import { CombinedTestSearchComponent } from './components/test-masters/combined-test/combined-test-search/combined-test-search.component';
+import { EquipmentListComponent } from './components/equipment/equipment-list/equipment-list.component';
+import { EquipmentRibbonMenuComponent } from './components/equipment/equipment-ribbon-menu/equipment-ribbon-menu.component';
+import { EquipmentSearchComponent } from './components/equipment/equipment-search/equipment-search.component';
 import { ReportFormatComponent } from './components/report-format/report-format.component';
 import { AddReportFormatComponent } from './components/report-format/_dialogues/add-report-format/add-report-format.component';
 import { EditReportFormatComponent } from './components/report-format/_dialogues/edit-report-format/edit-report-format.component';
@@ -138,6 +141,7 @@ import { ReportFormatRibbonMenuComponent } from './components/report-format/repo
 import { ReportFormatTableComponent } from './components/report-format/report-format-table/report-format-table.component';
 import { ReportFormatSearchComponent } from './components/report-format/report-format-search/report-format-search.component';
 import { ReportFormatDataListComponent } from './components/report-format/report-format-data-list/report-format-data-list.component';
+import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
 
 @NgModule({
   declarations: [
@@ -232,13 +236,20 @@ import { ReportFormatDataListComponent } from './components/report-format/report
     ProfileTestDetailsComponent,
     CombinedTestDetailsComponent,
     CombinedTestListComponent,
+    CombinedTestRibbonMenuComponent,
+    CombinedTestSearchComponent,
+    LinkTestToCombinedTestComponent,
+    EquipmentListComponent,
+    EquipmentRibbonMenuComponent,
+    EquipmentSearchComponent,
     ReportFormatComponent,
     AddReportFormatComponent,
     EditReportFormatComponent,
     ReportFormatRibbonMenuComponent,
     ReportFormatTableComponent,
     ReportFormatSearchComponent,
-    ReportFormatDataListComponent
+    ReportFormatDataListComponent,
+    ViewDepartmentsComponent
   ],
   providers: [
     DatePipe,
@@ -328,9 +339,12 @@ import { ReportFormatDataListComponent } from './components/report-format/report
     ProfileTestSearchComponent,
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
+    EquipmentSearchComponent,
+    EquipmentRibbonMenuComponent,
     AddReportFormatComponent,
     EditReportFormatComponent,
-    ReportFormatSearchComponent
+    ReportFormatSearchComponent,
+    ViewDepartmentsComponent
   ],
 })
 export class ControlPanelModule {}

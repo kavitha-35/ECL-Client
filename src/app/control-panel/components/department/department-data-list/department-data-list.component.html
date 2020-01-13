@@ -4,20 +4,21 @@
         <section class="title">#{{ element.departmentId}} / {{ element.departmentName }}</section>
         <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
         <mat-menu #statusMenu="matMenu">
-          <button mat-menu-item>Edit</button>
-          <button mat-menu-item>Delete</button>
+          <button mat-menu-item (click)="onViewDepartmentClicked(element)">View</button>
+          <button mat-menu-item (click)="onEditDepartmentClicked(element)">Edit</button>
+          <button mat-menu-item (click)="onDeleteDepartmentClicked(element.departmentId)">Delete</button>
         </mat-menu>
       </section>
       <section class="action-buttons-container">
-        <button mat-button>
+        <button mat-button (click)="onViewDepartmentClicked(element)">
           <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
         </button>
   
-        <button mat-button>
+        <button mat-button (click)="onEditDepartmentClicked(element)">
           <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
         </button>
   
-        <button mat-button>
+        <button mat-button (click)="onDeleteDepartmentClicked(element.departmentId)">
           <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
         </button>
       </section>

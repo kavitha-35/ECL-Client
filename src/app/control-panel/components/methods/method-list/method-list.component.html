@@ -1,7 +1,7 @@
 <section id="method-list-container">
     <section *ngFor="let element of method">
       <section class="title-wrapper">
-        <section class="title">#{{ element.id }} / {{ element.id }}</section>
+        <section class="title">#{{ element.id }} / {{ element.methodId}}</section>
         <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
         <mat-menu #statusMenu="matMenu">
           <button mat-menu-item>Edit</button>
@@ -22,17 +22,9 @@
         </button>
       </section>
       <section class="method-container">
-        <!-- Integration Code -->
-        <section class="sub-title">Integration Code</section>
-        <section>{{ element.code }}</section>
-  
-        <!-- Machine -->
-        <section class="sub-title">Machine</section>
-        <section>{{ element.machine }}</section>
-  
         <!-- Method Name -->
         <section class="sub-title">Method Name</section>
-        <section>{{ element.name }}</section>
+        <section>{{ element.methodName }}</section>
        
       </section>
     </section>
