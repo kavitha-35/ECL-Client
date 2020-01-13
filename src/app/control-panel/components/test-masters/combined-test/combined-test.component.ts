@@ -8,6 +8,8 @@ import { TestModel } from 'app/control-panel/models/tests/test.model';
 import { DISPLAY_MODE } from 'app/main/models/constants';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
+import { CombinedTest } from './test.model';
 
 @Component({
   selector: 'app-combined-test',
@@ -32,16 +34,22 @@ export class CombinedTestComponent implements OnInit {
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
+    private combinedTestService: CombinedTestService
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
-    this._initializeValues();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
+
+    this.combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) =>{
+      console.log(data);
+      this.tests = data
+    })
+
   }
 
   public onManageButtonClicked(dosCode: string): void {
@@ -75,42 +83,42 @@ export class CombinedTestComponent implements OnInit {
 
   public onDeleteTestClicked(testId: string): void { }
 
-  public _initializeValues(): void {
-    this.tests = [
-      {
-        dosCode: 'ECL-767',
-        testId: '1313741',
-        cptCode: '82465',
-        testName: 'cholestrol,Total',
-        specimen: '2 ml serum',
-        specimenType: 'serum',
-        storage: 'refrigerated',
-        department: 'biochemistry',
-        patientFee: '40.00',
-        netFee: '10.00',
-        location: 'dubai',
-        currency: 'dihram',
-        reportFormat: '',
-        individualTest: [
-          {
-            id: '1708027',
-            active: 'Active',
-            testCategory: 'outsource',
-            accreditationSymbol: '**',
-            testComponent: 'blood',
-            processingCenter: 'pathcare',
-            outsourceVendorCode: 'HM052',
-            method: 'CLIA',
-            unit: '2 ml',
-            referenceRange: '3.00 to 40.00',
-            tat: '1',
-            cptAmount: '4.00',
-            integrationCode: 'T105',
-            accreditation: 'not enable',
-            comments: 'String',
-          },
-        ],
-      },
-    ];
-  }
+  // public _initializeValues(): void {
+  //   this.tests = [
+  //     {
+  //       dosCode: 'ECL-767',
+  //       testId: '1313741',
+  //       cptCode: '82465',
+  //       testName: 'cholestrol,Total',
+  //       specimen: '2 ml serum',
+  //       specimenType: 'serum',
+  //       storage: 'refrigerated',
+  //       department: 'biochemistry',
+  //       patientFee: '40.00',
+  //       netFee: '10.00',
+  //       location: 'dubai',
+  //       currency: 'dihram',
+  //       reportFormat: '',
+  //       individualTest: [
+  //         {
+  //           id: '1708027',
+  //           active: 'Active',
+  //           testCategory: 'outsource',
+  //           accreditationSymbol: '**',
+  //           testComponent: 'blood',
+  //           processingCenter: 'pathcare',
+  //           outsourceVendorCode: 'HM052',
+  //           method: 'CLIA',
+  //           unit: '2 ml',
+  //           referenceRange: '3.00 to 40.00',
+  //           tat: '1',
+  //           cptAmount: '4.00',
+  //           integrationCode: 'T105',
+  //           accreditation: 'not enable',
+  //           comments: 'String',
+  //         },
+  //       ],
+  //     },
+  //   ];
+  // }
 }

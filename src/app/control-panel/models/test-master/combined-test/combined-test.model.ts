@@ -1,18 +1,25 @@
 import { IndividualTestModel } from '../individual-test/individual-test.model';
 
 export interface CombinedTestModel {
-  dosCode: string;
-  testId: string;
+  eclDosCode: number;
+  testId: number;
   cptCode: string;
   testName: string;
   specimen: string;
   specimenType: string;
-  storage: string;
-  department: string;
-  patientFee: string;
-  netFee: string;
+  storage: {
+    StorageId: string;
+    StorageName: string;
+  };
+  department: {
+    departmentId: string;
+    departmentName: string;
+  };
+  patientFee: number;
+  netFee: number;
   location: string;
   currency: string;
-  reportFormat: string;
-  individualTest?: IndividualTestModel[];
+  reportFormat: number;
+  description: string;
+  individualTests?: IndividualTestModel[];
 }

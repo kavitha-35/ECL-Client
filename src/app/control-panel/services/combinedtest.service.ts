@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ROUTE_CONFIG } from 'app/shared/models/constant';
 import { Observable } from 'rxjs';
 import { CombinedTest } from '../components/test-masters/combined-test/test.model';
+import { CombinedTestModel } from '../models/test-master/combined-test/combined-test.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +13,12 @@ export class CombinedTestService {
 
   constructor(private readonly httpClient: HttpClient) {}
 
-  getAllTests(): Observable<CombinedTest[]> {
+  getAllTests(): Observable<CombinedTestModel[]> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
-    return this.httpClient.get<CombinedTest[]>(apiUrl, { headers: headers });
+    console.log(apiUrl);
+    return this.httpClient.get<CombinedTestModel[]>(apiUrl, { headers: headers });
   }
 
   addTest(test: CombinedTest): Observable<CombinedTest> {
@@ -39,4 +41,11 @@ export class CombinedTestService {
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${departmentId}`;
     return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
   }
+
+  // getCombineTest(): Observable<CombinedTestModel>{
+  //   let headers = new HttpHeaders();
+  //   headers.set('Content-Type','application/json; charset=utf-8').set('Auth-Key','liskey');
+  //   const apiUrl= '${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/'
+  // }
 }
+
