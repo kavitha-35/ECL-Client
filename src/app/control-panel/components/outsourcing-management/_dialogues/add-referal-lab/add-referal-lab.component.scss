@@ -32,6 +32,22 @@
         }
       }
 
+      .address-information-wrapper {
+        @include margin-bottom-18;
+
+        .address-information-content {
+          @include forms-grid;
+        }
+      }
+
+      .contactperson-information-wrapper {
+        @include margin-bottom-18;
+
+        .contactperson-information-content {
+          @include forms-grid;
+        }
+      }
+
       .payment-information-wrapper {
         @include margin-bottom-18;
 

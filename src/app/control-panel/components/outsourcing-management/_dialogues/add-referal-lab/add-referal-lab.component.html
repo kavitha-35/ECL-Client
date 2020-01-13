@@ -29,6 +29,24 @@
                   <input matInput placeholder="Lab Name" name="labName" ngModel #labName="ngModel" />
                 </mat-form-field>
 
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input matInput placeholder="Telephone" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" />
+                </mat-form-field>
+
                 <!-- Relation -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Relation</mat-label>
@@ -42,6 +60,31 @@
                   </mat-select>
                 </mat-form-field>
 
+                <!-- Interfacing Type -->
+                <mat-form-field>
+                  <mat-label>Interfacing Type</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="uni">
+                      Unidirectional
+                    </mat-option>
+                    <mat-option value="bi">
+                      Bidirectional
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+
+
+            <!-- Address Information -->
+            <section class="address-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Address Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="address-information-content">
+                <!-- Address Mode -->
+
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
@@ -54,32 +97,11 @@
                   <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
                 </mat-form-field>
 
-                <!-- Telephone -->
-                <mat-form-field>
-                  <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" />
-                </mat-form-field>
 
-                <!-- Fax -->
-                <mat-form-field>
-                  <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" name="fax" ngModel #fax="ngModel" />
-                </mat-form-field>
-
-                <!-- Web -->
-                <mat-form-field>
-                  <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
-                </mat-form-field>
-
-                <!-- Region-->
+                <!-- City-->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Region</mat-label>
-                  <mat-select disableOptionCentering name="region" ngModel #region="ngModel">
-                    <mat-option *ngFor="let options of regions" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
+                  <mat-label>City</mat-label>
+                  <mat-select disableOptionCentering> </mat-select>
                 </mat-form-field>
 
                 <!-- Country -->
@@ -91,19 +113,16 @@
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
+              </section>
+            </section>
 
-                <!-- Interfacing Type -->
-                <mat-form-field>
-                  <mat-label>Interfacing Type</mat-label>
-                  <mat-select disableOptionCentering name="interfacingType" ngModel #interfacingType="ngModel">
-                    <mat-option value="1">
-                      Unidirectional
-                    </mat-option>
-                    <mat-option value="2">
-                      Bidirectional
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+            <!-- Contact person -->
+            <section class="contactperson-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Contact  Information"></app-section-header>
+              <!-- Content -->
+              <section class="contactperson-information-content">
+                <!-- Contact person Mode -->
 
                 <!-- Sales Rep -->
                 <mat-form-field>
@@ -126,16 +145,23 @@
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Contact Person -->
+
+                <!-- Contact Person Name -->
                 <mat-form-field>
-                  <mat-label>Contact Person Mobile Number</mat-label>
-                  <input matInput placeholder="Mobile Number" name="contactPerson" ngModel #contactPerson="ngModel" />
+                  <mat-label>Contact Person Name</mat-label>
+                  <input matInput placeholder="Contact Person Name" />
+                </mat-form-field>
+
+                <!-- Mobile -->
+                <mat-form-field>
+                  <mat-label>Mobile</mat-label>
+                  <input matInput placeholder="Mobile" />
                 </mat-form-field>
 
                 <!-- Email -->
                 <mat-form-field>
                   <mat-label>Email</mat-label>
-                  <input matInput placeholder="email" name="email" ngModel #email="ngModel" />
+                  <input matInput placeholder="Email" />
                 </mat-form-field>
               </section>
             </section>
@@ -169,18 +195,26 @@
                 <!-- Credit Period -->
                 <mat-form-field>
                   <mat-label>Credit Period</mat-label>
-                  <mat-select disableOptionCentering name="creditPeriod" ngModel #creditPeriod="ngModel">
-                    <mat-option value="1">1 Months</mat-option>
-                    <mat-option value="3">3 Months</mat-option>
-                    <mat-option value="6">6 Months</mat-option>
-                    <mat-option value="12">12 Months</mat-option>
+                  <mat-select disableOptionCentering>
+                  <mat-option value="cash">
+                    15
+                  </mat-option>
+                  <mat-option value="cash">
+                    30
+                  </mat-option>
+                  <mat-option value="cash">
+                    45
+                  </mat-option>
+                  <mat-option value="cash">
+                    60
+                  </mat-option>
+                  <mat-option value="cash">
+                    75
+                  </mat-option>
+                  <mat-option value="cash">
+                    90
+                  </mat-option>
                   </mat-select>
-                </mat-form-field>
-
-                <!-- Credit Limit -->
-                <mat-form-field>
-                  <mat-label>Credit Limit</mat-label>
-                  <input matInput placeholder="Credit Period" name="creditLimit" ngModel #creditLimit="ngModel" />
                 </mat-form-field>
               </section>
             </section>

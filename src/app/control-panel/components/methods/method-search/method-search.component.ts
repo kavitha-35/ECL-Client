@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 
 @Component({
   selector: 'app-method-search',
@@ -7,7 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MethodSearchComponent implements OnInit {
-
+  departments: DepartmentModel[];
   constructor() { }
 
   ngOnInit(): void {

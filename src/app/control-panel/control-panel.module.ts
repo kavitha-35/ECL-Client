@@ -131,6 +131,9 @@ import { CombinedTestListComponent } from './components/test-masters/combined-te
 import { CombinedTestRibbonMenuComponent } from './components/test-masters/combined-test/combined-test-ribbon-menu/combined-test-ribbon-menu.component';
 import { LinkTestToCombinedTestComponent } from './components/test-masters/combined-test/_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 import { CombinedTestSearchComponent } from './components/test-masters/combined-test/combined-test-search/combined-test-search.component';
+import { EquipmentListComponent } from './components/equipment/equipment-list/equipment-list.component';
+import { EquipmentRibbonMenuComponent } from './components/equipment/equipment-ribbon-menu/equipment-ribbon-menu.component';
+import { EquipmentSearchComponent } from './components/equipment/equipment-search/equipment-search.component';
 import { ReportFormatComponent } from './components/report-format/report-format.component';
 import { AddReportFormatComponent } from './components/report-format/_dialogues/add-report-format/add-report-format.component';
 import { EditReportFormatComponent } from './components/report-format/_dialogues/edit-report-format/edit-report-format.component';
@@ -233,6 +236,12 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
     ProfileTestDetailsComponent,
     CombinedTestDetailsComponent,
     CombinedTestListComponent,
+    CombinedTestRibbonMenuComponent,
+    CombinedTestSearchComponent,
+    LinkTestToCombinedTestComponent,
+    EquipmentListComponent,
+    EquipmentRibbonMenuComponent,
+    EquipmentSearchComponent,
     ReportFormatComponent,
     AddReportFormatComponent,
     EditReportFormatComponent,
@@ -330,6 +339,8 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
     ProfileTestSearchComponent,
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
+    EquipmentSearchComponent,
+    EquipmentRibbonMenuComponent,
     AddReportFormatComponent,
     EditReportFormatComponent,
     ReportFormatSearchComponent,

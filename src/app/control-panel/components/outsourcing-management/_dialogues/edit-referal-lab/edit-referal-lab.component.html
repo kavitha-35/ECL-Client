@@ -21,19 +21,30 @@
               <!-- Header -->
               <app-section-header title="Basic Information"></app-section-header>
 
-              <!-- Content -->
-              <section class="basic-content">
-
-                  <!-- Clinic Id -->
-                  <mat-form-field>
-                    <mat-label>Clinic Id</mat-label>
-                    <input matInput placeholder="Lab Name" disabled/>
-                  </mat-form-field>
-
+               <!-- Content -->
+               <section class="basic-content">
                 <!-- Lab Name -->
                 <mat-form-field>
                   <mat-label>Lab Name</mat-label>
                   <input matInput placeholder="Lab Name" />
+                </mat-form-field>
+
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input matInput placeholder="Telephone" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" />
                 </mat-form-field>
 
                 <!-- Relation -->
@@ -49,6 +60,31 @@
                   </mat-select>
                 </mat-form-field>
 
+                <!-- Interfacing Type -->
+                <mat-form-field>
+                  <mat-label>Interfacing Type</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="uni">
+                      Unidirectional
+                    </mat-option>
+                    <mat-option value="bi">
+                      Bidirectional
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+
+
+            <!-- Address Information -->
+            <section class="address-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Address Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="address-information-content">
+                <!-- Address Mode -->
+
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
@@ -61,27 +97,10 @@
                   <input matInput placeholder="P.O.Box" />
                 </mat-form-field>
 
-                <!-- Telephone -->
-                <mat-form-field>
-                  <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" />
-                </mat-form-field>
 
-                <!-- Fax -->
-                <mat-form-field>
-                  <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" />
-                </mat-form-field>
-
-                <!-- Web -->
-                <mat-form-field>
-                  <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" />
-                </mat-form-field>
-
-                <!-- Region-->
+                <!-- City-->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Region</mat-label>
+                  <mat-label>City</mat-label>
                   <mat-select disableOptionCentering> </mat-select>
                 </mat-form-field>
 
@@ -100,19 +119,16 @@
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
+              </section>
+            </section>
 
-                <!-- Interfacing Type -->
-                <mat-form-field >
-                  <mat-label>Interfacing Type</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="uni">
-                      Unidirectional
-                    </mat-option>
-                    <mat-option value="bi">
-                      Bidirectional
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+            <!-- Contact person -->
+            <section class="contactperson-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Contact  Information"></app-section-header>
+              <!-- Content -->
+              <section class="contactperson-information-content">
+                <!-- Contact person Mode -->
 
                 <!-- Sales Rep -->
                 <mat-form-field>
@@ -126,16 +142,23 @@
                   <input matInput placeholder="Courier" />
                 </mat-form-field>
 
-                <!-- Contact Person -->
+
+                <!-- Contact Person Name -->
                 <mat-form-field>
-                  <mat-label>Contact Person Mobile Number</mat-label>
-                  <input matInput placeholder="Mobile Number" />
+                  <mat-label>Contact Person Name</mat-label>
+                  <input matInput placeholder="Contact Person Name" />
+                </mat-form-field>
+
+                <!-- Mobile -->
+                <mat-form-field>
+                  <mat-label>Mobile</mat-label>
+                  <input matInput placeholder="Mobile" />
                 </mat-form-field>
 
                 <!-- Email -->
                 <mat-form-field>
                   <mat-label>Email</mat-label>
-                  <input matInput placeholder="email" />
+                  <input matInput placeholder="Email" />
                 </mat-form-field>
               </section>
             </section>
@@ -148,7 +171,7 @@
               <!-- Content -->
               <section class="payment-information-content">
                 <!-- Payment Mode -->
-                <mat-form-field >
+                <mat-form-field>
                   <mat-label>Payment Mode</mat-label>
                   <mat-select disableOptionCentering>
                     <mat-option value="cash">
@@ -169,7 +192,26 @@
                 <!-- Credit Period -->
                 <mat-form-field>
                   <mat-label>Credit Period</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering>
+                  <mat-option value="cash">
+                    15
+                  </mat-option>
+                  <mat-option value="cash">
+                    30
+                  </mat-option>
+                  <mat-option value="cash">
+                    45
+                  </mat-option>
+                  <mat-option value="cash">
+                    60
+                  </mat-option>
+                  <mat-option value="cash">
+                    75
+                  </mat-option>
+                  <mat-option value="cash">
+                    90
+                  </mat-option>
+                  </mat-select>
                 </mat-form-field>
               </section>
             </section>
@@ -185,11 +227,13 @@
                   <mat-label>URL</mat-label>
                   <input matInput placeholder="URL" />
                 </mat-form-field>
+
                 <!-- UserName -->
                 <mat-form-field>
                   <mat-label>Username</mat-label>
                   <input matInput placeholder="URL" />
                 </mat-form-field>
+
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
