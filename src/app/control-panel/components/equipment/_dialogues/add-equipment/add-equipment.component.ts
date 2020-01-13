@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './add-equipment.component.html',
   styleUrls: ['./add-equipment.component.scss'],
 })
-export class AddEquipmentComponent implements  OnInit {
+export class AddEquipmentComponent implements OnInit {
   public equipment: EquipmentModel[];
   public brands: DepartmentModel[];
 
@@ -19,22 +19,21 @@ export class AddEquipmentComponent implements  OnInit {
     private readonly _dialogRef: MatDialogRef<AddEquipmentComponent>,
     private readonly _equipmentService: EquipmentService,
     private readonly departmentService: DepartmentService,
-    ) { }
+  ) {}
 
-    ngOnInit(): void {
-      this.getDepartments();
-      }
+  ngOnInit(): void {
+    this.getDepartments();
+  }
 
   public onAddEquipmentClicked(equipment: NgForm): void {
-   console.log(equipment.form.value);
-   this._equipmentService.addEquipment(equipment.form.value).subscribe((data) => {
-    this._dialogRef.close();
-  });
+    console.log(equipment.form.value);
+    this._equipmentService.addEquipment(equipment.form.value).subscribe((data) => {
+      this._dialogRef.close();
+    });
   }
   public getDepartments(): void {
     this.departmentService.getAllDepartments().subscribe((data) => {
-      this.brands= data;
+      this.brands = data;
     });
   }
-
 }
