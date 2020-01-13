@@ -7,6 +7,7 @@ import { EquipmentModel } from '../../../models/equipments/equipments.model';
   styleUrls: ['./equipment-list-data-table.component.scss'],
 })
 export class EquipmentListDataTableComponent implements OnInit {
+  @Input() equipment: EquipmentModel[];
   @Input() isBusy: boolean;
   @Output() editEquipmentClicked = new EventEmitter();
   @Output() deleteEquipmentClicked = new EventEmitter();
@@ -16,31 +17,7 @@ export class EquipmentListDataTableComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.equipments = [
-      {
-        id: '1',
-        brand: 'Guard',
-        machine: 'X-ray',
-        model: 'x-200',
-        serial: 'Bx4321788GJ',
-      },
-      {
-        id: '2',
-        brand: 'Guard',
-        machine: 'X-ray',
-        model: 'x-200',
-        serial: 'Bx4321788GJ',
-      },
-      {
-        id: '3',
-        brand: 'Guard',
-        machine: 'X-ray',
-        model: 'x-200',
-        serial: 'Bx4321788GJ',
-      }
-    ];
   }
-
   public onEditEquipmentClicked(): void {
     this.editEquipmentClicked.emit();
   }

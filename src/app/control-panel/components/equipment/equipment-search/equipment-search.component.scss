@@ -1,0 +1,21 @@
+#equipment-filter-container {
+    background: white;
+  
+    .filter-field {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 12px;
+      padding: 1rem;
+    }
+  
+    .buttons-wrapper {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 1rem;
+  
+      .mr-24 {
+        margin-right: 24px;
+      }
+    }
+  }
+  

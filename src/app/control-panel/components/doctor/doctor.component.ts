@@ -24,6 +24,9 @@ export class DoctorComponent implements OnInit {
     width: '1400px',
     autoFocus: false,
   };
+  _doctorService: any;
+  method: DoctorModel[];
+  cRef: any;
 
   constructor(
     private readonly matDialog: MatDialog,
@@ -65,7 +68,16 @@ export class DoctorComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public onDeleteTestClicked(testId: string): void {}
+  public getAllDoctor(): void {
+    this.isFetchingDoctors = true;
+    this._doctorService.getAllDoctor().subscribe((data: DoctorModel[]) => {
+      this.method = data;
+      this.isFetchingDoctors = false;
+      this.cRef.detectChanges();
+    });
+  }
+
+   public onDeleteTestClicked(testId: string): void {}
 
   public _initializeValues(): void {
     this.doctors = [
