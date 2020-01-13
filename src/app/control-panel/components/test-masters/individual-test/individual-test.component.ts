@@ -60,7 +60,6 @@ export class IndividualTestComponent implements OnInit {
     this._indiviualTestService.getAllIndividualTest().subscribe((data) => {
       this.tests = data;
       this.isFetchingTests = false;
-      console.log(this.tests);
       this.changeRef.detectChanges();
     });
   }

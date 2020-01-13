@@ -26,84 +26,83 @@
                 <!-- ECl Code-->
                 <mat-form-field>
                   <mat-label>ECl DOS Code</mat-label>
-                  <input matInput placeholder="Outsouce Vendor Code" />
+                  <input matInput placeholder="ECl DOS Code" [(ngModel)]="test.eclDocCode" name="eclDocCode" />
                 </mat-form-field>
 
                 <!-- Test Id-->
                 <mat-form-field>
                   <mat-label>Test Id</mat-label>
-                  <input matInput placeholder="Test Id" />
+                  <input matInput placeholder="Test Id" [(ngModel)]="test.testId" name="testId" />
                 </mat-form-field>
 
                 <!-- CPT Code-->
                 <mat-form-field>
                   <mat-label>CPT Code</mat-label>
-                  <input matInput placeholder="Test Id" />
+                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" />
                 </mat-form-field>
 
                 <!-- Test Name-->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <input matInput placeholder="Test Name" [(ngModel)]="test.testName" name="testName" />
                 </mat-form-field>
 
                 <!-- Specimmen-->
                 <mat-form-field>
                   <mat-label>Specimen</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering [(ngModel)]="test.specimen" name="specimen">
+                    <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{item.lookupName}}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Specimmen -->
                 <mat-form-field>
                   <mat-label>Specimen Type</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering [(ngModel)]="test.specimenType" name="specimenType">
+                    <mat-option *ngFor="let item of specimenType" [value]="item.lookupId">{{item.lookupName}}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Storage-->
                 <mat-form-field>
                   <mat-label>Storage</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering [(ngModel)]="test.StorageId" name="StorageId">
+                    <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{item.lookupName}}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Department-->
                 <mat-form-field>
                   <mat-label>Department</mat-label>
-                  <input matInput placeholder="Department" />
+                  <input matInput placeholder="Department" [(ngModel)]="test.department" name="department" />
                 </mat-form-field>
 
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
-                  <input matInput placeholder="Patient Fee" />
+                  <input matInput placeholder="Patient Fee" [(ngModel)]="test.patientFee" name="patientFee" />
                 </mat-form-field>
 
                 <!-- Net Fee-->
                 <mat-form-field>
                   <mat-label>Net Fee</mat-label>
-                  <input matInput placeholder="Net Fee" />
-                </mat-form-field>
-                <!-- Location -->
-                <mat-form-field>
-                  <mat-label>Location</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
-                </mat-form-field>
-
-                <!-- Currency-->
-                <mat-form-field>
-                  <mat-label>Currency</mat-label>
-                  <input matInput placeholder="Currency" />
+                  <input matInput placeholder="Net Fee" [(ngModel)]="test.netFee" name="netFee" />
                 </mat-form-field>
 
                 <!-- Report Format -->
                 <mat-form-field>
                   <mat-label>Report Format</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering [(ngModel)]="test.reportFormat" name="reportFormat">
+                    <mat-option *ngFor="let item of reportFormat" [value]="item.lookupId">{{item.lookupName}}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Description -->
                 <mat-form-field>
                   <mat-label>Description</mat-label>
-                  <input matInput placeholder="Description" />
+                  <input matInput placeholder="Description" [(ngModel)]="test.description" name="description" />
                 </mat-form-field>
               </section>
             </section>

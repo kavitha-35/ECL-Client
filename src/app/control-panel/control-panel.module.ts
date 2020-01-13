@@ -131,6 +131,13 @@ import { CombinedTestListComponent } from './components/test-masters/combined-te
 import { CombinedTestRibbonMenuComponent } from './components/test-masters/combined-test/combined-test-ribbon-menu/combined-test-ribbon-menu.component';
 import { LinkTestToCombinedTestComponent } from './components/test-masters/combined-test/_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 import { CombinedTestSearchComponent } from './components/test-masters/combined-test/combined-test-search/combined-test-search.component';
+import { ReportFormatComponent } from './components/report-format/report-format.component';
+import { AddReportFormatComponent } from './components/report-format/_dialogues/add-report-format/add-report-format.component';
+import { EditReportFormatComponent } from './components/report-format/_dialogues/edit-report-format/edit-report-format.component';
+import { ReportFormatRibbonMenuComponent } from './components/report-format/report-format-ribbon-menu/report-format-ribbon-menu.component';
+import { ReportFormatTableComponent } from './components/report-format/report-format-table/report-format-table.component';
+import { ReportFormatSearchComponent } from './components/report-format/report-format-search/report-format-search.component';
+import { ReportFormatDataListComponent } from './components/report-format/report-format-data-list/report-format-data-list.component';
 
 @NgModule({
   declarations: [
@@ -224,7 +231,14 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     ProfileTestListComponent,
     ProfileTestDetailsComponent,
     CombinedTestDetailsComponent,
-    CombinedTestListComponent
+    CombinedTestListComponent,
+    ReportFormatComponent,
+    AddReportFormatComponent,
+    EditReportFormatComponent,
+    ReportFormatRibbonMenuComponent,
+    ReportFormatTableComponent,
+    ReportFormatSearchComponent,
+    ReportFormatDataListComponent
   ],
   providers: [
     DatePipe,
@@ -314,6 +328,9 @@ import { CombinedTestSearchComponent } from './components/test-masters/combined-
     ProfileTestSearchComponent,
     CombinedTestSearchComponent,
     LinkTestToCombinedTestComponent,
+    AddReportFormatComponent,
+    EditReportFormatComponent,
+    ReportFormatSearchComponent
   ],
 })
 export class ControlPanelModule {}

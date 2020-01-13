@@ -23,7 +23,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./department-data-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DepartmentDataTableComponent implements OnInit, OnDestroy {
+export class DepartmentDataTableComponent implements OnInit {
   @Input() departments: DepartmentModel[];
   @Input() isBusy: boolean;
   @Input() departmentSubject: Subject<any>;
@@ -80,14 +80,10 @@ export class DepartmentDataTableComponent implements OnInit, OnDestroy {
     this.filteredColumns = [
       { columnName: 'id', displayValue: 'Department Id', isSelected: true },
       { columnName: 'departmentname', displayValue: 'Department Name', isSelected: true },
-      { columnName: 'doctorname', displayValue: 'Doctor Name', isSelected: true },
+      { columnName: 'departmentType', displayValue: 'Department Type', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
-  }
-
-  ngOnDestroy(): void {
-    this.departmentSubject.unsubscribe();
   }
 }

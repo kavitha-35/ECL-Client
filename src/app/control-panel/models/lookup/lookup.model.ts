@@ -3,4 +3,5 @@ export interface LookUpModel {
   lookupName: string;
   keyId: string;
   keyValue: string;
+  value?: string
 }

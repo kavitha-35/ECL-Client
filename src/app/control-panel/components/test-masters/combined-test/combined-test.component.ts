@@ -53,16 +53,16 @@ export class CombinedTestComponent implements OnInit {
       .open(AddCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeAdded: TestModel) => {});
+      .subscribe((testToBeAdded: TestModel) => { });
   }
 
-  public onEditTestClicked(test: TestModel): void {
+  public onEditTestClicked(test: any): void {
     this.matDialogConfig.data = test;
     this.matDialog
       .open(EditCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeEdited: TestModel) => {});
+      .subscribe((testToBeEdited: any) => { });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -73,7 +73,7 @@ export class CombinedTestComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public onDeleteTestClicked(testId: string): void {}
+  public onDeleteTestClicked(testId: string): void { }
 
   public _initializeValues(): void {
     this.tests = [

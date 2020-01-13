@@ -33,33 +33,10 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Department Type</mat-label>
                   <mat-select disableOptionCentering name=departmentType ngModel #departmentType="ngModel">
-                    <mat-option value="8">
-                      Biotech
-                    </mat-option>
-                    <mat-option value="20">
-                      Radiology
-                    </mat-option>
-                    <mat-option value="21">
-                      Chemistry
-                    </mat-option>
+                    <mat-option *ngFor="let options of departmentTypes"[value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Doctor Name -->
-                <mat-form-field>
-                  <mat-label>Doctor Name</mat-label>
-                  <mat-select disableOptionCentering name=doctor ngModel #doctor="ngModel" >
-                    <mat-option value="1">
-                      Arun
-                    </mat-option>
-                    <mat-option value="2">
-                      Rami Hamid
-                    </mat-option>
-                    <mat-option value="3">
-                      Afzal khan
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
               </section>
             </section>
           </form>
