@@ -1,11 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { ReferenceRangeModel } from 'app/control-panel/models/reference-range/reference-range. model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reference-range-data-table',
   templateUrl: './reference-range-data-table.component.html',
   styleUrls: ['./reference-range-data-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReferenceRangeDataTableComponent implements OnInit {
   @Input() referenceRanges: ReferenceRangeModel[];
@@ -14,7 +16,9 @@ export class ReferenceRangeDataTableComponent implements OnInit {
   @Output() deleteReferenceRangeClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-  constructor() {}
+  @ViewChild('TABLE', { static: false }) table: ElementRef;
+  @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef;
+  constructor(private readonly _activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this._initializeDisplayedColumns();
@@ -29,6 +33,7 @@ export class ReferenceRangeDataTableComponent implements OnInit {
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
+    console.table(selectedColumns);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
 

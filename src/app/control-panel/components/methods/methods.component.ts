@@ -65,6 +65,10 @@ export class MethodsComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });
   }
 
+  public onShowTableViewButtonClicked(): void {
+    this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
+  }
+
   public getAllMethod(): void {
     this.isFetchingMethods = true;
     this._methodService.getAllMethod().subscribe((data: MethodModel[]) => {
@@ -75,7 +79,12 @@ export class MethodsComponent implements OnInit {
     });
   }
 
-  public onShowTableViewButtonClicked(): void {
-    this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
+  private _initializeValues(): void {
+    this.method = [
+      {
+        id: '1',
+        name: 'ahmed',
+      },
+    ];
   }
 }

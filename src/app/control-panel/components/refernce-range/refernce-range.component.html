@@ -31,7 +31,8 @@
     <!-- Mat Table Ribbon -->
     <app-reference-range-ribbon-menu
       (showListViewButtonClicked)="onShowListViewButtonClicked()"
-      (showTableViewButtonClicked)="onShowTableViewButtonClicked()">
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    >
     </app-reference-range-ribbon-menu>
 
     <!-- Mat Divider -->
@@ -43,20 +44,17 @@
     <!-- List View -->
     <ng-template #listView>
       <app-reference-range-list
-      [referenceRange]="referenceRange | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-reference-range-list
-          >
+        [referenceRange]="referenceRange"
+      ></app-reference-range-list>
     </ng-template>
 
     <!-- Table View -->
     <ng-template #tableView>
       <app-reference-range-data-table
-        [referenceRanges]="referenceRange | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [referenceRanges]="referenceRange"
         (editReferenceRangeClicked)="onEditReferenceRangeClicked()"
         [isBusy]="isFetchingReferenceRange"
       ></app-reference-range-data-table>
     </ng-template>
-
-    <mat-paginator [length]="referenceRange.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
-    </mat-paginator>
   </mat-card>
 </section>
