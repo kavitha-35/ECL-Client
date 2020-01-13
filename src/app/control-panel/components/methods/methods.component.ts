@@ -67,8 +67,6 @@ export class MethodsComponent implements OnInit {
     this.method = [
       {
         id: '1',
-        code: '5555',
-        machine: 'clininal laboratories',
         name: 'ahmed',
       },
     ];
