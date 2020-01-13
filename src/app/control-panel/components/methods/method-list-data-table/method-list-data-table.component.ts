@@ -38,9 +38,7 @@ export class MethodListDataTableComponent implements OnInit  {
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
       { columnName: 'id', displayValue: 'Clinic ID', isSelected: true },
-      { columnName: 'code', displayValue: 'Integration Code', isSelected: true },
-      { columnName: 'machine', displayValue: 'Machine', isSelected: false },
-      { columnName: 'name', displayValue: 'Method Name', isSelected: false },
+      { columnName: 'name', displayValue: 'Method Name', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter(x => x.isSelected);
