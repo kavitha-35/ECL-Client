@@ -34,7 +34,7 @@ export class CombinedTestComponent implements OnInit {
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
-    private combinedTestService: CombinedTestService
+    private combinedTestService: CombinedTestService,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
@@ -45,11 +45,10 @@ export class CombinedTestComponent implements OnInit {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
 
-    this.combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) =>{
+    this.combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) => {
       console.log(data);
-      this.tests = data
-    })
-
+      this.tests = data;
+    });
   }
 
   public onManageButtonClicked(dosCode: string): void {
@@ -61,7 +60,7 @@ export class CombinedTestComponent implements OnInit {
       .open(AddCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeAdded: TestModel) => { });
+      .subscribe((testToBeAdded: TestModel) => {});
   }
 
   public onEditTestClicked(test: any): void {
@@ -70,7 +69,7 @@ export class CombinedTestComponent implements OnInit {
       .open(EditCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeEdited: any) => { });
+      .subscribe((testToBeEdited: any) => {});
   }
 
   public onShowListViewButtonClicked(): void {
@@ -81,7 +80,7 @@ export class CombinedTestComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public onDeleteTestClicked(testId: string): void { }
+  public onDeleteTestClicked(testId: string): void {}
 
   // public _initializeValues(): void {
   //   this.tests = [

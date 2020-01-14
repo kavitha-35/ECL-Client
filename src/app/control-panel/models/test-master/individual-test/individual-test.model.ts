@@ -4,7 +4,7 @@ export interface IndividualTestModel {
   individualTestId: number;
   ActiveStatus: string;
   testCategoryId: number;
-  testCategory:{
+  testCategory: {
     testCategoryId: string;
     testCategoryName: string;
   };

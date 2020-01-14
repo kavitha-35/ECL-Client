@@ -51,8 +51,8 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'offline_pin',
     children: [
-      { state: 'not-found', name: 'Add Test Result Calculation' },
-      { state: 'not-found', name: 'Test Result Calculation List' },
+      { state: 'not-found', name: 'Add Test Result Calculation', paramValue: 'Test Result Calculation'},
+      { state: 'not-found', name: 'Test Result Calculation List', paramValue: 'Test Result Calculation'},
     ],
   },
   {

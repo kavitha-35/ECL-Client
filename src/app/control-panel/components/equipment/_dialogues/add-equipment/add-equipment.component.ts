@@ -5,6 +5,8 @@ import { EquipmentService } from 'app/control-panel/services/equipment.service';
 import { DepartmentService } from 'app/control-panel/services/department.service';
 import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.model';
 import { NgForm } from '@angular/forms';
+import { LookupService } from 'app/control-panel/services/lookup.service';
+import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 
 @Component({
   selector: 'app-add-equipment',
@@ -13,16 +15,16 @@ import { NgForm } from '@angular/forms';
 })
 export class AddEquipmentComponent implements OnInit {
   public equipment: EquipmentModel[];
-  public brands: DepartmentModel[];
+  public brands: LookUpModel[];
 
   constructor(
     private readonly _dialogRef: MatDialogRef<AddEquipmentComponent>,
     private readonly _equipmentService: EquipmentService,
-    private readonly departmentService: DepartmentService,
+    private readonly lookUpService: LookupService,
   ) {}
 
   ngOnInit(): void {
-    this.getDepartments();
+    this.getBrands();
   }
 
   public onAddEquipmentClicked(equipment: NgForm): void {
@@ -31,8 +33,8 @@ export class AddEquipmentComponent implements OnInit {
       this._dialogRef.close();
     });
   }
-  public getDepartments(): void {
-    this.departmentService.getAllDepartments().subscribe((data) => {
+  public getBrands(): void {
+    this.lookUpService.getLookUp('Brand').subscribe((data) => {
       this.brands = data;
     });
   }
