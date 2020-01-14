@@ -26,8 +26,8 @@
                 <mat-form-field>
                   <mat-label>Brand</mat-label>
                   <mat-select disableOptionCentering name="brandId" ngModel #brandId="ngModel">
-                    <mat-option *ngFor="let options of brands" [value]="options.brandId">{{
-                      options.brandName
+                    <mat-option *ngFor="let options of brands" [value]="options.lookupId">{{
+                      options.keyValue
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -35,7 +35,7 @@
                 <!-- Machine -->
                 <mat-form-field>
                   <mat-label>Machine</mat-label>
-                  <input matInput placeholder="Machine" name="machine" ngModel #machine="ngModel" />
+                  <input matInput placeholder="Machine" name="machineName" ngModel #machineName="ngModel" />
                 </mat-form-field>
 
                 <!-- Model -->

@@ -1,7 +1,7 @@
 <section id="equipment-list-container">
     <section *ngFor="let element of equipment">
       <section class="title-wrapper">
-        <section class="title">#{{ element.id }} / {{ element.equipmentId}}</section>
+        <section class="title">#{{ element.equipmentId }}</section>
         <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
         <mat-menu #statusMenu="matMenu">
           <button mat-menu-item>Edit</button>
@@ -24,11 +24,11 @@
       <section class="equipment-container">
         <!-- Brand -->
         <section class="sub-title">Brand</section>
-        <section>{{ element.brand }}</section>
+        <section>{{ element.brand.brandName }}</section>
   
         <!-- Machine -->
         <section class="sub-title">Machine</section>
-        <section>{{ element.machine }}</section>
+        <section>{{ element.equipmentName }}</section>
   
         <!-- Model -->
         <section class="sub-title">Model</section>

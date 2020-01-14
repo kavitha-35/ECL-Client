@@ -32,13 +32,12 @@ export class EquipmentComponent implements OnInit {
     private readonly _router: Router,
     private readonly _equipmentService: EquipmentService,
     private readonly cRef: ChangeDetectorRef,
-    ) {
-      this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
+  ) {
+    this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
+  }
 
-   }
-
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.getAllEquipment();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
@@ -49,7 +48,10 @@ export class EquipmentComponent implements OnInit {
     this._matDialog
       .open(AddEquipmentComponent, this.matDialogConfig)
       .afterClosed()
-      .pipe(take(1));
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllEquipment();
+      });
   }
 
   public onEditEquipmentClicked(): void {
