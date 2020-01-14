@@ -9,7 +9,7 @@
         <section class="combined-test-information">
           <!-- DOS Code -->
           <section class="sub-title">ECL DOS Code</section>
-          <section>{{ test.dosCode }}</section>
+          <section>{{ test.eclDosCode }}</section>
 
           <!-- CPT Code -->
           <section class="sub-title">CPT Code</section>
@@ -46,7 +46,7 @@
       </mat-card-content>
       <mat-card-title>Individual Tests</mat-card-title>
       <mat-divider></mat-divider>
-      <table mat-table [dataSource]="test.individualTest" class="full-width">
+      <table mat-table [dataSource]="test.individualTests" class="full-width">
         <!-- ID Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>Test ID</th>

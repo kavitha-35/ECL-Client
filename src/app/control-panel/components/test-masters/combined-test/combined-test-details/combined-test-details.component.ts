@@ -34,7 +34,7 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
     this._activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       const selectedId = queryParams['id'];
       if (selectedId) {
-        this.test = this.combinedTest.find((x) => x.dosCode === selectedId);
+        this.test = this.combinedTest.find((x) => x.eclDosCode === selectedId);
       }
     });
   }
@@ -74,42 +74,42 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   }
 
   public _initializeValues(): void {
-    this.combinedTest = [
-      {
-        dosCode: 'ECL-767',
-        testId: '1313741',
-        cptCode: '82465',
-        testName: 'cholestrol,Total',
-        specimen: '2 ml serum',
-        specimenType: 'serum',
-        storage: 'refrigerated',
-        department: 'biochemistry',
-        patientFee: '40.00',
-        netFee: '10.00',
-        location: 'dubai',
-        currency: 'dihram',
-        reportFormat: '',
-        individualTest: [
-          {
-            id: '1708027',
-            active: 'Active',
-            testCategory: 'outsource',
-            accreditationSymbol: '**',
-            testComponent: 'blood',
-            processingCenter: 'pathcare',
-            outsourceVendorCode: 'HM052',
-            method: 'CLIA',
-            unit: '2 ml',
-            referenceRange: '3.00 to 40.00',
-            tat: '1',
-            cptAmount: '4.00',
-            integrationCode: 'T105',
-            accreditation: 'not enable',
-            comments: 'String',
-          },
-        ],
-      },
-    ];
+    // this.combinedTest = [
+    //   {
+    //     dosCode: 'ECL-767',
+    //     testId: '1313741',
+    //     cptCode: '82465',
+    //     testName: 'cholestrol,Total',
+    //     specimen: '2 ml serum',
+    //     specimenType: 'serum',
+    //     storage: 'refrigerated',
+    //     department: 'biochemistry',
+    //     patientFee: '40.00',
+    //     netFee: '10.00',
+    //     location: 'dubai',
+    //     currency: 'dihram',
+    //     reportFormat: '',
+    //     individualTest: [
+    //       {
+    //         id: '1708027',
+    //         active: 'Active',
+    //         testCategory: 'outsource',
+    //         accreditationSymbol: '**',
+    //         testComponent: 'blood',
+    //         processingCenter: 'pathcare',
+    //         outsourceVendorCode: 'HM052',
+    //         method: 'CLIA',
+    //         unit: '2 ml',
+    //         referenceRange: '3.00 to 40.00',
+    //         tat: '1',
+    //         cptAmount: '4.00',
+    //         integrationCode: 'T105',
+    //         accreditation: 'not enable',
+    //         comments: 'String',
+    //       },
+    //     ],
+    //   },
+    // ];
   }
 
   ngOnDestroy(): void {}
