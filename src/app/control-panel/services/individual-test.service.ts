@@ -29,7 +29,7 @@ export class IndividualTestService {
     return this.httpClient.post<IndividualTestModel>(apiUrl, individualTest, { headers: headers });
   }
 
-  updateIndividualTest(individualTestId: number, individualTest: IndividualTestModel): Observable<IndividualTestModel> {
+  updateIndividualTest(individualTestId: string, individualTest: IndividualTestModel): Observable<IndividualTestModel> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${individualTestId}`;
