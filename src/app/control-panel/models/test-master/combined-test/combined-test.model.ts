@@ -1,6 +1,7 @@
 import { IndividualTestModel } from '../individual-test/individual-test.model';
 
 export interface CombinedTestModel {
+  combineTestId: number;
   eclDosCode: number;
   testId: number;
   cptCode: string;

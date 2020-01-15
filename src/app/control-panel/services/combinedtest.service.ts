@@ -42,10 +42,12 @@ export class CombinedTestService {
     return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
   }
 
-  // getCombineTest(): Observable<CombinedTestModel>{
-  //   let headers = new HttpHeaders();
-  //   headers.set('Content-Type','application/json; charset=utf-8').set('Auth-Key','liskey');
-  //   const apiUrl= '${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/'
-  // }
+  getCombineTest(selectedId: number): Observable<CombinedTestModel>{
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type','application/json; charset=utf-8').set('Auth-Key','liskey');
+    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${selectedId}`;
+    return this.httpClient.get<CombinedTestModel>(apiUrl,{ headers: headers});
+   }
+
 }
 

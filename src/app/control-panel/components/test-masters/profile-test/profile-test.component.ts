@@ -74,38 +74,40 @@ export class ProfileTestComponent implements OnInit {
   public onDeleteTestClicked(testId: string): void {}
 
   public _initializeValues(): void {
-    this.tests = [
-      {
-        dosCode: 'ECL-767',
-        testId: '1313741',
-        cptCode: '82465',
-        testName: 'cholestrol,Total',
-        specimen: '2 ml serum',
-        specimenType: 'serum',
-        storage: 'refrigerated',
-        department: 'biochemistry',
-        patientFee: '40.00',
-        netFee: '10.00',
-        location: 'dubai',
-        currency: 'dihram',
-        combinedTest: [
-          {
-            dosCode: 'ECL-767',
-            testId: '1313741',
-            cptCode: '82465',
-            testName: 'cholestrol,Total',
-            specimen: '2 ml serum',
-            specimenType: 'serum',
-            storage: 'refrigerated',
-            department: 'biochemistry',
-            patientFee: '40.00',
-            netFee: '10.00',
-            location: 'dubai',
-            currency: 'dihram',
-            reportFormat: '',
-          },
-        ],
-      },
-    ];
+    // this.tests = [
+    //   {
+    //     dosCode: 'ECL-767',
+    //     testId: '1313741',
+    //     cptCode: '82465',
+    //     testName: 'cholestrol,Total',
+    //     specimen: '2 ml serum',
+    //     specimenType: 'serum',
+    //     storage: 'refrigerated',
+    //     department: 'biochemistry',
+    //     patientFee: '40.00',
+    //     netFee: '10.00',
+    //     location: 'dubai',
+    //     currency: 'dihram',
+    //     combinedTest: [
+    //       {
+    //         dosCode: 'ECL-767',
+    //         testId: '1313741',
+    //         cptCode: '82465',
+    //         testName: 'cholestrol,Total',
+    //         specimen: '2 ml serum',
+    //         specimenType: 'serum',
+    //         storage: 'refrigerated',
+    //         department: 'biochemistry',
+    //         patientFee: '40.00',
+    //         netFee: '10.00',
+    //         location: 'dubai',
+    //         currency: 'dihram',
+    //         reportFormat: '',
+    //       },
+    //     ],
+    //   },
+    // ];
+
+    this.tests = [];
   }
 }

@@ -20,7 +20,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class CombinedTestListDataTableComponent implements OnInit {
   @Input() tests: CombinedTestModel[];
   @Output() editCombinedTestClicked = new EventEmitter<CombinedTestModel>();
-  @Output() manageButtonClicked: EventEmitter<string>;
+  @Output() manageButtonClicked: EventEmitter<number>;
   @Input() isBusy: boolean;
   public expandedElement: CombinedTestModel[];
   public displayedColumns: string[];
@@ -28,7 +28,7 @@ export class CombinedTestListDataTableComponent implements OnInit {
   expansionColoumns: string[];
 
   constructor(private readonly matDialog: MatDialog) {
-    this.manageButtonClicked = new EventEmitter<string>();
+    this.manageButtonClicked = new EventEmitter<number>();
     this.expansionColoumns = [
       'nestedSymbol',
       'testCategory',
@@ -54,8 +54,10 @@ export class CombinedTestListDataTableComponent implements OnInit {
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
-  public onManageButtonClicked(dosCode: string): void {
-    this.manageButtonClicked.emit(dosCode);
+  public onManageButtonClicked(combinedTestId: number, element: any): void {
+    console.log(element)
+    console.log(combinedTestId);
+    this.manageButtonClicked.emit(combinedTestId);
   }
 
   private _initializeDisplayedColumns(): void {
