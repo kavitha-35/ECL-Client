@@ -16,7 +16,6 @@ import { DISPLAY_MODE } from 'app/main/models/constants';
 import { ActivatedRoute } from '@angular/router';
 import * as jsPDF from 'jspdf';
 import { Subject } from 'rxjs';
-import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
 
 @Component({
   selector: 'app-department-data-table',
@@ -35,7 +34,7 @@ export class DepartmentDataTableComponent implements OnInit, OnDestroy {
   public filteredColumns: GridColumnModel[];
   @ViewChild('TABLE', { static: false }) table: ElementRef;
   @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef;
-  constructor(private readonly _activatedRoute: ActivatedRoute, private readonly exportAsService: ExportAsService) {}
+  constructor(private readonly _activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.departmentSubject.subscribe((data) => {
@@ -49,15 +48,7 @@ export class DepartmentDataTableComponent implements OnInit, OnDestroy {
     });
     this._initializeDisplayedColumns();
   }
-  public exportAsDoc(): void {
-    console.log('clicked');
-    const exportAsConfig: ExportAsConfig = {
-      type: 'docx', // the type you want to download
-      elementId: 'department-table', // the id of html/table element,
-    };
-
-    this.exportAsService.save(exportAsConfig, 'department').subscribe(() => {});
-  }
+  public exportAsDoc(): void {}
 
   public downloadAsPDF(): void {
     const doc = new jsPDF();
