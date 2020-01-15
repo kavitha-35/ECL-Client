@@ -82,15 +82,14 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
       console.log(data);
       if (data[0] === 'save') {
         const Payload = data[1].map((individualtest) => {
-         return ({
-           combineTestId: this.test.combineTestId,
-           individualTestId: individualtest.individualTestId,
-           ActiveStatus: 1
-         })
-
+          return {
+            combineTestId: this.test.combineTestId,
+            individualTestId: individualtest.individualTestId,
+            ActiveStatus: 1,
+          };
         });
-        this._combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((data)=>{
-          console.log(data);
+        this._combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((recievedData) => {
+          console.log(recievedData);
         });
       }
     });

@@ -11,8 +11,8 @@ import { IndividualTestModel } from '../models/test-master/individual-test/indiv
 })
 export class CombinedTestService {
   private readonly routePrefix = 'combinetest';
-  private readonly individualTestPrefix = 'individualtest'
-  private readonly combinetestprefix = 'combinetestmapping'
+  private readonly individualTestPrefix = 'individualtest';
+  private readonly combinetestprefix = 'combinetestmapping';
 
   constructor(private readonly httpClient: HttpClient) {}
 
@@ -45,27 +45,25 @@ export class CombinedTestService {
     return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
   }
 
-  getCombineTest(selectedId: number): Observable<CombinedTestModel>{
+  getCombineTest(selectedId: number): Observable<CombinedTestModel> {
     let headers = new HttpHeaders();
-    headers = headers.set('Content-Type','application/json; charset=utf-8').set('Auth-Key','liskey');
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${selectedId}`;
-    return this.httpClient.get<CombinedTestModel>(apiUrl, { headers: headers});
-   }
+    return this.httpClient.get<CombinedTestModel>(apiUrl, { headers: headers });
+  }
 
-   getAllIndividualTests(): Observable<IndividualTestModel[]>{
+  getAllIndividualTests(): Observable<IndividualTestModel[]> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.individualTestPrefix}`;
     return this.httpClient.get<IndividualTestModel[]>(apiUrl, { headers: headers });
-   }
+  }
 
-   addIndividualTestsToCombineTest(tests: any): Observable<any> {
-     console.log(tests);
+  addIndividualTestsToCombineTest(tests: any): Observable<any> {
+    console.log(tests);
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.combinetestprefix}`;
     return this.httpClient.post<any>(apiUrl, tests, { headers: headers });
   }
-
 }
-
