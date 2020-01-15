@@ -25,7 +25,7 @@
 
           <!-- Storage -->
           <section class="sub-title">Storage</section>
-          <section>{{ test.storage }}</section>
+          <section>{{ test.storage.StorageName }}</section>
 
           <!-- Patient Fee -->
           <section class="sub-title">Patient Fee</section>
@@ -37,11 +37,11 @@
 
           <!-- Department -->
           <section class="sub-title">Department</section>
-          <section>{{ test.department }}</section>
+          <section>{{ test.department.departmentName }}</section>
 
           <!-- Currency -->
-          <section class="sub-title">Currency</section>
-          <section>{{ test.currency }}</section>
+          <!-- <section class="sub-title">Currency</section>
+          <section>{{ test.currency }}</section> -->
         </section>
       </mat-card-content>
       <mat-card-title>Individual Tests</mat-card-title>
@@ -50,13 +50,13 @@
         <!-- ID Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>Test ID</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.individualTestId }}</td>
         </ng-container>
 
         <!-- Activity -->
         <ng-container matColumnDef="activity">
           <th mat-header-cell *matHeaderCellDef>Activity</th>
-          <td mat-cell *matCellDef="let element">{{ element.active }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.ActiveStatus }}</td>
         </ng-container>
 
         <!-- Test Category -->
@@ -98,13 +98,13 @@
         <!-- Method -->
         <ng-container matColumnDef="method">
           <th mat-header-cell *matHeaderCellDef>Method</th>
-          <td mat-cell *matCellDef="let element">{{ element.method }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.method.methodName }}</td>
         </ng-container>
 
         <!--Unit -->
         <ng-container matColumnDef="unit">
           <th mat-header-cell *matHeaderCellDef>Unit</th>
-          <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.unit.unitName }}</td>
         </ng-container>
 
         <!--Reference Range -->

@@ -91,7 +91,7 @@
             <mat-icon>more_vert_outline</mat-icon>
           </button>
           <mat-menu #statusMenu="matMenu">
-            <button mat-menu-item (click)="onManageButtonClicked(element.eclDosCode)">Manage</button>
+            <button mat-menu-item (click)="onManageButtonClicked(element.combineTestId)">Manage</button>
           </mat-menu>
         </section>
       </td>
@@ -111,7 +111,7 @@
             <!-- Dos Code -->
             <ng-container matColumnDef="testCategory">
               <th mat-header-cell *matHeaderCellDef>Test Category</th>
-              <td mat-cell *matCellDef="let element">{{ element.testCategory }}</td>
+              <td mat-cell *matCellDef="let element">{{ element.testCategory.testCategoryName }}</td>
             </ng-container>
 
             <!-- Test Id -->
@@ -129,7 +129,7 @@
             <!-- Test Name -->
             <ng-container matColumnDef="method">
               <th mat-header-cell *matHeaderCellDef>Method</th>
-              <td mat-cell *matCellDef="let element">{{ element.method }}</td>
+              <td mat-cell *matCellDef="let element">{{ element.method.methodName }}</td>
             </ng-container>
 
             <!-- Test Name -->

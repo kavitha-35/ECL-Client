@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { untilDestroyed } from 'ngx-take-until-destroy';
 import { take } from 'rxjs/operators';
 import { LinkTestToCombinedTestComponent } from '../_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
+import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 
 @Component({
   selector: 'app-combined-test-details',
@@ -14,6 +15,8 @@ import { LinkTestToCombinedTestComponent } from '../_dialogues/link-test-to-comb
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
+  dialogRef: any;
+  combinedTestId: number;
   dosCode: string;
   test: CombinedTestModel;
   combinedTest: CombinedTestModel[];
@@ -26,15 +29,23 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
     autoFocus: false,
   };
 
-  constructor(private readonly _activatedRoute: ActivatedRoute, private readonly matDialog: MatDialog) {}
+  constructor(
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly matDialog: MatDialog,
+    private _combinedTestService: CombinedTestService,
+  ) {}
 
   ngOnInit(): void {
     this._initializeDisplayedColumns();
-    this._initializeValues();
     this._activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       const selectedId = queryParams['id'];
       if (selectedId) {
-        this.test = this.combinedTest.find((x) => x.eclDosCode === selectedId);
+        console.log(selectedId);
+        this._combinedTestService.getCombineTest(selectedId).subscribe((data: CombinedTestModel) => {
+          console.log(data);
+          this.test = data[0];
+          console.log(this.test);
+        });
       }
     });
   }
@@ -51,7 +62,7 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
       { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
       { columnName: 'method', displayValue: 'Method', isSelected: true },
       { columnName: 'unit', displayValue: 'Unit', isSelected: true },
-      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: true },
+      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: false },
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
       { columnName: 'comments', displayValue: 'Comments', isSelected: true },
@@ -66,11 +77,22 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   }
 
   public onAddIndividualTestClicked(): void {
-    this.matDialog
-      .open(LinkTestToCombinedTestComponent, this.matDialogConfig)
-      .afterClosed()
-      .pipe(take(1))
-      .subscribe();
+    this.dialogRef = this.matDialog.open(LinkTestToCombinedTestComponent, this.matDialogConfig);
+    this.dialogRef.afterClosed().subscribe((data) => {
+      console.log(data);
+      if (data[0] === 'save') {
+        const Payload = data[1].map((individualtest) => {
+          return {
+            combineTestId: this.test.combineTestId,
+            individualTestId: individualtest.individualTestId,
+            ActiveStatus: 1,
+          };
+        });
+        this._combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((recievedData) => {
+          console.log(recievedData);
+        });
+      }
+    });
   }
 
   public _initializeValues(): void {
@@ -110,6 +132,8 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
     //     ],
     //   },
     // ];
+
+    this.combinedTest = [];
   }
 
   ngOnDestroy(): void {}

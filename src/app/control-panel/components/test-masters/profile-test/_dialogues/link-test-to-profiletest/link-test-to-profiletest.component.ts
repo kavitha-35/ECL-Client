@@ -45,60 +45,43 @@ export class LinkTestToProfiletestComponent implements OnInit {
   }
 
   private _initializeValues(): void {
-    this.tests = [
-      {
-        eclDosCode: 'ECL-767',
-        testId: 1313741,
-        cptCode: '82465',
-        testName: 'cholestrol,Total',
-        specimen: '2 ml serum',
-        specimenType: 'serum',
-        storage: {
-          StorageId: '1',
-          StorageName: 'refrigerated',
-        },
-        department: {
-          departmentId: '1',
-          departmentName: 'biochemistry',
-        },
-        patientFee: 40.0,
-        netFee: 10.0,
-        location: 'dubai',
-        currency: 'dihram',
-        reportFormat: 1,
-        description: 'sdf',
-        individualTests: [
-          {
-            individualTestId: '1708027',
-            testCategoryId: 1,
-            ActiveStatus: 'Active',
-            testCategory: {
-              testCategoryId: '1',
-              testCategoryName: 'OutSource',
-            },
-            accreditationSymbol: 1,
-            testComponent: 'blood',
-            processingCenter: {
-              processingCenterId: '1',
-              processingCenterName: 'pathcare',
-            },
-            outsourceVendorCode: 'HM052',
-            method: {
-              methodId: '1',
-              methodName: 'CLIA',
-            },
-            unit: {
-              unitId: '1',
-              unitName: '2 ml',
-            },
-            tat: '1',
-            cptAmount: 4.0,
-            integrationCode: 105,
-            comments: 'String',
-          },
-        ],
-      },
-    ];
+    // this.tests = [
+    //   {
+    //     dosCode: 'ECL-767',
+    //     testId: '1313741',
+    //     cptCode: '82465',
+    //     testName: 'cholestrol,Total',
+    //     specimen: '2 ml serum',
+    //     specimenType: 'serum',
+    //     storage: 'refrigerated',
+    //     department: 'biochemistry',
+    //     patientFee: '40.00',
+    //     netFee: '10.00',
+    //     location: 'dubai',
+    //     currency: 'dihram',
+    //     reportFormat: '',
+    //     individualTest: [
+    //       {
+    //         id: '1708027',
+    //         active: 'Active',
+    //         testCategory: 'outsource',
+    //         accreditationSymbol: '**',
+    //         testComponent: 'blood',
+    //         processingCenter: 'pathcare',
+    //         outsourceVendorCode: 'HM052',
+    //         method: 'CLIA',
+    //         unit: '2 ml',
+    //         referenceRange: '3.00 to 40.00',
+    //         tat: '1',
+    //         cptAmount: '4.00',
+    //         integrationCode: 'T105',
+    //         accreditation: 'not enable',
+    //         comments: 'String',
+    //       },
+    //     ],
+    //   },
+    // ];
+    this.tests = [];
   }
 
   public onSearchButtonClicked(): void {}

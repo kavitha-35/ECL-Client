@@ -47,8 +47,8 @@ export class CombinedTestComponent implements OnInit {
     });
   }
 
-  public onManageButtonClicked(dosCode: string): void {
-    this._router.navigate(['/control-panel/combined-test-details'], { queryParams: { id: dosCode } });
+  public onManageButtonClicked(combinedTestId: number): void {
+    this._router.navigate(['/control-panel/combined-test-details'], { queryParams: { id: combinedTestId } });
   }
 
   public onAddCombinedTestButtonClicked(): void {
