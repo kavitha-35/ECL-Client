@@ -22,7 +22,7 @@ export class EditIndividualTestComponent implements OnInit {
   ngOnInit(): void {}
 
   public onEditIndividualTestClicked(test: NgForm): void {
-    this.individualTestService.updateIndividualTest(this.selectedForEdit.id, test.form.value).subscribe(() => {
+    this.individualTestService.updateIndividualTest(this.selectedForEdit.individualTestId, test.form.value).subscribe(() => {
       this.dialogRef.close();
     });
   }
