@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialog, MatDialogConfig, PageEvent } from '@angular/material';
-import { TestService } from 'app/main/services/test.service';
 import { take } from 'rxjs/operators';
 import { AddCombinedTestComponent } from './_dialogues/add-combined-test/add-combined-test.component';
 import { EditCombinedTestComponent } from './_dialogues/edit-combined-test/edit-combined-test.component';
@@ -35,19 +34,16 @@ export class CombinedTestComponent implements OnInit {
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
     private combinedTestService: CombinedTestService,
+    private readonly cRef: ChangeDetectorRef,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
+    this.getAllCombinedTest();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
-    });
-
-    this.combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) => {
-      console.log(data);
-      this.tests = data;
     });
   }
 
@@ -60,7 +56,18 @@ export class CombinedTestComponent implements OnInit {
       .open(AddCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeAdded: TestModel) => {});
+      .subscribe((testToBeAdded: TestModel) => {
+        this.getAllCombinedTest();
+      });
+  }
+
+  public getAllCombinedTest(): void {
+    this.isFetchingTests = true;
+    this.combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) => {
+      this.tests = data;
+      this.isFetchingTests = false;
+      this.cRef.detectChanges();
+    });
   }
 
   public onEditTestClicked(test: any): void {
@@ -69,7 +76,9 @@ export class CombinedTestComponent implements OnInit {
       .open(EditCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeEdited: any) => {});
+      .subscribe((testToBeEdited: any) => {
+        this.getAllCombinedTest();
+      });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -81,43 +90,4 @@ export class CombinedTestComponent implements OnInit {
   }
 
   public onDeleteTestClicked(testId: string): void {}
-
-  // public _initializeValues(): void {
-  //   this.tests = [
-  //     {
-  //       dosCode: 'ECL-767',
-  //       testId: '1313741',
-  //       cptCode: '82465',
-  //       testName: 'cholestrol,Total',
-  //       specimen: '2 ml serum',
-  //       specimenType: 'serum',
-  //       storage: 'refrigerated',
-  //       department: 'biochemistry',
-  //       patientFee: '40.00',
-  //       netFee: '10.00',
-  //       location: 'dubai',
-  //       currency: 'dihram',
-  //       reportFormat: '',
-  //       individualTest: [
-  //         {
-  //           id: '1708027',
-  //           active: 'Active',
-  //           testCategory: 'outsource',
-  //           accreditationSymbol: '**',
-  //           testComponent: 'blood',
-  //           processingCenter: 'pathcare',
-  //           outsourceVendorCode: 'HM052',
-  //           method: 'CLIA',
-  //           unit: '2 ml',
-  //           referenceRange: '3.00 to 40.00',
-  //           tat: '1',
-  //           cptAmount: '4.00',
-  //           integrationCode: 'T105',
-  //           accreditation: 'not enable',
-  //           comments: 'String',
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // }
 }

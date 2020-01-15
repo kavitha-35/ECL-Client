@@ -6,6 +6,7 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { LinkTestToProfiletestComponent } from '../_dialogues/link-test-to-profiletest/link-test-to-profiletest.component';
+import { stream } from 'xlsx/types';
 
 @Component({
   selector: 'app-profile-test-details',
