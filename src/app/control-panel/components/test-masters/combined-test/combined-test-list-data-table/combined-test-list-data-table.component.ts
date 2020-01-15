@@ -54,9 +54,7 @@ export class CombinedTestListDataTableComponent implements OnInit {
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
-  public onManageButtonClicked(combinedTestId: number, element: any): void {
-    console.log(element)
-    console.log(combinedTestId);
+  public onManageButtonClicked(combinedTestId: number): void {
     this.manageButtonClicked.emit(combinedTestId);
   }
 

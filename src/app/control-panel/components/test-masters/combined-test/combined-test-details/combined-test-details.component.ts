@@ -15,6 +15,7 @@ import { CombinedTestService } from 'app/control-panel/services/combinedtest.ser
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
+  dialogRef: any;
   combinedTestId: number;
   dosCode: string;
   test: CombinedTestModel;
@@ -28,8 +29,11 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
     autoFocus: false,
   };
 
-  constructor(private readonly _activatedRoute: ActivatedRoute, private readonly matDialog: MatDialog,
-    private _combinedTestService: CombinedTestService) {}
+  constructor(
+    private readonly _activatedRoute: ActivatedRoute,
+    private readonly matDialog: MatDialog,
+    private _combinedTestService: CombinedTestService,
+  ) {}
 
   ngOnInit(): void {
     this._initializeDisplayedColumns();
@@ -37,7 +41,7 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
       const selectedId = queryParams['id'];
       if (selectedId) {
         console.log(selectedId);
-        this._combinedTestService.getCombineTest(selectedId).subscribe((data: CombinedTestModel)=>{
+        this._combinedTestService.getCombineTest(selectedId).subscribe((data: CombinedTestModel) => {
           console.log(data);
           this.test = data[0];
           console.log(this.test);
@@ -73,11 +77,23 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   }
 
   public onAddIndividualTestClicked(): void {
-    this.matDialog
-      .open(LinkTestToCombinedTestComponent, this.matDialogConfig)
-      .afterClosed()
-      .pipe(take(1))
-      .subscribe();
+    this.dialogRef = this.matDialog.open(LinkTestToCombinedTestComponent, this.matDialogConfig);
+    this.dialogRef.afterClosed().subscribe((data) => {
+      console.log(data);
+      if (data[0] === 'save') {
+        const Payload = data[1].map((individualtest) => {
+         return ({
+           combineTestId: this.test.combineTestId,
+           individualTestId: individualtest.individualTestId,
+           ActiveStatus: 1
+         })
+
+        });
+        this._combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((data)=>{
+          console.log(data);
+        });
+      }
+    });
   }
 
   public _initializeValues(): void {
