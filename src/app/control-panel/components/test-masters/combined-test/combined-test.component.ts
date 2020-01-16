@@ -56,7 +56,7 @@ export class CombinedTestComponent implements OnInit {
       .open(AddCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeAdded: TestModel) => {
+      .subscribe(() => {
         this.getAllCombinedTest();
       });
   }
@@ -66,7 +66,6 @@ export class CombinedTestComponent implements OnInit {
     this.combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) => {
       this.tests = data;
       this.isFetchingTests = false;
-      this.cRef.detectChanges();
     });
   }
 
@@ -76,7 +75,7 @@ export class CombinedTestComponent implements OnInit {
       .open(EditCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeEdited: any) => {
+      .subscribe(() => {
         this.getAllCombinedTest();
       });
   }
