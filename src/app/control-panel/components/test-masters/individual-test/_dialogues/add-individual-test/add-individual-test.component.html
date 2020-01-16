@@ -7,7 +7,7 @@
     </section>
 
     <!-- Dialog Content -->
-    <section>7
+    <section>
       <!-- Mat Card Header -->
       <app-mat-dialog-header></app-mat-dialog-header>
 
@@ -41,28 +41,31 @@
                   <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
                 </section>
 
-                <!-- Accreditation Symbol -->
+                <!-- Accreditation -->
                 <mat-form-field>
-                  <mat-label>Accreditation Symbol</mat-label>
+                  <mat-label>Accreditation</mat-label>
                   <mat-select disableOptionCentering name="accrediationId" ngModel #accrediationId="ngModel">
                     <mat-option value=1>
-                      #
+                      No
                     </mat-option>
                     <mat-option value=2>
-                      *
-                    </mat-option>
-                    <mat-option value=3>
-                      **
+                      All Logos
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
                  
                 <!-- Test Component -->
                 <mat-form-field>
-                  <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="Test Name" name="individualTestName" ngModel #individualTestName="ngModel" />
+                  <mat-label>Test Component</mat-label>
+                  <input matInput placeholder="Test Component" name="individualTestName" ngModel #individualTestName="ngModel" />
                 </mat-form-field>
-                
+
+                <!-- Method -->
+                <mat-form-field>
+                  <mat-label>Equipment</mat-label>
+                  <mat-select disableOptionCentering name="equipment">
+                  </mat-select>
+                </mat-form-field>
 
                 <!-- Processing center -->
                 <mat-form-field class="mt-n7">
@@ -74,7 +77,7 @@
 
                 <!-- Outsource Vendor Code-->
                 <mat-form-field>
-                  <mat-label>Outsource Vendor Code</mat-label>
+                  <mat-label>Vendor Code</mat-label>
                   <input
                     matInput
                     placeholder="Outsouce Vendor Code"

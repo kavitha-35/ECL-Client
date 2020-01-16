@@ -22,7 +22,6 @@
 
               <!-- Content -->
               <section class="basic-content">
-                
                 <!-- Lab Name -->
                 <mat-form-field>
                   <mat-label>Organization</mat-label>
@@ -49,8 +48,8 @@
 
                 <!-- Business Hours -->
                 <mat-form-field>
-                  <mat-label>Business Hour</mat-label>
-                  <input matInput placeholder="Address" name="address" ngModel #address="ngModel" />
+                  <mat-label>Business Hours</mat-label>
+                  <input matInput placeholder="Business Hours" name="businessHours" ngModel #address="ngModel" />
                 </mat-form-field>
 
                 <!-- Remarks -->
@@ -68,7 +67,6 @@
 
               <!-- Content -->
               <section class="locale-information-content">
-
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
@@ -101,20 +99,15 @@
 
                 <!-- Region-->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Region</mat-label>
+                  <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="region" ngModel #region="ngModel">
-                    <mat-option *ngFor="let options of regions" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option></mat-select>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Country -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
-                    <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>
@@ -123,11 +116,10 @@
             <!-- Locale Information -->
             <section class="locale-information-wrapper">
               <!-- Header -->
-              <app-section-header title="Contact Information"></app-section-header>
+              <app-section-header title="Contact Person Information"></app-section-header>
 
               <!-- Content -->
               <section class="locale-information-content">
-
                 <!-- Contact Person -->
                 <mat-form-field>
                   <mat-label>Contact Person</mat-label>
@@ -183,8 +175,7 @@
               <app-section-header title="Uploads"></app-section-header>
               <!-- Content -->
               <section class="locale-information-content">
-
-                 <!-- Logo -->
+                <!-- Logo -->
                 <section class="label">
                   Logo
                   <button mat-button color="primary">
@@ -192,7 +183,7 @@
                   </button>
                 </section>
 
-                 <!-- Header -->
+                <!-- Header -->
                 <section class="label">
                   Header
                   <button mat-button color="primary">
@@ -200,7 +191,7 @@
                   </button>
                 </section>
 
-                 <!-- Footer -->
+                <!-- Footer -->
                 <section class="label">
                   Footer
                   <button mat-button color="primary">
@@ -235,7 +226,6 @@
               <app-section-header title="Office Use"></app-section-header>
               <!-- Content -->
               <section class="user-credentials-content">
-
                 <!-- Clinic ID -->
                 <mat-form-field>
                   <mat-label>Clinic ID</mat-label>
@@ -288,7 +278,6 @@
 
             <!-- Finance Information -->
             <section class="finance-information-wrapper">
-
               <!-- Header -->
               <app-section-header title="Finance Information"></app-section-header>
 

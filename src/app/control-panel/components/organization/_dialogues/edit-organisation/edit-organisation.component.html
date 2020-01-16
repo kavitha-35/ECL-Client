@@ -24,27 +24,50 @@
               <section class="basic-content">
                 <!-- Lab Name -->
                 <mat-form-field>
-                  <mat-label>Clinic Name</mat-label>
+                  <mat-label>Organization</mat-label>
                   <input matInput placeholder="Clinic Name" />
                 </mat-form-field>
 
-                <!-- Type -->
+                <!-- Active-->
+                <section class="pt-19">
+                  <mat-slide-toggle color="primary" name="active">Active</mat-slide-toggle>
+                </section>
+
+                <!-- Relation -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Relation</mat-label>
                   <mat-select disableOptionCentering>
-                    <mat-option value="main">
-                      Main
+                    <mat-option value="1">
+                      Intra
                     </mat-option>
-                    <mat-option value="branch">
-                      Branch
-                    </mat-option>
-                    <mat-option value="private">
-                      Private
+                    <mat-option value="2">
+                      Inter
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Address -->
+                <!-- Business Hours -->
+                <mat-form-field>
+                  <mat-label>Business Hour</mat-label>
+                  <input matInput placeholder="Address" />
+                </mat-form-field>
+
+                <!-- Remarks -->
+                <mat-form-field>
+                  <mat-label>Remarks</mat-label>
+                  <input matInput placeholder="Address" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Locale Information -->
+            <section class="locale-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Address Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="locale-information-content">
+                <!-- Language -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
                   <input matInput placeholder="Address" />
@@ -71,35 +94,148 @@
                 <!-- Web -->
                 <mat-form-field>
                   <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" />
-                </mat-form-field>
-
-                <!-- Area-->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Area</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
                 </mat-form-field>
 
                 <!-- Region-->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Region</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-label>City</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Country -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering>
-                    <mat-option value="uae">
-                      UAE
-                    </mat-option>
-                    <mat-option value="india">
-                      India
-                    </mat-option>
-                    <mat-option value="England">
-                      England
-                    </mat-option>
                   </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Finance Information -->
+            <section class="finance-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Contact Person Information"></app-section-header>
+              <!-- Content -->
+              <section class="finance-information-content">
+                <mat-form-field>
+                  <mat-label>Contact Person</mat-label>
+                  <input matInput placeholder="Contact Person" name="contactPerson" ngModel #contactPerson="ngModel" />
+                </mat-form-field>
+
+                <!-- Contact Number -->
+                <mat-form-field>
+                  <mat-label>Contact Number</mat-label>
+                  <input matInput placeholder="Contact Number" name="contactNumber" ngModel #contactNumber="ngModel" />
+                </mat-form-field>
+
+                <!-- Email -->
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Locale Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="user-credentials-content">
+                <!-- User Id -->
+                <mat-form-field>
+                  <mat-label>Language</mat-label>
+                  <mat-select disableOptionCentering name="language" ngModel #language="ngModel"> </mat-select>
+                </mat-form-field>
+
+                <!-- Time Zone -->
+                <mat-form-field>
+                  <mat-label>Time Zone</mat-label>
+                  <mat-select disableOptionCentering name="timeZone" ngModel #timeZone="ngModel"> </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Uploads"></app-section-header>
+
+              <!-- Content -->
+              <section class="user-credentials-content">
+                <!-- Logo -->
+                <section class="label">
+                  Logo
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+
+                <!-- Header -->
+                <section class="label">
+                  Header
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+
+                <!-- Footer -->
+                <section class="label">
+                  Footer
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+              </section>
+            </section>
+
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="User Credentials Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="user-credentials-content">
+                <!-- User Id -->
+                <mat-form-field>
+                  <mat-label>User Id</mat-label>
+                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" />
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Office Use"></app-section-header>
+
+              <!-- Content -->
+              <section class="user-credentials-content">
+                <!-- Clinic ID -->
+                <mat-form-field>
+                  <mat-label>Clinic ID</mat-label>
+                  <input matInput placeholder="Clinic ID" />
+                </mat-form-field>
+
+                <!-- Driver -->
+                <mat-form-field>
+                  <mat-label>Driver</mat-label>
+                  <input matInput placeholder="Driver" />
                 </mat-form-field>
 
                 <!-- Sales Rep -->
@@ -108,98 +244,58 @@
                   <input matInput placeholder="Sales Representative" />
                 </mat-form-field>
 
-                <!-- Contact Person -->
-                <mat-form-field>
-                  <mat-label>Contact Person</mat-label>
-                  <input matInput placeholder="Contact Person" />
-                </mat-form-field>
-
-                <!-- Contact Number -->
-                <mat-form-field>
-                  <mat-label>Contact Number</mat-label>
-                  <input matInput placeholder="Contact Number" />
-                </mat-form-field>
-
-                <!-- Email -->
-                <mat-form-field>
-                  <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" />
-                </mat-form-field>
-
-                <!-- Business Hours -->
+                <!-- Country -->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Business Hours</mat-label>
+                  <mat-label>Email Report</mat-label>
                   <mat-select disableOptionCentering>
-                    <mat-option value="24">
-                      24 Hours
+                    <mat-option value="uae">
+                      Part
                     </mat-option>
-                    <mat-option value="12">
-                      12 Hours
-                    </mat-option>
-                    <mat-option value="fixed">
-                      Fixed Time
+                    <mat-option value="india">
+                      Final
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Remark -->
-                <mat-form-field>
-                  <mat-label>Remarks</mat-label>
-                  <input matInput placeholder="if any" />
-                </mat-form-field>
+                <!-- Active SMS -->
+                <mat-checkbox>Active SMS</mat-checkbox>
+
+                <!-- Active E-mail -->
+                <mat-checkbox>Active E-mail</mat-checkbox>
+
+                <!-- Active Auto Invoice -->
+                <mat-checkbox>Active Auto Invoice</mat-checkbox>
+
+                <!-- Price List -->
+                <section class="label">
+                  Price List
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
               </section>
             </section>
 
-            <!-- Locale Information -->
-            <section class="locale-information-wrapper">
-              <!-- Header -->
-              <app-section-header title="locale Information"></app-section-header>
-
-              <!-- Content -->
-              <section class="locale-information-content">
-                <!-- Language -->
-                <mat-form-field>
-                  <mat-label>Language</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="english">
-                      English
-                    </mat-option>
-                    <mat-option value="arabic">
-                      Arabic
-                    </mat-option>
-                    <mat-option value="hindi">
-                      Hindi
-                    </mat-option>
-                    <mat-option value="portuguese">
-                      Portuguse
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Time Zone -->
-                <mat-form-field>
-                  <mat-label>Time Zone</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
-                </mat-form-field>
-              </section>
-            </section>
-
-            <!-- Finance Information -->
-            <section class="finance-information-wrapper">
+            <!-- User Credentials Information -->
+            <section class="user-credentials-information-wrapper">
               <!-- Header -->
               <app-section-header title="Finance Information"></app-section-header>
+
               <!-- Content -->
-              <section class="finance-information-content">
-                <!-- Currency -->
+              <section class="user-credentials-content">
                 <mat-form-field>
                   <mat-label>Currency</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering name="paymentMode" ngModel #paymentMode="ngModel">
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Payment Mode -->
                 <mat-form-field>
                   <mat-label>Payment Mode</mat-label>
-                  <mat-select disableOptionCentering>
+                  <mat-select disableOptionCentering name="paymentMode" ngModel #paymentMode="ngModel">
                     <mat-option value="cash">
                       Cash
                     </mat-option>
@@ -218,12 +314,12 @@
                 <!-- Payment Type -->
                 <mat-form-field>
                   <mat-label>Payment Type</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="prepaid">
-                      Prepaid
+                  <mat-select disableOptionCentering ngModel name="paymentType" #paymentType="ngModel">
+                    <mat-option value="cash">
+                      Postpaid
                     </mat-option>
-                    <mat-option value="postpaid">
-                      Post Paid
+                    <mat-option value="netBanking">
+                      PrePaid
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -231,72 +327,29 @@
                 <!-- Credit Limit -->
                 <mat-form-field>
                   <mat-label>Credit Limit</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <input matInput placeholder="Credit Limit" name="creditLimit" ngModel #creditLimit="ngModel" />
                 </mat-form-field>
 
                 <!-- Current Due-->
                 <mat-form-field>
                   <mat-label>Current Due</mat-label>
-                  <input matInput placeholder="Current Due" />
+                  <input matInput placeholder="Current Due" name="currentDue" ngModel #currentDue="ngModel" />
                 </mat-form-field>
 
-                <!-- Revenue Target -->
+                <!-- Billing Cycle-->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Revenue Target</mat-label>
-                  <mat-select disableOptionCentering>
+                  <mat-label>Billing Cycle</mat-label>
+                  <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
                     <mat-option value="1">
-                      1 Year
+                      BiMonthly
                     </mat-option>
-                    <mat-option value="quarter">
-                      Quarter
+                    <mat-option value="2">
+                      Quarter Monthly
                     </mat-option>
-                    <mat-option value="month">
-                      Month
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Report and Bill Status -->
-                <mat-form-field>
-                  <mat-label>Report and Bill Status</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option>
-                      show reports and bills to patients
-                    </mat-option>
-                    <mat-option>
-                      show only reports to the patient
-                    </mat-option>
-                    <mat-option>
-                      never show the report to patients
+                    <mat-option value="3">
+                      Half Monthly
                     </mat-option>
                   </mat-select>
-                </mat-form-field>
-              </section>
-            </section>
-
-            <!-- User Credentials Information -->
-            <section class="user-credentials-information-wrapper">
-              <!-- Header -->
-              <app-section-header title="User Credentials Information"></app-section-header>
-
-              <!-- Content -->
-              <section class="user-credentials-content">
-                <!-- User Id -->
-                <mat-form-field>
-                  <mat-label>User Id</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
-                </mat-form-field>
-
-                <!-- Password -->
-                <mat-form-field>
-                  <mat-label>Password</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
-                </mat-form-field>
-
-                <!--  Branch -->
-                <mat-form-field>
-                  <mat-label>Branch</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
                 </mat-form-field>
               </section>
             </section>
