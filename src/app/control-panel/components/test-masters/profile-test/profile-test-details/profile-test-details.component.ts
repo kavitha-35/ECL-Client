@@ -6,6 +6,7 @@ import { untilDestroyed } from 'ngx-take-until-destroy';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { LinkTestToProfiletestComponent } from '../_dialogues/link-test-to-profiletest/link-test-to-profiletest.component';
+import { stream } from 'xlsx/types';
 
 @Component({
   selector: 'app-profile-test-details',
@@ -70,39 +71,41 @@ export class ProfileTestDetailsComponent implements OnInit, OnDestroy {
   }
 
   public _initializeValues(): void {
-    this.profileTest = [
-      {
-        dosCode: 'ECL-767',
-        testId: '1313741',
-        cptCode: '82465',
-        testName: 'cholestrol,Total',
-        specimen: '2 ml serum',
-        specimenType: 'serum',
-        storage: 'refrigerated',
-        department: 'biochemistry',
-        patientFee: '40.00',
-        netFee: '10.00',
-        location: 'dubai',
-        currency: 'dihram',
-        combinedTest: [
-          {
-            dosCode: 'ECL-767',
-            testId: '1313741',
-            cptCode: '82465',
-            testName: 'cholestrol,Total',
-            specimen: '2 ml serum',
-            specimenType: 'serum',
-            storage: 'refrigerated',
-            department: 'biochemistry',
-            patientFee: '40.00',
-            netFee: '10.00',
-            location: 'dubai',
-            currency: 'dihram',
-            reportFormat: '',
-          },
-        ],
-      },
-    ];
+    // this.profileTest = [
+    //   {
+    //     dosCode: 'ECL-767',
+    //     testId: '1313741',
+    //     cptCode: '82465',
+    //     testName: 'cholestrol,Total',
+    //     specimen: '2 ml serum',
+    //     specimenType: 'serum',
+    //     storage: 'refrigerated',
+    //     department: 'biochemistry',
+    //     patientFee: '40.00',
+    //     netFee: '10.00',
+    //     location: 'dubai',
+    //     currency: 'dihram',
+    //     combinedTest: [
+    //       {
+    //         dosCode: 'ECL-767',
+    //         testId: '1313741',
+    //         cptCode: '82465',
+    //         testName: 'cholestrol,Total',
+    //         specimen: '2 ml serum',
+    //         specimenType: 'serum',
+    //         storage: 'refrigerated',
+    //         department: 'biochemistry',
+    //         patientFee: '40.00',
+    //         netFee: '10.00',
+    //         location: 'dubai',
+    //         currency: 'dihram',
+    //         reportFormat: '',
+    //       },
+    //     ],
+    //   },
+    // ];
+
+    this.profileTest = [];
   }
 
   ngOnDestroy(): void {}

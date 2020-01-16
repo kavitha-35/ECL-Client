@@ -40,6 +40,12 @@ const MENUITEMS: Menu[] = [
     icon: 'polymer',
   },
   {
+    state: 'method',
+    name: 'Method',
+    type: 'link',
+    icon: 'play_for_work',
+  },
+  {
     state: 'reference-range',
     name: 'Reference Range',
     type: 'link',
@@ -51,8 +57,8 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'offline_pin',
     children: [
-      { state: 'not-found', name: 'Add Test Result Calculation' },
-      { state: 'not-found', name: 'Test Result Calculation List' },
+      { state: 'not-found', name: 'Add Test Result Calculation', paramValue: 'Test Result Calculation'},
+      { state: 'not-found', name: 'Test Result Calculation List', paramValue: 'Test Result Calculation'},
     ],
   },
   {
@@ -93,14 +99,10 @@ const MENUITEMS: Menu[] = [
     ],
   },
   {
-    state: 'format',
-    name: 'Format',
-    type: 'sub',
+    state: 'report-format',
+    name: 'Report Format',
+    type: 'link',
     icon: 'get_app',
-    children: [
-      { state: 'report-format', name: 'Add Format' },
-      { state: 'report-format', name: 'Format List' },
-    ],
   },
   {
     state: 'coupons',

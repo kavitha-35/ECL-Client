@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { TestModel } from 'app/main/models/tests/test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
+import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 
 @Component({
   selector: 'app-link-test-to-combined-test',
@@ -16,11 +17,16 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   public searchResults: TestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
+  public selectedTests: IndividualTestModel[] = [];
 
-  constructor(private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>) {}
+  constructor(private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>,
+    private _combinedTestService: CombinedTestService) {}
   ngOnInit(): void {
     this._initializeDisplayedColumns();
-    this._initializeValues();
+    this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
+      this.tests = data;
+      console.log(this.tests);
+    });
   }
 
   private _initializeDisplayedColumns(): void {
@@ -35,7 +41,7 @@ export class LinkTestToCombinedTestComponent implements OnInit {
       { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
       { columnName: 'method', displayValue: 'Method', isSelected: true },
       { columnName: 'unit', displayValue: 'Unit', isSelected: true },
-      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: true },
+      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: false },
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
       { columnName: 'comments', displayValue: 'Comments', isSelected: true },
@@ -48,61 +54,20 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
+  onAddCombinedTestClicked(element: IndividualTestModel): void {
+    const index = this.tests.indexOf(element);
+    this.selectedTests.push(element);
+    this.tests.splice(index, 1);
+  }
 
+  saveSelectedTests(): void {
+    this.dialogRef.close(['save', this.selectedTests])
+  }
   private _initializeValues(): void {
-    this.tests = [
-      {
-        id: '1708027',
-        active: 'Active',
-        testCategory: 'outsource',
-        accreditationSymbol: '**',
-        testComponent: 'blood',
-        processingCenter: 'pathcare',
-        outsourceVendorCode: 'HM052',
-        method: 'CLIA',
-        unit: '3 ml',
-        referenceRange: '',
-        tat: '10',
-        cptAmount: '246',
-        integrationCode: '-',
-        accreditation: 'not enable',
-        comments: 'String',
-      },
-      {
-        id: '1708027',
-        active: 'Active',
-        testCategory: 'outsource',
-        accreditationSymbol: '**',
-        testComponent: 'blood',
-        processingCenter: 'pathcare',
-        outsourceVendorCode: 'HM052',
-        method: 'CLIA',
-        unit: '3 ml',
-        referenceRange: '',
-        tat: '10',
-        cptAmount: '246',
-        integrationCode: '-',
-        accreditation: 'not enable',
-        comments: 'String',
-      },
-      {
-        id: '1708027',
-        active: 'Active',
-        testCategory: 'outsource',
-        accreditationSymbol: '**',
-        testComponent: 'blood',
-        processingCenter: 'pathcare',
-        outsourceVendorCode: 'HM052',
-        method: 'CLIA',
-        unit: '3 ml',
-        referenceRange: '',
-        tat: '10',
-        cptAmount: '246',
-        integrationCode: '-',
-        accreditation: 'not enable',
-        comments: 'String',
-      },
-    ];
+    this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
+      this.tests = data;
+      console.log(this.tests);
+    });
   }
 
   public onSearchButtonClicked(): void {}

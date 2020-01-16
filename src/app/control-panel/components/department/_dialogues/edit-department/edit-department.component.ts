@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Inject, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DepartmentService } from 'app/control-panel/services/department.service';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
@@ -19,6 +19,7 @@ export class EditDepartmentComponent implements OnInit {
     private readonly dialogRef: MatDialogRef<EditDepartmentComponent>,
     private readonly _departmentService: DepartmentService,
     private readonly _lookUpService: LookupService,
+    private readonly cRef: ChangeDetectorRef,
     @Inject(MAT_DIALOG_DATA) public data: DepartmentModel,
   ) {
     this.selectedForEdit = data;
@@ -37,7 +38,7 @@ export class EditDepartmentComponent implements OnInit {
   public getDepartmentType(): void {
     this._lookUpService.getLookUp('DepartmentType').subscribe((data: LookUpModel[]) => {
       this.departmentTypes = data;
-      console.log(data);
+      this.cRef.detectChanges();
     });
   }
 }

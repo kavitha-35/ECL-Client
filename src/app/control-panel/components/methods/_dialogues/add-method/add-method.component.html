@@ -2,8 +2,7 @@
   <mat-card class="method-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Method" subTitle="Add a Method " icon="fa-calendar">
-      </app-dialog-caption>
+      <app-dialog-caption title="Method" subTitle="Add a Method " icon="fa-calendar"> </app-dialog-caption>
     </section>
 
     <!-- Dialog Content -->
@@ -15,7 +14,7 @@
       <mat-dialog-content class="method-dialog">
         <section>
           <!-- Method Form -->
-          <form class="method-form">
+          <form class="method-form" #method="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -40,8 +39,10 @@
           </form>
 
           <section class="action-buttons-wrapper">
-            <button mat-button color="primary" >Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Add Method</button>
+            <button mat-button color="primary">Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddMethodClicked(method)">
+              Add Method
+            </button>
           </section>
         </section>
       </mat-dialog-content>

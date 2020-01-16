@@ -1,0 +1,32 @@
+<section id="equipment-ribbon-menu-container">
+    <section class="export-buttons-wrapper">
+      <button mat-button>
+        <i class="fa fa-lg fa-clipboard dark-blue" aria-hidden="true"></i>
+      </button>
+      <button mat-button>
+        <i class="fa fa-lg fa-file-excel-o green" aria-hidden="true"></i>
+      </button>
+  
+      <button mat-button>
+        <i class="fa fa-lg fa-file-pdf-o red" aria-hidden="true"></i>
+      </button>
+  
+      <button mat-button>
+        <i class="fa fa-lg fa-print orange" aria-hidden="true"></i>
+      </button>
+    </section>
+  
+    <section class="view-buttons-wrapper">
+      <button mat-button>
+        <i class="fa fa-lg fa-list tan-blue" aria-hidden="true" (click)="onShowListViewButtonClicked()"></i>
+      </button>
+      <button mat-button>
+        <i class="fa fa-lg fa-table deep-orange" aria-hidden="true" (click)="onShowTableViewButtonClicked()"></i>
+      </button>
+    </section>
+    <mat-divider vertical="true"></mat-divider>
+    <button mat-button>
+      <i class="fa fa-lg fa-search dark-blue" aria-hidden="true" (click)="onFilterButtonClicked()"></i>
+    </button>
+  </section>
+  

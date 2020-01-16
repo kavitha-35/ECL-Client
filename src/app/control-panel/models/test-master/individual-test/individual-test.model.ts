@@ -1,21 +1,32 @@
 import { ReferenceRangeModel } from '../../reference-range/reference-range. model';
 
 export interface IndividualTestModel {
-  id: string;
-  active: string;
-  testCategory: string;
-  accreditationSymbol: string;
+  individualTestId: string;
+  ActiveStatus: string;
+  testCategoryId: number;
+  testCategory: {
+    testCategoryId: string;
+    testCategoryName: string;
+  };
+  accreditationSymbol: number;
   testComponent: string;
-  processingCenter: string;
+  processingCenter: {
+    processingCenterId: string;
+    processingCenterName: string;
+  };
   outsourceVendorCode: string;
-  method: string;
-  unit: string;
-  referenceRange: string;
+  method: {
+    methodId: string;
+    methodName: string;
+  };
+  unit: {
+    unitId: string;
+    unitName: string;
+  };
   tat: string;
-  cptAmount: string;
-  integrationCode: string;
-  accreditation: string;
-  comments: String;
+  cptAmount: number;
+  integrationCode: number;
+  comments: string;
 }
 
 interface TestCategory {

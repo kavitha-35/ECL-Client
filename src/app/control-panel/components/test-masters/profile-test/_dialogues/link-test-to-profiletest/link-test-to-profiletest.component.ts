@@ -45,42 +45,43 @@ export class LinkTestToProfiletestComponent implements OnInit {
   }
 
   private _initializeValues(): void {
-    this.tests = [
-      {
-        dosCode: 'ECL-767',
-        testId: '1313741',
-        cptCode: '82465',
-        testName: 'cholestrol,Total',
-        specimen: '2 ml serum',
-        specimenType: 'serum',
-        storage: 'refrigerated',
-        department: 'biochemistry',
-        patientFee: '40.00',
-        netFee: '10.00',
-        location: 'dubai',
-        currency: 'dihram',
-        reportFormat: '',
-        individualTest: [
-          {
-            id: '1708027',
-            active: 'Active',
-            testCategory: 'outsource',
-            accreditationSymbol: '**',
-            testComponent: 'blood',
-            processingCenter: 'pathcare',
-            outsourceVendorCode: 'HM052',
-            method: 'CLIA',
-            unit: '2 ml',
-            referenceRange: '3.00 to 40.00',
-            tat: '1',
-            cptAmount: '4.00',
-            integrationCode: 'T105',
-            accreditation: 'not enable',
-            comments: 'String',
-          },
-        ],
-      },
-    ];
+    // this.tests = [
+    //   {
+    //     dosCode: 'ECL-767',
+    //     testId: '1313741',
+    //     cptCode: '82465',
+    //     testName: 'cholestrol,Total',
+    //     specimen: '2 ml serum',
+    //     specimenType: 'serum',
+    //     storage: 'refrigerated',
+    //     department: 'biochemistry',
+    //     patientFee: '40.00',
+    //     netFee: '10.00',
+    //     location: 'dubai',
+    //     currency: 'dihram',
+    //     reportFormat: '',
+    //     individualTest: [
+    //       {
+    //         id: '1708027',
+    //         active: 'Active',
+    //         testCategory: 'outsource',
+    //         accreditationSymbol: '**',
+    //         testComponent: 'blood',
+    //         processingCenter: 'pathcare',
+    //         outsourceVendorCode: 'HM052',
+    //         method: 'CLIA',
+    //         unit: '2 ml',
+    //         referenceRange: '3.00 to 40.00',
+    //         tat: '1',
+    //         cptAmount: '4.00',
+    //         integrationCode: 'T105',
+    //         accreditation: 'not enable',
+    //         comments: 'String',
+    //       },
+    //     ],
+    //   },
+    // ];
+    this.tests = [];
   }
 
   public onSearchButtonClicked(): void {}

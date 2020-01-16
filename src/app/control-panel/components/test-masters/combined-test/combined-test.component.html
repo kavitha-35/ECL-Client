@@ -1,3 +1,4 @@
+<ng-container *ngIf="tests">
 <section id="combined-test-container" class="animated fadeIn">
   <!-- Material Card -->
   <mat-card>
@@ -24,7 +25,7 @@
 
       <!-- Add Combined Test Button -->
       <section class="combined-test-button-wrapper">
-        <button mat-stroked-button (click)="onAddCombinedTestButtonClicked()">Add Combined Test</button>
+        <button class="combined-test-button" mat-stroked-button (click)="onAddCombinedTestButtonClicked()">Add Combined Test</button>
       </section>
     </section>
 
@@ -61,3 +62,4 @@
     </mat-paginator>
   </mat-card>
 </section>
+</ng-container>

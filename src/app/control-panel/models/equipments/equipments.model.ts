@@ -1,7 +1,12 @@
 export interface EquipmentModel {
-  id: string;
-  brand: string;
-  machine: string;
+  brand: BrandModel;
+  equipmentId: string;
+  equipmentName: string;
   model: string;
   serial: string;
+}
+
+interface BrandModel {
+  brandId: string;
+  brandName: string;
 }

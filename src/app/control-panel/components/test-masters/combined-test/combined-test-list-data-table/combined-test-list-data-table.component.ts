@@ -20,7 +20,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class CombinedTestListDataTableComponent implements OnInit {
   @Input() tests: CombinedTestModel[];
   @Output() editCombinedTestClicked = new EventEmitter<CombinedTestModel>();
-  @Output() manageButtonClicked: EventEmitter<string>;
+  @Output() manageButtonClicked: EventEmitter<number>;
   @Input() isBusy: boolean;
   public expandedElement: CombinedTestModel[];
   public displayedColumns: string[];
@@ -28,7 +28,7 @@ export class CombinedTestListDataTableComponent implements OnInit {
   expansionColoumns: string[];
 
   constructor(private readonly matDialog: MatDialog) {
-    this.manageButtonClicked = new EventEmitter<string>();
+    this.manageButtonClicked = new EventEmitter<number>();
     this.expansionColoumns = [
       'nestedSymbol',
       'testCategory',
@@ -44,6 +44,7 @@ export class CombinedTestListDataTableComponent implements OnInit {
 
   ngOnInit(): void {
     this._initializeDisplayedColumns();
+    console.log(this.tests);
   }
 
   public onEditCombinedTestModel(profiletest: CombinedTestModel): void {
@@ -53,8 +54,8 @@ export class CombinedTestListDataTableComponent implements OnInit {
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
-  public onManageButtonClicked(dosCode: string): void {
-    this.manageButtonClicked.emit(dosCode);
+  public onManageButtonClicked(combinedTestId: number): void {
+    this.manageButtonClicked.emit(combinedTestId);
   }
 
   private _initializeDisplayedColumns(): void {
@@ -67,9 +68,6 @@ export class CombinedTestListDataTableComponent implements OnInit {
       { columnName: 'price', displayValue: 'Processing Center', isSelected: false },
       { columnName: 'storage', displayValue: 'Outsource Vendor Code', isSelected: true },
       { columnName: 'department', displayValue: 'Method', isSelected: true },
-      { columnName: 'location', displayValue: 'Unit', isSelected: true },
-      { columnName: 'currency', displayValue: 'Reference Range', isSelected: true },
-      { columnName: 'status', displayValue: 'TAT', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);

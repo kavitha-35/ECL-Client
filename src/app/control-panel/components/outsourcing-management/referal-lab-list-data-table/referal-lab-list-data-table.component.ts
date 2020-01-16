@@ -36,17 +36,21 @@ export class ReferalLabListDataTableComponent implements OnInit {
 
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
-      { columnName: 'id', displayValue: 'Clinic ID', isSelected: true },
+      { columnName: 'id', displayValue: ' ID', isSelected: true },
       { columnName: 'name', displayValue: 'Lab Name', isSelected: true },
-      { columnName: 'address', displayValue: 'Address', isSelected: false },
-      { columnName: 'postBox', displayValue: 'Post Box', isSelected: false },
+      { columnName: 'web', displayValue: 'Web', isSelected: false },
       { columnName: 'telephone', displayValue: 'Telephone', isSelected: true },
       { columnName: 'fax', displayValue: 'Fax', isSelected: true },
-      { columnName: 'web', displayValue: 'Web', isSelected: false },
-      { columnName: 'region', displayValue: 'Region', isSelected: true },
+      { columnName: 'realtion', displayValue: 'Realtion', isSelected: true },
+      { columnName: 'interfacingType', displayValue: 'Interfacing Type', isSelected: true },
+      { columnName: 'address', displayValue: 'Address', isSelected: false },
+      { columnName: 'postBox', displayValue: 'Post Box', isSelected: false },
+      { columnName: 'city', displayValue: 'City', isSelected: true },
       { columnName: 'country', displayValue: 'Country', isSelected: true },
       { columnName: 'salesRepresentative', displayValue: 'Sales Representative', isSelected: true },
-      { columnName: 'contactMobileNumber', displayValue: 'Mobile Number', isSelected: true },
+      { columnName: 'courier', displayValue: 'Courier', isSelected: false },
+      { columnName: 'contactPersonName', displayValue: 'Contact Person Name', isSelected: true },
+      { columnName: 'mobile', displayValue: 'Mobile ', isSelected: true },
       { columnName: 'mail', displayValue: 'Mail', isSelected: false },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
