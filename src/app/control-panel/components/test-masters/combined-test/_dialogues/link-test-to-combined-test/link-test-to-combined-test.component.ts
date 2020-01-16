@@ -4,29 +4,34 @@ import { TestModel } from 'app/main/models/tests/test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
+import { SelectionModel } from '@angular/cdk/collections';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-link-test-to-combined-test',
   templateUrl: './link-test-to-combined-test.component.html',
   styleUrls: ['./link-test-to-combined-test.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LinkTestToCombinedTestComponent implements OnInit {
   public tests: IndividualTestModel[];
+  isBusy: boolean;
   public searchQuery: string;
   public searchResults: TestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-  public selectedTests: IndividualTestModel[] = [];
+  public selectedTests: String[] = [];
+  selection = new SelectionModel<IndividualTestModel>(true, []);
 
-  constructor(private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>,
-    private _combinedTestService: CombinedTestService) {}
+  constructor(
+    private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>,
+    private _combinedTestService: CombinedTestService,
+  ) {
+     console.log(this.selection);
+  }
+
   ngOnInit(): void {
+    this.getAllIndividualTest();
     this._initializeDisplayedColumns();
-    this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
-      this.tests = data;
-      console.log(this.tests);
-    });
   }
 
   private _initializeDisplayedColumns(): void {
@@ -45,7 +50,8 @@ export class LinkTestToCombinedTestComponent implements OnInit {
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
       { columnName: 'comments', displayValue: 'Comments', isSelected: true },
-      { columnName: 'action', displayValue: 'Action', isSelected: true }
+      { columnName: 'select', displayValue: 'Select', isSelected: true },
+      { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
@@ -54,20 +60,34 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
-  onAddCombinedTestClicked(element: IndividualTestModel): void {
-    const index = this.tests.indexOf(element);
-    this.selectedTests.push(element);
-    this.tests.splice(index, 1);
-  }
 
   saveSelectedTests(): void {
-    this.dialogRef.close(['save', this.selectedTests])
+    console.log(this.selection);
+    this.dialogRef.close(['save', this.selection.selected]);
   }
-  private _initializeValues(): void {
+
+  public getAllIndividualTest(): void {
+    this.isBusy = true;
     this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
       this.tests = data;
-      console.log(this.tests);
+      this.isBusy = false;
     });
+  }
+
+  public isAllSelected(): boolean {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.tests.length;
+    return numSelected === numRows;
+  }
+
+  public masterToggle(): void {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+    } else {
+      this.tests.forEach((row) => {
+        this.selection.select(row);
+      });
+    }
   }
 
   public onSearchButtonClicked(): void {}

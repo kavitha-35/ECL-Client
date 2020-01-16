@@ -20,7 +20,6 @@ export class CombinedTestService {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
-    console.log(apiUrl);
     return this.httpClient.get<CombinedTestModel[]>(apiUrl, { headers: headers });
   }
 

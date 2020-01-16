@@ -25,7 +25,7 @@ export class CombinedTestListDataTableComponent implements OnInit {
   public expandedElement: CombinedTestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-  expansionColoumns: string[];
+  public expansionColoumns: string[];
 
   constructor(private readonly matDialog: MatDialog) {
     this.manageButtonClicked = new EventEmitter<number>();
@@ -44,7 +44,6 @@ export class CombinedTestListDataTableComponent implements OnInit {
 
   ngOnInit(): void {
     this._initializeDisplayedColumns();
-    console.log(this.tests);
   }
 
   public onEditCombinedTestModel(profiletest: CombinedTestModel): void {
