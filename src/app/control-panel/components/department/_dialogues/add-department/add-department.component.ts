@@ -37,5 +37,4 @@ export class AddDepartmentComponent implements OnInit {
       console.log(data);
     });
   }
-
 }
