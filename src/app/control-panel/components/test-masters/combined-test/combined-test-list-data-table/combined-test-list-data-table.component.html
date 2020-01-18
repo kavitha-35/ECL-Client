@@ -66,6 +66,10 @@
       <td mat-cell *matCellDef="let element">
         <section class="actions-wrapper">
           <button class="edit-button" mat-button color="primary" disableRipple
+            (click)="onAddIndividualTestClicked(element.combineTestId)">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button class="edit-button" mat-button color="primary" disableRipple
             (click)="onEditCombinedTestModel(element)">
             <mat-icon>edit_outline</mat-icon>
           </button>

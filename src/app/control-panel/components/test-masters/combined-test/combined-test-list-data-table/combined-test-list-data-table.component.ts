@@ -2,8 +2,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TestModel } from 'app/control-panel/models/tests/test.model';
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { LinkTestToCombinedTestComponent } from '../_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
+import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 
 @Component({
   selector: 'app-combined-test-list-data-table',
@@ -21,14 +23,21 @@ export class CombinedTestListDataTableComponent implements OnInit {
   @Input() tests: CombinedTestModel[];
   @Output() editCombinedTestClicked = new EventEmitter<CombinedTestModel>();
   @Output() manageButtonClicked: EventEmitter<number>;
+  @Output() addTestClicked: EventEmitter<string>;
   @Input() isBusy: boolean;
   public expandedElement: CombinedTestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
   public expansionColoumns: string[];
+  matDialogConfig: MatDialogConfig = {
+    panelClass: 'mat-dialogue-no-padding',
+    width: '1400px',
+    autoFocus: false,
+  };
 
-  constructor(private readonly matDialog: MatDialog) {
+  constructor(private readonly matDialog: MatDialog, private _combinedTestService: CombinedTestService) {
     this.manageButtonClicked = new EventEmitter<number>();
+    this.addTestClicked = new EventEmitter<string>();
     this.expansionColoumns = [
       'nestedSymbol',
       'testCategory',
@@ -55,6 +64,10 @@ export class CombinedTestListDataTableComponent implements OnInit {
   }
   public onManageButtonClicked(combinedTestId: number): void {
     this.manageButtonClicked.emit(combinedTestId);
+  }
+
+  public onAddIndividualTestClicked(testId: string): void {
+    this.addTestClicked.emit(testId);
   }
 
   private _initializeDisplayedColumns(): void {

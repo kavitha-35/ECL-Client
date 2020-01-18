@@ -1,11 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { MatDialogRef, MatAutocompleteSelectedEvent, MatTable } from '@angular/material';
 import { TestModel } from 'app/main/models/tests/test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { SelectionModel } from '@angular/cdk/collections';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-link-test-to-combined-test',
@@ -14,24 +13,43 @@ import { element } from 'protractor';
 })
 export class LinkTestToCombinedTestComponent implements OnInit {
   public tests: IndividualTestModel[];
+  selectedTests: IndividualTestModel[];
+  testsInTable: IndividualTestModel[] = [];
   isBusy: boolean;
-  public searchQuery: string;
   public searchResults: TestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-  public selectedTests: String[] = [];
   selection = new SelectionModel<IndividualTestModel>(true, []);
+  @ViewChild(MatTable, { static: false }) _matTable: MatTable<any>;
 
   constructor(
     private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>,
     private _combinedTestService: CombinedTestService,
-  ) {
-     console.log(this.selection);
-  }
+    public cRef: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.getAllIndividualTest();
     this._initializeDisplayedColumns();
+  }
+
+  private _filter(value: string): IndividualTestModel[] {
+    const filterValue = value.toLowerCase();
+    return this.tests.filter((option) => option.testComponent.toLowerCase().includes(filterValue));
+  }
+
+  public searchQuery(event: any): void {
+    this.selectedTests = this._filter(event.target.value);
+  }
+
+  public selectedAutoComplete(element: IndividualTestModel): void {
+    this.testsInTable.push(element);
+    this._matTable.renderRows();
+  }
+
+  public onClearButtonClicked(index: number): void {
+    this.testsInTable.splice(index, 1);
+    this._matTable.renderRows();
   }
 
   private _initializeDisplayedColumns(): void {
@@ -50,7 +68,6 @@ export class LinkTestToCombinedTestComponent implements OnInit {
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
       { columnName: 'comments', displayValue: 'Comments', isSelected: true },
-      { columnName: 'select', displayValue: 'Select', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
@@ -62,8 +79,7 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   }
 
   saveSelectedTests(): void {
-    console.log(this.selection);
-    this.dialogRef.close(['save', this.selection.selected]);
+    this.dialogRef.close(['save', this.testsInTable]);
   }
 
   public getAllIndividualTest(): void {
@@ -72,22 +88,6 @@ export class LinkTestToCombinedTestComponent implements OnInit {
       this.tests = data;
       this.isBusy = false;
     });
-  }
-
-  public isAllSelected(): boolean {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.tests.length;
-    return numSelected === numRows;
-  }
-
-  public masterToggle(): void {
-    if (this.isAllSelected()) {
-      this.selection.clear();
-    } else {
-      this.tests.forEach((row) => {
-        this.selection.select(row);
-      });
-    }
   }
 
   public onSearchButtonClicked(): void {}
