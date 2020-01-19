@@ -127,4 +127,11 @@ export class AddOrganisationComponent implements OnInit {
   public addContact(): void {
     this.contactPersonList.push(new ContactPerson());
   }
+
+  public cancelContact(contact: ContactPerson): void {
+    const index: number = this.contactPersonList.indexOf(contact);
+    if (index !== -1) {
+      this.contactPersonList.splice(index, 1);
+    }
+  }
 }

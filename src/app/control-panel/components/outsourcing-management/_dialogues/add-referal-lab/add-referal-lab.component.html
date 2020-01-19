@@ -119,17 +119,18 @@
               <!-- Header -->
               <app-section-header title="Contact  Information"> </app-section-header>
               <!-- Content -->
-              <section class="contactperson-information-content" *ngFor="let contact of contactPersonList">
-                <!-- Contact person Mode -->
+              <ng-container *ngFor="let contact of contactPersonList">
+                <section class="contactperson-information-content">
+                  <!-- Contact person Mode -->
 
-                <!-- Sales Rep -->
-                <mat-form-field>
-                  <mat-label>Designation</mat-label>
-                  <input matInput placeholder="Designation" name="designation" [(ngModel)]="contact.designation" />
-                </mat-form-field>
+                  <!-- Sales Rep -->
+                  <mat-form-field>
+                    <mat-label>Designation</mat-label>
+                    <input matInput placeholder="Designation" name="designation" [(ngModel)]="contact.designation" />
+                  </mat-form-field>
 
-                <!-- Courier -->
-                <!-- <mat-form-field>
+                  <!-- Courier -->
+                  <!-- <mat-form-field>
                   <mat-label>Courier</mat-label>
                   <mat-select placeholder="Courier" name="courierId" [(ngModel)]="contact.courierId">
                     <mat-option value="22">FedEx</mat-option>
@@ -137,30 +138,36 @@
                   </mat-select>
                 </mat-form-field> -->
 
-                <!-- Contact Person Name -->
-                <mat-form-field>
-                  <mat-label>Contact Person Name</mat-label>
-                  <input
-                    matInput
-                    placeholder="Contact Person Name"
-                    name="contactPersonName"
-                    required
-                    [(ngModel)]="contact.contactPersonName"
-                  />
-                </mat-form-field>
+                  <!-- Contact Person Name -->
+                  <mat-form-field>
+                    <mat-label>Contact Person Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="Contact Person Name"
+                      name="contactPersonName"
+                      required
+                      [(ngModel)]="contact.contactPersonName"
+                    />
+                  </mat-form-field>
 
-                <!-- Mobile -->
-                <mat-form-field>
-                  <mat-label>Mobile</mat-label>
-                  <input matInput placeholder="Mobile" name="mobile" required [(ngModel)]="contact.mobile" />
-                </mat-form-field>
+                  <!-- Mobile -->
+                  <mat-form-field>
+                    <mat-label>Mobile</mat-label>
+                    <input matInput placeholder="Mobile" name="mobile" required [(ngModel)]="contact.mobile" />
+                  </mat-form-field>
 
-                <!-- Email -->
-                <mat-form-field>
-                  <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" name="email" required [(ngModel)]="contact.email" />
-                </mat-form-field>
-              </section>
+                  <!-- Email -->
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" name="email" required [(ngModel)]="contact.email" />
+                  </mat-form-field>
+                </section>
+                <section class="cancel-contact-section">
+                  <button mat-raised-button color="primary" (click)="cancelContact(contact)">
+                    <mat-icon aria-hidden="false" aria-label="Delete Contact">delete_forever</mat-icon> Remove
+                  </button>
+                </section>
+              </ng-container>
               <section class="add-contact-section">
                 <button mat-raised-button color="primary" (click)="addContact()">
                   <mat-icon aria-hidden="false" aria-label="Add Contact">group_add</mat-icon> Add Contact

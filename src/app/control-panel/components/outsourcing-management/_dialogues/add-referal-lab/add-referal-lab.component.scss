@@ -45,10 +45,14 @@
 
         .contactperson-information-content {
           @include forms-grid;
-          border-bottom: 1px solid #ddd !important;
         }
         .add-contact-section {
           margin-top: 10px;
+        }
+        .cancel-contact-section {
+          border-bottom: 1px solid #ddd !important;
+          text-align: center;
+          padding-bottom: 10px;
         }
       }
 
