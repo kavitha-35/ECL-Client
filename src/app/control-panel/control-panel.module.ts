@@ -142,6 +142,7 @@ import { ReportFormatTableComponent } from './components/report-format/report-fo
 import { ReportFormatSearchComponent } from './components/report-format/report-format-search/report-format-search.component';
 import { ReportFormatDataListComponent } from './components/report-format/report-format-data-list/report-format-data-list.component';
 import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
+import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
 
 @NgModule({
   declarations: [
@@ -249,7 +250,8 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
     ReportFormatTableComponent,
     ReportFormatSearchComponent,
     ReportFormatDataListComponent,
-    ViewDepartmentsComponent
+    ViewDepartmentsComponent,
+    ViewEquipmentComponent
   ],
   providers: [
     DatePipe,
@@ -344,7 +346,8 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
     AddReportFormatComponent,
     EditReportFormatComponent,
     ReportFormatSearchComponent,
-    ViewDepartmentsComponent
+    ViewDepartmentsComponent,
+    ViewEquipmentComponent
   ],
 })
 export class ControlPanelModule {}

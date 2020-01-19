@@ -41,6 +41,22 @@
                   <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
                 </section>
 
+                <!-- Accreditation  Symbol-->
+                <mat-form-field>
+                  <mat-label>Accreditation Symbol</mat-label>
+                  <mat-select disableOptionCentering name="accrediationId" ngModel #accrediationId="ngModel">
+                    <mat-option value=*>
+                      *
+                    </mat-option>
+                    <mat-option value=**>
+                      **
+                    </mat-option>
+                    <mat-option value=#>
+                      #
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
                 <!-- Accreditation -->
                 <mat-form-field>
                   <mat-label>Accreditation</mat-label>
@@ -49,7 +65,7 @@
                       No
                     </mat-option>
                     <mat-option value=2>
-                      All Logos
+                     Logos
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
