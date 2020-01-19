@@ -4,6 +4,7 @@ import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { NgForm } from '@angular/forms';
 import { OrganisationService } from 'app/control-panel/services/organisation.service';
+import { ContactPerson } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
 
 @Component({
   selector: 'app-add-organisation',
@@ -23,6 +24,7 @@ export class AddOrganisationComponent implements OnInit {
   public reportAndBillings: LookUpModel[];
   public branches: LookUpModel[];
   public currencies: LookUpModel[];
+  public contactPersonList: ContactPerson[] = [];
   constructor(
     private readonly dialogRef: MatDialogRef<AddOrganisationComponent>,
     private readonly _lookUpService: LookupService,
@@ -42,6 +44,7 @@ export class AddOrganisationComponent implements OnInit {
     this.getReportAndBilling();
     this.getBranches();
     this.getcurrencies();
+    this.addContact();
   }
   public onAddOrganisationClicked(organisation: NgForm): void {
     console.log(organisation.form.value);
@@ -119,5 +122,9 @@ export class AddOrganisationComponent implements OnInit {
     this._lookUpService.getLookUp('currency').subscribe((data: LookUpModel[]) => {
       this.currencies = data;
     });
+  }
+
+  public addContact(): void {
+    this.contactPersonList.push(new ContactPerson());
   }
 }
