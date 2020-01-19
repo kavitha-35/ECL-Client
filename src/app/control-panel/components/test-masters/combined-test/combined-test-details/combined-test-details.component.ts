@@ -16,7 +16,7 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   dialogRef: any;
   combinedTestId: number;
   dosCode: string;
-  test: CombinedTestModel ;
+  test: CombinedTestModel;
   combinedTest: CombinedTestModel[];
   isBusy: boolean;
   public displayedColumns: string[];
@@ -37,6 +37,19 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.isBusy = true;
     this._initializeDisplayedColumns();
+    this._activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
+      const selectedId = queryParams['id'];
+      if (selectedId) {
+        this._combinedTestService.getCombineTest(selectedId).subscribe((data: CombinedTestModel) => {
+          this.test = data[0];
+          this.isBusy = false;
+        });
+      }
+    });
+  }
+
+  public getAllCombinedTest(): void {
+    this.isBusy = true;
     this._activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       const selectedId = queryParams['id'];
       if (selectedId) {
@@ -85,7 +98,9 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
             ActiveStatus: 1,
           };
         });
-        this._combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((recievedData) => {});
+        this._combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((recievedData) => {
+          this.getAllCombinedTest();
+        });
       }
     });
   }

@@ -4,6 +4,10 @@ import { NgForm } from '@angular/forms';
 import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
+import {
+  ContactPerson,
+  OutsourcingManagementModel,
+} from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
 
 @Component({
   selector: 'app-add-referal-lab',
@@ -13,6 +17,8 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 export class AddReferalLabComponent implements OnInit {
   public regions: LookUpModel[];
   public countries: LookUpModel[];
+  public contactPersonList: ContactPerson[] = [];
+  public outsource: OutsourcingManagementModel = new OutsourcingManagementModel();
   constructor(
     private readonly _dialogRef: MatDialogRef<AddReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
@@ -22,9 +28,11 @@ export class AddReferalLabComponent implements OnInit {
   ngOnInit(): void {
     this.getRegions();
     this.getCountries();
+    this.addContact();
   }
-  public onAddReferalLabClicked(outsource: NgForm): void {
-    this.outsourcingService.addOutsourcing(outsource.form.value).subscribe(() => {
+  public onAddReferalLabClicked(): void {
+    this.outsource.contactPersons = this.contactPersonList;
+    this.outsourcingService.addOutsourcing(this.outsource).subscribe(() => {
       this._dialogRef.close();
     });
   }
@@ -39,5 +47,16 @@ export class AddReferalLabComponent implements OnInit {
     this._lookUpService.getLookUp('country').subscribe((data: LookUpModel[]) => {
       this.countries = data;
     });
+  }
+
+  public addContact(): void {
+    this.contactPersonList.push(new ContactPerson());
+  }
+
+  public cancelContact(contact: ContactPerson): void {
+    const index: number = this.contactPersonList.indexOf(contact);
+    if (index !== -1) {
+      this.contactPersonList.splice(index, 1);
+    }
   }
 }

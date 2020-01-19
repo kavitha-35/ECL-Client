@@ -1,4 +1,4 @@
-@import "../../../../../../assets/styles/scss/color";
+@import '../../../../../../assets/styles/scss/color';
 
 @mixin forms-grid {
   display: grid;
@@ -45,6 +45,14 @@
 
         .contactperson-information-content {
           @include forms-grid;
+        }
+        .add-contact-section {
+          margin-top: 10px;
+        }
+        .cancel-contact-section {
+          border-bottom: 1px solid #ddd !important;
+          text-align: center;
+          padding-bottom: 10px;
         }
       }
 

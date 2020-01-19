@@ -10,7 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,6 +34,7 @@ import {
   MatIconModule,
   MatPaginatorModule,
   MatSlideToggleModule,
+  MatAutocompleteModule,
 } from '@angular/material';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AgmCoreModule } from '@agm/core';
@@ -263,6 +264,8 @@ import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-e
     RouterModule,
     SharedModule,
     MatIconModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
     MatSidenavModule,
     TranslateModule,
     PerfectScrollbarModule,
