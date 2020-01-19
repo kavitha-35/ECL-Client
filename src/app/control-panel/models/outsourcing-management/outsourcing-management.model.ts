@@ -31,3 +31,12 @@ interface CountryModel {
   countryId: number;
   countryName: string;
 }
+
+export class ContactPerson {
+  salesRepresentative: string;
+  courierId: string;
+  mobile: string;
+  contactPersonName: string;
+  email: string;
+  constructor() {}
+}

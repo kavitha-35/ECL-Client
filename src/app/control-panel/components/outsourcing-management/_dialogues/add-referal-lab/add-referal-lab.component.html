@@ -75,7 +75,6 @@
               </section>
             </section>
 
-
             <!-- Address Information -->
             <section class="address-information-wrapper">
               <!-- Header -->
@@ -97,7 +96,6 @@
                   <input matInput placeholder="P.O.Box" name="postBox" required ngModel #postBox="ngModel" />
                 </mat-form-field>
 
-
                 <!-- City-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
@@ -117,11 +115,11 @@
             </section>
 
             <!-- Contact person -->
-            <section class="contactperson-information-wrapper">
+            <section class="contactperson-information-wrapper" *ngIf="contactPersonList">
               <!-- Header -->
-              <app-section-header title="Contact  Information"></app-section-header>
+              <app-section-header title="Contact  Information"> </app-section-header>
               <!-- Content -->
-              <section class="contactperson-information-content">
+              <section class="contactperson-information-content" *ngFor="let contact of contactPersonList">
                 <!-- Contact person Mode -->
 
                 <!-- Sales Rep -->
@@ -131,38 +129,47 @@
                     matInput
                     placeholder="Sales Representative"
                     name="salesRepresentative"
-                    ngModel required
-                    #salesRepresentative="ngModel"
+                    [(ngModel)]="contact.salesRepresentative"
                   />
                 </mat-form-field>
 
                 <!-- Courier -->
                 <mat-form-field>
                   <mat-label>Courier</mat-label>
-                  <mat-select placeholder="Courier" name="courierId" ngModel #courierId="ngModel">
+                  <mat-select placeholder="Courier" name="courierId" [(ngModel)]="contact.courierId">
                     <mat-option value="22">FedEx</mat-option>
                     <mat-option value="23">Speed Courier</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-
                 <!-- Contact Person Name -->
                 <mat-form-field>
                   <mat-label>Contact Person Name</mat-label>
-                  <input matInput placeholder="Contact Person Name" required />
+                  <input
+                    matInput
+                    placeholder="Contact Person Name"
+                    name="contactPersonName"
+                    required
+                    [(ngModel)]="contact.contactPersonName"
+                  />
                 </mat-form-field>
 
                 <!-- Mobile -->
                 <mat-form-field>
                   <mat-label>Mobile</mat-label>
-                  <input matInput placeholder="Mobile" required />
+                  <input matInput placeholder="Mobile" name="mobile" required [(ngModel)]="contact.mobile" />
                 </mat-form-field>
 
                 <!-- Email -->
                 <mat-form-field>
                   <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" required />
+                  <input matInput placeholder="Email" name="email" required [(ngModel)]="contact.email" />
                 </mat-form-field>
+              </section>
+              <section class="add-contact-section">
+                <button mat-raised-button color="primary" (click)="addContact()">
+                  <mat-icon aria-hidden="false" aria-label="Add Contact">group_add</mat-icon> Add Contact
+                </button>
               </section>
             </section>
 
@@ -196,24 +203,24 @@
                 <mat-form-field>
                   <mat-label>Credit Period</mat-label>
                   <mat-select disableOptionCentering>
-                  <mat-option value="cash">
-                    15
-                  </mat-option>
-                  <mat-option value="cash">
-                    30
-                  </mat-option>
-                  <mat-option value="cash">
-                    45
-                  </mat-option>
-                  <mat-option value="cash">
-                    60
-                  </mat-option>
-                  <mat-option value="cash">
-                    75
-                  </mat-option>
-                  <mat-option value="cash">
-                    90
-                  </mat-option>
+                    <mat-option value="cash">
+                      15
+                    </mat-option>
+                    <mat-option value="cash">
+                      30
+                    </mat-option>
+                    <mat-option value="cash">
+                      45
+                    </mat-option>
+                    <mat-option value="cash">
+                      60
+                    </mat-option>
+                    <mat-option value="cash">
+                      75
+                    </mat-option>
+                    <mat-option value="cash">
+                      90
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>
