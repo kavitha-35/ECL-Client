@@ -1,25 +1,28 @@
-export interface OutsourcingManagementModel {
+export class OutsourcingManagementModel {
   outsourceId: number;
   labCode: string;
   labName: string;
   relation: string;
   address: string;
+  city: string;
   poNumber: string;
   telephone: string;
   fax: string;
   web: string;
-  region: RegionModel;
-  country: CountryModel;
+  region: string;
+  country: string;
   interfacingType: string;
   courier: [];
   contactPerson: string;
+  contactPersons: ContactPerson[];
   email: string;
   paymentMethod: string;
   creditPeriod: string;
   creditLimit: string;
   url: string;
   username: string;
-  passowrd: string;
+  password: string;
+  constructor() {}
 }
 
 interface RegionModel {
