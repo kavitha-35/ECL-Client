@@ -30,7 +30,7 @@ export class AddReferalLabComponent implements OnInit {
     this.getCountries();
     this.addContact();
   }
-  public onAddReferalLabClicked(outsource: NgForm): void {
+  public onAddReferalLabClicked(): void {
     this.outsource.contactPersons = this.contactPersonList;
     this.outsourcingService.addOutsourcing(this.outsource).subscribe(() => {
       this._dialogRef.close();
