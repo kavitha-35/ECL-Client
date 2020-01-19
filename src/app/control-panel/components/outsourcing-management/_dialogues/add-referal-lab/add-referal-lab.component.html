@@ -124,23 +124,18 @@
 
                 <!-- Sales Rep -->
                 <mat-form-field>
-                  <mat-label>Sales Representative</mat-label>
-                  <input
-                    matInput
-                    placeholder="Sales Representative"
-                    name="salesRepresentative"
-                    [(ngModel)]="contact.salesRepresentative"
-                  />
+                  <mat-label>Designation</mat-label>
+                  <input matInput placeholder="Designation" name="designation" [(ngModel)]="contact.designation" />
                 </mat-form-field>
 
                 <!-- Courier -->
-                <mat-form-field>
+                <!-- <mat-form-field>
                   <mat-label>Courier</mat-label>
                   <mat-select placeholder="Courier" name="courierId" [(ngModel)]="contact.courierId">
                     <mat-option value="22">FedEx</mat-option>
                     <mat-option value="23">Speed Courier</mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
 
                 <!-- Contact Person Name -->
                 <mat-form-field>

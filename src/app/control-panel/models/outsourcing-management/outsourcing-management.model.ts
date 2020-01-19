@@ -33,7 +33,7 @@ interface CountryModel {
 }
 
 export class ContactPerson {
-  salesRepresentative: string;
+  designation: string;
   courierId: string;
   mobile: string;
   contactPersonName: string;

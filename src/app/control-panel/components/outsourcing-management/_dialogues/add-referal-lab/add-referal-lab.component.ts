@@ -44,7 +44,7 @@ export class AddReferalLabComponent implements OnInit {
     });
   }
 
-  addContact(): void {
+  public addContact(): void {
     this.contactPersonList.push(new ContactPerson());
   }
 }

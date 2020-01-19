@@ -40,6 +40,19 @@
         }
       }
 
+      .contactperson-information-wrapper {
+        @include margin-bottom-18;
+
+        .contactperson-information-content {
+          @include forms-grid;
+          .add-contact-section {
+            margin-top: 10px;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+          }
+        }
+      }
+
       .finance-information-wrapper {
         @include margin-bottom-18;
 
