@@ -1,9 +1,9 @@
-import { 
+import {
   Component,
   OnInit,
   Output,
   Input,
-  EventEmitter,
+  EventEmitter
 } from '@angular/core';
 import { EquipmentModel } from '../../../models/equipments/equipments.model';
 
@@ -21,7 +21,7 @@ export class EquipmentListDataTableComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'brand', 'machine', 'model', 'serial', 'action'];
   public equipments: EquipmentModel[];
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
   }

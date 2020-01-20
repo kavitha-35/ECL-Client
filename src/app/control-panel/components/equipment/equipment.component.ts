@@ -28,9 +28,9 @@ export class EquipmentComponent implements OnInit {
     width: '1400px',
     panelClass: 'mat-dialogue-no-padding',
   };
-  matDialog: any;
 
   constructor(
+    private readonly matDialog: MatDialog,
     private readonly _matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
@@ -77,16 +77,17 @@ export class EquipmentComponent implements OnInit {
       panelClass: 'mat-dialogue-no-padding',
       width: '1400px',
       autoFocus: false,
-      data: equipment,
-    }; 
-    this._matDialog
-    .open(ViewEquipmentComponent, this.matDialogConfig)
+      data: equipment
+    };
+    this.matDialog
+    .open(ViewEquipmentComponent, matDialogConfig)
     .afterClosed()
     .pipe(take(1))
     .subscribe(() => {
       this.getAllEquipment();
     });
 }
+
   public getAllEquipment(): void {
     this.isFetchingEquipments = true;
     this._equipmentService.getAllEquipment().subscribe((data: EquipmentModel[]) => {
@@ -96,4 +97,5 @@ export class EquipmentComponent implements OnInit {
       this.cRef.detectChanges();
     });
   }
+
 }
