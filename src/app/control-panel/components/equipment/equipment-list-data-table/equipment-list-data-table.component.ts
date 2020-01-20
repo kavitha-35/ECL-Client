@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  Input,
+  EventEmitter
+} from '@angular/core';
 import { EquipmentModel } from '../../../models/equipments/equipments.model';
 
 @Component({
@@ -9,19 +15,22 @@ import { EquipmentModel } from '../../../models/equipments/equipments.model';
 export class EquipmentListDataTableComponent implements OnInit {
   @Input() equipment: EquipmentModel[];
   @Input() isBusy: boolean;
+  @Output() viewEquipmentClicked = new EventEmitter();
   @Output() editEquipmentClicked = new EventEmitter();
   @Output() deleteEquipmentClicked = new EventEmitter();
 
   displayedColumns: string[] = ['id', 'brand', 'machine', 'model', 'serial', 'action'];
   public equipments: EquipmentModel[];
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
   }
   public onEditEquipmentClicked(): void {
     this.editEquipmentClicked.emit();
   }
-
+  public onViewEquipmentClicked(equipment: EquipmentModel): void {
+    this.viewEquipmentClicked.emit(equipment);
+  }
   public onDeleteEquipmentClicked(): void {
     this.deleteEquipmentClicked.emit();
   }
