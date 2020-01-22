@@ -1,9 +1,11 @@
-import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { Component, OnInit, Inject, Optional, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { CombinedTest } from '../../test.model';
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-combined-test',
@@ -24,6 +26,7 @@ export class EditCombinedTestComponent implements OnInit {
     private readonly dialogRef: MatDialogRef<EditCombinedTestComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: CombinedTest,
     private readonly _combinedTestService: CombinedTestService,
+    private readonly cRef: ChangeDetectorRef,
     private _lookUpService: LookupService,
   ) {
     this.test = data;
@@ -36,15 +39,17 @@ export class EditCombinedTestComponent implements OnInit {
     this.getReportFormat();
   }
 
-  public onEditTestClicked(): void {
+  public onEditTestClicked(combinedTest: NgForm): void {
     this._combinedTestService.updateTest(this.test.testId + '', this.test).subscribe((data) => {
       this.dialogRef.close();
+      console.log(combinedTest.form.value);
     });
   }
 
   public getSpecimen(): void {
     this._lookUpService.getLookUp('Specimen').subscribe((data: LookUpModel[]) => {
       this.specimen = data;
+      this.cRef.detectChanges();
       console.log(this.specimen);
     });
   }

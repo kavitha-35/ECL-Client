@@ -3,8 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DepartmentService } from 'app/control-panel/services/department.service';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 import { NgForm } from '@angular/forms';
-import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { LookupService } from 'app/control-panel/services/lookup.service';
+import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 
 @Component({
   selector: 'app-edit-department',
