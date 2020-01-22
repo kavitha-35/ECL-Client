@@ -98,6 +98,12 @@ export class CombinedTestComponent implements OnInit {
       });
   }
 
+  public onDeleteCombinedTestClicked(combinedTestId: string): void {
+    this.combinedTestService.deleteCombinedTest(combinedTestId).subscribe(() => {
+      this.getAllCombinedTest();
+    });
+  }
+
   public onShowListViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });
   }

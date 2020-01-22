@@ -26,7 +26,7 @@
                 <!-- ECl Code-->
                 <mat-form-field>
                   <mat-label>ECl DOS Code</mat-label>
-                  <input matInput placeholder="ECl DOS Code" [(ngModel)]="test.eclDocCode" name="eclDocCode" />
+                  <input matInput placeholder="ECl DOS Code" [(ngModel)]="test.eclDosCode" name="eclDosCode" />
                 </mat-form-field>
 
                 <!-- Test Id-->
@@ -41,11 +41,11 @@
                   <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" />
                 </mat-form-field>
 
-                 <!-- Center Name-->
-                 <mat-form-field>
+                <!-- Center Name-->
+                <!-- <mat-form-field>
                   <mat-label>Center Name</mat-label>
-                  <input matInput placeholder="Center Name"/>
-                </mat-form-field>
+                  <input matInput placeholder="Center Name" [(ngModel)]="test.centerName" name="centerName" />
+                </mat-form-field> -->
 
                 <!-- Test Name-->
                 <mat-form-field>
@@ -57,31 +57,34 @@
                 <mat-form-field>
                   <mat-label>Specimen</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.specimen" name="specimen">
-                    <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{item.lookupName}}</mat-option>
+                    <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Specimmen -->
+                <!-- Specimen -->
                 <mat-form-field>
                   <mat-label>Specimen Type</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.specimenType" name="specimenType">
-                    <mat-option *ngFor="let item of specimenType" [value]="item.lookupId">{{item.lookupName}}
+                    <mat-option *ngFor="let item of specimenType" [value]="item.lookupId"
+                      >{{ item.keyValue }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-
+                
                 <!-- Storage-->
                 <mat-form-field>
                   <mat-label>Storage</mat-label>
-                  <mat-select disableOptionCentering [(ngModel)]="test.StorageId" name="StorageId">
-                    <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{item.lookupName}}</mat-option>
+                  <mat-select disableOptionCentering [(ngModel)]="test.storage.StorageId" name="storageId">
+                    <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Department-->
                 <mat-form-field>
                   <mat-label>Department</mat-label>
-                  <input matInput placeholder="Department" [(ngModel)]="test.department" name="department" />
+                  <mat-select disableOptionCentering [(ngModel)]="test.department.departmentId" name="departmentId">
+                    <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{ item.departmentName }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!--Patient Fee-->
@@ -100,8 +103,8 @@
                 <mat-form-field>
                   <mat-label>Report Format</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.reportFormat" name="reportFormat">
-                    <mat-option *ngFor="let item of reportFormat" [value]="item.lookupId">{{item.lookupName}}
-                    </mat-option>
+                    <mat-option [value]="1">Radiology</mat-option>
+                    <mat-option [value]="2">Pathology</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -116,7 +119,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary">Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Save Changes</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditTestClicked()">Save Changes</button>
           </section>
         </section>
       </mat-dialog-content>
