@@ -26,7 +26,7 @@
                 <!-- ECl Code-->
                 <mat-form-field>
                   <mat-label>ECl DOS Code</mat-label>
-                  <input matInput placeholder="ECl DOS Code" [(ngModel)]="test.eclDocCode" name="eclDocCode" />
+                  <input matInput placeholder="ECl DOS Code"  [(ngModel)]="test.eclDocCode" name="eclDocCode" required />
                 </mat-form-field>
 
                 <!-- Test Id-->
@@ -38,19 +38,19 @@
                 <!-- CPT Code-->
                 <mat-form-field>
                   <mat-label>CPT Code</mat-label>
-                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" />
+                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" required />
                 </mat-form-field>
 
                 <!-- Test Name-->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="Test Name" [(ngModel)]="test.testName" name="testName" />
+                  <input matInput placeholder="Test Name"  [(ngModel)]="test.testName" name="testName" required/>
                 </mat-form-field>
 
                 <!-- Center Name-->
                 <mat-form-field>
                   <mat-label>Center Name</mat-label>
-                  <input matInput placeholder="Center Name"/>
+                  <input matInput placeholder="Center Name"  required/>
                 </mat-form-field>
 
                 <!-- Specimmen-->
@@ -81,19 +81,19 @@
                 <!-- Department-->
                 <mat-form-field>
                   <mat-label>Department</mat-label>
-                  <input matInput placeholder="Department" [(ngModel)]="test.department" name="department" />
+                  <input matInput placeholder="Department"   [(ngModel)]="test.department" name="department" required />
                 </mat-form-field>
 
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
-                  <input matInput placeholder="Patient Fee" [(ngModel)]="test.patientFee" name="patientFee" />
+                  <input matInput placeholder="Patient Fee" [(ngModel)]="test.patientFee" name="patientFee" required />
                 </mat-form-field>
 
                 <!-- Net Fee-->
                 <mat-form-field>
                   <mat-label>Net Fee</mat-label>
-                  <input matInput placeholder="Net Fee" [(ngModel)]="test.netFee" name="netFee" />
+                  <input matInput placeholder="Net Fee" [(ngModel)]="test.netFee" name="netFee" required/>
                 </mat-form-field>
 
                 <!-- Report Format -->
@@ -108,7 +108,7 @@
                 <!-- Description -->
                 <mat-form-field>
                   <mat-label>Description</mat-label>
-                  <input matInput placeholder="Description" [(ngModel)]="test.description" name="description" />
+                  <input matInput placeholder="Description"  [(ngModel)]="test.description" name="description" />
                 </mat-form-field>
               </section>
             </section>

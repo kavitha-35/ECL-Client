@@ -11,8 +11,11 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
   styleUrls: ['./add-referal-lab.component.scss'],
 })
 export class AddReferalLabComponent implements OnInit {
+
+
   public regions: LookUpModel[];
   public countries: LookUpModel[];
+  
   constructor(
     private readonly _dialogRef: MatDialogRef<AddReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,

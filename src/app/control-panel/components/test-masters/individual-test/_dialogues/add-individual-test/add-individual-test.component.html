@@ -57,7 +57,7 @@
                 <!-- Test Component -->
                 <mat-form-field>
                   <mat-label>Test Component</mat-label>
-                  <input matInput placeholder="Test Component" name="individualTestName" ngModel #individualTestName="ngModel" />
+                  <input matInput placeholder="Test Component" name="individualTestName" required ngModel #individualTestName="ngModel" />
                 </mat-form-field>
 
                 <!-- Method -->
@@ -113,11 +113,25 @@
                   </mat-select>
                 </mat-form-field>
 
+                <!-- <mat-form-field  style="width:7vw">
+                  <input matInput type="datetime-local" placeholder="Days" >
+                </mat-form-field >
+                <mat-form-field style="width:7vw">
+                  <input matInput placeholder="Hours" >
+                </mat-form-field>
+                <mat-form-field style="width:7vw">
+                  <input matInput placeholder="Minutes" >
+                </mat-form-field> -->
+
                 <!-- TAT -->
-                <mat-form-field>
+              <mat-form-field>
                   <mat-label>TAT</mat-label>
                   <input matInput placeholder="TAT" name="tat" ngModel #tat="ngModel" />
-                </mat-form-field>
+              </mat-form-field>
+                
+                  
+                  
+               
 
                 <!-- CPT Amount -->
                 <mat-form-field>
