@@ -25,7 +25,11 @@
                 <!-- Lab Name -->
                 <mat-form-field>
                   <mat-label>Organization</mat-label>
-                  <input matInput placeholder="Clinic Name" name="clinicName" ngModel #clinicName="ngModel" />
+                  <input matInput placeholder="Organization"  class="uppercase" name="clinicName" ngModel #clinicName="ngModel" pattern="[a-zA-Z]*" required  />
+                  <div *ngIf="clinicName.invalid && (clinicName.dirty || clinicName.touched) " class= "validation">
+                    <div *ngIf="clinicName.errors.required" >organization is required</div>
+                    <div *ngIf="clinicName.errors?.pattern" >text is required</div>
+                  </div>
                 </mat-form-field>
 
                 <!-- Active-->
@@ -70,7 +74,11 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput placeholder="Address" name="address" ngModel #address="ngModel" />
+                  <input matInput placeholder="Address" class="uppercase" name="address" ngModel #address="ngModel" pattern="[a-zA-Z]*" required />
+                  <div *ngIf="address.invalid && (address.dirty || address.touched) " class= "validation">
+                    <div *ngIf="address.errors.required" >Address is required</div>
+                    <div *ngIf="address.errors?.pattern" >text is required</div>
+                  </div>
                 </mat-form-field>
 
                 <!-- P.O.Box -->
@@ -82,7 +90,11 @@
                 <!-- Telephone -->
                 <mat-form-field>
                   <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" />
+                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
+                  <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " class= "validation">
+                    <div *ngIf="telephone.errors.required" >telephone is required</div>
+                    <div *ngIf="telephone.errors?.pattern" >number is required</div>
+                  </div>
                 </mat-form-field>
 
                 <!-- Fax -->
@@ -140,23 +152,31 @@
                     <mat-label>Contact Person Name</mat-label>
                     <input
                       matInput
-                      placeholder="Contact Person Name"
+                   placeholder="Contact Person Name"
                       name="contactPersonName"
-                      required
-                      [(ngModel)]="contact.contactPersonName"
+                  
+                      [(ngModel)]="contact.contactPersonName" #contactPersonName="ngModel" class="uppercase" pattern="[a-zA-Z]*" required 
                     />
+                    <div *ngIf="contactPersonName.invalid && (contactPersonName.dirty ||contactPersonName.touched) " class= "validation">
+                      <div *ngIf="contactPersonName.errors.required" >Nameis required</div>
+                      <div *ngIf="contactPersonName.errors?.pattern" >text is required</div>
+                    </div>
                   </mat-form-field>
 
                   <!-- Mobile -->
                   <mat-form-field>
                     <mat-label>Mobile</mat-label>
-                    <input matInput placeholder="Mobile" name="mobile" required [(ngModel)]="contact.mobile" />
+                    <input matInput placeholder="Mobile" #mobile="ngModel" name="mobile" [(ngModel)]="contact.mobile"pattern="[0-9]+" minlength=10  required />
+                    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched) " class= "validation">
+                      <div *ngIf="mobile.errors.required" >mobilenumber is required</div>
+                      <div *ngIf="mobile.errors?.pattern" >number is required</div>
+                    </div>
                   </mat-form-field>
 
                   <!-- Email -->
                   <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" name="email" required [(ngModel)]="contact.email" />
+                    <input matInput placeholder="Email" name="email" required [(ngModel)]="contact.email" required/>
                   </mat-form-field>
                 </section>
                 <section class="cancel-contact-section">
@@ -242,13 +262,13 @@
                 <!-- User Id -->
                 <mat-form-field>
                   <mat-label>User Id</mat-label>
-                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" />
+                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" required/>
                 </mat-form-field>
 
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" />
+                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" required/>
                 </mat-form-field>
               </section>
             </section>
