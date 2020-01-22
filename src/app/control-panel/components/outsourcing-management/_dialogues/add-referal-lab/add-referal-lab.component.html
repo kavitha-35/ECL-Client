@@ -27,12 +27,10 @@
                 <mat-form-field>
                   <mat-label>Lab Name</mat-label>
                   <input matInput placeholder="Lab Name" class="uppercase" name="labName" pattern="[a-zA-Z]*"  #labName="ngModel" required ngModel/>
-                  <mat-hint>
                   <div *ngIf="labName.invalid && (labName.dirty || labName.touched)" class="validation">
                     <div *ngIf="labName.errors.required">Name is required</div>
                     <div *ngIf="labName.errors?.pattern">Text is required</div>
                 </div>
-              </mat-hint>
                 </mat-form-field>
                 
 
@@ -46,13 +44,11 @@
                 <mat-form-field>
                   <mat-label>Telephone</mat-label>
                   <input matInput placeholder="Telephone" name="telePhone" pattern="[0-9]+" #telePhone="ngModel" minlength=10 maxlength=10 required ngModel/>
-                <mat-hint>
                   <div *ngIf="telePhone.invalid && (telePhone.dirty || telePhone.touched)" class="validation">
                     <div *ngIf="telePhone.errors.required">required field</div>
                     <div *ngIf="telePhone.errors?.pattern">Number is required</div>
                     <div *ngIf="telePhone.errors.minlength || telePhone.errors.maxlength ">must be 10 digit required</div>
                 </div>
-              </mat-hint>
                 </mat-form-field>
 
                 <!-- Fax -->
@@ -102,24 +98,20 @@
                 <mat-form-field>
                   <mat-label>Address</mat-label>
                   <input matInput class="uppercase" pattern="[a-zA-Z]*" placeholder="Address" name="address" required ngModel #address="ngModel" />
-                <mat-hint>
                   <div *ngIf="address.invalid && (address.dirty || address.touched)" class="validation">
                     <div *ngIf="address.errors.required">Address is required</div>
                     <div *ngIf="address.errors?.pattern">Text is required</div>
                   </div>
-                </mat-hint>
                   </mat-form-field>
 
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
                   <input matInput placeholder="P.O.Box" name="postBox" pattern="[0-9]+" required ngModel #postBox="ngModel" />
-                <mat-hint>
                   <div *ngIf="postBox.invalid && (postBox.dirty || postBox.touched)" class="validation">
                     <div *ngIf="postBox.errors.required">postbox is required</div>
                     <div *ngIf="postBox.errors?.pattern">number is required</div>
                   </div>
-                </mat-hint>
                   </mat-form-field>
 
                 <!-- City-->
@@ -148,27 +140,8 @@
               <section class="contactperson-information-content">
                 <!-- Contact person Mode -->
 
-                <!-- Sales Rep -->
-                <mat-form-field>
-                  <mat-label>Sales Representative</mat-label>
-                  <input
-                    matInput
-                    class="uppercase"
-                    placeholder="Sales Representative"
-                    name="salesRepresentative"
-                    ngModel
-                    required
-                    pattern="[a-zA-Z]*"
-                    #salesRepresentative="ngModel"
-                  />
-                <mat-hint>
-                  <div *ngIf="salesRepresentative.invalid && (salesRepresentative.dirty || salesRepresentative.touched)" class="validation">
-                    <div *ngIf="salesRepresentative.errors.required">required field</div>
-                    <div *ngIf="salesRepresentative.errors?.pattern">Text is required</div>
-                </div>
-              </mat-hint>
-                </mat-form-field>
-
+                
+  
                 <!-- Courier -->
                 <mat-form-field>
                   <mat-label>Courier</mat-label>
@@ -182,25 +155,21 @@
                 <mat-form-field>
                   <mat-label>Contact Person Name</mat-label>
                   <input matInput class="uppercase" name="contactPerson" pattern="[a-zA-Z]*" #contactPerson="ngModel" placeholder="Contact Person Name" ngModel required />
-                  <mat-hint>
                   <div *ngIf="contactPerson.invalid && (contactPerson.dirty || contactPerson.touched)" class="validation">
                     <div *ngIf="contactPerson.errors.required">required field</div>
                     <div *ngIf="contactPerson.errors?.pattern">Text is required</div>
                   </div>
-                </mat-hint>
                   </mat-form-field>
 
                 <!-- Mobile -->
                 <mat-form-field>
                   <mat-label>Mobile</mat-label>
                   <input matInput placeholder="Mobile" pattern="[0-9]+" name="mobileNumber" #mobileNumber="ngModel" minlength=10 maxlength=10 ngModel required />
-                  <mat-hint>
                   <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)" class="validation">
                     <div *ngIf="mobileNumber.errors.required">required field</div>
                     <div *ngIf="mobileNumber.errors?.pattern">Number is required</div>
                     <div *ngIf="mobileNumber.errors.minlength || mobileNumber.errors.maxlength ">must be 10 digit required</div>
                 </div>
-              </mat-hint>
                 </mat-form-field>
                 
 
@@ -208,12 +177,10 @@
                 <mat-form-field>
                   <mat-label>Email</mat-label>
                   <input matInput class="uppercase" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #email="ngModel" ngModel required />
-                <mat-hint>
                   <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validation">
                     <div *ngIf="email.errors.required">required field</div>
                     <div *ngIf="email.errors?.pattern">must be emaple@gmail.com format</div>
                 </div>
-              </mat-hint>
                 </mat-form-field>
               </section>
             </section>

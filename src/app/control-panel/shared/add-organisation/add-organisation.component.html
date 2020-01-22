@@ -25,7 +25,11 @@
                 <!-- Lab Name -->
                 <mat-form-field>
                   <mat-label>Organization</mat-label>
-                  <input matInput placeholder="Clinic Name" name="clinicName" ngModel #clinicName="ngModel" />
+                  <input matInput placeholder="Organization"  class="uppercase" name="clinicName" ngModel #clinicName="ngModel" pattern="[a-zA-Z]*" required  />
+                  <div *ngIf="clinicName.invalid && (clinicName.dirty || clinicName.touched) " class= "validation">
+                    <div *ngIf="clinicName.errors.required" >organization is required</div>
+                    <div *ngIf="clinicName.errors?.pattern" >text is required</div>
+                  </div>
                 </mat-form-field>
 
                 <!-- Active-->
@@ -70,7 +74,11 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput placeholder="Address" name="address" ngModel #address="ngModel" />
+                  <input matInput placeholder="Address" class="uppercase" name="address" ngModel #address="ngModel" pattern="[a-zA-Z]*" required />
+                  <div *ngIf="address.invalid && (address.dirty || address.touched) " class= "validation">
+                    <div *ngIf="address.errors.required" >Address is required</div>
+                    <div *ngIf="address.errors?.pattern" >text is required</div>
+                  </div>
                 </mat-form-field>
 
                 <!-- P.O.Box -->
@@ -82,7 +90,11 @@
                 <!-- Telephone -->
                 <mat-form-field>
                   <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" />
+                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
+                  <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " class= "validation">
+                    <div *ngIf="telephone.errors.required" >telephone is required</div>
+                    <div *ngIf="telephone.errors?.pattern" >number is required</div>
+                  </div>
                 </mat-form-field>
 
                 <!-- Fax -->
@@ -100,43 +112,83 @@
                 <!-- Region-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
-                  <mat-select disableOptionCentering name="region" ngModel #region="ngModel">
-                  </mat-select>
+                  <mat-select disableOptionCentering name="region" ngModel #region="ngModel"> </mat-select>
                 </mat-form-field>
 
                 <!-- Country -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
-                  </mat-select>
+                  <mat-select disableOptionCentering name="country" ngModel #country="ngModel"> </mat-select>
                 </mat-form-field>
               </section>
             </section>
 
-            <!-- Locale Information -->
-            <section class="locale-information-wrapper">
+            <!-- Contact person -->
+            <section class="contactperson-information-wrapper" *ngIf="contactPersonList">
               <!-- Header -->
-              <app-section-header title="Contact Person Information"></app-section-header>
-
+              <app-section-header title="Contact  Information"> </app-section-header>
               <!-- Content -->
-              <section class="locale-information-content">
-                <!-- Contact Person -->
-                <mat-form-field>
-                  <mat-label>Contact Person</mat-label>
-                  <input matInput placeholder="Contact Person" name="contactPerson" ngModel #contactPerson="ngModel" />
-                </mat-form-field>
+              <ng-container *ngFor="let contact of contactPersonList">
+                <section class="contactperson-information-content">
+                  <!-- Contact person Mode -->
 
-                <!-- Contact Number -->
-                <mat-form-field>
-                  <mat-label>Contact Number</mat-label>
-                  <input matInput placeholder="Contact Number" name="contactNumber" ngModel #contactNumber="ngModel" />
-                </mat-form-field>
+                  <!-- Sales Rep -->
+                  <mat-form-field>
+                    <mat-label>Designation</mat-label>
+                    <input matInput placeholder="Designation" name="designation" [(ngModel)]="contact.designation" />
+                  </mat-form-field>
 
-                <!-- Email -->
-                <mat-form-field>
-                  <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
-                </mat-form-field>
+                  <!-- Courier -->
+                  <!-- <mat-form-field>
+                  <mat-label>Courier</mat-label>
+                  <mat-select placeholder="Courier" name="courierId" [(ngModel)]="contact.courierId">
+                    <mat-option value="22">FedEx</mat-option>
+                    <mat-option value="23">Speed Courier</mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+
+                  <!-- Contact Person Name -->
+                  <mat-form-field>
+                    <mat-label>Contact Person Name</mat-label>
+                    <input
+                      matInput
+                   placeholder="Contact Person Name"
+                      name="contactPersonName"
+                  
+                      [(ngModel)]="contact.contactPersonName" #contactPersonName="ngModel" class="uppercase" pattern="[a-zA-Z]*" required 
+                    />
+                    <div *ngIf="contactPersonName.invalid && (contactPersonName.dirty ||contactPersonName.touched) " class= "validation">
+                      <div *ngIf="contactPersonName.errors.required" >Nameis required</div>
+                      <div *ngIf="contactPersonName.errors?.pattern" >text is required</div>
+                    </div>
+                  </mat-form-field>
+
+                  <!-- Mobile -->
+                  <mat-form-field>
+                    <mat-label>Mobile</mat-label>
+                    <input matInput placeholder="Mobile" #mobile="ngModel" name="mobile" [(ngModel)]="contact.mobile"pattern="[0-9]+" minlength=10  required />
+                    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched) " class= "validation">
+                      <div *ngIf="mobile.errors.required" >mobilenumber is required</div>
+                      <div *ngIf="mobile.errors?.pattern" >number is required</div>
+                    </div>
+                  </mat-form-field>
+
+                  <!-- Email -->
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" name="email" required [(ngModel)]="contact.email" required/>
+                  </mat-form-field>
+                </section>
+                <section class="cancel-contact-section">
+                  <button mat-raised-button color="primary" (click)="cancelContact(contact)">
+                    <mat-icon aria-hidden="false" aria-label="Delete Contact">delete_forever</mat-icon> Remove
+                  </button>
+                </section>
+              </ng-container>
+              <section class="add-contact-section">
+                <button mat-raised-button color="primary" (click)="addContact()">
+                  <mat-icon aria-hidden="false" aria-label="Add Contact">group_add</mat-icon> Add Contact
+                </button>
               </section>
             </section>
             <!-- Locale Information -->
@@ -210,13 +262,13 @@
                 <!-- User Id -->
                 <mat-form-field>
                   <mat-label>User Id</mat-label>
-                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" />
+                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" required/>
                 </mat-form-field>
 
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" />
+                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" required/>
                 </mat-form-field>
               </section>
             </section>

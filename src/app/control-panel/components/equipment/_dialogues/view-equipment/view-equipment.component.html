@@ -1,0 +1,29 @@
+<section id="equipment-details-container">
+    <mat-card>
+      <mat-card-title>Equipment Details 
+          <i class="fa fa-times close-icon pointer" aria-hidden="true" (click)="onCloseButtonClicked()"></i></mat-card-title>
+      <mat-card-subtitle>Details for Selected Equipment</mat-card-subtitle>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <section>
+          <mat-card-title>Equipment Information</mat-card-title>
+          <mat-card-content>
+            <section class="equipment-details">
+              <!-- equipment Id -->
+              <section class="sub-title">equipment Id</section>
+              <section>{{ selectedForView.equipmentId }}</section>
+  
+              <!-- equipment Name -->
+              <section class="sub-title">Equipment Name</section>
+              <section>{{ selectedForView.equipmentName }}</section>
+  
+              <!-- equipment Type Name -->
+              <section class="sub-title">Equipment Type</section>
+              <!-- <section>{{ selectedForView.departmentType.equipmentTypeName }}</section> -->
+            </section>
+          </mat-card-content>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  

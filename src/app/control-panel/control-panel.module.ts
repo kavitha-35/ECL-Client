@@ -10,7 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,6 +34,7 @@ import {
   MatIconModule,
   MatPaginatorModule,
   MatSlideToggleModule,
+  MatAutocompleteModule,
 } from '@angular/material';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AgmCoreModule } from '@agm/core';
@@ -142,6 +143,7 @@ import { ReportFormatTableComponent } from './components/report-format/report-fo
 import { ReportFormatSearchComponent } from './components/report-format/report-format-search/report-format-search.component';
 import { ReportFormatDataListComponent } from './components/report-format/report-format-data-list/report-format-data-list.component';
 import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
+import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
 
 @NgModule({
   declarations: [
@@ -249,7 +251,8 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
     ReportFormatTableComponent,
     ReportFormatSearchComponent,
     ReportFormatDataListComponent,
-    ViewDepartmentsComponent
+    ViewDepartmentsComponent,
+    ViewEquipmentComponent
   ],
   providers: [
     DatePipe,
@@ -261,6 +264,8 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
     RouterModule,
     SharedModule,
     MatIconModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
     MatSidenavModule,
     TranslateModule,
     PerfectScrollbarModule,
@@ -344,7 +349,8 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
     AddReportFormatComponent,
     EditReportFormatComponent,
     ReportFormatSearchComponent,
-    ViewDepartmentsComponent
+    ViewDepartmentsComponent,
+    ViewEquipmentComponent
   ],
 })
 export class ControlPanelModule {}
