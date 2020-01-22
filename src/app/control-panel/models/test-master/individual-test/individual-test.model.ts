@@ -27,6 +27,7 @@ export interface IndividualTestModel {
   cptAmount: number;
   integrationCode: number;
   comments: string;
+  listStatus: boolean
 }
 
 interface TestCategory {

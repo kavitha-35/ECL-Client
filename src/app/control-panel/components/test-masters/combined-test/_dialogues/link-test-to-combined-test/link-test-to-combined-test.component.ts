@@ -5,6 +5,8 @@ import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { SelectionModel } from '@angular/cdk/collections';
+import { LookupService } from 'app/control-panel/services/lookup.service';
+import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 
 @Component({
   selector: 'app-link-test-to-combined-test',
@@ -12,6 +14,7 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./link-test-to-combined-test.component.scss'],
 })
 export class LinkTestToCombinedTestComponent implements OnInit {
+  groupBys: LookUpModel[];
   public tests: IndividualTestModel[];
   selectedTests: IndividualTestModel[];
   testsInTable: IndividualTestModel[] = [];
@@ -25,11 +28,13 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   constructor(
     private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>,
     private _combinedTestService: CombinedTestService,
+    private readonly _lookUpService: LookupService,
     public cRef: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
     this.getAllIndividualTest();
+    this.getGroupBy();
     this._initializeDisplayedColumns();
   }
 
@@ -43,9 +48,17 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   }
 
   public selectedAutoComplete(element: IndividualTestModel): void {
+    element.listStatus = false;
     this.testsInTable.push(element);
     this._matTable.renderRows();
   }
+
+  public getGroupBy(): void {
+    this._lookUpService.getLookUp('groupBy').subscribe((data: LookUpModel[]) => {
+      this.groupBys = data;
+    });
+  }
+
 
   public onClearButtonClicked(index: number): void {
     this.testsInTable.splice(index, 1);

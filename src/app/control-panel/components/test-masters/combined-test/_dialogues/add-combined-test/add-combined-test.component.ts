@@ -4,6 +4,8 @@ import { CombinedTestService } from 'app/control-panel/services/combinedtest.ser
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { CombinedTest } from '../../test.model';
+import { DepartmentService } from 'app/control-panel/services/department.service';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 
 @Component({
   selector: 'app-add-combined-test',
@@ -19,17 +21,19 @@ export class AddCombinedTestComponent implements OnInit {
   specimenType: LookUpModel[] = [];
   storage: LookUpModel[] = [];
   reportFormat: LookUpModel[] = [];
+  departments: DepartmentModel[] = [];
   constructor(
     private readonly dialogRef: MatDialogRef<AddCombinedTestComponent>,
     private readonly _combinedTestService: CombinedTestService,
     private readonly _lookUpService: LookupService,
+    private readonly _departmentService: DepartmentService,
   ) {}
 
   ngOnInit(): void {
     this.getSpecimen();
     this.getSpecimenType();
     this.getStorage();
-    this.getReportFormat();
+    this.getDepartments();
   }
 
   public onAddTestClicked(): void {
@@ -37,6 +41,7 @@ export class AddCombinedTestComponent implements OnInit {
   }
 
   addTest(): void {
+    console.log(this.test);
     this._combinedTestService.addTest(this.test).subscribe((data) => {
       this.dialogRef.close();
     });
@@ -45,28 +50,30 @@ export class AddCombinedTestComponent implements OnInit {
   public getSpecimen(): void {
     this._lookUpService.getLookUp('Specimen').subscribe((data: LookUpModel[]) => {
       this.specimen = data;
-      console.log(this.specimen);
     });
   }
 
   public getSpecimenType(): void {
     this._lookUpService.getLookUp('SpecimenType').subscribe((data: LookUpModel[]) => {
       this.specimenType = data;
-      console.log(this.specimenType);
     });
   }
 
   public getStorage(): void {
     this._lookUpService.getLookUp('Storage').subscribe((data: LookUpModel[]) => {
       this.storage = data;
-      console.log(this.storage);
     });
   }
 
   public getReportFormat(): void {
     this._lookUpService.getLookUp('ReportFormat').subscribe((data: LookUpModel[]) => {
       this.reportFormat = data;
-      console.log(this.reportFormat);
+    });
+  }
+
+  public getDepartments(): void {
+    this._departmentService.getAllDepartments().subscribe((data: DepartmentModel[]) => {
+      this.departments = data;
     });
   }
 }
