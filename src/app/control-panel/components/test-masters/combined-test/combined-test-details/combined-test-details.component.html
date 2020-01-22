@@ -9,44 +9,41 @@
         <section class="combined-test-information">
           <!-- DOS Code -->
           <section class="sub-title">ECL DOS Code</section>
-          <section>{{ test.eclDosCode }}</section>
+          <section>{{ test?.eclDosCode }}</section>
 
           <!-- CPT Code -->
           <section class="sub-title">CPT Code</section>
-          <section>{{ test.cptCode }}</section>
+          <section>{{ test?.cptCode }}</section>
 
           <!-- Test Name -->
           <section class="sub-title">Test Name</section>
-          <section>{{ test.testName }}</section>
+          <section>{{ test?.testName }}</section>
 
           <!-- Specimen -->
           <section class="sub-title">Specimen</section>
-          <section>{{ test.specimen }}</section>
+          <section>{{ test?.specimen }}</section>
 
           <!-- Storage -->
           <section class="sub-title">Storage</section>
-          <section>{{ test.storage.StorageName }}</section>
+          <section>{{ test?.storage?.StorageName }}</section>
 
           <!-- Patient Fee -->
           <section class="sub-title">Patient Fee</section>
-          <section>{{ test.patientFee }}</section>
+          <section>{{ test?.patientFee }}</section>
 
           <!-- Net Fee -->
           <section class="sub-title">Net Fee</section>
-          <section>{{ test.netFee }}</section>
+          <section>{{ test?.netFee }}</section>
 
           <!-- Department -->
           <section class="sub-title">Department</section>
-          <section>{{ test.department.departmentName }}</section>
+          <section>{{ test?.department?.departmentName }}</section>
 
-          <!-- Currency -->
-          <!-- <section class="sub-title">Currency</section>
-          <section>{{ test.currency }}</section> -->
         </section>
       </mat-card-content>
       <mat-card-title>Individual Tests</mat-card-title>
       <mat-divider></mat-divider>
-      <table mat-table [dataSource]="test.individualTests" class="full-width">
+      <table mat-table [dataSource]="test?.individualTests" class="full-width">
         <!-- ID Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>Test ID</th>
@@ -163,7 +160,11 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
 
-      <section *ngIf="!test">
+      <section *ngIf="isBusy">
+        <app-progress-indicator label="Fetching Test(s)"></app-progress-indicator>
+      </section>
+
+      <section *ngIf="!test?.individualTests && !isBusy">
         <section class="mt-3 mb-3 mat-card-subtitle" fxFlex fxLayoutAlign="center center">
           No Test(s) Found
         </section>

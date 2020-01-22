@@ -51,6 +51,7 @@
       <app-equipment-list-data-table
         [equipment]="equipment"
         (editEquipmentClicked)="onEditEquipmentClicked()"
+        (viewEquipmentClicked)="onViewEquipmentClicked($event)"
         [isBusy]="isFetchingEquipments"
       ></app-equipment-list-data-table>
     </ng-template>

@@ -1,32 +1,55 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { MatDialogRef, MatAutocompleteSelectedEvent, MatTable } from '@angular/material';
 import { TestModel } from 'app/main/models/tests/test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-link-test-to-combined-test',
   templateUrl: './link-test-to-combined-test.component.html',
   styleUrls: ['./link-test-to-combined-test.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LinkTestToCombinedTestComponent implements OnInit {
   public tests: IndividualTestModel[];
-  public searchQuery: string;
+  selectedTests: IndividualTestModel[];
+  testsInTable: IndividualTestModel[] = [];
+  isBusy: boolean;
   public searchResults: TestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
-  public selectedTests: IndividualTestModel[] = [];
+  selection = new SelectionModel<IndividualTestModel>(true, []);
+  @ViewChild(MatTable, { static: false }) _matTable: MatTable<any>;
 
-  constructor(private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>,
-    private _combinedTestService: CombinedTestService) {}
+  constructor(
+    private readonly dialogRef: MatDialogRef<LinkTestToCombinedTestComponent>,
+    private _combinedTestService: CombinedTestService,
+    public cRef: ChangeDetectorRef,
+  ) {}
+
   ngOnInit(): void {
+    this.getAllIndividualTest();
     this._initializeDisplayedColumns();
-    this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
-      this.tests = data;
-      console.log(this.tests);
-    });
+  }
+
+  private _filter(value: string): IndividualTestModel[] {
+    const filterValue = value.toLowerCase();
+    return this.tests.filter((option) => option.testComponent.toLowerCase().includes(filterValue));
+  }
+
+  public searchQuery(event: any): void {
+    this.selectedTests = this._filter(event.target.value);
+  }
+
+  public selectedAutoComplete(element: IndividualTestModel): void {
+    this.testsInTable.push(element);
+    this._matTable.renderRows();
+  }
+
+  public onClearButtonClicked(index: number): void {
+    this.testsInTable.splice(index, 1);
+    this._matTable.renderRows();
   }
 
   private _initializeDisplayedColumns(): void {
@@ -45,7 +68,7 @@ export class LinkTestToCombinedTestComponent implements OnInit {
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
       { columnName: 'comments', displayValue: 'Comments', isSelected: true },
-      { columnName: 'action', displayValue: 'Action', isSelected: true }
+      { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
@@ -54,19 +77,16 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
-  onAddCombinedTestClicked(element: IndividualTestModel): void {
-    const index = this.tests.indexOf(element);
-    this.selectedTests.push(element);
-    this.tests.splice(index, 1);
-  }
 
   saveSelectedTests(): void {
-    this.dialogRef.close(['save', this.selectedTests])
+    this.dialogRef.close(['save', this.testsInTable]);
   }
-  private _initializeValues(): void {
+
+  public getAllIndividualTest(): void {
+    this.isBusy = true;
     this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
       this.tests = data;
-      console.log(this.tests);
+      this.isBusy = false;
     });
   }
 

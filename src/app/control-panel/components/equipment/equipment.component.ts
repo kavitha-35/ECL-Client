@@ -2,11 +2,14 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialogConfig, MatDialog, PageEvent } from '@angular/material';
 import { AddEquipmentComponent } from './_dialogues/add-equipment/add-equipment.component';
 import { EditEquipmentComponent } from './_dialogues/edit-equipment/edit-equipment.component';
+import { ViewEquipmentComponent } from './_dialogues/view-equipment/view-equipment.component';
 import { take } from 'rxjs/operators';
 import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EquipmentService } from 'app/control-panel/services/equipment.service';
 import { DISPLAY_MODE } from 'app/main/models/constants';
+
+
 
 @Component({
   selector: 'app-equipment',
@@ -27,6 +30,7 @@ export class EquipmentComponent implements OnInit {
   };
 
   constructor(
+    private readonly matDialog: MatDialog,
     private readonly _matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
@@ -45,7 +49,7 @@ export class EquipmentComponent implements OnInit {
   }
 
   public onAddEquipmentButtonClicked(): void {
-    this._matDialog
+    this.matDialog
       .open(AddEquipmentComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
@@ -68,6 +72,21 @@ export class EquipmentComponent implements OnInit {
   public onShowTableViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
+  public onViewEquipmentClicked(equipment: EquipmentModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: equipment
+    };
+    this.matDialog
+    .open(ViewEquipmentComponent, matDialogConfig)
+    .afterClosed()
+    .pipe(take(1))
+    .subscribe(() => {
+      this.getAllEquipment();
+    });
+}
 
   public getAllEquipment(): void {
     this.isFetchingEquipments = true;
@@ -78,4 +97,5 @@ export class EquipmentComponent implements OnInit {
       this.cRef.detectChanges();
     });
   }
+
 }

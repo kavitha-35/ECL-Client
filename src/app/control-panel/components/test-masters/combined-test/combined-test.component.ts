@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { CombinedTest } from './test.model';
+import { LinkTestToCombinedTestComponent } from './_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 
 @Component({
   selector: 'app-combined-test',
@@ -56,7 +57,7 @@ export class CombinedTestComponent implements OnInit {
       .open(AddCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeAdded: TestModel) => {
+      .subscribe(() => {
         this.getAllCombinedTest();
       });
   }
@@ -66,17 +67,33 @@ export class CombinedTestComponent implements OnInit {
     this.combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) => {
       this.tests = data;
       this.isFetchingTests = false;
-      this.cRef.detectChanges();
     });
   }
 
+  public onAddButtonClicked(testId: string): void {
+    const dialogRef = this.matDialog.open(LinkTestToCombinedTestComponent, this.matDialogConfig);
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data[0] === 'save') {
+        const Payload = data[1].map((individualtest) => {
+          return {
+            combineTestId: testId,
+            individualTestId: individualtest.individualTestId,
+            ActiveStatus: 1,
+          };
+        });
+        this.combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((recievedData) => {
+          this.getAllCombinedTest();
+        });
+      }
+    });
+  }
   public onEditTestClicked(test: any): void {
     this.matDialogConfig.data = test;
     this.matDialog
       .open(EditCombinedTestComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe((testToBeEdited: any) => {
+      .subscribe(() => {
         this.getAllCombinedTest();
       });
   }

@@ -6,105 +6,6 @@ table {
   .details-row {
     height: 0;
   }
-
-  .mat-column-nestedSymbol {
-    flex: 0 0 20px;
-
-    min-width: 20px;
-    max-width: 20px;
-  }
-
-  .mat-column-name {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-  .mat-column-integration {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-  .mat-column-price {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-  .mat-column-status {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-
-  .mat-column-action {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-
-  .mat-column-testCategory {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-
-  .mat-column-testComponent {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-  .mat-column-outsourceVendorCode {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-
-  .mat-column-method {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-  .mat-column-unit {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-
-  .mat-column-referenceRange {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-  .mat-column-tat {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-
-  .mat-column-cptAmount {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
-
-  .mat-column-integrationCode {
-    flex: 0 0 50px;
-
-    min-width: 50px;
-    max-width: 50px;
-  }
 }
 
 .actions-wrapper {
@@ -126,6 +27,7 @@ table {
   }
 
   .action-button {
+    padding-right: 25px;
     color: rgba(0, 0, 0, 0.54);
   }
 }

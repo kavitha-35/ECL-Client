@@ -4,7 +4,6 @@ import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { untilDestroyed } from 'ngx-take-until-destroy';
-import { take } from 'rxjs/operators';
 import { LinkTestToCombinedTestComponent } from '../_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 
@@ -12,7 +11,6 @@ import { CombinedTestService } from 'app/control-panel/services/combinedtest.ser
   selector: 'app-combined-test-details',
   templateUrl: './combined-test-details.component.html',
   styleUrls: ['./combined-test-details.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   dialogRef: any;
@@ -20,6 +18,7 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   dosCode: string;
   test: CombinedTestModel;
   combinedTest: CombinedTestModel[];
+  isBusy: boolean;
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -36,15 +35,27 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.isBusy = true;
     this._initializeDisplayedColumns();
     this._activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       const selectedId = queryParams['id'];
       if (selectedId) {
-        console.log(selectedId);
         this._combinedTestService.getCombineTest(selectedId).subscribe((data: CombinedTestModel) => {
-          console.log(data);
           this.test = data[0];
-          console.log(this.test);
+          this.isBusy = false;
+        });
+      }
+    });
+  }
+
+  public getAllCombinedTest(): void {
+    this.isBusy = true;
+    this._activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
+      const selectedId = queryParams['id'];
+      if (selectedId) {
+        this._combinedTestService.getCombineTest(selectedId).subscribe((data: CombinedTestModel) => {
+          this.test = data[0];
+          this.isBusy = false;
         });
       }
     });
@@ -79,7 +90,6 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
   public onAddIndividualTestClicked(): void {
     this.dialogRef = this.matDialog.open(LinkTestToCombinedTestComponent, this.matDialogConfig);
     this.dialogRef.afterClosed().subscribe((data) => {
-      console.log(data);
       if (data[0] === 'save') {
         const Payload = data[1].map((individualtest) => {
           return {
@@ -89,52 +99,10 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
           };
         });
         this._combinedTestService.addIndividualTestsToCombineTest(Payload).subscribe((recievedData) => {
-          console.log(recievedData);
+          this.getAllCombinedTest();
         });
       }
     });
   }
-
-  public _initializeValues(): void {
-    // this.combinedTest = [
-    //   {
-    //     dosCode: 'ECL-767',
-    //     testId: '1313741',
-    //     cptCode: '82465',
-    //     testName: 'cholestrol,Total',
-    //     specimen: '2 ml serum',
-    //     specimenType: 'serum',
-    //     storage: 'refrigerated',
-    //     department: 'biochemistry',
-    //     patientFee: '40.00',
-    //     netFee: '10.00',
-    //     location: 'dubai',
-    //     currency: 'dihram',
-    //     reportFormat: '',
-    //     individualTest: [
-    //       {
-    //         id: '1708027',
-    //         active: 'Active',
-    //         testCategory: 'outsource',
-    //         accreditationSymbol: '**',
-    //         testComponent: 'blood',
-    //         processingCenter: 'pathcare',
-    //         outsourceVendorCode: 'HM052',
-    //         method: 'CLIA',
-    //         unit: '2 ml',
-    //         referenceRange: '3.00 to 40.00',
-    //         tat: '1',
-    //         cptAmount: '4.00',
-    //         integrationCode: 'T105',
-    //         accreditation: 'not enable',
-    //         comments: 'String',
-    //       },
-    //     ],
-    //   },
-    // ];
-
-    this.combinedTest = [];
-  }
-
   ngOnDestroy(): void {}
 }

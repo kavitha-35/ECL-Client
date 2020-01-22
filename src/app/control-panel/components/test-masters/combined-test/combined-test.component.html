@@ -1,4 +1,3 @@
-<ng-container *ngIf="tests">
 <section id="combined-test-container" class="animated fadeIn">
   <!-- Material Card -->
   <mat-card>
@@ -44,7 +43,7 @@
     <!-- List View -->
     <ng-template #listView>
       <app-combined-test-list
-        [tests]="tests | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-combined-test-list
+        [tests]="tests"></app-combined-test-list
           >
     </ng-template>
 
@@ -55,11 +54,11 @@
         [isBusy]="isFetchingTests"
         (editCombinedTestClicked)="onEditTestClicked($event)"
         (manageButtonClicked)="onManageButtonClicked($event)"
+        (addTestClicked)="onAddButtonClicked($event);"
       ></app-combined-test-list-data-table>
     </ng-template>
 
-    <mat-paginator [length]="tests.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
-    </mat-paginator>
+    <!-- <mat-paginator [length]="tests.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+    </mat-paginator> -->
   </mat-card>
 </section>
-</ng-container>
