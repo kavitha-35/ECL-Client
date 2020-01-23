@@ -54,7 +54,7 @@
                 <!-- CPT Code-->
                 <mat-form-field>
                   <mat-label>CPT Code</mat-label>
-                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" />
+                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" required />
                 </mat-form-field>
 
                 <!-- Test Name-->
@@ -127,7 +127,7 @@
                 <!-- Description -->
                 <mat-form-field>
                   <mat-label>Description</mat-label>
-                  <input matInput placeholder="Description" [(ngModel)]="test.description" name="description" />
+                  <input matInput placeholder="Description"  [(ngModel)]="test.description" name="description" />
                 </mat-form-field>
               </section>
             </section>

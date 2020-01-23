@@ -129,17 +129,16 @@
                   </mat-select>
                 </mat-form-field>
 
-                <!-- TAT -->
-                <mat-form-field>
-                  <mat-label>TAT</mat-label>
-                  <input matInput placeholder="TAT" name="tat" required ngModel #tat="ngModel" />
+                <!-- <mat-form-field  style="width:7vw">
+                  <input matInput type="datetime-local" placeholder="Days" >
+                </mat-form-field >
+                <mat-form-field style="width:7vw">
+                  <input matInput placeholder="Hours" >
                 </mat-form-field>
+                <mat-form-field style="width:7vw">
+                  <input matInput placeholder="Minutes" >
+                </mat-form-field> -->
 
-                <!-- CPT Amount -->
-                <mat-form-field>
-                  <mat-label>CPT Amount</mat-label>
-                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" />
-                </mat-form-field>
 
                 <!-- Integration Code -->
                 <mat-form-field>
@@ -152,6 +151,26 @@
                     #integrationCode="ngModel"
                   />
                 </mat-form-field>
+                
+                <!-- CPT Amount -->
+                <mat-form-field>
+                  <mat-label>CPT Amount</mat-label>
+                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" />
+                </mat-form-field>
+
+                <!-- TAT -->
+                <section class="tat">
+                  <mat-label style="margin-top:20px;">TAT</mat-label>
+                    <mat-form-field style="width: 50px;" >
+                      <input matInput placeholder="Days" name="days" required ngModel #days="ngModel" />
+                    </mat-form-field>
+                    <mat-form-field style="width: 50px;">
+                      <input matInput placeholder="Hours" name="hours" required ngModel #hours="ngModel" />
+                    </mat-form-field>
+                    <mat-form-field style="width: 80px;"> 
+                      <input matInput placeholder="Minutes" name="minutes" required ngModel #minutes="ngModel" />
+                    </mat-form-field>
+                </section>
 
                 <!-- Comments -->
                 <mat-form-field>
