@@ -26,7 +26,11 @@
                 <!-- Employee Name -->
                 <mat-form-field>
                   <mat-label>Employee Name</mat-label>
-                  <input matInput placeholder="Employee Name" />
+                  <input matInput placeholder="Employee Name" class="uppercase" required pattern="[a-zA-Z]*" name="employeeName" #employeeName="ngModel" ngModel/>
+                  <mat-error *ngIf="employeeName.invalid && (employeeName.dirty || employeeName.touched) ">
+                    <mat-error *ngIf="employeeName.errors.required" >Employee Name is required</mat-error>
+                    <mat-error *ngIf="employeeName.errors?.pattern" >Text is required</mat-error>
+                  </mat-error>
                 </mat-form-field>
 
                 <!-- Department -->
@@ -44,7 +48,11 @@
                 <!-- E-mail -->
                 <mat-form-field>
                   <mat-label>E-mail</mat-label>
-                  <input matInput placeholder="Email" />
+                  <input matInput placeholder="Email" class="uppercase" name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required ngModel/>
+                  <mat-error *ngIf="email.invalid && (email.dirty || email.touched) ">
+                    <mat-error *ngIf="email.errors.required" >Email is required</mat-error>
+                    <mat-error *ngIf="email.errors?.pattern" >abc@gmail.com format is required</mat-error>
+                  </mat-error>
                 </mat-form-field>
 
                 <!-- Alternate E-mail -->
@@ -56,7 +64,11 @@
                 <!-- Contact Number -->
                 <mat-form-field>
                   <mat-label>Contact Number</mat-label>
-                  <input matInput placeholder="Contact Number" />
+                  <input matInput placeholder="Contact Number" name="contactNumber" #contactNumber="ngModel" pattern="[0-9]*" required ngModel/>
+                  <mat-error *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched) ">
+                    <mat-error *ngIf="contactNumber.errors.required" >Contact Number is required</mat-error>
+                    <mat-error *ngIf="contactNumber.errors?.pattern" >number is required</mat-error>
+                  </mat-error>
                 </mat-form-field>
 
                 <!-- Alternate Contact Number -->
@@ -77,17 +89,17 @@
                 <!-- Default URL -->
                 <mat-form-field>
                   <mat-label>Default URL</mat-label>
-                  <input matInput placeholder="Default URL" />
+                  <input matInput placeholder="Default URL" required />
                 </mat-form-field>
 
                 <mat-form-field>
                   <mat-label>User Name</mat-label>
-                  <input matInput placeholder="User Name" />
+                  <input matInput placeholder="User Name" required/>
                 </mat-form-field>
 
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" />
+                  <input matInput placeholder="Password" required />
                 </mat-form-field>
               </section>
             </section>
