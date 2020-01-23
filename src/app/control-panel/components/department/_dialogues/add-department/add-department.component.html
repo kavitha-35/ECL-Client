@@ -23,10 +23,12 @@
 
               <!-- Content -->
               <section class="basic-content">
+
+              
                 <!-- Department Name -->
                 <mat-form-field>
                   <mat-label>Department Name</mat-label>
-                  <input matInput placeholder="Department Name" name=departmentName ngModel #departmentName="ngModel" />
+                  <input matInput placeholder="Department Name" name=departmentName ngModel #departmentName="ngModel" required />
                 </mat-form-field>
 
                 <!-- Department Type -->
@@ -40,7 +42,10 @@
               </section>
             </section>
           </form>
-
+          <!-- Active-->
+          <section class="pt-19">
+            <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
+          </section>
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
             <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddDepartmentClicked(department)">Add Department</button>

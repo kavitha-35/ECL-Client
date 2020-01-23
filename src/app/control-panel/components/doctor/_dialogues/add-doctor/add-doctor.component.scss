@@ -19,6 +19,11 @@
       margin: auto;
     }
 
+    .validation {
+      color: rgb(238, 65, 65);
+      font-size: 10px;
+    }
+
     .doctor-form {
       .basic-wrapper {
         @include margin-bottom-18;
@@ -40,10 +45,10 @@
         }
       }
 
-      .finance-information-wrapper {
+      .address-information-wrapper {
         @include margin-bottom-18;
 
-        .finance-information-content {
+        .address-information-content {
           @include forms-grid;
         }
       }
@@ -71,6 +76,10 @@
       button {
         margin-left: 24px;
       }
+    }
+
+    .label {
+      margin-top: 10px;
     }
   }
 }
