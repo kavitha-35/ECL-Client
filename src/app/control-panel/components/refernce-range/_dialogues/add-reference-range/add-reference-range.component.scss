@@ -1,68 +1,58 @@
-@import "../../../../../../assets/styles/scss/color";
-
-@mixin forms-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 24px;
-}
-
-@mixin margin-bottom-18 {
-  margin-bottom: 18px;
-}
-
-#reference-range-container {
-  .reference-range-mat-card {
+#add-reference-range-container {
+  .user-details-container {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 24px;
 
-    .outsource-dialog {
-      margin: auto;
+    .pt-13 {
+      padding-top: 13px;
     }
+  }
 
-    .reference-range-form {
-      .basic-wrapper {
-        @include margin-bottom-18;
+  .normal-reference-range-container {
+    @extend .user-details-container;
+  }
 
-        .basic-content {
-          @include forms-grid;
-
-          .pt-13 {
-            padding-top: 13px;
-          }
-        }
+  .minimum-maximum-ranges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 15px;
+  
+      .pt-13 {
+        padding-top: 13px;
       }
+  }
 
-      .payment-information-wrapper {
-        @include margin-bottom-18;
+  .age-specific-information-container {
+    @extend .user-details-container;
+  }
 
-        .payment-information-content {
-          @include forms-grid;
-        }
-      }
+  .file-graph-information-container {
+    @extend .user-details-container;
+  }
 
-      .login-information-wrapper {
-        @include margin-bottom-18;
+  .list-of-values-information-container {
+    @extend .user-details-container;
+  }
 
-        .login-information-content {
-          @include forms-grid;
-        }
-      }
+  .critical-reference-range-container {
+    @extend .user-details-container;
+  }
 
-      .comment-information-wrapper {
-        @include margin-bottom-18;
-      }
-    }
+  .comment-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
-    .action-buttons-wrapper {
-      display: flex;
-      margin: 12px;
+  .action-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      justify-content: center;
-      align-items: center;
+    margin: 12px 0px;
 
-      button {
-        margin-left: 24px;
-      }
+    .mr-48 {
+      margin-right: 48px;
     }
   }
 }

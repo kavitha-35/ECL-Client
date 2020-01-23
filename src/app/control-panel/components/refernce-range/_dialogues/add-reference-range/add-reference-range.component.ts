@@ -9,10 +9,37 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-reference-range.component.scss'],
 })
 export class AddReferenceRangeComponent {
+  editorConfig: any;
   constructor(
     private readonly _dialogRef: MatDialogRef<AddReferenceRangeComponent>,
     private readonly _referenceRangeService: ReferenceRangeService,
-  ) {}
+  ) {
+    this.editorConfig = {
+      uiColor: '#ffffff',
+      toolbarGroups: [
+        { name: 'clipboard', groups: ['clipboard', 'undo'] },
+        { name: 'editing', groups: ['find', 'selection', 'spellchecker'] },
+        { name: 'links' },
+        { name: 'insert' },
+        { name: 'document', groups: ['mode', 'document', 'doctools'] },
+        { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] },
+        { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align'] },
+        { name: 'styles' },
+        { name: 'colors' },
+      ],
+      resize_enabled: true,
+      removePlugins: 'elementspath,save,magicline',
+      extraPlugins: 'smiley,justify,indentblock,colordialog',
+      colorButton_foreStyle: {
+        element: 'font',
+        attributes: { color: '#(color)' },
+      },
+      height: 75,
+      removeDialogTabs: 'image:advanced;link:advanced',
+      removeButtons: 'Subscript,Superscript,Anchor,Source',
+      format_tags: 'p;h1;h2;h3;pre;div',
+    };
+  }
 
   onAddReferenceRangeClicked(referenceRange: NgForm): void {
     console.log(referenceRange.form.value);
