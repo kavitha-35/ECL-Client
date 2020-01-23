@@ -35,14 +35,14 @@
                     required
                     #eclDosCode="ngModel"
                   />
-                  <div *ngIf="eclDosCode.invalid && (eclDosCode.dirty || eclDosCode.touched)" class="red">
-                    <div *ngIf="eclDosCode.errors.required">
+                  <mat-error *ngIf="eclDosCode.invalid && (eclDosCode.dirty || eclDosCode.touched)" class="red">
+                    <mat-error *ngIf="eclDosCode.errors.required">
                       Ecl Dos Code is required.
-                    </div>
-                    <div *ngIf="eclDosCode.errors?.pattern">
-                      Name is required.
-                    </div>
-                  </div>
+                    </mat-error>
+                    <mat-error *ngIf="eclDosCode.errors?.pattern">
+                      Text is required.
+                    </mat-error>
+                  </mat-error>
                 </mat-form-field>
 
                 <!-- Test Id-->
@@ -60,7 +60,7 @@
                 <!-- Test Name-->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="Test Name" [(ngModel)]="test.testName" name="testName" />
+                  <input matInput placeholder="Test Name" required [(ngModel)]="test.testName" name="testName" />
                 </mat-form-field>
 
                 <!-- Center Name-->
@@ -106,13 +106,13 @@
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
-                  <input matInput placeholder="Patient Fee" [(ngModel)]="test.patientFee" name="patientFee" />
+                  <input matInput placeholder="Patient Fee" required [(ngModel)]="test.patientFee" name="patientFee" />
                 </mat-form-field>
 
                 <!-- Net Fee-->
                 <mat-form-field>
                   <mat-label>Net Fee</mat-label>
-                  <input matInput placeholder="Net Fee" [(ngModel)]="test.netFee" name="netFee" />
+                  <input matInput placeholder="Net Fee"  required [(ngModel)]="test.netFee" name="netFee" />
                 </mat-form-field>
 
                 <!-- Report Format -->
