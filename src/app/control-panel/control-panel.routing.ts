@@ -19,6 +19,7 @@ import { CombinedTestDetailsComponent } from './components/test-masters/combined
 import { PageNotFoundComponent } from 'app/shared/components/page-not-found/page-not-found.component';
 import { ReportFormatComponent } from './components/report-format/report-format.component';
 import { ProfileTestDetailsComponent } from './components/test-masters/profile-test/profile-test-details/profile-test-details.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 export const routes: Routes = [
   {
@@ -72,6 +73,10 @@ export const routes: Routes = [
       {
         path: 'method',
         component: MethodsComponent,
+      },
+      {
+        path: 'comment',
+        component: CommentsComponent,
       },
       {
         path: 'individual-test',

@@ -90,12 +90,8 @@ const MENUITEMS: Menu[] = [
   {
     state: 'comments',
     name: 'Comments',
-    type: 'sub',
+    type: 'link',
     icon: 'map',
-    children: [
-      { state: 'not-found', name: 'Add Comments', paramValue: 'Comment' },
-      { state: 'not-found', name: 'Comments List', paramValue: 'Comment' },
-    ],
   },
   {
     state: 'report-format',

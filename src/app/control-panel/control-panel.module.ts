@@ -145,6 +145,13 @@ import { ReportFormatDataListComponent } from './components/report-format/report
 import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
 import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { CommentsComponent } from './components/comments/comments.component';
+import { AddCommentsComponent } from './components/test-masters/individual-test/_dialogues/add-comments/add-comments.component';
+import { EditCommentsComponent } from './components/comments/_dialogues/edit-comments/edit-comments.component';
+import { CommentListDataTableComponent } from './components/comments/comment-list-data-table/comment-list-data-table.component';
+import { CommentRibbonMenuComponent } from './components/comments/comment-ribbon-menu/comment-ribbon-menu.component';
+import { CommentSearchComponent } from './components/comments/comment-search/comment-search.component';
+import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 
 @NgModule({
   declarations: [
@@ -253,13 +260,17 @@ import { CKEditorModule } from 'ng2-ckeditor';
     ReportFormatSearchComponent,
     ReportFormatDataListComponent,
     ViewDepartmentsComponent,
-    ViewEquipmentComponent
+    ViewEquipmentComponent,
+    CommentsComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentListComponent,
+    CommentListDataTableComponent,
+    CommentRibbonMenuComponent,
+    CommentSearchComponent,
+    CommentListComponent,
   ],
-  providers: [
-    DatePipe,
-    ControlPanelMenu,
-    MatDatepickerModule,
-  ],
+  providers: [DatePipe, ControlPanelMenu, MatDatepickerModule],
 
   imports: [
     CKEditorModule,
@@ -352,7 +363,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
     EditReportFormatComponent,
     ReportFormatSearchComponent,
     ViewDepartmentsComponent,
-    ViewEquipmentComponent
+    ViewEquipmentComponent,
   ],
 })
 export class ControlPanelModule {}
