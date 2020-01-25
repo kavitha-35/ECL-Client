@@ -17,6 +17,8 @@ import {
 export class AddReferalLabComponent implements OnInit {
   public regions: LookUpModel[];
   public countries: LookUpModel[];
+  public contact: ContactPerson = new ContactPerson();
+
   public contactPersonList: ContactPerson[] = [];
   public outsource: OutsourcingManagementModel = new OutsourcingManagementModel();
   constructor(

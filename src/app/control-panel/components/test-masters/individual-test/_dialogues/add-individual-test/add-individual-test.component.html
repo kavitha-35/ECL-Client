@@ -7,13 +7,13 @@
     </section>
 
     <!-- Dialog Content -->
-    <section>
+    
       <!-- Mat Card Header -->
       <app-mat-dialog-header></app-mat-dialog-header>
 
       <!-- Mat Card Content -->
       <mat-dialog-content class="outsource-dialog">
-        <section>
+       
           <!--Individual Test Form -->
           <form class="individual-test-form" #test="ngForm">
             <!-- Basic Information -->
@@ -135,6 +135,9 @@
                   <mat-label>TAT</mat-label>
                   <input matInput placeholder="TAT" name="tat" required ngModel #tat="ngModel"class="uppercase" />
                 </mat-form-field>
+                <mat-form-field style="width:7vw">
+                  <input matInput placeholder="Minutes" >
+                </mat-form-field> -->
 
                 <!-- CPT Amount -->
                 <mat-form-field>
@@ -154,6 +157,26 @@
                     class="uppercase"
                   />
                 </mat-form-field>
+                
+                <!-- CPT Amount -->
+                <mat-form-field>
+                  <mat-label>CPT Amount</mat-label>
+                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" />
+                </mat-form-field>
+
+                <!-- TAT -->
+                <section class="tat">
+                  <mat-label style="margin-top:20px;">TAT</mat-label>
+                    <mat-form-field style="width: 50px;" >
+                      <input matInput placeholder="Days" name="days" required ngModel #days="ngModel" />
+                    </mat-form-field>
+                    <mat-form-field style="width: 50px;">
+                      <input matInput placeholder="Hours" name="hours" required ngModel #hours="ngModel" />
+                    </mat-form-field>
+                    <mat-form-field style="width: 80px;"> 
+                      <input matInput placeholder="Minutes" name="minutes" required ngModel #minutes="ngModel" />
+                    </mat-form-field>
+                </section>
 
                 <!-- Comments -->
                 <mat-form-field>
@@ -171,8 +194,8 @@
               Add Individual Test
             </button>
           </section>
-        </section>
+
       </mat-dialog-content>
-    </section>
+    
   </mat-card>
 </section>
