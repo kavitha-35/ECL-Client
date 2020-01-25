@@ -7,13 +7,13 @@
     </section>
 
     <!-- Dialog Content -->
-    <section>
+    
       <!-- Mat Card Header -->
       <app-mat-dialog-header></app-mat-dialog-header>
 
       <!-- Mat Card Content -->
       <mat-dialog-content class="outsource-dialog">
-        <section>
+       
           <!--Individual Test Form -->
           <form class="individual-test-form" #test="ngForm">
             <!-- Basic Information -->
@@ -73,7 +73,7 @@
                 <!-- Test Component -->
                 <mat-form-field>
                   <mat-label>Test Component</mat-label>
-                  <input matInput placeholder="Test Component" name="individualTestName" required ngModel #individualTestName="ngModel" />
+                  <input matInput placeholder="Test Component" name="individualTestName" required ngModel #individualTestName="ngModel" class="uppercase"/>
                 </mat-form-field>
 
                 <!-- Method -->
@@ -100,6 +100,7 @@
                     name="outsourceVendorCode"
                     ngModel
                     #outSourceVendorCode="ngModel"
+                    class="uppercase"
                   />
                 </mat-form-field>
 
@@ -129,16 +130,20 @@
                   </mat-select>
                 </mat-form-field>
 
-                <!-- <mat-form-field  style="width:7vw">
-                  <input matInput type="datetime-local" placeholder="Days" >
-                </mat-form-field >
-                <mat-form-field style="width:7vw">
-                  <input matInput placeholder="Hours" >
+                <!-- TAT -->
+                <mat-form-field>
+                  <mat-label>TAT</mat-label>
+                  <input matInput placeholder="TAT" name="tat" required ngModel #tat="ngModel"class="uppercase" />
                 </mat-form-field>
                 <mat-form-field style="width:7vw">
                   <input matInput placeholder="Minutes" >
                 </mat-form-field> -->
 
+                <!-- CPT Amount -->
+                <mat-form-field>
+                  <mat-label>CPT Amount</mat-label>
+                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" class="uppercase"/>
+                </mat-form-field>
 
                 <!-- Integration Code -->
                 <mat-form-field>
@@ -149,6 +154,7 @@
                     name="integrationCode"
                     ngModel
                     #integrationCode="ngModel"
+                    class="uppercase"
                   />
                 </mat-form-field>
                 
@@ -174,8 +180,8 @@
 
                 <!-- Comments -->
                 <mat-form-field>
-                  <mat-label>Comments</mat-label>
-                  <input matInput placeholder="Comments" name="comments" ngModel #comments="ngModel" />
+                  <mat-label>Text Description</mat-label>
+                  <textarea matInput placeholder="Text Description" name="comments" ngModel #comments="ngModel"class="uppercase" ></textarea>
                 </mat-form-field>
 
               </section>
@@ -188,8 +194,8 @@
               Add Individual Test
             </button>
           </section>
-        </section>
+
       </mat-dialog-content>
-    </section>
+    
   </mat-card>
 </section>

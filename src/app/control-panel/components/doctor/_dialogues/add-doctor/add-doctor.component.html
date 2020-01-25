@@ -117,7 +117,7 @@
                 <!-- Remark -->
                 <mat-form-field>
                   <mat-label>Remarks</mat-label>
-                  <input matInput placeholder="if any" name=remark ngModel #remark="ngModel" />
+                  <textarea matInput placeholder="if any" name=remark ngModel #remark="ngModel" ></textarea>
                 </mat-form-field>
               </section>
             </section>
@@ -132,7 +132,7 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput placeholder="Address" class="uppercase" name="address" ngModel #address="ngModel" required />
+                  <textarea matInput placeholder="Address" class="uppercase" name="address" ngModel #address="ngModel" required ></textarea>
                   <mat-error *ngIf="address.invalid && (address.dirty || address.touched) " >
                     <mat-error *ngIf="address.errors.required" >Address is required</mat-error>
                   </mat-error>

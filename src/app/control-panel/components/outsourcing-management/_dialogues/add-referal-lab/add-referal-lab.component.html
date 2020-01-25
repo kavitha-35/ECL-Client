@@ -112,7 +112,7 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input
+                  <textarea
                     matInput
                     placeholder="Address"
                     class="uppercase"
@@ -120,7 +120,7 @@
                     name="address"
                     required
                     [(ngModel)]="outsource.address"
-                  />
+                  ></textarea>
                   <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
                     <mat-error *ngIf="address.errors.required">Address is required</mat-error>
                   </mat-error>
@@ -135,7 +135,7 @@
                 <!-- City-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
-                  <mat-select disableOptionCenteringn name="city" [(ngModel)]="outsource.city"> 
+                  <mat-select disableOptionCenteringn name="city" [(ngModel)]="outsource.city">
                     <mat-option *ngFor="let options of regions" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -182,7 +182,6 @@
                     <input
                       matInput
                       class="uppercase"
-
                       placeholder="Contact Person Name"
                       name="contactPersonName"
                       required
