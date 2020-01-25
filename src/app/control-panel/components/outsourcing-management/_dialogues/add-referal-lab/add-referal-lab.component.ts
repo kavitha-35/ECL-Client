@@ -17,8 +17,6 @@ import {
 export class AddReferalLabComponent implements OnInit {
   public regions: LookUpModel[];
   public countries: LookUpModel[];
-  public contact: ContactPerson = new ContactPerson();
-
   public contactPersonList: ContactPerson[] = [];
   public outsource: OutsourcingManagementModel = new OutsourcingManagementModel();
   constructor(
@@ -34,6 +32,7 @@ export class AddReferalLabComponent implements OnInit {
   }
   public onAddReferalLabClicked(): void {
     this.outsource.contactPersons = this.contactPersonList;
+    console.log(this.outsource);
     this.outsourcingService.addOutsourcing(this.outsource).subscribe(() => {
       this._dialogRef.close();
     });
