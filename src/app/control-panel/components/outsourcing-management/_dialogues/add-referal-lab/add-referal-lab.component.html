@@ -96,7 +96,7 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput placeholder="Address" class="uppercase" #address="ngModel" name="address" required  [(ngModel)]="outsource.address" />
+                  <textarea matInput placeholder="Address" class="uppercase" #address="ngModel" name="address" required  [(ngModel)]="outsource.address" ></textarea>
                   <mat-error *ngIf="address.invalid && (address.dirty || address.touched) ">
                     <mat-error *ngIf="address.errors.required" >Address is required</mat-error>
                   </mat-error>

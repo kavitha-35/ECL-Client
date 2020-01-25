@@ -2,7 +2,7 @@
   <mat-card class="combined-test-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Combined Test Master" subTitle="Add a Combined Test" icon="fa-calendar">
+      <app-dialog-caption title="Combine Test Master" subTitle="Add a Combine Test" icon="fa-calendar">
       </app-dialog-caption>
     </section>
 
@@ -19,7 +19,7 @@
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
-              <app-section-header title="Basic Combined Test Information"></app-section-header>
+              <app-section-header title="Basic Combine Test Information"></app-section-header>
 
               <!-- Content -->
               <section class="basic-content">
@@ -45,22 +45,22 @@
                   </mat-error>
                 </mat-form-field>
 
-                <!-- Test Id-->
+                <!-- Test ID-->
                 <mat-form-field>
-                  <mat-label>Test Id</mat-label>
-                  <input matInput placeholder="Test Id" [(ngModel)]="test.testId" name="testId" />
+                  <mat-label>Test ID</mat-label>
+                  <input matInput placeholder="TEXT ID" [(ngModel)]="test.testId" name="testId" class="uppercase"/>
                 </mat-form-field>
 
                 <!-- CPT Code-->
                 <mat-form-field>
                   <mat-label>CPT Code</mat-label>
-                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" required />
+                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" class="uppercase" />
                 </mat-form-field>
 
                 <!-- Test Name-->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="Test Name" required [(ngModel)]="test.testName" name="testName" />
+                  <input matInput placeholder="TEXT NAME" required [(ngModel)]="test.testName" name="testName" class="uppercase" />
                 </mat-form-field>
 
                 <!-- Center Name-->
@@ -106,13 +106,13 @@
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
-                  <input matInput placeholder="Patient Fee" required [(ngModel)]="test.patientFee" name="patientFee" />
+                  <input matInput placeholder="PATIENT FEE" required [(ngModel)]="test.patientFee" name="patientFee"class="uppercase" />
                 </mat-form-field>
 
                 <!-- Net Fee-->
                 <mat-form-field>
                   <mat-label>Net Fee</mat-label>
-                  <input matInput placeholder="Net Fee"  required [(ngModel)]="test.netFee" name="netFee" />
+                  <input matInput placeholder="NET FEE"  required [(ngModel)]="test.netFee" name="netFee" class="uppercase"/>
                 </mat-form-field>
 
                 <!-- Report Format -->
@@ -126,8 +126,8 @@
 
                 <!-- Description -->
                 <mat-form-field>
-                  <mat-label>Description</mat-label>
-                  <input matInput placeholder="Description"  [(ngModel)]="test.description" name="description" />
+                  <mat-label>Text Description</mat-label>
+                  <textarea matInput placeholder="Text Description" [(ngModel)]="test.description" name="description"class="uppercase" ></textarea>
                 </mat-form-field>
               </section>
             </section>
@@ -135,7 +135,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary">Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="addTest()">Add Combined Test</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="addTest()">Add Combine Test</button>
           </section>
         </section>
       </mat-dialog-content>
