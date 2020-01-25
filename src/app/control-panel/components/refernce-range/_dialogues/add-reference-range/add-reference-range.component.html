@@ -6,7 +6,7 @@
       subTitle="Add Reference Range with Individual Test"
     ></app-mat-dialog-header>
     <mat-divider></mat-divider>
-    <mat-dialog-content style="margin: auto;">
+    <mat-dialog-content class="add-reference-dialog">
       <section>
         <mat-horizontal-stepper>
           <mat-step>
@@ -25,7 +25,7 @@
 
                 <!-- Male Reference Range -->
                 <section class="minimum-maximum-ranges">
-                  <mat-label style="margin-top: 16px">Male Range</mat-label>
+                  <mat-label class="mt-16">Male Range</mat-label>
                   <mat-form-field>
                     <mat-label>Minimum</mat-label>
                     <input matInput placeholder="Minimum" />
@@ -40,7 +40,7 @@
 
                 <!-- female reference Range -->
                 <section class="minimum-maximum-ranges">
-                  <mat-label style="margin-top: 16px">Female Range</mat-label>
+                  <mat-label class="mt-16">Female Range</mat-label>
                   <mat-form-field>
                     <mat-label>Minimum</mat-label>
                     <input matInput placeholder="Minimum" />
@@ -95,7 +95,7 @@
               <section class="critical-reference-range-container">
                 <!-- Male Reference Range -->
                 <section class="minimum-maximum-ranges">
-                  <mat-label style="margin-top: 16px">Male Range</mat-label>
+                  <mat-label class="mt-16">Male Range</mat-label>
                   <mat-form-field>
                     <mat-label>Minimum</mat-label>
                     <input matInput placeholder="Minimum" />
@@ -110,7 +110,7 @@
 
                 <!-- female reference Range -->
                 <section class="minimum-maximum-ranges">
-                  <mat-label style="margin-top: 16px">Female Range</mat-label>
+                  <mat-label class="mt-16">Female Range</mat-label>
                   <mat-form-field>
                     <mat-label>Minimum</mat-label>
                     <input matInput placeholder="Minimum" />
@@ -141,14 +141,15 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Age Range</mat-label>
                   <mat-select disableOptionCentering placeholder="Age Range">
-                    <mat-option>Age Range (in Months)</mat-option>
-                    <mat-option>Age Range (in Years)</mat-option>
+                    <mat-option value="Age Range (in Days)">Age Range (in Days)</mat-option>
+                    <mat-option value="Age Range (in Months)">Age Range (in Months)</mat-option>
+                    <mat-option value="Age Range (in Years)">Age Range (in Years)</mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Age Range -->
                 <section class="minimum-maximum-ranges">
-                  <mat-label style="margin-top: 16px">Age Range</mat-label>
+                  <mat-label class="mt-16">Age Range</mat-label>
                   <mat-form-field>
                     <mat-label>Lower Age</mat-label>
                     <input matInput placeholder="Lower Age" />
@@ -254,10 +255,10 @@
                   <input matInput placeholder="Enter Values" />
                 </mat-form-field>
 
-                <section style="padding-left: 100px;">
+                <section class="pl-100">
                   <!-- Enter Values -->
-                  <button mat-raised-button style="margin-right: 16px" color="primary">Add</button>
-                  <button mat-raised-button style="margin-right: 0px" color="warn">Delete</button>
+                  <button mat-raised-button class="mr-16" color="primary">Add</button>
+                  <button mat-raised-button class="mr-0" color="warn">Delete</button>
                 </section>
               </section>
               <!-- Added Values  -->
