@@ -159,7 +159,7 @@
               <!-- Header -->
               <app-section-header title="Contact  Information"></app-section-header>
               <!-- Content -->
-              <ng-container *ngFor="let contact of contactPersonList">
+              <ng-container *ngFor="let contact of contactPersonList; let i = index">
                 <section class="contactperson-information-content">
                   <!-- Contact person Mode -->
 
@@ -170,7 +170,7 @@
                       matInput
                       placeholder="Designation"
                       class="uppercase"
-                      name="designation"
+                      name="designation{{i}}"
                       required
                       [(ngModel)]="contact.designation"
                     />
@@ -183,7 +183,7 @@
                       matInput
                       class="uppercase"
                       placeholder="Contact Person Name"
-                      name="contactPersonName"
+                      name="contactPersonName{{i}}"
                       required
                       [(ngModel)]="contact.contactPersonName"
                     />
@@ -195,7 +195,7 @@
                     <input
                       matInput
                       placeholder="Mobile"
-                      name="mobile"
+                      name="mobile{{i}}"
                       #mobile="ngModel"
                       pattern="[0-9]*"
                       required
@@ -213,7 +213,7 @@
                     <input
                       matInput
                       placeholder="Email"
-                      name="email"
+                      name="email{{i}}"
                       #email="ngModel"
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                       required
