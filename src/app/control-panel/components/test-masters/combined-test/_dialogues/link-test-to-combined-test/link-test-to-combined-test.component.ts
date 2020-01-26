@@ -48,7 +48,6 @@ export class LinkTestToCombinedTestComponent implements OnInit {
   }
 
   public selectedAutoComplete(element: IndividualTestModel): void {
-    element.listStatus = false;
     this.testsInTable.push(element);
     this._matTable.renderRows();
   }
