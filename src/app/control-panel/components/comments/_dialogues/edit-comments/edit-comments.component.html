@@ -1,1 +1,64 @@
-<p>edit-comments works!</p>
+<section id="method-container">
+    <mat-card class="method-mat-card">
+      <!--  Dialog Caption -->
+      <section>
+        <app-dialog-caption title="Method" subTitle="Edits the Method " icon="fa-calendar">
+        </app-dialog-caption>
+      </section>
+  
+      <!-- Dialog Content -->
+      <section>
+        <!-- Mat Card Header -->
+        <app-mat-dialog-header></app-mat-dialog-header>
+  
+        <!-- Mat Card Content -->
+        <mat-dialog-content class="method-dialog">
+          <section>
+            <!-- method  Form -->
+            <form class="method-form">
+              <!-- Basic Information -->
+              <section class="basic-wrapper">
+                <!-- Header -->
+                <app-section-header title="Basic Information"></app-section-header>
+  
+                <!-- Content -->
+                <section class="basic-content">
+                  <!-- Method Nmae -->
+                  <mat-form-field class="mt-n7">
+                    <mat-label>Method Name</mat-label>
+                    <mat-select disableOptionCentering>
+                      <mat-option value="intra">
+                        Intra
+                      </mat-option>
+                      <mat-option value="inter">
+                        Inter
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <!-- Method Name -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Department</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="intra">
+                      Intra
+                    </mat-option>
+                    <mat-option value="inter">
+                      Inter
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                </section>
+              </section>
+            </form>
+  
+            <section class="action-buttons-wrapper">
+              <button mat-button color="primary">Clear</button>
+              <button mat-raised-button color="primary" cdkFocusInitial>Save Change(s)</button>
+            </section>
+          </section>
+        </mat-dialog-content>
+      </section>
+    </mat-card>
+  </section>
+  

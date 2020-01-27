@@ -1,4 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
+
 
 @Component({
   selector: 'app-edit-comments',
@@ -6,11 +9,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./edit-comments.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditCommentsComponent implements OnInit {
 
-  constructor() { }
+export class EditCommentsComponent  {
 
-  ngOnInit() {
+  departments: DepartmentModel[];
+  constructor(private readonly _dialogRef: MatDialogRef<EditCommentsComponent>) { }
+
+  public onEditCommentClicked(): void {
+    this._dialogRef.close();
   }
-
 }

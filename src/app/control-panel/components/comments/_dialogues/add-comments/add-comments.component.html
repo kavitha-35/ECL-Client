@@ -1,1 +1,45 @@
-<p>add-comments works!</p>
+<section id="method-container">
+    <mat-card class="method-mat-card">
+      <!--  Dialog Caption -->
+      <section>
+        <app-dialog-caption title="Comment" subTitle="Add a Comment " icon="fa-calendar"> </app-dialog-caption>
+      </section>
+  
+      <!-- Dialog Content -->
+      <section>
+        <!-- Mat Card Header -->
+        <app-mat-dialog-header></app-mat-dialog-header>
+  
+        <!-- Mat Card Content -->
+        <mat-dialog-content class="method-dialog">
+          <section>
+            <!-- Method Form -->
+            <form class="method-form" #method="ngForm">
+              <!-- Basic Information -->
+              <section class="basic-wrapper">
+                <!-- Header -->
+                <app-section-header title="Comment"></app-section-header>
+  
+                <!-- Content -->
+                <section class="basic-content">
+                  <!-- Method Name -->
+                  <mat-form-field class="mt-n7">
+                    <mat-label>Comment</mat-label>
+                    <textarea matInput placeholder="Comment" name="methodName" ngModel #methodName="ngModel"></textarea>
+                  </mat-form-field>
+                </section>
+              </section>
+            </form>
+  
+            <section class="action-buttons-wrapper">
+              <button mat-button color="primary">Clear</button>
+              <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddCommentClicked(method)">
+                Add Comment
+              </button>
+            </section>
+          </section>
+        </mat-dialog-content>
+      </section>
+    </mat-card>
+  </section>
+  

@@ -1,0 +1,42 @@
+#method-container {
+    .mat-header-container {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+  
+      .mat-header-image-wrapper {
+        padding: 1rem 0.5rem 0 1rem;
+  
+        .mat-icon {
+          font-size: 32px;
+          color: #034f79;
+        }
+      }
+  
+      .mat-card-title-container {
+        display: grid;
+        grid-template-columns: 1fr auto;
+  
+        button {
+          padding: 0;
+          line-height: 0;
+        }
+      }
+  
+      .method-button-wrapper {
+        padding: 1rem;
+      }
+    }
+  
+    .method-button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+  
+      .method-button {
+        margin-bottom: 12px;
+        margin-right: 12px;
+        background-color: #5388a5;
+        color: white;
+      }
+    }
+  }
+  
