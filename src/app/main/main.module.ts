@@ -171,6 +171,7 @@ import { ResultsAuthorizationDataListComponent } from './components/operations/r
 import { CaseDataListComponent } from './components/operations/case/case-data-list/case-data-list.component';
 import { CaseRibbonMenuComponent } from './components/operations/case/case-ribbon-menu/case-ribbon-menu.component';
 import { CaseSearchComponent } from './components/operations/case/case-search/case-search.component';
+import { ClinicHistoryComponent } from './components/registration/add-registration/clinic-history/clinic-history.component';
 
 @NgModule({
   declarations: [
@@ -300,6 +301,7 @@ import { CaseSearchComponent } from './components/operations/case/case-search/ca
     CaseDataListComponent,
     CaseRibbonMenuComponent,
     CaseSearchComponent,
+    ClinicHistoryComponent,
   ],
   providers: [
     DatePipe,
