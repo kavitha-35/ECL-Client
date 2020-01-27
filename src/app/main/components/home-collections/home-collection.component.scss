@@ -24,12 +24,19 @@
 
     .add-home-collection-button-wrapper {
       padding: 1rem;
+      
     }
   }
-
+  .homebutton{
+    margin-bottom: 12px;
+    margin-right: 12px;
+    background-color: #5388a5;
+      color: white;
+  }
   .add-home-collection-button-wrapper {
     display: flex;
     justify-content: flex-end;
+    
 
     .add-home-collection-button {
       margin-bottom: 12px;
