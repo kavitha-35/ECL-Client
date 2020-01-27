@@ -1,36 +1,49 @@
-import { ReferenceRangeModel } from '../../reference-range/reference-range. model';
-
 export interface IndividualTestModel {
   individualTestId: string;
+  active: boolean;
   ActiveStatus: string;
-  testCategoryId: number;
-  testCategory: {
-    testCategoryId: string;
-    testCategoryName: string;
+  testCategory: TestCategoryModel;
+  accrediationSymbol: {
+    accrediationSymbolId: string;
+    accrediationSymbolValue: string;
   };
-  accreditationSymbol: number;
+  accrediation: boolean;
   testComponent: string;
-  processingCenter: {
-    processingCenterId: string;
-    processingCenterName: string;
-  };
+  processingCenter: ProcessingCenterModel;
   outsourceVendorCode: string;
-  method: {
-    methodId: string;
-    methodName: string;
-  };
-  unit: {
-    unitId: string;
-    unitName: string;
-  };
-  tat: string;
+  equipment: EquipmentModel;
+  method: MethodModel;
+  unit: UnitModel;
+  tatDays: string;
+  tatHours: string;
+  tatMinutes: string;
   cptAmount: number;
   integrationCode: number;
   comments: string;
-  listStatus: boolean
+  listStatus: string;
 }
 
-interface TestCategory {
-  id: string;
-  name: string;
+interface ProcessingCenterModel {
+  processingCenterId: string;
+  processingCenterName: string;
+}
+
+interface EquipmentModel {
+  equipmentId: string;
+  equipmentName: string;
+}
+
+interface TestCategoryModel {
+  testCategoryId: string;
+  testCategoryName: string;
+}
+
+interface MethodModel {
+  methodId: string;
+  methodName: string;
+}
+
+interface UnitModel {
+  unitId: string;
+  unitName: string;
 }

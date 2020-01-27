@@ -8,19 +8,22 @@
       padding-top: 13px;
     }
   }
-
+  
+  .add-reference-dialog {
+    margin: auto;
+  }
   .normal-reference-range-container {
     @extend .user-details-container;
   }
 
   .minimum-maximum-ranges {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 15px;
-  
-      .pt-13 {
-        padding-top: 13px;
-      }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+
+    .pt-13 {
+      padding-top: 13px;
+    }
   }
 
   .age-specific-information-container {
@@ -54,5 +57,21 @@
     .mr-48 {
       margin-right: 48px;
     }
+  }
+
+  .mt-16 {
+    margin-top: 16px;
+  }
+
+  .pl-100 {
+    padding-left: 100px;
+  }
+
+  .mr-16 {
+    margin-right: 16px;
+  }
+
+  .mr-0 {
+    margin-right: 0px;
   }
 }
