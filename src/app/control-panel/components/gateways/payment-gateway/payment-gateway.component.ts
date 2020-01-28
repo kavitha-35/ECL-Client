@@ -10,7 +10,7 @@ export class PaymentGatewayComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

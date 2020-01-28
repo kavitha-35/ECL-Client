@@ -9,7 +9,7 @@ import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.m
   styleUrls: ['./edit-equipment.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditEquipmentComponent {
+export class EditEquipmentComponent implements OnInit {
   brands: LookUpModel[];
   selectedForEdit: EquipmentModel;
   constructor(

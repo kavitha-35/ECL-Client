@@ -28,7 +28,7 @@ export class DepartmentComponent implements OnInit {
     panelClass: 'mat-dialogue-no-padding',
     width: '1400px',
     autoFocus: false,
-  }; 
+  };
   constructor(
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
