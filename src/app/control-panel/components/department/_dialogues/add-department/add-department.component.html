@@ -36,7 +36,7 @@
                 </mat-form-field>
 
                 <!-- Department Type -->
-                <mat-form-field >
+                <mat-form-field class="mt-n7">
                   <mat-label>Department Type</mat-label>
                   <mat-select disableOptionCentering name=departmentType ngModel #departmentType="ngModel">
                     <mat-option *ngFor="let options of departmentTypes"[value]="options.lookupId">{{options.keyValue}}</mat-option>
