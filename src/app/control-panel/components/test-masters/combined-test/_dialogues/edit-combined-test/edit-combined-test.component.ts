@@ -45,10 +45,9 @@ export class EditCombinedTestComponent implements OnInit {
     this.getDepartments();
   }
 
-  public onEditTestClicked(combinedTest: NgForm): void {
+  public onEditTestClicked(): void {
     this._combinedTestService.updateTest(this.test.testId + '', this.test).subscribe((data) => {
       this.dialogRef.close();
-      console.log(combinedTest.form.value);
     });
   }
 

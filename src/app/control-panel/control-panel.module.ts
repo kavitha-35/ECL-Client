@@ -262,7 +262,14 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     ReportFormatDataListComponent,
     ViewDepartmentsComponent,
     ViewEquipmentComponent,
-    ViewMethodComponent
+    ViewMethodComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentListComponent,
+    CommentListDataTableComponent,
+    CommentsComponent,
+    CommentSearchComponent,
+    CommentRibbonMenuComponent,
   ],
   providers: [
     DatePipe,
@@ -372,7 +379,7 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     ViewEquipmentComponent,
     AddCommentsComponent,
     EditCommentsComponent,
-    CommentSearchComponent
+    CommentSearchComponent,
   ],
 })
 export class ControlPanelModule {}

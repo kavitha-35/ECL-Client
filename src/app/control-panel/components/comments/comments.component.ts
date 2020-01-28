@@ -10,14 +10,12 @@ import { MethodService } from 'app/control-panel/services/method.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 
-
-
-@Component({  selector: 'app-comments',
+@Component({
+  selector: 'app-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class CommentsComponent implements OnInit {
   public method: CommentModel[];
   public showListView: boolean;
@@ -73,9 +71,8 @@ export class CommentsComponent implements OnInit {
 
   public getAllMethod(): void {
     this.isFetchingMethods = true;
-    this._methodService.getAllMethod().subscribe((data: CommentModel[]) => {
-      this.method = data;
-       console.log(data);
+    this._methodService.getAllMethod().subscribe((data) => {
+      console.log(data);
       this.isFetchingMethods = false;
       this.cRef.detectChanges();
     });
