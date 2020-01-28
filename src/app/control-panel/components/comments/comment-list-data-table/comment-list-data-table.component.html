@@ -1,5 +1,5 @@
 <section id="method-table-container">
-    <table mat-table [dataSource]="comment" class="full-width">
+    <table mat-table [dataSource]="method" class="full-width">
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Comment ID</th>
@@ -32,14 +32,12 @@
       </ng-container>
 
       <!--Action-->
-    
-  
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   
     <section *ngIf="isBusy">
-      <app-progress-indicator label="Fetching Method(s)"></app-progress-indicator>
+      <app-progress-indicator label="Fetching Comments(s)"></app-progress-indicator>
     </section>
   
     <section *ngIf="!method && !isBusy">
