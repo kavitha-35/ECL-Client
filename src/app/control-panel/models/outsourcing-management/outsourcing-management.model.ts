@@ -20,7 +20,7 @@ export class OutsourcingManagementModel {
   creditPeriod: string;
   creditLimit: string;
   url: string;
-  username: string;
+  userName: string;
   password: string;
   constructor() {}
 }

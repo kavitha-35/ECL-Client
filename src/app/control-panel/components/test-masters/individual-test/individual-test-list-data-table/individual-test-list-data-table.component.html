@@ -98,6 +98,9 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <section class="actions-wrapper">
+          <button class="edit-button" mat-button color="primary" (click)="onAddReferenceRangeClicked(element.individualTestId)" disableRipple>
+            <mat-icon>add</mat-icon>
+          </button>
           <button class="edit-button" mat-button color="primary" (click)="onEditTestClicked(element)" disableRipple>
             <mat-icon>edit_outline</mat-icon>
           </button>
