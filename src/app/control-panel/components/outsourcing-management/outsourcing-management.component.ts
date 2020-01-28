@@ -64,6 +64,7 @@ export class OutsourcingManagementComponent implements OnInit {
     this.isFetchingReferalLab = true;
     this._outsourcingManagementService.getAllOutsourcing().subscribe((data) => {
       this.outsourcedLab = data;
+      console.log(data);
       this.isFetchingReferalLab = false;
       this.changeRef.detectChanges();
     });

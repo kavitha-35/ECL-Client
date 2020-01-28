@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ReferenceRangeService } from 'app/control-panel/services/reference-range.service';
 import { NgForm } from '@angular/forms';
 
@@ -9,11 +9,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-reference-range.component.scss'],
 })
 export class AddReferenceRangeComponent {
-  editorConfig: any;
+  public testId: string;
+  public editorConfig: any;
   constructor(
     private readonly _dialogRef: MatDialogRef<AddReferenceRangeComponent>,
     private readonly _referenceRangeService: ReferenceRangeService,
+    @Inject(MAT_DIALOG_DATA) public indvidualTestId: string,
   ) {
+    this.testId = indvidualTestId;
     this.editorConfig = {
       uiColor: '#ffffff',
       toolbarGroups: [

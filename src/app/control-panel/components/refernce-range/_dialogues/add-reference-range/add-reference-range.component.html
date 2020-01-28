@@ -15,8 +15,14 @@
               <ng-template matStepLabel>Normal Range</ng-template>
 
               <section class="normal-reference-range-container">
+                <!-- Individual Test Id -->
+                <mat-form-field *ngIf="testId" >
+                  <mat-label>Individual Test ID</mat-label>
+                  <input matInput placeholder="Test ID" [(ngModel)]="testId" name="testId" disabled/>
+                </mat-form-field>
+
                 <!-- Individual Test Name -->
-                <mat-form-field class="mt-n7">
+                <mat-form-field *ngIf="!testId" class="mt-n7">
                   <mat-label>Individual Test Name</mat-label>
                   <mat-select disableOptionCentering placeholder="Individual Test Name">
                     <mat-option></mat-option>

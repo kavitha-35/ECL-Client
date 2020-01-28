@@ -13,6 +13,7 @@ export class IndividualTestListDataTableComponent implements OnInit {
   @Input() isBusy: boolean;
   @Output() editTestClicked = new EventEmitter<IndividualTestModel>();
   @Output() deleteTestClicked = new EventEmitter<string>();
+  @Output() referenceRangeClicked = new EventEmitter<string>();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -30,6 +31,9 @@ export class IndividualTestListDataTableComponent implements OnInit {
     this.deleteTestClicked.emit(testId);
   }
 
+  public onAddReferenceRangeClicked(testId: string): void {
+    this.referenceRangeClicked.emit(testId);
+  }
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
@@ -48,7 +52,7 @@ export class IndividualTestListDataTableComponent implements OnInit {
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
       { columnName: 'comments', displayValue: 'Comments', isSelected: true },
       { columnName: 'activity', displayValue: 'Activity', isSelected: true },
-      { columnName: 'action', displayValue: 'Action', isSelected: true }
+      { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
