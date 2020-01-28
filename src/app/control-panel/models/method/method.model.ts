@@ -1,4 +1,4 @@
 export interface MethodModel {
-    id: string;
-    name: string;
-  }
+  methodId: string;
+  methodName: string;
+}

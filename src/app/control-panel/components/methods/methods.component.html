@@ -50,7 +50,7 @@
     <ng-template #tableView>
       <app-method-list-data-table
         [method]="method"
-        (editMethodClicked)="onEditMethodClicked()"
+        (editMethodClicked)="onEditMethodClicked($event)"
         [isBusy]="isFetchingMethods"
       ></app-method-list-data-table>
     </ng-template>

@@ -45,6 +45,12 @@ const MENUITEMS: Menu[] = [
     icon: 'payment',
   },
   {
+    state: 'method',
+    name: 'Method',
+    type: 'link',
+    icon: 'payment',
+  },
+  {
     state: 'testresult',
     name: 'Test Result Calculation',
     type: 'sub',
