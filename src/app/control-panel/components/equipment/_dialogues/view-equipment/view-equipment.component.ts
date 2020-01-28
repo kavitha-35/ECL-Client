@@ -15,6 +15,7 @@ selectedForView: EquipmentModel;
     @Inject(MAT_DIALOG_DATA) public data: EquipmentModel,
   ) {
     this.selectedForView = data;
+   
   }
 
   ngOnInit(): void {

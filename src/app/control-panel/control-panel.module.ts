@@ -144,6 +144,9 @@ import { ReportFormatSearchComponent } from './components/report-format/report-f
 import { ReportFormatDataListComponent } from './components/report-format/report-format-data-list/report-format-data-list.component';
 import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
 import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
+import { EmailGatewayComponent } from './components/gateways/email-gateway/email-gateway.component';
+import { PaymentGatewayComponent } from './components/gateways/payment-gateway/payment-gateway.component';
+import { ContainersComponent } from './components/accession-settings/containers/containers.component';
 
 @NgModule({
   declarations: [
@@ -252,7 +255,10 @@ import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-e
     ReportFormatSearchComponent,
     ReportFormatDataListComponent,
     ViewDepartmentsComponent,
-    ViewEquipmentComponent
+    ViewEquipmentComponent,
+    EmailGatewayComponent,
+    PaymentGatewayComponent,
+    ContainersComponent
   ],
   providers: [
     DatePipe,
