@@ -16,12 +16,9 @@ selectedForView: DepartmentModel;
   ) {
     this.selectedForView = data;
   }
-
   ngOnInit(): void {
   }
-
   public onCloseButtonClicked(): void {
     this.dialogRef.close();
   }
-
 }

@@ -12,6 +12,7 @@ export class MethodListDataTableComponent implements OnInit  {
   @Input() isBusy: boolean;
   @Output() editMethodClicked = new EventEmitter();
   @Output() deleteMethodClicked = new EventEmitter();
+  @Output() viewMethodClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -19,6 +20,10 @@ export class MethodListDataTableComponent implements OnInit  {
 
   ngOnInit(): void {
     this._initializeDisplayedColumns();
+  }
+
+  public onViewMethodClicked(method: MethodModel): void {
+    this.viewMethodClicked.emit(method);
   }
 
   public onEditMethodClicked(method: MethodModel): void {
