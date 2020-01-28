@@ -88,14 +88,10 @@ const MENUITEMS: Menu[] = [
     icon: 'attach_money',
   },
   {
-    state: 'comments',
+    state: 'comment',
     name: 'Comments',
-    type: 'sub',
+    type: 'link',
     icon: 'map',
-    children: [
-      { state: 'not-found', name: 'Add Comments', paramValue: 'Comment' },
-      { state: 'not-found', name: 'Comments List', paramValue: 'Comment' },
-    ],
   },
   {
     state: 'report-format',
