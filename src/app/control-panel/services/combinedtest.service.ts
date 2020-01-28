@@ -30,17 +30,17 @@ export class CombinedTestService {
     return this.httpClient.post<CombinedTest>(apiUrl, test, { headers: headers });
   }
 
-  updateTest(testId: string, test: CombinedTest): Observable<CombinedTest> {
+  updateTest(testId: string, test: CombinedTestModel): Observable<CombinedTest> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${testId}`;
     return this.httpClient.put<CombinedTest>(apiUrl, test, { headers: headers });
   }
 
-  deleteDepartment(departmentId: string): Observable<boolean> {
+  deleteCombinedTest(combinedTestId: string): Observable<boolean> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
-    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${departmentId}`;
+    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${combinedTestId}`;
     return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
   }
 

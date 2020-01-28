@@ -27,10 +27,10 @@
                 <mat-form-field>
                   <mat-label>Test Category</mat-label>
                   <mat-select disableOptionCentering name="testCategoryId" ngModel #testCategory="ngModel">
-                    <mat-option value=1>
+                    <mat-option value="0">
                       In House
                     </mat-option>
-                    <mat-option value=2>
+                    <mat-option value="1">
                       Outsource
                     </mat-option>
                   </mat-select>
@@ -44,50 +44,55 @@
                 <!-- Accreditation  Symbol-->
                 <mat-form-field>
                   <mat-label>Accreditation Symbol</mat-label>
-                  <mat-select disableOptionCentering name="accrediationId" ngModel #accrediationId="ngModel">
-                    <mat-option value=*>
-                      *
-                    </mat-option>
-                    <mat-option value=**>
-                      **
-                    </mat-option>
-                    <mat-option value=#>
-                      #
-                    </mat-option>
+                  <mat-select disableOptionCentering name="accrediationSymbolId" ngModel #accrediationSymbolId="ngModel">
+                    <mat-option *ngFor="let options of accrediationSymbols" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Accreditation -->
                 <mat-form-field>
                   <mat-label>Accreditation</mat-label>
-                  <mat-select disableOptionCentering name="accrediationId" ngModel #accrediationId="ngModel">
-                    <mat-option value=1>
+                  <mat-select disableOptionCentering name="accrediation" ngModel #accrediationId="ngModel">
+                    <mat-option [value]= false >
                       No
                     </mat-option>
-                    <mat-option value=2>
-                     Logos
+                    <mat-option [value]=true>
+                      Logos
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-                 
+
                 <!-- Test Component -->
                 <mat-form-field>
                   <mat-label>Test Component</mat-label>
-                  <input matInput placeholder="Test Component" name="individualTestName" ngModel #individualTestName="ngModel" />
+                  <input
+                    matInput
+                    placeholder="Test Component"
+                    name="individualTestName"
+                    required
+                    ngModel
+                    #individualTestName="ngModel"
+                  />
                 </mat-form-field>
 
-                <!-- Method -->
+                <!-- Equipment -->
                 <mat-form-field>
                   <mat-label>Equipment</mat-label>
-                  <mat-select disableOptionCentering name="equipment">
-                  </mat-select>
+                  <mat-select disableOptionCentering name="equipmentId" ngModel #equipmentId="ngModel">
+                    <mat-option *ngFor="let options of equipments" [value]="options.equipmentId">{{
+                      options.equipmentName
+                    }}</mat-option> </mat-select>
                 </mat-form-field>
 
                 <!-- Processing center -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Processing center</mat-label>
                   <mat-select disableOptionCentering name="processingCentreId" ngModel #processingCentreId="ngModel">
-                    <mat-option *ngFor="let options of processingCenter" [value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of processingCenter" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -107,8 +112,9 @@
                 <mat-form-field>
                   <mat-label>Method</mat-label>
                   <mat-select disableOptionCentering name="methodId" ngModel #methodId="ngModel">
-                    <mat-option value="1">Method 1</mat-option>
-                    <mat-option value="2">Method 2</mat-option>
+                    <mat-option *ngFor="let options of methods" [value]="options.methodId">{{
+                      options.methodName
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -116,30 +122,12 @@
                 <mat-form-field>
                   <mat-label>Unit</mat-label>
                   <mat-select disableOptionCentering name="unitId" ngModel #unitId="ngModel">
-                    <mat-option *ngFor="let options of units" [value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of units" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Reference Range -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Reference Range</mat-label>
-                  <mat-select disableOptionCentering name="referenceRangeId" ngModel #referenceRange="ngModel">
-                  <mat-option value=1>Reference Range 1</mat-option>
-                  <mat-option value=1>Reference Range 2</mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- TAT -->
-                <mat-form-field>
-                  <mat-label>TAT</mat-label>
-                  <input matInput placeholder="TAT" name="tat" ngModel #tat="ngModel" />
-                </mat-form-field>
-
-                <!-- CPT Amount -->
-                <mat-form-field>
-                  <mat-label>CPT Amount</mat-label>
-                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" />
-                </mat-form-field>
 
                 <!-- Integration Code -->
                 <mat-form-field>
@@ -153,12 +141,31 @@
                   />
                 </mat-form-field>
 
+                <!-- CPT Amount -->
+                <mat-form-field>
+                  <mat-label>CPT Amount</mat-label>
+                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" />
+                </mat-form-field>
+
+                <!-- TAT -->
+                <section class="tat">
+                  <mat-label style="margin-top:20px;">TAT</mat-label>
+                  <mat-form-field style="width: 50px;">
+                    <input matInput placeholder="Days" name="tatDays" required ngModel #tatDays="ngModel" />
+                  </mat-form-field>
+                  <mat-form-field style="width: 50px;">
+                    <input matInput placeholder="Hours" name="tatHours" required ngModel #tatHours="ngModel" />
+                  </mat-form-field>
+                  <mat-form-field style="width: 80px;">
+                    <input matInput placeholder="Minutes" name="tatMinutes" required ngModel #tatMinutes="ngModel" />
+                  </mat-form-field>
+                </section>
+
                 <!-- Comments -->
                 <mat-form-field>
                   <mat-label>Comments</mat-label>
                   <input matInput placeholder="Comments" name="comments" ngModel #comments="ngModel" />
                 </mat-form-field>
-
               </section>
             </section>
           </form>

@@ -64,21 +64,22 @@
         </section>
       </th>
       <td mat-cell *matCellDef="let element">
-        <section class="actions-wrapper">
+        <section class="actions-body-wrapper">
           <button class="edit-button" mat-button color="primary" disableRipple
             (click)="onAddIndividualTestClicked(element.combineTestId)">
             <mat-icon>add</mat-icon>
           </button>
           <button class="edit-button" mat-button color="primary" disableRipple
+          (click)="onManageButtonClicked(element.combineTestId)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+          <button class="edit-button" mat-button color="primary" disableRipple
             (click)="onEditCombinedTestModel(element)">
             <mat-icon>edit_outline</mat-icon>
           </button>
-          <button class="action-button" mat-button color="primary" disableRipple [matMenuTriggerFor]="statusMenu">
-            <mat-icon>more_vert_outline</mat-icon>
+          <button class="delete-button" mat-button color="warn" disableRipple (click)="onDeleteCombinedTestClicked(element.combineTestId)">
+            <mat-icon>delete_outline</mat-icon>
           </button>
-          <mat-menu #statusMenu="matMenu">
-            <button mat-menu-item (click)="onManageButtonClicked(element.combineTestId)">Manage</button>
-          </mat-menu>
         </section>
       </td>
     </ng-container>

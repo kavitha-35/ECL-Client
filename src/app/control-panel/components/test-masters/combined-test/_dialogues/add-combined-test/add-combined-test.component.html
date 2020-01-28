@@ -2,7 +2,7 @@
   <mat-card class="combined-test-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Combined Test Master" subTitle="Add a Combined Test" icon="fa-calendar">
+      <app-dialog-caption title="Combine Test Master" subTitle="Add a Combine Test" icon="fa-calendar">
       </app-dialog-caption>
     </section>
 
@@ -15,57 +15,74 @@
       <mat-dialog-content class="outsource-dialog">
         <section>
           <!--combined Test Form -->
-          <form class="combined-test-form">
+          <form class="combined-test-form" #combinedTest="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
-              <app-section-header title="Basic Combined Test Information"></app-section-header>
+              <app-section-header title="Basic Combine Test Information"></app-section-header>
 
               <!-- Content -->
               <section class="basic-content">
                 <!-- ECl Code-->
                 <mat-form-field>
                   <mat-label>ECl DOS Code</mat-label>
-                  <input matInput placeholder="ECl DOS Code" [(ngModel)]="test.eclDocCode" name="eclDocCode" />
+                  <input class="uppercase"
+                    matInput
+                    placeholder="ECl DOS Code"
+                    [(ngModel)]="test.eclDosCode"
+                    name="eclDosCode"
+                    pattern="[a-zA-Z ]*"
+                    required
+                    #eclDosCode="ngModel"
+                  />
+                  <mat-error *ngIf="eclDosCode.invalid && (eclDosCode.dirty || eclDosCode.touched)" class="red">
+                    <mat-error *ngIf="eclDosCode.errors.required">
+                      Ecl Dos Code is required.
+                    </mat-error>
+                    <mat-error *ngIf="eclDosCode.errors?.pattern">
+                      Text is required.
+                    </mat-error>
+                  </mat-error>
                 </mat-form-field>
 
-                <!-- Test Id-->
+                <!-- Test ID-->
                 <mat-form-field>
-                  <mat-label>Test Id</mat-label>
-                  <input matInput placeholder="Test Id" [(ngModel)]="test.testId" name="testId" />
+                  <mat-label>Test ID</mat-label>
+                  <input matInput placeholder="TEXT ID" [(ngModel)]="test.testId" name="testId" class="uppercase"/>
                 </mat-form-field>
 
                 <!-- CPT Code-->
                 <mat-form-field>
                   <mat-label>CPT Code</mat-label>
-                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" />
+                  <input matInput placeholder="CPT Code" [(ngModel)]="test.cptCode" name="cptCode" class="uppercase" />
                 </mat-form-field>
 
                 <!-- Test Name-->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="Test Name" [(ngModel)]="test.testName" name="testName" />
+                  <input matInput placeholder="TEXT NAME" required [(ngModel)]="test.testName" name="testName" class="uppercase" />
                 </mat-form-field>
 
                 <!-- Center Name-->
-                <mat-form-field>
+                <!-- <mat-form-field>
                   <mat-label>Center Name</mat-label>
-                  <input matInput placeholder="Center Name"/>
-                </mat-form-field>
+                  <input matInput placeholder="Center Name" [(ngModel)]="test.centerName" name="centerName"/>
+                </mat-form-field> -->
 
                 <!-- Specimmen-->
                 <mat-form-field>
                   <mat-label>Specimen</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.specimen" name="specimen">
-                    <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{item.lookupName}}</mat-option>
+                    <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Specimmen -->
+                <!-- Specimen -->
                 <mat-form-field>
                   <mat-label>Specimen Type</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.specimenType" name="specimenType">
-                    <mat-option *ngFor="let item of specimenType" [value]="item.lookupId">{{item.lookupName}}
+                    <mat-option *ngFor="let item of specimenType" [value]="item.lookupId"
+                      >{{ item.keyValue }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -73,42 +90,44 @@
                 <!-- Storage-->
                 <mat-form-field>
                   <mat-label>Storage</mat-label>
-                  <mat-select disableOptionCentering [(ngModel)]="test.StorageId" name="StorageId">
-                    <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{item.lookupName}}</mat-option>
+                  <mat-select disableOptionCentering [(ngModel)]="test.storage" name="storageId">
+                    <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Department-->
                 <mat-form-field>
                   <mat-label>Department</mat-label>
-                  <input matInput placeholder="Department" [(ngModel)]="test.department" name="department" />
+                  <mat-select disableOptionCentering [(ngModel)]="test.department" name="departmentId">
+                    <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{ item.departmentName }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
-                  <input matInput placeholder="Patient Fee" [(ngModel)]="test.patientFee" name="patientFee" />
+                  <input matInput placeholder="PATIENT FEE" required [(ngModel)]="test.patientFee" name="patientFee"class="uppercase" />
                 </mat-form-field>
 
                 <!-- Net Fee-->
                 <mat-form-field>
                   <mat-label>Net Fee</mat-label>
-                  <input matInput placeholder="Net Fee" [(ngModel)]="test.netFee" name="netFee" />
+                  <input matInput placeholder="NET FEE"  required [(ngModel)]="test.netFee" name="netFee" class="uppercase"/>
                 </mat-form-field>
 
                 <!-- Report Format -->
                 <mat-form-field>
                   <mat-label>Report Format</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.reportFormat" name="reportFormat">
-                    <mat-option *ngFor="let item of reportFormat" [value]="item.lookupId">{{item.lookupName}}
-                    </mat-option>
+                    <mat-option value="1">Radiology</mat-option>
+                    <mat-option value="1">Pathology</mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Description -->
                 <mat-form-field>
-                  <mat-label>Description</mat-label>
-                  <input matInput placeholder="Description" [(ngModel)]="test.description" name="description" />
+                  <mat-label>Text Description</mat-label>
+                  <textarea matInput placeholder="Text Description" [(ngModel)]="test.description" name="description"class="uppercase" ></textarea>
                 </mat-form-field>
               </section>
             </section>
@@ -116,7 +135,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary">Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="addTest()">Add Combined Test</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="addTest()">Add Combine Test</button>
           </section>
         </section>
       </mat-dialog-content>

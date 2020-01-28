@@ -4,8 +4,14 @@ import { CombinedTestService } from 'app/control-panel/services/combinedtest.ser
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { CombinedTest } from '../../test.model';
+<<<<<<< HEAD
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
 import { NgForm } from '@angular/forms';
+=======
+import { DepartmentService } from 'app/control-panel/services/department.service';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+>>>>>>> 9c2eda9fcd7cbdea8e00ac043469f068b100c535
 
 @Component({
   selector: 'app-edit-combined-test',
@@ -16,20 +22,23 @@ export class EditCombinedTestComponent implements OnInit {
   public get lookUpService(): LookupService {
     return this._lookUpService;
   }
-  public test: CombinedTest;
+  public test: CombinedTestModel;
   specimen: LookUpModel[] = [];
   specimenType: LookUpModel[] = [];
   storage: LookUpModel[] = [];
   reportFormat: LookUpModel[] = [];
+  departments: DepartmentModel[] = [];
 
   constructor(
     private readonly dialogRef: MatDialogRef<EditCombinedTestComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: CombinedTest,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: CombinedTestModel,
     private readonly _combinedTestService: CombinedTestService,
     private readonly cRef: ChangeDetectorRef,
     private _lookUpService: LookupService,
+    private readonly _departmentService: DepartmentService,
   ) {
     this.test = data;
+    console.log(this.test);
   }
 
   ngOnInit(): void {
@@ -37,6 +46,7 @@ export class EditCombinedTestComponent implements OnInit {
     this.getSpecimenType();
     this.getStorage();
     this.getReportFormat();
+    this.getDepartments();
   }
 
   public onEditTestClicked(combinedTest: NgForm): void {
@@ -72,6 +82,12 @@ export class EditCombinedTestComponent implements OnInit {
     this._lookUpService.getLookUp('ReportFormat').subscribe((data: LookUpModel[]) => {
       this.reportFormat = data;
       console.log(this.reportFormat);
+    });
+  }
+
+  public getDepartments(): void {
+    this._departmentService.getAllDepartments().subscribe((data: DepartmentModel[]) => {
+      this.departments = data;
     });
   }
 }

@@ -32,6 +32,7 @@ export class AddReferalLabComponent implements OnInit {
   }
   public onAddReferalLabClicked(): void {
     this.outsource.contactPersons = this.contactPersonList;
+    console.log(this.outsource);
     this.outsourcingService.addOutsourcing(this.outsource).subscribe(() => {
       this._dialogRef.close();
     });
