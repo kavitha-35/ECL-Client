@@ -1,0 +1,26 @@
+#application-dashboard-container {
+
+    display: grid;
+  
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'First         Second           Third';
+  
+  
+    .third-menu {
+      grid-area: Third;
+    }
+  
+    .second-menu {
+      grid-area: Second;
+    }
+  
+    .first-menu {
+      grid-area: First;
+    }
+  }
+  .app-container{
+    margin-top: 100px;
+    margin-left: 200px;
+  }
+  

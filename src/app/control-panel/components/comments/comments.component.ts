@@ -19,11 +19,11 @@ import { LookupService } from 'app/control-panel/services/lookup.service';
 })
 
 export class CommentsComponent implements OnInit {
-  public method: CommentModel[];
+  public comment: CommentModel[];
   public showListView: boolean;
   public pageEvent: PageEvent;
   public pageSizeOptions: number[];
-  public isFetchingMethods: boolean;
+  public isFetchingcomments: boolean;
   matDialogConfig: MatDialogConfig = {
     panelClass: 'mat-dialogue-no-padding',
     width: '1400px',
@@ -42,7 +42,7 @@ export class CommentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllMethod();
+    this.getAllComments();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -53,7 +53,7 @@ export class CommentsComponent implements OnInit {
       .open(AddCommentsComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1));
-    this.getAllMethod();
+    this.getAllComments();
   }
 
   public onEditCommentClicked(): void {
@@ -71,18 +71,18 @@ export class CommentsComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public getAllMethod(): void {
-    this.isFetchingMethods = true;
-    this._methodService.getAllMethod().subscribe((data: CommentModel[]) => {
-      this.method = data;
+  public getAllComments(): void {
+    this.isFetchingcomments = true;
+   /**  this._methodService.getAllComments().subscribe((data: CommentModel[]) => {
+      this.comment = data;
        console.log(data);
-      this.isFetchingMethods = false;
+      this.isFetchingcomments = false;
       this.cRef.detectChanges();
-    });
+    });**/
   }
 
   private _initializeValues(): void {
-    this.method = [
+    this.comment = [
       {
         id: '1',
         name: 'ahmed',

@@ -1,9 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
-import { MethodService } from 'app/control-panel/services/method.service';
-import { DepartmentService } from 'app/control-panel/services/department.service';
-import { DepartmentModel } from 'app/control-panel/models/department/department.model';
+/**import { CommentService } from 'app/control-panel/services/method.service';**/
+
 
 @Component({
   selector: 'app-add-comments',
@@ -13,28 +12,19 @@ import { DepartmentModel } from 'app/control-panel/models/department/department.
 })
 export class AddCommentsComponent implements OnInit {
 
-  public departments: DepartmentModel[];
   constructor(
     private readonly _dialogRef: MatDialogRef<AddCommentsComponent>,
-    private readonly _methodService: MethodService,
-    private readonly departmentService: DepartmentService,
+   /**  private readonly _methodService: CommentService**/
     ) { }
 
     ngOnInit(): void {
-    this.getDepartments();
     }
 
-  public onAddCommentClicked(method: NgForm): void {
-   console.log(method.form.value);
-   this._methodService.addMethod(method.form.value).subscribe((data) => {
+  public onAddCommentClicked(comment: NgForm): void {
+   console.log(comment.form.value);
+  /** this._methodService.addComment(comment.form.value).subscribe((data) => {
     this._dialogRef.close();
-  });
-  }
-
-  public getDepartments(): void {
-    this.departmentService.getAllDepartments().subscribe((data) => {
-      this.departments = data;
-    });
+  });**/
   }
 }
 

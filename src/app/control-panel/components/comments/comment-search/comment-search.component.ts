@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 
 @Component({
   selector: 'app-comment-search',
@@ -9,7 +8,6 @@ import { DepartmentModel } from 'app/control-panel/models/department/department.
 })
 
 export class CommentSearchComponent implements OnInit {
-  departments: DepartmentModel[];
   constructor() { }
 
   ngOnInit(): void {

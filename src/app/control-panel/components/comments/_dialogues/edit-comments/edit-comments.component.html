@@ -1,5 +1,5 @@
-<section id="method-container">
-    <mat-card class="method-mat-card">
+<section id="comment-container">
+    <mat-card class="comment-mat-card">
       <!--  Dialog Caption -->
       <section>
         <app-dialog-caption title="Comment" subTitle="Edits the Comment " icon="fa-calendar">
@@ -12,42 +12,21 @@
         <app-mat-dialog-header></app-mat-dialog-header>
   
         <!-- Mat Card Content -->
-        <mat-dialog-content class="method-dialog">
+        <mat-dialog-content class="comment-dialog">
           <section>
-            <!-- method  Form -->
-            <form class="method-form">
+            <!-- comment  Form -->
+            <form class="comment-form">
               <!-- Basic Information -->
               <section class="basic-wrapper">
                 <!-- Header -->
-                <app-section-header title="Basic Information"></app-section-header>
+                <app-section-header title="Comments"></app-section-header>
   
                 <!-- Content -->
                 <section class="basic-content">
-                  <!-- Method Nmae -->
+                  <!-- comment Nmae -->
                   <mat-form-field class="mt-n7">
-                    <mat-label>Comment Name</mat-label>
-                    <mat-select disableOptionCentering>
-                      <mat-option value="intra">
-                        Intra
-                      </mat-option>
-                      <mat-option value="inter">
-                        Inter
-                      </mat-option>
-                    </mat-select>
+                    <textarea matInput placeholder="Comment" name="commentName" ngModel #commentName="ngModel"></textarea>
                   </mat-form-field>
-
-                  <!-- Method Name -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Department</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="intra">
-                      Intra
-                    </mat-option>
-                    <mat-option value="inter">
-                      Inter
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
                 </section>
               </section>
             </form>
