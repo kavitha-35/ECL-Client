@@ -94,12 +94,31 @@
                 <mat-nav-list class="sub-menu" *ngIf="menuitem.type === 'sub'">
                   <mat-list-item *ngFor="let childItem of menuitem.children" routerLinkActive="open">
                     <a
-                      [routerLink]="[childItem.state]"
-                      [queryParams]="{ action: childItem.paramValue }"
                       class="relative"
                       mat-ripple
-                      >{{ childItem.name | translate }}</a
+                      [routerLink]="[childItem.state]"
+                      [queryParams]="{ action: childItem.paramValue }"
+                      *ngIf="childItem.type === 'link'"
                     >
+                      <span>{{ childItem.name | translate }}</span>
+                      <span fxFlex></span>
+                    </a>
+                    <a class="relative" mat-ripple href="javascript:;" *ngIf="childItem.type === 'sub'">
+                      <span>{{ childItem.name | translate }}</span>
+                      <span fxFlex></span>
+                      <mat-icon class="menu-caret">arrow_drop_down</mat-icon>
+                    </a>
+                    <mat-nav-list class="sub-menu" *ngIf="childItem.type === 'sub'">
+                      <mat-list-item *ngFor="let childItem1 of childItem.children1" routerLinkActive="open">
+                        <a
+                          [routerLink]="[childItem1.state]"
+                          [queryParams]="{ action: childItem1.paramValue }"
+                          class="relative"
+                          mat-ripple
+                          >{{ childItem1.name | translate }}</a
+                        >
+                      </mat-list-item>
+                    </mat-nav-list>
                   </mat-list-item>
                 </mat-nav-list>
               </mat-list-item>
@@ -117,12 +136,12 @@
         <button mat-icon-button (click)="collapseSidebar = !collapseSidebar">
           <mat-icon>menu</mat-icon>
         </button>
-          <section class="search-bar" >
-            <form class="search-form">
-              <mat-icon>search</mat-icon>
-              <input type="text" placeholder="Search" />
-            </form>
-          </section>
+        <section class="search-bar">
+          <form class="search-form">
+            <mat-icon>search</mat-icon>
+            <input type="text" placeholder="Search" />
+          </form>
+        </section>
         <span fxFlex></span>
         <button appToggleFullscreen mat-icon-button class="sm-disable">
           <mat-icon>fullscreen</mat-icon>
