@@ -4,14 +4,10 @@ import { CombinedTestService } from 'app/control-panel/services/combinedtest.ser
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { CombinedTest } from '../../test.model';
-<<<<<<< HEAD
-import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
-import { NgForm } from '@angular/forms';
-=======
 import { DepartmentService } from 'app/control-panel/services/department.service';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
->>>>>>> 9c2eda9fcd7cbdea8e00ac043469f068b100c535
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-combined-test',

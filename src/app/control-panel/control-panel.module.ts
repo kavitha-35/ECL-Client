@@ -145,6 +145,7 @@ import { ReportFormatDataListComponent } from './components/report-format/report
 import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
 import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { ViewMethodComponent } from './components/methods/_dialogues/view-method/view-method/view-method.component';
 
 @NgModule({
   declarations: [
@@ -253,7 +254,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
     ReportFormatSearchComponent,
     ReportFormatDataListComponent,
     ViewDepartmentsComponent,
-    ViewEquipmentComponent
+    ViewEquipmentComponent,
+    ViewMethodComponent
   ],
   providers: [
     DatePipe,
