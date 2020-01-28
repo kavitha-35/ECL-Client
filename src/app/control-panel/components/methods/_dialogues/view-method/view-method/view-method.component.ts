@@ -10,7 +10,7 @@ export class ViewMethodComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }
