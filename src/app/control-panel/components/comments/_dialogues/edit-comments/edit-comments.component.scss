@@ -1,4 +1,4 @@
-@import '../../../../../../assets/styles/scss/color';
+@import "../../../../../../assets/styles/scss/color";
 
 @mixin forms-grid {
   display: grid;
@@ -10,16 +10,16 @@
   margin-bottom: 18px;
 }
 
-#department-container {
-  .department-mat-card {
+#equipment-container {
+  .equipment-mat-card {
     display: grid;
     grid-template-columns: 220px 1fr;
 
-    .outsource-dialog {
+    .equipment-dialog {
       margin: auto;
     }
 
-    .department-form {
+    .equipment-form {
       .basic-wrapper {
         @include margin-bottom-18;
 
@@ -32,34 +32,18 @@
         }
       }
 
-      .locale-information-wrapper {
+      .payment-information-wrapper {
         @include margin-bottom-18;
 
-        .locale-information-content {
+        .payment-information-content {
           @include forms-grid;
         }
       }
 
-      .finance-information-wrapper {
+      .login-information-wrapper {
         @include margin-bottom-18;
 
-        .finance-information-content {
-          @include forms-grid;
-        }
-      }
-
-      .finance-information-wrapper {
-        @include margin-bottom-18;
-
-        .finance-information-content {
-          @include forms-grid;
-        }
-      }
-
-      .user-credentials-information-wrapper {
-        @include margin-bottom-18;
-
-        .user-credentials-content {
+        .login-information-content {
           @include forms-grid;
         }
       }
@@ -68,6 +52,7 @@
         @include margin-bottom-18;
       }
     }
+
     .action-buttons-wrapper {
       display: flex;
       margin: 12px;

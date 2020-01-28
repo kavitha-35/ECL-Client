@@ -146,6 +146,13 @@ import { ViewDepartmentsComponent } from './components/department/_dialogues/vie
 import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { ViewMethodComponent } from './components/methods/_dialogues/view-method/view-method/view-method.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { EditCommentsComponent } from './components/comments/_dialogues/edit-comments/edit-comments.component';
+import { CommentListDataTableComponent } from './components/comments/comment-list-data-table/comment-list-data-table.component';
+import { CommentRibbonMenuComponent } from './components/comments/comment-ribbon-menu/comment-ribbon-menu.component';
+import { CommentSearchComponent } from './components/comments/comment-search/comment-search.component';
+import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
+import { AddCommentsComponent } from './components/comments/_dialogues/add-comments/add-comments.component';
 
 @NgModule({
   declarations: [
@@ -261,6 +268,14 @@ import { ViewMethodComponent } from './components/methods/_dialogues/view-method
     DatePipe,
     ControlPanelMenu,
     MatDatepickerModule,
+    CommentsComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentListComponent,
+    CommentListDataTableComponent,
+    CommentRibbonMenuComponent,
+    CommentSearchComponent,
+    CommentListComponent,
   ],
 
   imports: [
@@ -354,7 +369,10 @@ import { ViewMethodComponent } from './components/methods/_dialogues/view-method
     EditReportFormatComponent,
     ReportFormatSearchComponent,
     ViewDepartmentsComponent,
-    ViewEquipmentComponent
+    ViewEquipmentComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentSearchComponent
   ],
 })
 export class ControlPanelModule {}
