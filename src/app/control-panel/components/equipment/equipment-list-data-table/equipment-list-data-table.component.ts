@@ -25,8 +25,8 @@ export class EquipmentListDataTableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public onEditEquipmentClicked(): void {
-    this.editEquipmentClicked.emit();
+  public onEditEquipmentClicked(equipment: EquipmentModel): void {
+    this.editEquipmentClicked.emit(equipment);
   }
   public onViewEquipmentClicked(equipment: EquipmentModel): void {
     this.viewEquipmentClicked.emit(equipment);
