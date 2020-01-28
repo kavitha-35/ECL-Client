@@ -54,11 +54,20 @@ export class MethodsComponent implements OnInit {
     this.getAllMethod();
   }
 
-  public onEditMethodClicked(): void {
+  public onEditMethodClicked(method: MethodModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: method,
+    };
     this._matDialog
-      .open(EditMethodComponent, this.matDialogConfig)
+      .open(EditMethodComponent, matDialogConfig)
       .afterClosed()
-      .pipe(take(1));
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllMethod();
+      });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -77,14 +86,5 @@ export class MethodsComponent implements OnInit {
       this.isFetchingMethods = false;
       this.cRef.detectChanges();
     });
-  }
-
-  private _initializeValues(): void {
-    this.method = [
-      {
-        id: '1',
-        name: 'ahmed',
-      },
-    ];
   }
 }

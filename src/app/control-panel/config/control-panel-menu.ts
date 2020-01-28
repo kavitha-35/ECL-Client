@@ -39,14 +39,14 @@ const MENUITEMS: Menu[] = [
     icon: 'polymer',
   },
   {
-    state: 'method',
-    name: 'Method',
-    type: 'link',
-    icon: 'play_for_work',
-  },
-  {
     state: 'reference-range',
     name: 'Reference Range',
+    type: 'link',
+    icon: 'payment',
+  },
+  {
+    state: 'method',
+    name: 'Method',
     type: 'link',
     icon: 'payment',
   },

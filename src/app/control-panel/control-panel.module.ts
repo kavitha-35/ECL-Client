@@ -145,6 +145,7 @@ import { ReportFormatDataListComponent } from './components/report-format/report
 import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
 import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { ViewMethodComponent } from './components/methods/_dialogues/view-method/view-method/view-method.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { EditCommentsComponent } from './components/comments/_dialogues/edit-comments/edit-comments.component';
 import { CommentListDataTableComponent } from './components/comments/comment-list-data-table/comment-list-data-table.component';
@@ -261,6 +262,19 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     ReportFormatDataListComponent,
     ViewDepartmentsComponent,
     ViewEquipmentComponent,
+    ViewMethodComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentListComponent,
+    CommentListDataTableComponent,
+    CommentsComponent,
+    CommentSearchComponent,
+    CommentRibbonMenuComponent,
+  ],
+  providers: [
+    DatePipe,
+    ControlPanelMenu,
+    MatDatepickerModule,
     CommentsComponent,
     AddCommentsComponent,
     EditCommentsComponent,
@@ -270,7 +284,6 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     CommentSearchComponent,
     CommentListComponent,
   ],
-  providers: [DatePipe, ControlPanelMenu, MatDatepickerModule],
 
   imports: [
     CKEditorModule,
@@ -366,7 +379,7 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     ViewEquipmentComponent,
     AddCommentsComponent,
     EditCommentsComponent,
-    CommentSearchComponent
+    CommentSearchComponent,
   ],
 })
 export class ControlPanelModule {}
