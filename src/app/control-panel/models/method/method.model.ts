@@ -1,4 +1,7 @@
+import { DepartmentModel } from '../department/department.model';
+
 export interface MethodModel {
-    id: string;
-    name: string;
-  }
+  methodId: string;
+  methodName: string;
+  department: DepartmentModel;
+}

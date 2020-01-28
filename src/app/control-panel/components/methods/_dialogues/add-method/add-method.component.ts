@@ -9,7 +9,6 @@ import { DepartmentModel } from 'app/control-panel/models/department/department.
   selector: 'app-add-method',
   templateUrl: './add-method.component.html',
   styleUrls: ['./add-method.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddMethodComponent implements OnInit {
   public departments: DepartmentModel[];

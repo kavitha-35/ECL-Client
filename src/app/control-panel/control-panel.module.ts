@@ -147,6 +147,15 @@ import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-e
 import { EmailGatewayComponent } from './components/gateways/email-gateway/email-gateway.component';
 import { PaymentGatewayComponent } from './components/gateways/payment-gateway/payment-gateway.component';
 import { ContainersComponent } from './components/accession-settings/containers/containers.component';
+import { CKEditorModule } from 'ng2-ckeditor';
+import { ViewMethodComponent } from './components/methods/_dialogues/view-method/view-method/view-method.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { EditCommentsComponent } from './components/comments/_dialogues/edit-comments/edit-comments.component';
+import { CommentListDataTableComponent } from './components/comments/comment-list-data-table/comment-list-data-table.component';
+import { CommentRibbonMenuComponent } from './components/comments/comment-ribbon-menu/comment-ribbon-menu.component';
+import { CommentSearchComponent } from './components/comments/comment-search/comment-search.component';
+import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
+import { AddCommentsComponent } from './components/comments/_dialogues/add-comments/add-comments.component';
 
 @NgModule({
   declarations: [
@@ -258,15 +267,32 @@ import { ContainersComponent } from './components/accession-settings/containers/
     ViewEquipmentComponent,
     EmailGatewayComponent,
     PaymentGatewayComponent,
-    ContainersComponent
+    ContainersComponent,
+    ViewMethodComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentListComponent,
+    CommentListDataTableComponent,
+    CommentsComponent,
+    CommentSearchComponent,
+    CommentRibbonMenuComponent,
   ],
   providers: [
     DatePipe,
     ControlPanelMenu,
     MatDatepickerModule,
+    CommentsComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentListComponent,
+    CommentListDataTableComponent,
+    CommentRibbonMenuComponent,
+    CommentSearchComponent,
+    CommentListComponent,
   ],
 
   imports: [
+    CKEditorModule,
     RouterModule,
     SharedModule,
     MatIconModule,
@@ -356,7 +382,10 @@ import { ContainersComponent } from './components/accession-settings/containers/
     EditReportFormatComponent,
     ReportFormatSearchComponent,
     ViewDepartmentsComponent,
-    ViewEquipmentComponent
+    ViewEquipmentComponent,
+    AddCommentsComponent,
+    EditCommentsComponent,
+    CommentSearchComponent,
   ],
 })
 export class ControlPanelModule {}

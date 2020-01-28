@@ -1,68 +1,77 @@
-@import "../../../../../../assets/styles/scss/color";
-
-@mixin forms-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 24px;
-}
-
-@mixin margin-bottom-18 {
-  margin-bottom: 18px;
-}
-
-#reference-range-container {
-  .reference-range-mat-card {
+#add-reference-range-container {
+  .user-details-container {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 24px;
 
-    .outsource-dialog {
-      margin: auto;
+    .pt-13 {
+      padding-top: 13px;
     }
+  }
+  
+  .add-reference-dialog {
+    margin: auto;
+  }
+  .normal-reference-range-container {
+    @extend .user-details-container;
+  }
 
-    .reference-range-form {
-      .basic-wrapper {
-        @include margin-bottom-18;
+  .minimum-maximum-ranges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
 
-        .basic-content {
-          @include forms-grid;
-
-          .pt-13 {
-            padding-top: 13px;
-          }
-        }
-      }
-
-      .payment-information-wrapper {
-        @include margin-bottom-18;
-
-        .payment-information-content {
-          @include forms-grid;
-        }
-      }
-
-      .login-information-wrapper {
-        @include margin-bottom-18;
-
-        .login-information-content {
-          @include forms-grid;
-        }
-      }
-
-      .comment-information-wrapper {
-        @include margin-bottom-18;
-      }
+    .pt-13 {
+      padding-top: 13px;
     }
+  }
 
-    .action-buttons-wrapper {
-      display: flex;
-      margin: 12px;
+  .age-specific-information-container {
+    @extend .user-details-container;
+  }
 
-      justify-content: center;
-      align-items: center;
+  .file-graph-information-container {
+    @extend .user-details-container;
+  }
 
-      button {
-        margin-left: 24px;
-      }
+  .list-of-values-information-container {
+    @extend .user-details-container;
+  }
+
+  .critical-reference-range-container {
+    @extend .user-details-container;
+  }
+
+  .comment-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 12px 0px;
+
+    .mr-48 {
+      margin-right: 48px;
     }
+  }
+
+  .mt-16 {
+    margin-top: 16px;
+  }
+
+  .pl-100 {
+    padding-left: 100px;
+  }
+
+  .mr-16 {
+    margin-right: 16px;
+  }
+
+  .mr-0 {
+    margin-right: 0px;
   }
 }

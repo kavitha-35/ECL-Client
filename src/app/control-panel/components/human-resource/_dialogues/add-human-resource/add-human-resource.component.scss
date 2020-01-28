@@ -9,7 +9,11 @@
 @mixin margin-bottom-18 {
   margin-bottom: 18px;
 }
+.validation{
+  color:rgb(238, 65, 65);
+  font-size: 10px;
 
+}
 #humanresource-container {
   .humanresource-mat-card {
     display: grid;

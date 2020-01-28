@@ -24,6 +24,7 @@ export class CombinedTestListDataTableComponent implements OnInit {
   @Output() editCombinedTestClicked = new EventEmitter<CombinedTestModel>();
   @Output() manageButtonClicked: EventEmitter<number>;
   @Output() addTestClicked: EventEmitter<string>;
+  @Output() deleteCombinedTestClicked: EventEmitter<string>;
   @Input() isBusy: boolean;
   public expandedElement: CombinedTestModel[];
   public displayedColumns: string[];
@@ -38,6 +39,7 @@ export class CombinedTestListDataTableComponent implements OnInit {
   constructor(private readonly matDialog: MatDialog, private _combinedTestService: CombinedTestService) {
     this.manageButtonClicked = new EventEmitter<number>();
     this.addTestClicked = new EventEmitter<string>();
+    this.deleteCombinedTestClicked = new EventEmitter<string>();
     this.expansionColoumns = [
       'nestedSymbol',
       'testCategory',
@@ -57,6 +59,10 @@ export class CombinedTestListDataTableComponent implements OnInit {
 
   public onEditCombinedTestModel(profiletest: CombinedTestModel): void {
     this.editCombinedTestClicked.emit(profiletest);
+  }
+
+  public onDeleteCombinedTestClicked(combinedTestId: string): void {
+    this.deleteCombinedTestClicked.emit(combinedTestId);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {

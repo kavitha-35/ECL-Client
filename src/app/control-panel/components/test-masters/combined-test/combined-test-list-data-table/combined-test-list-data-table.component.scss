@@ -32,6 +32,30 @@ table {
   }
 }
 
+.actions-body-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 25px;
+
+  button {
+    padding: 0;
+    line-height: 1;
+    min-width: 32px;
+  }
+
+  .edit-button {
+    visibility: hidden;
+  }
+
+  .delete-button {
+    visibility: hidden;
+  }
+
+  .action-button {
+    color: rgba(0, 0, 0, 0.54);
+  }
+}
+
 .mat-row:hover {
   background: whitesmoke;
   cursor: pointer;

@@ -1,11 +1,11 @@
 export class CombinedTest {
-    eclDocCode: number;
+    eclDosCode: number;
     testId: number;
     cptCode: string;
     testName: string;
     specimen: string;
     specimenType: string;
-    StorageId: number;
+    storage: number;
     department: number;
     patientFee: number;
     netFee: number;

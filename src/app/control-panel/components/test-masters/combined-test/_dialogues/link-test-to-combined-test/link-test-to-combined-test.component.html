@@ -7,145 +7,174 @@
     ></app-mat-dialog-header>
     <mat-divider></mat-divider>
     <mat-dialog-content style="margin: auto;">
-      <section>
-        <!-- Search TextBox -->
-        <section style="align-content: flex-end;">
-          <mat-form-field>
-            <input matInput type="text" (keyup)="searchQuery($event)" [matAutocomplete]="search" />
-            <mat-autocomplete #search="matAutocomplete" >
-              <mat-option *ngFor="let element of selectedTests"  (click)="selectedAutoComplete(element)">
-                {{element.testComponent}}
-              </mat-option>
-            </mat-autocomplete>
-            <button mat-button matSuffix mat-icon-button (click)="onSearchButtonClicked()">
-              <mat-icon>search</mat-icon>
-            </button>
-          </mat-form-field>
-        </section>
+      <!-- Group By-->
+      <mat-form-field style="padding-left: 10px;">
+        <mat-label>Group By</mat-label>
+        <mat-select disableOptionCentering name="groupById">
+          <mat-option *ngFor="let options of groupBys" [value]="options.lookupId">{{ options.keyValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <!-- Mat Data Table -->
-        <table mat-table [dataSource]="testsInTable " class="full-width">
-          <!-- ID Column -->
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>Test ID</th>
-            <td mat-cell *matCellDef="let element">{{ element.individualTestId }}</td>
-          </ng-container>
+      <!-- Order By-->
+      <mat-form-field style="padding-left: 10px;">
+        <mat-label>Order By</mat-label>
+        <mat-select disableOptionCentering name="orderById">
+          <mat-option [value]="1">1</mat-option>
+          <mat-option [value]="2">2</mat-option>
+          <mat-option [value]="3">3</mat-option>
+          <mat-option [value]="4">4</mat-option>
+          <mat-option [value]="5">5</mat-option>
+          <mat-option [value]="6">6</mat-option>
+          <mat-option [value]="7">7</mat-option>
+          <mat-option [value]="8">8</mat-option>
+          <mat-option [value]="9">9</mat-option>
+          <mat-option [value]="10">10</mat-option>
+          <mat-option [value]="11">11</mat-option>
+          <mat-option [value]="12">12</mat-option>
+          <mat-option [value]="13">13</mat-option>
+          <mat-option [value]="14">14</mat-option>
+          <mat-option [value]="15">15</mat-option>
+          <mat-option [value]="16">16</mat-option>
+          <mat-option [value]="17">17</mat-option>
+          <mat-option [value]="18">18</mat-option>
+          <mat-option [value]="19">19</mat-option>
+          <mat-option [value]="20">20</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-          <!-- Activity -->
-          <ng-container matColumnDef="activity">
-            <th mat-header-cell *matHeaderCellDef>Activity</th>
-            <td mat-cell *matCellDef="let element">{{ element.ActiveStatus }}</td>
-          </ng-container>
+      <!-- Search TextBox -->
+      <mat-form-field  style="float: right;">
+        <input matInput type="text" (keyup)="searchQuery($event)" placeholder="Search for Tests" [matAutocomplete]="search" />
+        <mat-autocomplete #search="matAutocomplete">
+          <mat-option *ngFor="let element of selectedTests" (click)="selectedAutoComplete(element)">
+            {{ element.testComponent }}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
 
-          <!-- Test Category -->
-          <ng-container matColumnDef="testCategory">
-            <th mat-header-cell *matHeaderCellDef>Test Category</th>
-            <td mat-cell *matCellDef="let element">{{ element.testCategory.testCategoryName }}</td>
-          </ng-container>
+      <!-- Mat Data Table -->
+      <table mat-table [dataSource]="testsInTable" class="full-width">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Test ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.individualTestId }}</td>
+        </ng-container>
 
-          <!-- Accreditiation Symbol -->
-          <ng-container matColumnDef="accreditiationSymbol">
-            <th mat-header-cell *matHeaderCellDef>Accreditiation Symbol</th>
-            <td mat-cell *matCellDef="let element">{{ element.accreditationSymbol }}</td>
-          </ng-container>
+        <!-- Activity -->
+        <ng-container matColumnDef="activity">
+          <th mat-header-cell *matHeaderCellDef>Activity</th>
+          <td mat-cell *matCellDef="let element">{{ element.ActiveStatus }}</td>
+        </ng-container>
 
-          <!-- Integration code -->
-          <ng-container matColumnDef="integrationCode">
-            <th mat-header-cell *matHeaderCellDef>Integration Code</th>
-            <td mat-cell *matCellDef="let element">{{ element.integrationCode }}</td>
-          </ng-container>
+        <!-- Test Category -->
+        <ng-container matColumnDef="testCategory">
+          <th mat-header-cell *matHeaderCellDef>Test Category</th>
+          <td mat-cell *matCellDef="let element">{{ element.testCategory.testCategoryName }}</td>
+        </ng-container>
 
-          <!-- Test Component -->
-          <ng-container matColumnDef="testComponent">
-            <th mat-header-cell *matHeaderCellDef>Test Component</th>
-            <td mat-cell *matCellDef="let element">{{ element.testComponent }}</td>
-          </ng-container>
+        <!-- Accreditiation Symbol -->
+        <ng-container matColumnDef="accreditiationSymbol">
+          <th mat-header-cell *matHeaderCellDef>Accreditiation Symbol</th>
+          <td mat-cell *matCellDef="let element">{{ element.accreditationSymbol }}</td>
+        </ng-container>
 
-          <!-- Processing Center -->
-          <ng-container matColumnDef="processingCenter">
-            <th mat-header-cell *matHeaderCellDef>Processing Center</th>
-            <td mat-cell *matCellDef="let element">{{ element.processingCenter }}</td>
-          </ng-container>
+        <!-- Integration code -->
+        <ng-container matColumnDef="integrationCode">
+          <th mat-header-cell *matHeaderCellDef>Integration Code</th>
+          <td mat-cell *matCellDef="let element">{{ element.integrationCode }}</td>
+        </ng-container>
 
-          <!-- Outsource Vendor Code -->
-          <ng-container matColumnDef="outsourceVendorCode">
-            <th mat-header-cell *matHeaderCellDef>Outsource Vendor Code</th>
-            <td mat-cell *matCellDef="let element">{{ element.outsourceVendorCode }}</td>
-          </ng-container>
+        <!-- Test Component -->
+        <ng-container matColumnDef="testComponent">
+          <th mat-header-cell *matHeaderCellDef>Test Component</th>
+          <td mat-cell *matCellDef="let element">{{ element.testComponent }}</td>
+        </ng-container>
 
-          <!-- Method -->
-          <ng-container matColumnDef="method">
-            <th mat-header-cell *matHeaderCellDef>Method</th>
-            <td mat-cell *matCellDef="let element">{{ element.method.methodName }}</td>
-          </ng-container>
+        <!-- Processing Center -->
+        <ng-container matColumnDef="processingCenter">
+          <th mat-header-cell *matHeaderCellDef>Processing Center</th>
+          <td mat-cell *matCellDef="let element">{{ element.processingCenter }}</td>
+        </ng-container>
 
-          <!--Unit -->
-          <ng-container matColumnDef="unit">
-            <th mat-header-cell *matHeaderCellDef>Unit</th>
-            <td mat-cell *matCellDef="let element">{{ element.unit.unitName }}</td>
-          </ng-container>
+        <!-- Outsource Vendor Code -->
+        <ng-container matColumnDef="outsourceVendorCode">
+          <th mat-header-cell *matHeaderCellDef>Outsource Vendor Code</th>
+          <td mat-cell *matCellDef="let element">{{ element.outsourceVendorCode }}</td>
+        </ng-container>
 
-          <!--Reference Range -->
-          <ng-container matColumnDef="referenceRange">
-            <th mat-header-cell *matHeaderCellDef>Reference Range</th>
-            <td mat-cell *matCellDef="let element">{{ element.referenceRange }}</td>
-          </ng-container>
+        <!-- Method -->
+        <ng-container matColumnDef="method">
+          <th mat-header-cell *matHeaderCellDef>Method</th>
+          <td mat-cell *matCellDef="let element">{{ element.method.methodName }}</td>
+        </ng-container>
 
-          <!--TAT -->
-          <ng-container matColumnDef="tat">
-            <th mat-header-cell *matHeaderCellDef>TAT</th>
-            <td mat-cell *matCellDef="let element">{{ element.tat }}</td>
-          </ng-container>
+        <!--Unit -->
+        <ng-container matColumnDef="unit">
+          <th mat-header-cell *matHeaderCellDef>Unit</th>
+          <td mat-cell *matCellDef="let element">{{ element.unit.unitName }}</td>
+        </ng-container>
 
-          <!--CPT Amount-->
-          <ng-container matColumnDef="cptAmount">
-            <th mat-header-cell *matHeaderCellDef>CPT Amount</th>
-            <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
-          </ng-container>
+        <!--Reference Range -->
+        <ng-container matColumnDef="referenceRange">
+          <th mat-header-cell *matHeaderCellDef>Reference Range</th>
+          <td mat-cell *matCellDef="let element">{{ element.referenceRange }}</td>
+        </ng-container>
 
-          <!--Accreditation -->
-          <ng-container matColumnDef="accreditation">
-            <th mat-header-cell *matHeaderCellDef>Accreditation</th>
-            <td mat-cell *matCellDef="let element">{{ element.accreditation }}</td>
-          </ng-container>
+        <!--TAT -->
+        <ng-container matColumnDef="tat">
+          <th mat-header-cell *matHeaderCellDef>TAT</th>
+          <td mat-cell *matCellDef="let element">{{ element.tat }}</td>
+        </ng-container>
 
-          <!--Comments -->
-          <ng-container matColumnDef="comments">
-            <th mat-header-cell *matHeaderCellDef>Comment</th>
-            <td mat-cell *matCellDef="let element">{{ element.comments }}</td>
-          </ng-container>
+        <!--CPT Amount-->
+        <ng-container matColumnDef="cptAmount">
+          <th mat-header-cell *matHeaderCellDef>CPT Amount</th>
+          <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
+        </ng-container>
 
-          <!--Action-->
-          <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef>
-              <section class="actions-wrapper">
-                <app-column-chooser
-                  [columns]="filteredColumns"
-                  (closed)="onColumnChooserClosed($event)"
-                ></app-column-chooser>
-              </section>
-            </th>
-            <td mat-cell *matCellDef="let element;let i= index">
-              <section class="actions-wrapper">
-                <button class="delete-button" mat-button color="warn" disableRipple (click)="onClearButtonClicked(i)">
-                  <mat-icon>clear</mat-icon>
-                </button>
-              </section>
-            </td>
-          </ng-container>
+        <!--Accreditation -->
+        <ng-container matColumnDef="accreditation">
+          <th mat-header-cell *matHeaderCellDef>Accreditation</th>
+          <td mat-cell *matCellDef="let element">{{ element.accreditation }}</td>
+        </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
+        <!--Comments -->
+        <ng-container matColumnDef="comments">
+          <th mat-header-cell *matHeaderCellDef>Comment</th>
+          <td mat-cell *matCellDef="let element">{{ element.comments }}</td>
+        </ng-container>
 
-        <section *ngIf="isBusy">
-          <app-progress-indicator label="Fetching Test(s)"></app-progress-indicator>
-        </section>
+        <!--Action-->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>
+            <section class="actions-wrapper">
+              <app-column-chooser
+                [columns]="filteredColumns"
+                (closed)="onColumnChooserClosed($event)"
+              ></app-column-chooser>
+            </section>
+          </th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <section class="actions-wrapper">
+              <button class="delete-button" mat-button color="warn" disableRipple (click)="onClearButtonClicked(i)">
+                <mat-icon>clear</mat-icon>
+              </button>
+            </section>
+          </td>
+        </ng-container>
 
-        <!-- No Record(s) Message -->
-        <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3" *ngIf="!tests && !isBusy">
-          No Tests Found
-        </section>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <section *ngIf="isBusy">
+        <app-progress-indicator label="Fetching Test(s)"></app-progress-indicator>
+      </section>
+
+      <!-- No Record(s) Message -->
+      <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3" *ngIf="!tests && !isBusy">
+        No Tests Found
       </section>
     </mat-dialog-content>
     <section mat-dialog-actions>

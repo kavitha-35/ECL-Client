@@ -47,11 +47,6 @@ export class ReferalLabListDataTableComponent implements OnInit {
       { columnName: 'postBox', displayValue: 'Post Box', isSelected: false },
       { columnName: 'city', displayValue: 'City', isSelected: true },
       { columnName: 'country', displayValue: 'Country', isSelected: true },
-      { columnName: 'salesRepresentative', displayValue: 'Sales Representative', isSelected: true },
-      { columnName: 'courier', displayValue: 'Courier', isSelected: false },
-      { columnName: 'contactPersonName', displayValue: 'Contact Person Name', isSelected: true },
-      { columnName: 'mobile', displayValue: 'Mobile ', isSelected: true },
-      { columnName: 'mail', displayValue: 'Mail', isSelected: false },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter(x => x.isSelected);

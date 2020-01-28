@@ -39,14 +39,14 @@ const MENUITEMS: Menu[] = [
     icon: 'polymer',
   },
   {
-    state: 'method',
-    name: 'Method',
-    type: 'link',
-    icon: 'play_for_work',
-  },
-  {
     state: 'reference-range',
     name: 'Reference Range',
+    type: 'link',
+    icon: 'payment',
+  },
+  {
+    state: 'method',
+    name: 'Method',
     type: 'link',
     icon: 'payment',
   },
@@ -88,14 +88,10 @@ const MENUITEMS: Menu[] = [
     icon: 'attach_money',
   },
   {
-    state: 'comments',
+    state: 'comment',
     name: 'Comments',
-    type: 'sub',
+    type: 'link',
     icon: 'map',
-    children: [
-      { state: 'not-found', name: 'Add Comments', paramValue: 'Comment' },
-      { state: 'not-found', name: 'Comments List', paramValue: 'Comment' },
-    ],
   },
   {
     state: 'report-format',

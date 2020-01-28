@@ -1,134 +1,290 @@
-<section id="reference-range-container">
-  <mat-card class="reference-range-mat-card">
-    <!--  Dialog Caption -->
-    <section>
-      <app-dialog-caption title="Reference Range" subTitle="Add Reference Range" icon="fa-calendar">
-      </app-dialog-caption>
-    </section>
+<section id="add-reference-range-container">
+  <mat-card>
+    <!-- Mat Card Header -->
+    <app-mat-dialog-header
+      title="Add Reference Range"
+      subTitle="Add Reference Range with Individual Test"
+    ></app-mat-dialog-header>
+    <mat-divider></mat-divider>
+    <mat-dialog-content class="add-reference-dialog">
+      <section>
+        <mat-horizontal-stepper>
+          <mat-step>
+            <!-- Normal Reference Range -->
+            <form autocomplete="off">
+              <ng-template matStepLabel>Normal Range</ng-template>
 
-    <!-- Dialog Content -->
-    <section>
-      <!-- Mat Card Header -->
-      <app-mat-dialog-header></app-mat-dialog-header>
-
-      <!-- Mat Card Content -->
-      <mat-dialog-content class="outsource-dialog">
-        <section>
-          <!-- Outsource Management Form -->
-          <form class="reference-range-form" #referenceRange="ngForm">
-            <!-- Basic Information -->
-            <section class="basic-wrapper">
-              <!-- Header -->
-              <app-section-header title="Basic Information"></app-section-header>
-
-              <!-- Content -->
-              <section class="basic-content">
-                <!-- Lab Name -->
-                <mat-form-field>
-                  <mat-label>Test Code</mat-label>
-                  <input matInput placeholder="Test Code" name="testCode" ngModel #testCode="ngModel" />
+              <section class="normal-reference-range-container">
+                <!-- Individual Test Id -->
+                <mat-form-field *ngIf="testId" >
+                  <mat-label>Individual Test ID</mat-label>
+                  <input matInput placeholder="Test ID" [(ngModel)]="testId" name="testId" disabled/>
                 </mat-form-field>
 
-                <!-- Machine-->
-                <mat-form-field>
-                  <mat-label>Machine</mat-label>
-                  <mat-select placeholder="Machine" name="machine" ngModel #machine="ngModel">
-                    <mat-option value="8">
-                      Biotech
-                    </mat-option>
-                    <mat-option value="20">
-                      Radiology
-                    </mat-option>
-                    <mat-option value="21">
-                      Chemistry
-                    </mat-option>
+                <!-- Individual Test Name -->
+                <mat-form-field *ngIf="!testId" class="mt-n7">
+                  <mat-label>Individual Test Name</mat-label>
+                  <mat-select disableOptionCentering placeholder="Individual Test Name">
+                    <mat-option></mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Test Name -->
-                <mat-form-field>
-                  <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="Test Name" name="testName" ngModel #testName="ngModel" />
+                <!-- Male Reference Range -->
+                <section class="minimum-maximum-ranges">
+                  <mat-label class="mt-16">Male Range</mat-label>
+                  <mat-form-field>
+                    <mat-label>Minimum</mat-label>
+                    <input matInput placeholder="Minimum" />
+                  </mat-form-field>
+
+                  <!-- Maximum -->
+                  <mat-form-field>
+                    <mat-label>Maximum</mat-label>
+                    <input matInput placeholder="Email" />
+                  </mat-form-field>
+                </section>
+
+                <!-- female reference Range -->
+                <section class="minimum-maximum-ranges">
+                  <mat-label class="mt-16">Female Range</mat-label>
+                  <mat-form-field>
+                    <mat-label>Minimum</mat-label>
+                    <input matInput placeholder="Minimum" />
+                  </mat-form-field>
+
+                  <!-- Maximum -->
+                  <mat-form-field>
+                    <mat-label>Maximum</mat-label>
+                    <input matInput placeholder="Maximum" />
+                  </mat-form-field>
+                </section>
+              </section>
+            </form>
+
+            <!-- Buttons Container -->
+            <section class="action-buttons-container">
+              <button mat-button color="primary" class="mr-48" [matDialogClose]>Close</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </section>
+          </mat-step>
+
+          <mat-step>
+            <!-- Descriptive Range Information -->
+            <form autocomplete="off">
+              <ng-template matStepLabel>Descriptive Range</ng-template>
+              <section class="comment-wrapper">
+                <!-- Male Range -->
+                <mat-label>Male Range</mat-label>
+                <ckeditor [config]="editorConfig" debounce="500"></ckeditor>
+
+                <!-- Female Range-->
+                <mat-label>Female Range</mat-label>
+                <ckeditor [config]="editorConfig" debounce="500"></ckeditor>
+
+                <!-- No Range-->
+                <mat-label>No Range</mat-label>
+                <ckeditor [config]="editorConfig" debounce="500"></ckeditor>
+              </section>
+            </form>
+
+            <!-- Buttons Container -->
+            <section class="action-buttons-container">
+              <button mat-button color="primary" class="mr-48" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </section>
+          </mat-step>
+          <mat-step>
+            <!-- Critical Reference Range -->
+            <form autocomplete="off">
+              <ng-template matStepLabel>Critical Range</ng-template>
+
+              <section class="critical-reference-range-container">
+                <!-- Male Reference Range -->
+                <section class="minimum-maximum-ranges">
+                  <mat-label class="mt-16">Male Range</mat-label>
+                  <mat-form-field>
+                    <mat-label>Minimum</mat-label>
+                    <input matInput placeholder="Minimum" />
+                  </mat-form-field>
+
+                  <!-- Maximum -->
+                  <mat-form-field>
+                    <mat-label>Maximum</mat-label>
+                    <input matInput placeholder="Email" />
+                  </mat-form-field>
+                </section>
+
+                <!-- female reference Range -->
+                <section class="minimum-maximum-ranges">
+                  <mat-label class="mt-16">Female Range</mat-label>
+                  <mat-form-field>
+                    <mat-label>Minimum</mat-label>
+                    <input matInput placeholder="Minimum" />
+                  </mat-form-field>
+
+                  <!-- Maximum -->
+                  <mat-form-field>
+                    <mat-label>Maximum</mat-label>
+                    <input matInput placeholder="Maximum" />
+                  </mat-form-field>
+                </section>
+              </section>
+            </form>
+
+            <!-- Buttons Container -->
+            <section class="action-buttons-container">
+              <button mat-button color="primary" class="mr-48" [matDialogClose]>Close</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </section>
+          </mat-step>
+
+          <mat-step>
+            <!-- Age Specific Information -->
+            <form autocomplete="off">
+              <ng-template matStepLabel>Age Specific Range</ng-template>
+              <section class="age-specific-information-container">
+                <!-- Age Range -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Age Range</mat-label>
+                  <mat-select disableOptionCentering placeholder="Age Range">
+                    <mat-option value="Age Range (in Days)">Age Range (in Days)</mat-option>
+                    <mat-option value="Age Range (in Months)">Age Range (in Months)</mat-option>
+                    <mat-option value="Age Range (in Years)">Age Range (in Years)</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
-                <!-- Units -->
-                <mat-form-field>
-                  <mat-label>Units</mat-label>
-                  <input matInput placeholder="Units" name="units" ngModel #units="ngModel" />
-                </mat-form-field>
+                <!-- Age Range -->
+                <section class="minimum-maximum-ranges">
+                  <mat-label class="mt-16">Age Range</mat-label>
+                  <mat-form-field>
+                    <mat-label>Lower Age</mat-label>
+                    <input matInput placeholder="Lower Age" />
+                  </mat-form-field>
 
-                <!-- Type-->
-                <mat-form-field>
-                  <mat-label>Type</mat-label>
-                  <input matInput placeholder="Type" name="type" ngModel #type="ngModel" />
-                </mat-form-field>
+                  <!-- Maximum -->
+                  <mat-form-field>
+                    <mat-label>upper Age</mat-label>
+                    <input matInput placeholder="Upper Age" />
+                  </mat-form-field>
+                </section>
 
-                <!-- Alternate Result -->
-                <mat-form-field>
-                  <mat-label>Alternate Result</mat-label>
-                  <input matInput placeholder="Alternate Result" name="alternateResult" ngModel #alternateResult="ngModel" />
-                </mat-form-field>
-
-                <!-- Age Lower -->
-                <mat-form-field>
-                  <mat-label>Age Lower</mat-label>
-                  <input matInput placeholder="Age Lower" name="lowerAge" ngModel #lowerAge="ngModel" />
-                </mat-form-field>
-
-                <!-- Age Upper -->
-                <mat-form-field>
-                  <mat-label>Age Upper</mat-label>
-                  <input matInput placeholder="Age Upper" name="upperAge" ngModel #upperAge="ngModel" />
-                </mat-form-field>
-
-                <!-- Reference Range Females -->
-                <!-- Minimum -->
-                <mat-form-field>
-                  <mat-label>Minimum Reference Range Female</mat-label>
-                  <input matInput placeholder="Minimum" name="femaleMinimum" ngModel #femaleMinimum="ngModel" />
-                </mat-form-field>
-
-                <!-- maximum -->
-                <mat-form-field>
-                  <mat-label>Maximum Reference Range Female</mat-label>
-                  <input matInput placeholder="Maximum" name="femaleMaximum" ngModel #femaleMaximum="ngModel" />
-                </mat-form-field>
-
-                <!-- Reference Range Males -->
-                <!-- Minimum -->
-                <mat-form-field>
-                  <mat-label>Minimum Reference Range Male</mat-label>
-                  <input matInput placeholder="Minimum" name="maleMinimum" ngModel #maleMinimum="ngModel" />
-                </mat-form-field>
-
-                <!-- Maximum -->
-                <mat-form-field>
-                  <mat-label>Maximum Reference Range Male</mat-label>
-                  <input matInput placeholder="Maximum" name="maleMaximum" ngModel #maleMaximum="ngModel" />
-                </mat-form-field>
-
-                <!-- Critical Reference Range -->
-                <!-- Minimum -->
-                <mat-form-field>
-                  <mat-label>Minimum Critical Reference Range</mat-label>
-                  <input matInput placeholder="Minimum" name="criticalMinimum" ngModel #criticalMinimum="ngModel" />
-                </mat-form-field>
-
-                <!-- Maximum -->
-                <mat-form-field>
-                  <mat-label>Maximum Critical Reference Range</mat-label>
-                  <input matInput placeholder="Maximum" name="criticalMaximum" ngModel #criticalMaximum="ngModel" />
+                <!-- Select Age Range Here -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Select Age Range Here</mat-label>
+                  <mat-select disableOptionCentering placeholder="Select Age Range Here">
+                    <mat-option></mat-option>
+                  </mat-select>
                 </mat-form-field>
               </section>
+            </form>
+            <!-- Buttons Container -->
+            <section class="action-buttons-container">
+              <button mat-button color="primary" class="mr-48" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
             </section>
-          </form>
+          </mat-step>
 
-          <section class="action-buttons-wrapper">
-            <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddReferenceRangeClicked(referenceRange)">Add Reference Range</button>
-          </section>
-        </section>
-      </mat-dialog-content>
-    </section>
+          <mat-step>
+            <!-- Files & Graph Information -->
+            <form autocomplete="off">
+              <ng-template matStepLabel>File & Graph</ng-template>
+              <section class="file-graph-information-container">
+                <!-- Horizontal Position -->
+                <mat-form-field>
+                  <mat-label>Horizontal Position</mat-label>
+                  <input matInput placeholder="Horizontal Position" />
+                </mat-form-field>
+
+                <!-- Vertical Position -->
+                <mat-form-field>
+                  <mat-label>Vertical Position</mat-label>
+                  <input matInput placeholder="Vertical Position" />
+                </mat-form-field>
+                <!-- Graph Width -->
+                <mat-form-field>
+                  <mat-label>Graph Width</mat-label>
+                  <input matInput placeholder="Graph Width" />
+                </mat-form-field>
+
+                <!-- Graph Height -->
+                <mat-form-field>
+                  <mat-label>Graph Height</mat-label>
+                  <input matInput placeholder="Graph Height" />
+                </mat-form-field>
+
+                <!-- Graph Label -->
+                <mat-form-field>
+                  <mat-label>Graph Label</mat-label>
+                  <input matInput placeholder="Graph Label" />
+                </mat-form-field>
+
+                <!-- Minimum Horizontal Value -->
+                <mat-form-field>
+                  <mat-label>Minimum Horizontal Value</mat-label>
+                  <input matInput placeholder="Minimum Horizontal Value" />
+                </mat-form-field>
+
+                <!-- Maximum Horizontal Value -->
+                <mat-form-field>
+                  <mat-label>Maximum Horizontal Value</mat-label>
+                  <input matInput placeholder="Maximum Horizontal Value" />
+                </mat-form-field>
+
+                <!-- Minimum Vertical Value -->
+                <mat-form-field>
+                  <mat-label>Minimum Vertical Value</mat-label>
+                  <input matInput placeholder="Minimum Vertical Value" />
+                </mat-form-field>
+
+                <!-- Maximum Vertical Value -->
+                <mat-form-field>
+                  <mat-label>Maximum Vertical Value</mat-label>
+                  <input matInput placeholder="Maximum Vertical Value" />
+                </mat-form-field>
+              </section>
+            </form>
+            <!-- Buttons Container -->
+            <section class="action-buttons-container">
+              <button mat-button color="primary" class="mr-48" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </section>
+          </mat-step>
+
+          <mat-step>
+            <!-- List of Values -->
+            <form autocomplete="off">
+              <ng-template matStepLabel>List of Values</ng-template>
+              <section class="list-of-values-information-container">
+                <!--Enter Values -->
+                <mat-form-field>
+                  <mat-label>Enter Values</mat-label>
+                  <input matInput placeholder="Enter Values" />
+                </mat-form-field>
+
+                <section class="pl-100">
+                  <!-- Enter Values -->
+                  <button mat-raised-button class="mr-16" color="primary">Add</button>
+                  <button mat-raised-button class="mr-0" color="warn">Delete</button>
+                </section>
+              </section>
+              <!-- Added Values  -->
+              <mat-form-field class="comment-wrapper">
+                <mat-label>Values</mat-label>
+                <mat-select disableOptionCentering placeholder="Values">
+                  <mat-option></mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+            <!-- Dialog Actions -->
+            <section class="action-buttons-container">
+              <button mat-button color="primary" class="mr-48" [matDialogClose]>Close</button>
+              <button mat-raised-button color="primary">
+                Add Reference Range(s)
+              </button>
+            </section>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </section>
+    </mat-dialog-content>
   </mat-card>
 </section>
