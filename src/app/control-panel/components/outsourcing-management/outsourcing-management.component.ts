@@ -53,11 +53,14 @@ export class OutsourcingManagementComponent implements OnInit {
       });
   }
 
-  public onEditReferalLabClicked(): void {
+  public onEditReferalLabClicked(row: any): void {
+    this.matDialogConfig['data'] = row;
     this._matDialog
       .open(EditReferalLabComponent, this.matDialogConfig)
       .afterClosed()
-      .pipe(take(1));
+      .pipe(take(1)).subscribe(() => {
+        this.getAllOutsoure();
+      });
   }
 
   public getAllOutsoure(): void {

@@ -230,6 +230,7 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     MethodRibbonMenuComponent,
     AddMethodComponent,
     EditMethodComponent,
+    ViewMethodComponent,
     MethodSearchComponent,
     DepartmentDataListComponent,
     DepartmentDataTableComponent,
@@ -386,6 +387,7 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     AddCommentsComponent,
     EditCommentsComponent,
     CommentSearchComponent,
+    ViewMethodComponent,
   ],
 })
 export class ControlPanelModule {}

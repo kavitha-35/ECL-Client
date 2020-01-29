@@ -15,8 +15,12 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 10px;
+  margin-top: 14px;
 }
-
+.tatcolor{
+  margin-top:20px;
+  color:gray;
+}
 #individual-test-container {
   .individual-test-mat-card {
     display: grid;

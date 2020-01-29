@@ -73,7 +73,7 @@
                 </mat-form-field>
 
                 <!-- Relation -->
-                <mat-form-field class="mt-n7">
+                <mat-form-field >
                   <mat-label>Relation</mat-label>
                   <mat-select disableOptionCentering name="relation" [(ngModel)]="outsource.relation">
                     <mat-option value="Intra">
@@ -96,6 +96,11 @@
                       Bidirectional
                     </mat-option>
                   </mat-select>
+                </mat-form-field>
+                <!-- courier -->
+                <mat-form-field>
+                  <mat-label>Courier</mat-label>
+                  <input matInput placeholder="courier" class="uppercase" name="courier" [(ngModel)]="outsource.courier" />
                 </mat-form-field>
               </section>
             </section>
@@ -126,6 +131,12 @@
                   </mat-error>
                 </mat-form-field>
 
+                 <!-- Area -->
+                 <mat-form-field>
+                  <mat-label>Area</mat-label>
+                  <input matInput placeholder="Area" name="area" required [(ngModel)]="outsource.area" />
+                </mat-form-field>
+
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
@@ -143,7 +154,7 @@
                 </mat-form-field>
 
                 <!-- Country -->
-                <mat-form-field>
+                <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" [(ngModel)]="outsource.country">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
@@ -175,6 +186,16 @@
                       [(ngModel)]="contact.designation"
                     />
                   </mat-form-field>
+
+                   <!-- Department-->
+                <mat-form-field class="mt-n7">
+                  <mat-label> Department</mat-label>
+                  <mat-select disableOptionCenteringn name=" department" [(ngModel)]="outsource.department">
+                    <mat-option *ngFor="let options of regions" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
 
                   <!-- Contact Person Name  -->
                   <mat-form-field>
@@ -292,6 +313,13 @@
                 </mat-form-field>
               </section>
             </section>
+
+            <!-- Credit limit -->
+            <mat-form-field>
+              <mat-label> Credit limit</mat-label>
+              <input matInput placeholder=" Credit limit" name="creditLimit"  [(ngModel)]="outsource. creditLimit" />
+            </mat-form-field>
+
 
             <!-- Login Information -->
             <section class="login-information-wrapper">

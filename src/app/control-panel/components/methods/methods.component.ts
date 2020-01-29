@@ -9,6 +9,7 @@ import { MethodModel } from 'app/control-panel/models/method/method.model';
 import { MethodService } from 'app/control-panel/services/method.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { LookupService } from 'app/control-panel/services/lookup.service';
+import { ViewMethodComponent } from './_dialogues/view-method/view-method/view-method.component';
 
 @Component({
   selector: 'app-methods',
@@ -86,5 +87,20 @@ export class MethodsComponent implements OnInit {
       this.isFetchingMethods = false;
       this.cRef.detectChanges();
     });
+  }
+  public onViewMethodClicked(method: MethodModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: method,
+    };
+    this._matDialog
+      .open(ViewMethodComponent, matDialogConfig)
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllMethod();
+      });
   }
 }
