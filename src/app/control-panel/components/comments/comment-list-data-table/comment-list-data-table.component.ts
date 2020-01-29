@@ -10,10 +10,10 @@ import { GridColumnModel } from 'app/shared/models/grid-column.model';
 })
 
 export class CommentListDataTableComponent implements OnInit {
-  @Input() method : CommentModel[];
+  @Input() comment : CommentModel[];
   @Input() isBusy: boolean;
-  @Output() editMethodClicked = new EventEmitter();
-  @Output() deleteMethodClicked = new EventEmitter();
+  @Output() editCommentClicked = new EventEmitter();
+  @Output() deleteCommentClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -24,11 +24,11 @@ export class CommentListDataTableComponent implements OnInit {
   }
 
   public onEditCommentClicked(): void {
-    this.editMethodClicked.emit();
+    this.editCommentClicked.emit();
   }
 
   public onDeleteCommentClicked(): void {
-    this.deleteMethodClicked.emit();
+    this.deleteCommentClicked.emit();
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
@@ -38,8 +38,8 @@ export class CommentListDataTableComponent implements OnInit {
 
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
-      { columnName: 'id', displayValue: 'Clinic ID', isSelected: true },
-      { columnName: 'name', displayValue: 'Method Name', isSelected: true },
+      { columnName: 'id', displayValue: 'Comment ID', isSelected: true },
+      { columnName: 'name', displayValue: 'Comment Name', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter(x => x.isSelected);

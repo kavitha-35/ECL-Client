@@ -2,7 +2,7 @@
   <mat-card class="outsource-management-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Outsource Management" subTitle="Add a Outsource Lab" icon="fa-calendar">
+      <app-dialog-caption title="Outsource Management" subTitle="Add a Referral Lab" icon="fa-calendar">
       </app-dialog-caption>
     </section>
 
@@ -40,36 +40,6 @@
                     <mat-error *ngIf="labName.errors.required">Lab Name is required</mat-error>
                     <mat-error *ngIf="labName.errors?.pattern">text is required</mat-error>
                   </mat-error>
-                </mat-form-field>
-
-                <!-- Web -->
-                <mat-form-field>
-                  <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" class="uppercase" name="web" [(ngModel)]="outsource.web" />
-                </mat-form-field>
-
-                <!-- Telephone -->
-                <mat-form-field>
-                  <mat-label>Telephone</mat-label>
-                  <input
-                    matInput
-                    placeholder="Telephone"
-                    required
-                    name="telephone"
-                    #telephone="ngModel"
-                    pattern="[0-9]*"
-                    [(ngModel)]="outsource.telephone"
-                  />
-                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
-                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
-                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
-                  </mat-error>
-                </mat-form-field>
-
-                <!-- Fax -->
-                <mat-form-field>
-                  <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
                 </mat-form-field>
 
                 <!-- Relation -->
@@ -137,12 +107,6 @@
                   <input matInput placeholder="Area" name="area" required [(ngModel)]="outsource.area" />
                 </mat-form-field>
 
-                <!-- P.O.Box -->
-                <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="outsource.poNumber" />
-                </mat-form-field>
-
                 <!-- City-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
@@ -162,9 +126,46 @@
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
+
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="outsource.poNumber" />
+                </mat-form-field>
+
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" class="uppercase" name="web" [(ngModel)]="outsource.web" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input
+                    matInput
+                    placeholder="Telephone"
+                    required
+                    name="telephone"
+                    #telephone="ngModel"
+                    pattern="[0-9]*"
+                    [(ngModel)]="outsource.telephone"
+                  />
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
+                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
               </section>
             </section>
 
+                
             <!-- Contact person -->
             <section class="contactperson-information-wrapper">
               <!-- Header -->
@@ -330,7 +331,7 @@
                 <!-- URL -->
                 <mat-form-field>
                   <mat-label>URL</mat-label>
-                  <input matInput placeholder="URL" name="url" required [(ngModel)]="outsource.url" />
+                  <input matInput placeholder="URL" name="url" [(ngModel)]="outsource.url" />
                 </mat-form-field>
 
                 <!-- UserName -->
@@ -341,7 +342,6 @@
                     placeholder="User Name"
                     class="uppercase"
                     name="userName"
-                    required
                     [(ngModel)]="outsource.userName"
                   />
                 </mat-form-field>
@@ -349,7 +349,7 @@
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="password" required [(ngModel)]="outsource.password" />
+                  <input matInput placeholder="Password" name="password" [(ngModel)]="outsource.password" />
                 </mat-form-field>
               </section>
             </section>
@@ -358,7 +358,7 @@
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
             <button mat-raised-button color="primary" (click)="onAddReferalLabClicked()">
-              Add Outsourcing Management
+              Add Referral Lab
             </button>
           </section>
         </section>

@@ -10,16 +10,16 @@
   margin-bottom: 18px;
 }
 
-#equipment-container {
-  .equipment-mat-card {
+#comment-container {
+  .comment-mat-card {
     display: grid;
     grid-template-columns: 220px 1fr;
 
-    .equipment-dialog {
+    .comment-dialog {
       margin: auto;
     }
 
-    .equipment-form {
+    .comment-form {
       .basic-wrapper {
         @include margin-bottom-18;
 

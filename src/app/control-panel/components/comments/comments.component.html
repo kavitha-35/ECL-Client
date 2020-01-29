@@ -1,4 +1,4 @@
-<section id="method-container" class="animated fadeIn">
+<section id="comment-container" class="animated fadeIn">
   <!-- Material Card -->
   <mat-card>
     <section class="mat-header-container">
@@ -23,17 +23,17 @@
       </section>
 
       <!-- Add Appointment Button -->
-      <section class="method-button-wrapper">
-        <button class="method-button" mat-stroked-button (click)="onAddCommentButtonClicked()">Add Comment</button>
+      <section class="comment-button-wrapper">
+        <button class="comment-button" mat-stroked-button (click)="onAddCommentButtonClicked()">Add Comment</button>
       </section>
     </section>
 
     <!-- Mat Table Ribbon -->
-    <app-method-ribbon-menu
+    <app-comment-ribbon-menu
       (showListViewButtonClicked)="onShowListViewButtonClicked()"
       (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
     >
-    </app-method-ribbon-menu>
+    </app-comment-ribbon-menu>
 
     <!-- Mat Divider -->
     <mat-divider></mat-divider>
@@ -43,16 +43,16 @@
 
     <!-- List View -->
     <ng-template #listView>
-      <app-method-list [method]="comment"></app-method-list>
+      <app-comment-list [comment]="comment"></app-comment-list>
     </ng-template>
 
     <!-- Table View -->
     <ng-template #tableView>
-      <app-method-list-data-table
-        [method]="comment"
+      <app-comment-list-data-table
+        [comment]="comment"
         (editCommentClicked)="onEditCommentClicked()"
-        [isBusy]="isFetchingMethods"
-      ></app-method-list-data-table>
+        [isBusy]="isFetchingcomments"
+      ></app-comment-list-data-table>
     </ng-template>
 
   </mat-card>
