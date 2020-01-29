@@ -1,25 +1,17 @@
-<section id="method-filter-container" class="full-width">
+<section id="comment-filter-container" class="full-width">
     <mat-card>
       <section>
         <!-- Mat Card Title -->
-        <app-mat-dialog-header title="Search" subTitle="Search for Method(s)"></app-mat-dialog-header>
+        <app-mat-dialog-header title="Search" subTitle="Search for Comment(s)"></app-mat-dialog-header>
         <mat-divider></mat-divider>
       </section>
   
       <!--Mat Card Filter Content-->
       <section class="filter-field">
 
-          <!-- Method Name -->
+          <!-- Comment Name -->
           <mat-form-field class="mt-n7">
-            <mat-label>Method Name</mat-label>
-            <mat-select disableOptionCentering>
-              <mat-option value="intra">
-                Intra
-              </mat-option>
-              <mat-option value="inter">
-                Inter
-              </mat-option>
-            </mat-select>
+            <input matInput placeholder="Comment" name="commentName" ngModel #commentName="ngModel"/>
           </mat-form-field>
       </section>
   

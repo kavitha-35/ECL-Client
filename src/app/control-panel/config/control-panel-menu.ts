@@ -44,20 +44,11 @@ const MENUITEMS: Menu[] = [
     icon: 'play_for_work',
   },
   {
-    state: 'reference-range',
-    name: 'Reference Range',
-    type: 'link',
-    icon: 'payment',
-  },
-  {
     state: 'testresult',
     name: 'Test Result Calculation',
     type: 'sub',
     icon: 'offline_pin',
-    children: [
-      { state: 'not-found', name: 'Add Test Result Calculation', paramValue: 'Test Result Calculation' },
-      { state: 'not-found', name: 'Test Result Calculation List', paramValue: 'Test Result Calculation' },
-    ],
+    paramValue: 'Test Result Calculation'
   },
   {
     state: 'humanresource',

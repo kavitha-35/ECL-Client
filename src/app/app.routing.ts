@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/components/login/login.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
+import { ApplicationComponent } from './application/application.component';
 
 export const AppRoutes: Routes = [
   {
@@ -23,6 +24,11 @@ export const AppRoutes: Routes = [
     pathMatch: 'full',
     component: LoginComponent,
     loadChildren: () => import('./login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'application',
+    pathMatch: 'full',
+    component: ApplicationComponent,
   },
   {
     path: '',

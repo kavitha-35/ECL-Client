@@ -9,7 +9,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core'
 
 export class CommentListComponent implements OnInit {
 
-  @Input() method: CommentListComponent[];
+  @Input() comment: CommentListComponent[];
   constructor() {}
 
   ngOnInit(): void {}
