@@ -11,29 +11,33 @@ import {
 @Component({
   selector: 'app-edit-referal-lab',
   templateUrl: './edit-referal-lab.component.html',
-  styleUrls: ['./edit-referal-lab.component.scss']
+  styleUrls: ['./edit-referal-lab.component.scss'],
 })
 export class EditReferalLabComponent implements OnInit {
-
   public cities: LookUpModel[];
   public countries: LookUpModel[];
   public contactPersonList: ContactPerson[] = [];
-  public outsource: OutsourcingManagementModel = new OutsourcingManagementModel();
+  public couriers: LookUpModel[];
+  public departments: LookUpModel[];
+  public outsource: OutsourcingManagementModel;
   constructor(
     private readonly _dialogRef: MatDialogRef<EditReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
     private readonly _lookUpService: LookupService,
-    @Inject(MAT_DIALOG_DATA) private readonly data: any
-  ) {}
+    @Inject(MAT_DIALOG_DATA) data: OutsourcingManagementModel,
+  ) {
+    this.outsource = data;
+  }
 
   ngOnInit(): void {
     this.getCities();
     this.getCountries();
-    this.outsource = this.data;
+    this.getdepartments();
+    this.getCourier();
   }
 
   public onEditReferalLabClicked(): void {
-    // this.outsource.contactPersons = this.contactPersonList;
+    this.outsource.contactPersons = this.contactPersonList;
     this.outsourcingService.updateOutsourcing(this.outsource.outsourceId, this.outsource).subscribe(() => {
       this._dialogRef.close();
     });
@@ -48,6 +52,18 @@ export class EditReferalLabComponent implements OnInit {
   public getCountries(): void {
     this._lookUpService.getLookUp('country').subscribe((data: LookUpModel[]) => {
       this.countries = data;
+    });
+  }
+
+  public getCourier(): void {
+    this._lookUpService.getLookUp('courier').subscribe((data: LookUpModel[]) => {
+      this.couriers = data;
+    });
+  }
+
+  public getdepartments(): void {
+    this._lookUpService.getLookUp('contactDepartment').subscribe((data: LookUpModel[]) => {
+      this.departments = data;
     });
   }
 
