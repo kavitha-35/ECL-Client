@@ -1,4 +1,4 @@
-#method-container {
+#comment-container {
     .mat-header-container {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -22,16 +22,16 @@
         }
       }
   
-      .method-button-wrapper {
+      .comment-button-wrapper {
         padding: 1rem;
       }
     }
   
-    .method-button-wrapper {
+    .comment-button-wrapper {
       display: flex;
       justify-content: flex-end;
   
-      .method-button {
+      .comment-button {
         margin-bottom: 12px;
         margin-right: 12px;
         background-color: #5388a5;

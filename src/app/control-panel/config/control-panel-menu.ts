@@ -29,7 +29,6 @@ const MENUITEMS: Menu[] = [
       { state: 'organisation', name: 'Add Organisation' },
       { state: 'doctor', name: 'Add Doctor' },
       { state: 'organisation-price-list', name: 'Add Organisation Price List' },
-      { state: 'not-found', name: 'Organisation List' },
     ],
   },
   {
@@ -39,26 +38,17 @@ const MENUITEMS: Menu[] = [
     icon: 'polymer',
   },
   {
-    state: 'reference-range',
-    name: 'Reference Range',
-    type: 'link',
-    icon: 'payment',
-  },
-  {
     state: 'method',
     name: 'Method',
     type: 'link',
-    icon: 'payment',
+    icon: 'play_for_work',
   },
   {
     state: 'testresult',
     name: 'Test Result Calculation',
     type: 'sub',
     icon: 'offline_pin',
-    children: [
-      { state: 'not-found', name: 'Add Test Result Calculation', paramValue: 'Test Result Calculation'},
-      { state: 'not-found', name: 'Test Result Calculation List', paramValue: 'Test Result Calculation'},
-    ],
+    paramValue: 'Test Result Calculation'
   },
   {
     state: 'humanresource',
@@ -67,7 +57,6 @@ const MENUITEMS: Menu[] = [
     icon: 'rate_review',
     children: [
       { state: 'human-resource', name: 'Add Employee' },
-      { state: 'human-resource', name: 'Employee List' },
       { state: 'not-found', name: 'User Privilage', paramValue: 'User Privileage' },
     ],
   },
@@ -88,7 +77,7 @@ const MENUITEMS: Menu[] = [
     icon: 'attach_money',
   },
   {
-    state: 'comment',
+    state: 'comments',
     name: 'Comments',
     type: 'link',
     icon: 'map',
@@ -103,23 +92,15 @@ const MENUITEMS: Menu[] = [
     state: 'coupons',
     name: 'Coupons Management',
     type: 'sub',
+    paramValue: 'Coupon',
     icon: 'storefront',
-    children: [
-      { state: 'not-found', name: 'Add Coupon', paramValue: 'Coupon' },
-      { state: 'not-found', name: 'Coupon Management List', paramValue: 'Coupon Management' },
-      { state: 'not-found', name: 'Cart', paramValue: 'Cart' },
-      { state: 'not-found', name: 'Checkout', paramValue: 'Checkout' },
-    ],
   },
   {
     state: 'promotion',
     name: 'Promotion Corner',
-    type: 'sub',
+    type: 'link',
+    paramValue: 'Promotion',
     icon: 'supervised_user_circle',
-    children: [
-      { state: 'not-found', name: 'Add Promotion', paramValue: 'Promotion' },
-      { state: 'not-found', name: 'Promotion Corner List', paramValue: 'Promotion' },
-    ],
   },
   {
     state: 'gateways',
@@ -136,12 +117,9 @@ const MENUITEMS: Menu[] = [
   {
     state: 'news',
     name: 'News',
-    type: 'sub',
+    type: 'link',
+    paramValue: 'News',
     icon: 'pages',
-    children: [
-      { state: 'not-found', name: 'Add News', paramValue: 'News' },
-      { state: 'not-found', name: 'News List', paramValue: 'News' },
-    ],
   },
 ];
 

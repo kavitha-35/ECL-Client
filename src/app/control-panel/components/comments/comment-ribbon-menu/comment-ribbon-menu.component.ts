@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { OutsourcingManagementSearchComponent } from '../../outsourcing-management/outsourcing-management-search/outsourcing-management-search.component';
 import { CommentSearchComponent } from '../comment-search/comment-search.component';
 
 @Component({

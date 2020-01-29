@@ -12,6 +12,7 @@ export class MethodListDataTableComponent implements OnInit  {
   @Input() isBusy: boolean;
   @Output() editMethodClicked = new EventEmitter();
   @Output() deleteMethodClicked = new EventEmitter();
+  @Output() viewMethodClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -21,12 +22,16 @@ export class MethodListDataTableComponent implements OnInit  {
     this._initializeDisplayedColumns();
   }
 
+  public onViewMethodClicked(method: MethodModel): void {
+    this.viewMethodClicked.emit(method);
+  }
+
   public onEditMethodClicked(method: MethodModel): void {
     this.editMethodClicked.emit(method);
   }
 
-  public onDeleteMethodClicked(): void {
-    this.deleteMethodClicked.emit();
+  public onDeleteMethodClicked(methodId: string): void {
+    this.deleteMethodClicked.emit(methodId);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {

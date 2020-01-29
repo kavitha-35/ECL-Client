@@ -22,37 +22,27 @@
 
               <!-- Content -->
               <section class="basic-content">
-                <!-- Designation -->
-                <mat-form-field>
-                  <mat-label>Designation</mat-label>
-                  <input matInput placeholder="Designation" name="designation" ngModel #designation="ngModel"/>
-                </mat-form-field>
+
                 <!-- Active-->
                 <section class="pt-19">
                   <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
                 </section>
                 <!-- Doctor Name -->
-                <mat-form-field class="mt-n7">
+                <mat-form-field >
                   <mat-label>Doctor Name</mat-label>
-                  <input matInput placeholder="Doctor Name" class="uppercase" name="doctorname" ngModel #doctorname="ngModel" pattern="[a-zA-Z]*" required  />
+                  <input matInput placeholder="Doctor Name" class="uppercase" name="doctorName" ngModel #doctorName="ngModel" pattern="[a-zA-Z]*" required  />
                 <mat-hint>
-                  <div *ngIf="doctorname.invalid && (doctorname.dirty ||doctorname.touched) " class= "validation">
-                    <div *ngIf="doctorname.errors.required" >doctorname is required</div>
-                    <div *ngIf="doctorname.errors?.pattern" >text is required</div>
+                  <div *ngIf="doctorName.invalid && (doctorName.dirty ||doctorName.touched) " class= "validation">
+                    <div *ngIf="doctorName.errors.required" >doctorname is required</div>
+                    <div *ngIf="doctorName.errors?.pattern" >text is required</div>
                   </div>
                 </mat-hint>
                 </mat-form-field>
 
-                <!-- Email Id -->
+                <!-- Organization-->
                 <mat-form-field>
-                  <mat-label>Email Id</mat-label>
-                  <input matInput placeholder="Email"class="uppercase" name=email ngModel #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"required />
-                <mat-hint>
-                  <div *ngIf="email.invalid && (email.dirty || email.touched) " class= "validation">
-                    <div *ngIf="email.errors.required" >email is required</div>
-                    <div *ngIf="email.errors?.pattern" >example@gmail.com</div>
-                  </div>
-                </mat-hint>
+                  <mat-label>Organization</mat-label>
+                  <input matInput placeholder="Organization" name="organization" ngModel #organization="ngModel"/>
                 </mat-form-field>
 
             
@@ -70,15 +60,9 @@
                   <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
 
-                <!-- Doctor PassKey -->
-                <mat-form-field>
-                  <mat-label>Doctor PassKey</mat-label>
-                  <input matInput placeholder="Doctor PassKey" name=doctorpasskey ngModel #doctorpasskey="ngModel" />
-                </mat-form-field>
-
-                <!-- Doctor Specialist -->
+                <!-- Doctor Speciality -->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Doctor Specialist</mat-label>
+                  <mat-label>Doctor Speciality</mat-label>
                   <mat-select disableOptionCentering>
                     <mat-option>
                       Emergency Medicine
@@ -90,34 +74,6 @@
                       oncology
                     </mat-option>
                   </mat-select>
-                </mat-form-field>
-
-                <!-- Visiting days -->
-                <mat-form-field>
-                  <mat-label>Visiting Days</mat-label>
-                  <input matInput placeholder="Contact Number" name=contactnumber ngModel #contactnumber="ngModel" />
-                </mat-form-field>
-
-                <!-- Department -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Department</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option >
-                      Bio Chemistry
-                    </mat-option>
-                    <mat-option >
-                      Micro Biology
-                    </mat-option>
-                    <mat-option >
-                      Molecular Biology
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Remark -->
-                <mat-form-field>
-                  <mat-label>Remarks</mat-label>
-                  <textarea matInput placeholder="if any" name=remark ngModel #remark="ngModel" ></textarea>
                 </mat-form-field>
               </section>
             </section>
@@ -138,32 +94,10 @@
                   </mat-error>
                 </mat-form-field>
 
-                <!-- P.O.Box -->
+                <!-- Area -->
                 <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
-                </mat-form-field>
-
-                <!-- Telephone -->
-                <mat-form-field>
-                  <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
-                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " >
-                    <mat-error *ngIf="telephone.errors.required" >telephone is required</mat-error>
-                    <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
-                  </mat-error>
-                </mat-form-field>
-
-                <!-- Fax -->
-                <mat-form-field>
-                  <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" name="fax" ngModel #fax="ngModel" />
-                </mat-form-field>
-
-                <!-- Web -->
-                <mat-form-field>
-                  <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
+                  <mat-label> Area</mat-label>
+                  <input matInput placeholder=" Area" name=" area" ngModel #area="ngModel" />
                 </mat-form-field>
 
                 <!-- Region-->
@@ -177,11 +111,53 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel"> </mat-select>
                 </mat-form-field>
+
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
+                </mat-form-field>
+                
+                 <!-- Email-->
+                 <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
+                
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " >
+                    <mat-error *ngIf="telephone.errors.required" >telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Whatsapp Number -->
+                <mat-form-field>
+                  <mat-label>Whatsapp Number </mat-label>
+                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
+                </mat-form-field>
               
-                <br>
-                <section class="label" >Signature  <button mat-button color="primary">
-                  Upload
-                </button></section>
+                <!-- Facebook Id -->
+                <mat-form-field>
+                  <mat-label>Facebook Id </mat-label>
+                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                </mat-form-field>
+
+                 <!-- Instagram Id-->
+                 <mat-form-field>
+                  <mat-label>Instagram Id </mat-label>
+                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                </mat-form-field>
+               
+                <!-- Twitter Id-->
+                <mat-form-field>
+                  <mat-label>Twitter Id </mat-label>
+                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                </mat-form-field>
               </section>
             </section>
 
@@ -195,13 +171,13 @@
                 <!-- User name -->
                 <mat-form-field>
                   <mat-label>User Name</mat-label>
-                  <input matInput placeholder="User Name" name="userName" ngModel #userName="ngModel" required />
+                  <input matInput placeholder="User Name" name="userName" ngModel #userName="ngModel"/>
                 </mat-form-field>
 
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="password" ngModel #password="ngModel" required />
+                  <input matInput placeholder="Password" name="password" ngModel #password="ngModel" />
                 </mat-form-field>
 
               </section>

@@ -48,7 +48,7 @@
                 <!-- Test ID-->
                 <mat-form-field>
                   <mat-label>Test ID</mat-label>
-                  <input matInput placeholder="TEXT ID" [(ngModel)]="test.testId" name="testId" class="uppercase"/>
+                  <input matInput placeholder="TEST ID" [(ngModel)]="test.testId" name="testId" class="uppercase"/>
                 </mat-form-field>
 
                 <!-- CPT Code-->
@@ -60,7 +60,7 @@
                 <!-- Test Name-->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <input matInput placeholder="TEXT NAME" required [(ngModel)]="test.testName" name="testName" class="uppercase" />
+                  <input matInput placeholder="TEST NAME" required [(ngModel)]="test.testName" name="testName" class="uppercase" />
                 </mat-form-field>
 
                 <!-- Center Name-->
@@ -122,12 +122,6 @@
                     <mat-option value="1">Radiology</mat-option>
                     <mat-option value="1">Pathology</mat-option>
                   </mat-select>
-                </mat-form-field>
-
-                <!-- Description -->
-                <mat-form-field>
-                  <mat-label>Text Description</mat-label>
-                  <textarea matInput placeholder="Text Description" [(ngModel)]="test.description" name="description"class="uppercase" ></textarea>
                 </mat-form-field>
               </section>
             </section>

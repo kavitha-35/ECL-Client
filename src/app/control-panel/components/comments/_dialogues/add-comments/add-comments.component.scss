@@ -10,16 +10,16 @@
   margin-bottom: 18px;
 }
 
-#method-container {
-  .method-mat-card {
+#comment-container {
+  .comment-mat-card {
     display: grid;
     grid-template-columns: 220px 1fr;
 
-    .method-dialog {
+    .comment-dialog {
       margin: auto;
     }
 
-    .method-form {
+    .comment-form {
       .basic-wrapper {
         @include margin-bottom-18;
 
