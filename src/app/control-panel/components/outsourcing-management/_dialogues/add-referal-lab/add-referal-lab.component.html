@@ -97,6 +97,11 @@
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
+                <!-- courier -->
+                <mat-form-field>
+                  <mat-label>Courier</mat-label>
+                  <input matInput placeholder="courier" class="uppercase" name="courier" [(ngModel)]="outsource.courier" />
+                </mat-form-field>
               </section>
             </section>
 
@@ -124,6 +129,12 @@
                   <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
                     <mat-error *ngIf="address.errors.required">Address is required</mat-error>
                   </mat-error>
+                </mat-form-field>
+
+                 <!-- Area -->
+                 <mat-form-field>
+                  <mat-label>Area</mat-label>
+                  <input matInput placeholder="Area" name="area" required [(ngModel)]="outsource.area" />
                 </mat-form-field>
 
                 <!-- P.O.Box -->
@@ -175,6 +186,16 @@
                       [(ngModel)]="contact.designation"
                     />
                   </mat-form-field>
+
+                   <!-- Department-->
+                <mat-form-field class="mt-n7">
+                  <mat-label> Department</mat-label>
+                  <mat-select disableOptionCenteringn name=" department" [(ngModel)]="outsource.department">
+                    <mat-option *ngFor="let options of regions" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
 
                   <!-- Contact Person Name  -->
                   <mat-form-field>
@@ -292,6 +313,13 @@
                 </mat-form-field>
               </section>
             </section>
+
+            <!-- Credit limit -->
+            <mat-form-field>
+              <mat-label> Credit limit</mat-label>
+              <input matInput placeholder=" Credit limit" name="creditLimit"  [(ngModel)]="outsource. creditLimit" />
+            </mat-form-field>
+
 
             <!-- Login Information -->
             <section class="login-information-wrapper">
