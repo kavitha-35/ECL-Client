@@ -4,6 +4,7 @@ export class OutsourcingManagementModel {
   labName: string;
   relation: string;
   address: string;
+  area: string;
   city: string;
   poNumber: string;
   telephone: string;
