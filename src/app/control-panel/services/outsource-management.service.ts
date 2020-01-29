@@ -26,7 +26,7 @@ export class OutsourceManagementService {
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
     return this.httpClient.post<OutsourcingManagementModel>(apiUrl, outsource, { headers: headers });
   }
-  updateOutsourcing(OutsourcingId: string, Outsourcing: OutsourcingManagementModel): Observable<OutsourcingManagementModel> {
+  updateOutsourcing(OutsourcingId: number, Outsourcing: OutsourcingManagementModel): Observable<OutsourcingManagementModel> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${OutsourcingId}`;
