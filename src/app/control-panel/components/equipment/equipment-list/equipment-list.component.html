@@ -4,8 +4,8 @@
         <section class="title">#{{ element.equipmentId }}</section>
         <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
         <mat-menu #statusMenu="matMenu">
-          <button mat-menu-item>Edit</button>
-          <button mat-menu-item>Delete</button>
+          <button mat-menu-item (click)="onEditEquipmentClicked(element)">Edit</button>
+          <button mat-menu-item (click)="onDeleteEquipmentClicked(element.equipmentId)">Delete</button>
         </mat-menu>
       </section>
       <section class="action-buttons-container">
@@ -22,21 +22,63 @@
         </button>
       </section>
       <section class="equipment-container">
+
+        <!--Asset Name -->
+        <section class="sub-title">Asset Name</section>
+        <section>{{ element.assetName }}</section>
+
+        <!--Asset Id -->
+        <section class="sub-title">Asset Id</section>
+        <section>{{ element.assetId }}</section>
+
         <!-- Brand -->
         <section class="sub-title">Brand</section>
         <section>{{ element.brand.brandName }}</section>
   
-        <!-- Machine -->
-        <section class="sub-title">Machine</section>
-        <section>{{ element.equipmentName }}</section>
+        <!-- Puchase Date -->
+        <section class="sub-title">Puchase Date</section>
+        <section>{{ element.machine }}</section>
+
+         <!-- Puchase From -->
+         <section class="sub-title">Puchase From</section>
+         <section>{{ element.puchaseFrom }}</section>
   
-        <!-- Model -->
-        <section class="sub-title">Model</section>
+        <!-- Manufacturer Model -->
+        <section class="sub-title">Manufacturer Model</section>
         <section>{{ element.model }}</section>
 
         <!-- Serial No -->
         <section class="sub-title">Serial No</section>
         <section>{{ element.serialNo}}</section>
+
+         <!-- Supplier -->
+         <section class="sub-title">Supplier</section>
+         <section>{{ element.supplier}}</section>
+
+          <!-- Condition -->
+          <section class="sub-title">Condition</section>
+          <section>{{ element.condition}}</section>
+
+          <!-- Warranty -->
+          <section class="sub-title">Warranty</section>
+          <section>{{ element.warranty}}</section>
+
+
+           <!-- Depletion -->
+           <section class="sub-title">Depletion</section>
+           <section>{{ element.depletion}}</section>
+
+           <!-- Value -->
+           <section class="sub-title">Value</section>
+           <section>{{ element.value}}</section>
+
+           <!-- Location -->
+           <section class="sub-title">Location</section>
+           <section>{{ element.location}}</section>
+
+           <!-- Description -->
+           <section class="sub-title">Description</section>
+           <section>{{ element.description}}</section>
        
       </section>
     </section>

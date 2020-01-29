@@ -15,7 +15,7 @@
       <mat-dialog-content class="equipment-dialog">
         <section>
           <!-- equipment  Form -->
-          <form class="equipment-form">
+          <form class="equipment-form" #equipment="ngForm">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -24,33 +24,106 @@
               <!-- Content -->
               <section class="basic-content">
 
-                  <!-- Brand -->
+                 <!-- Asset Name -->
+                <mat-form-field>
+                  <mat-label>Asset Name</mat-label>
+                  <input matInput placeholder="Asset Name" name="assetName" class="uppercase" ngModel #assetName="ngModel" required />
+                </mat-form-field> 
+
+                
+                
+                <!-- Asset Id -->
+                <mat-form-field>
+                  <mat-label>Asset Id</mat-label>
+                  <input matInput placeholder="Asset Id" name="assetId" class="uppercase" ngModel #assetId="ngModel" required />
+                </mat-form-field>
+
+
+                <!-- Brand -->
                 <mat-form-field>
                   <mat-label>Brand</mat-label>
                   <mat-select disableOptionCentering name="brandId" ngModel #brandId="ngModel">
-                    <mat-option *ngFor="let options of brands" [value]="options.brandId">{{
-                      options.brandId
+                    <mat-option *ngFor="let options of brands" [value]="options.lookupId">{{
+                      options.keyValue
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Machine -->
+                <!-- Puchase Date -->
                 <mat-form-field>
-                  <mat-label>Machine</mat-label>
-                  <input matInput placeholder="Machine" name="machine" ngModel #machine="ngModel" />
+                  <mat-label>Puchase Date</mat-label>
+                  <input matInput placeholder="Puchase Date" name="puchaseDate" class="uppercase" ngModel #puchaseDate="ngModel" required/>
                 </mat-form-field>
 
-                <!-- Model -->
+                <!-- Puchase From -->
                 <mat-form-field>
-                  <mat-label>Model</mat-label>
-                  <input matInput placeholder="Model" name="model" ngModel #model="ngModel" />
+                  <mat-label>Puchase From</mat-label>
+                  <input matInput placeholder="Puchase From" name="puchaseFrom" class="uppercase" ngModel #puchaseFrom="ngModel" required/>
+                </mat-form-field>
+
+                <!--Manufacturer Model -->
+                <mat-form-field>
+                  <mat-label>Manufacturer Model</mat-label>
+                  <input matInput placeholder="Manufacturer Model" name="manufacturerModel" class="uppercase" ngModel #manufacturerModel="ngModel" required />
                 </mat-form-field>
 
                 <!-- Serial No -->
                 <mat-form-field>
                   <mat-label>Serial No</mat-label>
-                  <input matInput placeholder="Serial No" name="serialNo" [(ngModel)]="selectedForEdit.equipmentId"  #serialNo="ngModel" />
+                  <input matInput placeholder="Serial No" name="serialNo" class="uppercase" ngModel #serialNo="ngModel" required/>
                 </mat-form-field>
+
+                <!--Supplier -->
+                <mat-form-field>
+                  <mat-label>Supplier</mat-label>
+                  <input matInput placeholder="Supplier" name="supplier" class="uppercase" ngModel #supplier="ngModel" required />
+                </mat-form-field>
+
+                <!--Condition -->
+                <mat-form-field>
+                  <mat-label>Condition</mat-label>
+                  <input matInput placeholder="Condition" name="condition" class="uppercase" ngModel #condition="ngModel" required />
+                </mat-form-field>
+
+                <!--Warranty -->
+                <mat-form-field>
+                  <mat-label>Warranty</mat-label>
+                  <input matInput placeholder="Warranty" name="warranty" class="uppercase" ngModel #warranty="ngModel" required />
+                </mat-form-field>
+
+                <!--Depreciation -->
+                <mat-form-field>
+                  <mat-label>Depreciation</mat-label>
+                  <input matInput placeholder="Depreciation" name="depreciation" class="uppercase" ngModel #depreciation="ngModel" required />
+                </mat-form-field>
+
+                <!--Value -->
+                <mat-form-field>
+                  <mat-label>Value</mat-label>
+                  <input matInput placeholder="Value" name="value" class="uppercase" ngModel #value="ngModel" required />
+                </mat-form-field>
+
+                
+
+                <!--Location -->
+                <mat-form-field>
+                  <mat-label>Location</mat-label>
+                  <input matInput placeholder="Location" name="loccation" class="uppercase" ngModel #loccation="ngModel" required />
+                </mat-form-field>
+
+
+                <!--Description -->
+                <mat-form-field >
+                  <mat-label>Description</mat-label>
+                  <textarea  matInput maxlength="10" placeholder="Description" name="description" class="uppercase" ngModel #description="ngModel" required  ></textarea>
+                </mat-form-field>
+
+                
+                <section class="label" >Picture  <button mat-button color="primary">
+                  Upload
+                </button></section>
+
+                
         
               </section>
             </section>
@@ -58,7 +131,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary">Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Save Change(s)</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditEquipmentClicked(equipment)">Save Change(s)</button>
           </section>
         </section>
       </mat-dialog-content>
