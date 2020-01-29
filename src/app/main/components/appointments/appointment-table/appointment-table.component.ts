@@ -65,12 +65,12 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
 
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
-      { columnName: 'id', displayValue: 'Appointment ID', isSelected: true },
-      { columnName: 'name', displayValue: 'Name', isSelected: true },
+      { columnName: 'appointmentId', displayValue: 'Appointment ID', isSelected: true },
+      { columnName: 'patientName', displayValue: 'Name', isSelected: true },
       { columnName: 'gender', displayValue: 'Gender', isSelected: true },
       { columnName: 'email', displayValue: 'Email', isSelected: true },
-      { columnName: 'mobileNumber', displayValue: 'Mobile Number', isSelected: true },
-      { columnName: 'from', displayValue: 'Scheduled Date', isSelected: true },
+      { columnName: 'mobile', displayValue: 'Mobile Number', isSelected: true },
+      { columnName: 'appointmentDate', displayValue: 'Scheduled Date', isSelected: true },
       { columnName: 'status', displayValue: 'Status', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];

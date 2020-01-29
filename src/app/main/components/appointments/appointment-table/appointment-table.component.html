@@ -1,21 +1,21 @@
 <section id="appointment-list-container">
   <table mat-table [dataSource]="filteredAppointments" class="full-width">
     <!-- Appointment ID -->
-    <ng-container matColumnDef="id">
+    <ng-container matColumnDef="appointmentId">
       <th mat-header-cell *matHeaderCellDef>Appointment ID</th>
-      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.appointmentId }}</td>
     </ng-container>
 
     <!-- Patient Name -->
-    <ng-container matColumnDef="name">
+    <ng-container matColumnDef="patientName">
       <th mat-header-cell *matHeaderCellDef>Patient Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.patientName }}</td>
     </ng-container>
 
     <!-- Gender -->
     <ng-container matColumnDef="gender">
       <th mat-header-cell *matHeaderCellDef>Gender</th>
-      <td mat-cell *matCellDef="let element">{{ element.gender.name }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
     </ng-container>
 
     <!-- Email Address -->
@@ -30,15 +30,15 @@
     </ng-container>
 
     <!-- Mobile Number -->
-    <ng-container matColumnDef="mobileNumber">
+    <ng-container matColumnDef="mobile">
       <th mat-header-cell *matHeaderCellDef>Mobile Number</th>
-      <td mat-cell *matCellDef="let element">{{ element.mobileNumber }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.mobile }}</td>
     </ng-container>
 
     <!-- Appointment Time -->
-    <ng-container matColumnDef="from">
+    <ng-container matColumnDef="appointmentDate">
       <th mat-header-cell *matHeaderCellDef>Appointment Date</th>
-      <td mat-cell *matCellDef="let element">{{ element.from }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.appointmentDate }}</td>
     </ng-container>
 
     <!-- Status -->
@@ -46,7 +46,7 @@
       <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let element">
         <section class="status-card">
-          {{ element.status.name }}
+          {{ element.status }}
         </section>
       </td>
     </ng-container>
