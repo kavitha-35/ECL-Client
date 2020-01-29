@@ -13,7 +13,7 @@ import {
   templateUrl: './edit-referal-lab.component.html',
   styleUrls: ['./edit-referal-lab.component.scss']
 })
-export class EditReferalLabComponent {
+export class EditReferalLabComponent implements OnInit {
 
   public cities: LookUpModel[];
   public countries: LookUpModel[];

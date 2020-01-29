@@ -70,6 +70,11 @@ export class MethodsComponent implements OnInit {
         this.getAllMethod();
       });
   }
+  public onDeleteMethodClicked(methodId: string): void {
+    this._methodService.deleteMethod(methodId).subscribe(() => {
+      this.getAllMethod();
+    });
+  }
 
   public onShowListViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });

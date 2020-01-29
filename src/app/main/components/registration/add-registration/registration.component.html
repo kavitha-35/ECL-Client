@@ -1,54 +1,90 @@
 <section class="animated fadeIn">
-  <mat-card>
-    <mat-card-title>Registration</mat-card-title>
-    <mat-card-subtitle>Registration for patient </mat-card-subtitle>
 
-    <mat-divider></mat-divider>
-
-    <mat-card-content>
-      <mat-horizontal-stepper>
-        <mat-step>
-          <form>
-            <ng-template matStepLabel>Personal Information</ng-template>
-            <app-patient-registration [isReVisitRegistration]="isReVisitRegistration"></app-patient-registration>
-          </form>
-        </mat-step>
-
-        <mat-step>
-          <form>
-            <ng-template matStepLabel>Referral Information</ng-template>
-            <app-patient-referral-information></app-patient-referral-information>
-          </form>
-        </mat-step>
-
-        <mat-step>
-          <form>
-            <ng-template matStepLabel>Clinical History</ng-template>
-            <app-clinic-history></app-clinic-history>
-          </form>
-        </mat-step>
-
-        <mat-step>
-          <form>
-            <ng-template matStepLabel>Test(s) Information</ng-template>
-            <app-patient-tests-information></app-patient-tests-information>
-          </form>
-        </mat-step>
-
-        <mat-step>
-          <form>
-            <ng-template matStepLabel>Insurance Details</ng-template>
-            <app-insurance-details></app-insurance-details>
-          </form>
-        </mat-step>
-
-        <mat-step>
-          <form>
-            <ng-template matStepLabel>Documents Upload</ng-template>
-            <app-patient-verification></app-patient-verification>
-          </form>
-        </mat-step>
-      </mat-horizontal-stepper>
-    </mat-card-content>
-  </mat-card>
+  <section id="doctor-container">
+    <mat-card class="doctor-mat-card" style="padding: 20px 20px;">
+      <section>
+          <section>
+            <!-- Outsource Management Form -->
+            <form class="doctor-form" #doctor="ngForm">
+               <!-- Basic Information -->
+               <section class="basic-wrapper">
+                <!-- Header -->
+                <app-section-header title="Personal Information"></app-section-header>
+                <!-- Content -->
+                <section class="basic-content">
+                  <!-- Designation -->
+                  <app-patient-registration [isReVisitRegistration]="isReVisitRegistration"></app-patient-registration>
+                  
+                </section>
+              </section>
+              <!-- Basic Information -->
+              <section class="basic-wrapper">
+                <!-- Header -->
+                <app-section-header title="Address Information"></app-section-header>
+                <!-- Content -->
+                <section class="basic-content">
+                  <!-- Designation -->
+                  <app-patient-address></app-patient-address>
+                </section>
+              </section>
+              <!-- Basic Information -->
+              <section class="basic-wrapper">
+                <!-- Header -->
+                <app-section-header title="Referral Information"></app-section-header>
+                <!-- Content -->
+                <section class="basic-content">
+                  <!-- Designation -->
+                  <app-patient-referral-information></app-patient-referral-information>
+                </section>
+              </section>
+                  <!-- Address Information -->
+              <section class="address-information-wrapper">
+                <!-- Header -->
+                <app-section-header title="Clinical History"></app-section-header>
+                <!-- Content -->
+                <section class="address-information-content">
+                  <app-clinic-history></app-clinic-history>
+                </section>
+              </section>
+              <!-- Login & Access -->
+              <section class="user-credentials-information-wrapper">
+                <!-- Header -->
+                <app-section-header title="Test(s) Information"></app-section-header>
+                <!-- Content -->
+                <section class="user-credentials-content">
+                  <app-patient-tests-information></app-patient-tests-information>
+                </section>
+              </section>
+               <!-- Login & Access -->
+               <section class="user-credentials-information-wrapper">
+                <!-- Header -->
+                <app-section-header title="Insurance Details"></app-section-header>
+                <!-- Content -->
+                <section class="user-credentials-content">
+                  <app-insurance-details></app-insurance-details>
+                </section>
+              </section>
+              <section class="user-credentials-information-wrapper">
+                <!-- Header -->
+                <app-section-header title="Documents Upload"></app-section-header>
+                <!-- Content -->
+                <section class="user-credentials-content">
+                  <app-patient-verification></app-patient-verification>
+                </section>
+              </section>
+            </form>
+            <section class="action-buttons-wrapper">
+              <button mat-button color="primary" matDialogClose>Clear</button>
+              <button mat-raised-button color="primary" cdkFocusInitial>Add Doctor</button>
+            </section>
+          </section>
+        
+      </section>
+    </mat-card>
+  </section>
+  
 </section>
+
+
+
+
