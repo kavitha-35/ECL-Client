@@ -78,7 +78,7 @@
                 </mat-form-field>
 
                 <!-- Equipment -->
-                <mat-form-field>
+                <mat-form-field class="mt-n7">
                   <mat-label>Equipment</mat-label>
                   <mat-select disableOptionCentering name="equipmentId" ngModel #equipmentId="ngModel">
                     <mat-option *ngFor="let options of equipments" [value]="options.equipmentId">{{
@@ -149,22 +149,28 @@
 
                 <!-- TAT -->
                 <section class="tat">
-                  <mat-label style="margin-top:20px;">TAT</mat-label>
-                  <mat-form-field style="width: 50px;">
+                  <mat-label class="tatcolor">TAT</mat-label>
+                  <mat-form-field style="width: 100px;">
                     <input matInput placeholder="Days" name="tatDays" required ngModel #tatDays="ngModel" />
                   </mat-form-field>
-                  <mat-form-field style="width: 50px;">
+                  <mat-form-field style="width: 100px;">
                     <input matInput placeholder="Hours" name="tatHours" required ngModel #tatHours="ngModel" />
                   </mat-form-field>
-                  <mat-form-field style="width: 80px;">
+                  <mat-form-field style="width: 100px;">
                     <input matInput placeholder="Minutes" name="tatMinutes" required ngModel #tatMinutes="ngModel" />
                   </mat-form-field>
                 </section>
 
                 <!-- Comments -->
                 <mat-form-field>
-                  <mat-label>Comments</mat-label>
-                  <input matInput placeholder="Comments" name="comments" ngModel #comments="ngModel" />
+                  <mat-label>Text Description</mat-label>
+                  <textarea  matInput placeholder="Text Description" name="comments" ngModel #comments="ngModel" ></textarea>
+                </mat-form-field>
+
+                <!-- References Range -->
+                <mat-form-field>
+                  <mat-label> References Range</mat-label>
+                  <input matInput placeholder=" References Range" name=" referencesRange" ngModel #referencesRange="ngModel" />
                 </mat-form-field>
               </section>
             </section>

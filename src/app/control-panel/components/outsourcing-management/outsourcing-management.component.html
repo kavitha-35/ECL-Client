@@ -53,7 +53,7 @@
       <ng-template #tableView>
         <app-referal-lab-list-data-table
         [labs]="outsourcedLab"
-        (editReferalLabClicked)="onEditReferalLabClicked()"
+        (editReferalLabClicked)="onEditReferalLabClicked($event)"
         (deleteReferalLabClicked)="onDeleteReferalLabClicked($event)"
         [isBusy]="isFetchingReferalLab"
       ></app-referal-lab-list-data-table>

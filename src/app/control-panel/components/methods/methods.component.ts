@@ -9,6 +9,7 @@ import { MethodModel } from 'app/control-panel/models/method/method.model';
 import { MethodService } from 'app/control-panel/services/method.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { LookupService } from 'app/control-panel/services/lookup.service';
+import { ViewMethodComponent } from './_dialogues/view-method/view-method/view-method.component';
 
 @Component({
   selector: 'app-methods',
@@ -54,11 +55,20 @@ export class MethodsComponent implements OnInit {
     this.getAllMethod();
   }
 
-  public onEditMethodClicked(): void {
+  public onEditMethodClicked(method: MethodModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: method,
+    };
     this._matDialog
-      .open(EditMethodComponent, this.matDialogConfig)
+      .open(EditMethodComponent, matDialogConfig)
       .afterClosed()
-      .pipe(take(1));
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllMethod();
+      });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -78,13 +88,19 @@ export class MethodsComponent implements OnInit {
       this.cRef.detectChanges();
     });
   }
-
-  private _initializeValues(): void {
-    this.method = [
-      {
-        id: '1',
-        name: 'ahmed',
-      },
-    ];
+  public onViewMethodClicked(method: MethodModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: method,
+    };
+    this._matDialog
+      .open(ViewMethodComponent, matDialogConfig)
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllMethod();
+      });
   }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { MatDialogConfig, MatDialog, PageEvent } from '@angular/material';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { PageEvent, MatDialogConfig, MatDialog } from '@angular/material';
 import { AddEquipmentComponent } from './_dialogues/add-equipment/add-equipment.component';
 import { EditEquipmentComponent } from './_dialogues/edit-equipment/edit-equipment.component';
 import { ViewEquipmentComponent } from './_dialogues/view-equipment/view-equipment.component';
@@ -15,6 +15,7 @@ import { DISPLAY_MODE } from 'app/main/models/constants';
   selector: 'app-equipment',
   templateUrl: './equipment.component.html',
   styleUrls: ['./equipment.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EquipmentComponent implements OnInit {
   public equipment: EquipmentModel[];
@@ -58,12 +59,17 @@ export class EquipmentComponent implements OnInit {
       });
   }
 
-  public onEditEquipmentClicked(): void {
-    this._matDialog
-      .open(EditEquipmentComponent, this.matDialogConfig)
-      .afterClosed()
-      .pipe(take(1));
-  }
+  // public onEditEquipmentClicked(): void {
+  //   this.matDialog
+  //     .open(EditEquipmentComponent, this.matDialogConfig)
+  //     .afterClosed()
+  //     .pipe(take(1))
+  //     .subscribe(() => {
+  //       this.getAllEquipment();
+  //     });
+  // }
+
+
 
   public onShowListViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });
@@ -81,6 +87,22 @@ export class EquipmentComponent implements OnInit {
     };
     this.matDialog
     .open(ViewEquipmentComponent, matDialogConfig)
+    .afterClosed()
+    .pipe(take(1))
+    .subscribe(() => {
+      this.getAllEquipment();
+    });
+}
+public onEditEquipmentClicked(equipment: EquipmentModel): void {
+  const matDialogConfig: MatDialogConfig = {
+    panelClass: 'mat-dialogue-no-padding',
+    width: '1400px',
+    autoFocus: false,
+    data: equipment,
+  };
+  console.log(equipment);
+  this.matDialog
+    .open(EditEquipmentComponent, matDialogConfig)
     .afterClosed()
     .pipe(take(1))
     .subscribe(() => {

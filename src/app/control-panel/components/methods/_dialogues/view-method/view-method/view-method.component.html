@@ -1,0 +1,29 @@
+<section id="department-details-container">
+    <mat-card>
+      <mat-card-title>Method Details 
+          <i class="fa fa-times close-icon pointer" aria-hidden="true" (click)="onCloseButtonClicked()"></i></mat-card-title>
+      <mat-card-subtitle>Details for Selected Method</mat-card-subtitle>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <section>
+          <mat-card-title>Method Information</mat-card-title>
+          <mat-card-content>
+            <section class="department-details">
+              <!-- department Id -->
+              <section class="sub-title">Method Id</section>
+              <section>{{ selectedForView.methodId }}</section>
+  
+              <!-- department Name -->
+              <section class="sub-title">Method Name</section>
+              <section>{{ selectedForView.methodName }}</section>
+  
+              <!-- department Type Name -->
+              <section class="sub-title">Department Name</section>
+              <section>{{ selectedForView.department.departmentName }}</section>
+            </section>
+          </mat-card-content>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  

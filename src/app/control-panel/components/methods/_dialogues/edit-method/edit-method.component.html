@@ -15,7 +15,7 @@
         <mat-dialog-content class="method-dialog">
           <section>
             <!-- method  Form -->
-            <form class="method-form">
+            <form class="method-form" #method="ngForm">
               <!-- Basic Information -->
               <section class="basic-wrapper">
                 <!-- Header -->
@@ -26,25 +26,14 @@
                   <!-- Method Nmae -->
                   <mat-form-field class="mt-n7">
                     <mat-label>Method Name</mat-label>
-                    <mat-select disableOptionCentering>
-                      <mat-option value="intra">
-                        Intra
-                      </mat-option>
-                      <mat-option value="inter">
-                        Inter
-                      </mat-option>
-                    </mat-select>
+                    <input matInput placeholder="Method name" name=methodName [(ngModel)]="selectedForEdit.methodName" #methodName="ngModel" />
                   </mat-form-field>
 
                   <!-- Method Name -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Department</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="intra">
-                      Intra
-                    </mat-option>
-                    <mat-option value="inter">
-                      Inter
+                  <mat-select disableOptionCentering [(ngModel)]="selectedForEdit.department.departmentId" name="departmentId" #departmentId="ngModel">
+                    <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{item.departmentName}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -54,7 +43,7 @@
   
             <section class="action-buttons-wrapper">
               <button mat-button color="primary">Clear</button>
-              <button mat-raised-button color="primary" cdkFocusInitial>Save Change(s)</button>
+              <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditMethodClicked(method)">Save Change(s)</button>
             </section>
           </section>
         </mat-dialog-content>

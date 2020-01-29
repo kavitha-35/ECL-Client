@@ -6,13 +6,13 @@ import { GridColumnModel } from 'app/shared/models/grid-column.model';
   selector: 'app-method-list-data-table',
   templateUrl: './method-list-data-table.component.html',
   styleUrls: ['./method-list-data-table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MethodListDataTableComponent implements OnInit  {
   @Input() method : MethodModel[];
   @Input() isBusy: boolean;
   @Output() editMethodClicked = new EventEmitter();
   @Output() deleteMethodClicked = new EventEmitter();
+  @Output() viewMethodClicked = new EventEmitter();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -22,8 +22,12 @@ export class MethodListDataTableComponent implements OnInit  {
     this._initializeDisplayedColumns();
   }
 
-  public onEditMethodClicked(): void {
-    this.editMethodClicked.emit();
+  public onViewMethodClicked(method: MethodModel): void {
+    this.viewMethodClicked.emit(method);
+  }
+
+  public onEditMethodClicked(method: MethodModel): void {
+    this.editMethodClicked.emit(method);
   }
 
   public onDeleteMethodClicked(): void {
@@ -39,6 +43,7 @@ export class MethodListDataTableComponent implements OnInit  {
     this.filteredColumns = [
       { columnName: 'id', displayValue: 'Clinic ID', isSelected: true },
       { columnName: 'name', displayValue: 'Method Name', isSelected: true },
+      { columnName: 'department', displayValue: 'Department Name', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter(x => x.isSelected);

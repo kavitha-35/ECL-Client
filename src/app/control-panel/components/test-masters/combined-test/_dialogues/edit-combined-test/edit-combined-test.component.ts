@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { Component, OnInit, Inject, Optional, ChangeDetectorRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
@@ -7,6 +7,7 @@ import { CombinedTest } from '../../test.model';
 import { DepartmentService } from 'app/control-panel/services/department.service';
 import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-combined-test',
@@ -28,6 +29,7 @@ export class EditCombinedTestComponent implements OnInit {
     private readonly dialogRef: MatDialogRef<EditCombinedTestComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: CombinedTestModel,
     private readonly _combinedTestService: CombinedTestService,
+    private readonly cRef: ChangeDetectorRef,
     private _lookUpService: LookupService,
     private readonly _departmentService: DepartmentService,
   ) {
@@ -52,6 +54,7 @@ export class EditCombinedTestComponent implements OnInit {
   public getSpecimen(): void {
     this._lookUpService.getLookUp('Specimen').subscribe((data: LookUpModel[]) => {
       this.specimen = data;
+      this.cRef.detectChanges();
       console.log(this.specimen);
     });
   }

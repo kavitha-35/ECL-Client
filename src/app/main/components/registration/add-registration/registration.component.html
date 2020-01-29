@@ -23,6 +23,13 @@
 
         <mat-step>
           <form>
+            <ng-template matStepLabel>Clinical History</ng-template>
+            <app-clinic-history></app-clinic-history>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <form>
             <ng-template matStepLabel>Test(s) Information</ng-template>
             <app-patient-tests-information></app-patient-tests-information>
           </form>

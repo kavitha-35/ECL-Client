@@ -23,20 +23,16 @@
               <!-- Content -->
               <section class="basic-content">
                 <!-- Method Name -->
-                <mat-form-field class="mt-n7">
+                <mat-form-field >
                   <mat-label>Method Name</mat-label>
-                  <input matInput placeholder=">Method Name" name="methodName" ngModel #methodName="ngModel" required />
+                  <input matInput placeholder="Department Name" name=methodName ngModel #methodName="ngModel" />
                 </mat-form-field>
 
                 <!-- Method Name -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Department</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="intra">
-                      Intra
-                    </mat-option>
-                    <mat-option value="inter">
-                      Inter
+                  <mat-select disableOptionCentering name="departmentId" ngModel #departmentId="ngModel">
+                    <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{item.departmentName}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>

@@ -27,9 +27,10 @@
                 <section class="pt-19">
                   <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
                 </section>
-              
+              </section>
+              <section class="basic-content">
                 <!-- Department Name -->
-                <mat-form-field>
+                <mat-form-field >
                   <mat-label>Department Name</mat-label>
                   <input matInput placeholder="Department Name" name=departmentName ngModel #departmentName="ngModel" required />
                 </mat-form-field>
@@ -41,7 +42,6 @@
                     <mat-option *ngFor="let options of departmentTypes"[value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
-
               </section>
             </section>
           </form>
