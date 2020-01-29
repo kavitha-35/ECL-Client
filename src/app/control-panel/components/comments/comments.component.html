@@ -43,15 +43,16 @@
 
     <!-- List View -->
     <ng-template #listView>
-      <app-comment-list [comment]="comment"></app-comment-list>
+      <app-comment-list [comment]="comments"></app-comment-list>
     </ng-template>
 
     <!-- Table View -->
     <ng-template #tableView>
       <app-comment-list-data-table
-        [comment]="comment"
-        (editCommentClicked)="onEditCommentClicked()"
-        [isBusy]="isFetchingcomments"
+        [comment]="comments"
+        (editCommentClicked)="onEditCommentClicked($event)"
+        (deleteCommentClicked)="onDeleteCommentClicked($event)"
+        [isBusy]="isFetchingComments"
       ></app-comment-list-data-table>
     </ng-template>
 

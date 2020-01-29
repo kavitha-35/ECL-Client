@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { CommentModel } from 'app/control-panel/models/method/comment.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
+import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 
 @Component({
   selector: 'app-comment-list-data-table',
@@ -10,7 +11,7 @@ import { GridColumnModel } from 'app/shared/models/grid-column.model';
 })
 
 export class CommentListDataTableComponent implements OnInit {
-  @Input() comment : CommentModel[];
+  @Input() comment : LookUpModel[];
   @Input() isBusy: boolean;
   @Output() editCommentClicked = new EventEmitter();
   @Output() deleteCommentClicked = new EventEmitter();
@@ -23,12 +24,12 @@ export class CommentListDataTableComponent implements OnInit {
     this._initializeDisplayedColumns();
   }
 
-  public onEditCommentClicked(): void {
-    this.editCommentClicked.emit();
+  public onEditCommentClicked(comment: LookUpModel): void {
+    this.editCommentClicked.emit(comment);
   }
 
-  public onDeleteCommentClicked(): void {
-    this.deleteCommentClicked.emit();
+  public onDeleteCommentClicked(commentId: string): void {
+    this.deleteCommentClicked.emit(commentId);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
