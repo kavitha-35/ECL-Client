@@ -103,22 +103,31 @@
                       <span>{{ childItem.name | translate }}</span>
                       <span fxFlex></span>
                     </a>
-                    <a class="relative" mat-ripple href="javascript:;" *ngIf="childItem.type === 'sub'">
+                    <a
+                      class="relative"
+                      mat-ripple
+                      href="javascript:;"
+                      *ngIf="childItem.type === 'sub'"
+                      [matMenuTriggerFor]="subMenus"
+                    >
                       <span>{{ childItem.name | translate }}</span>
                       <span fxFlex></span>
                       <mat-icon class="menu-caret">arrow_drop_down</mat-icon>
                     </a>
-                    <mat-nav-list class="sub-menu" *ngIf="childItem.type === 'sub'">
-                      <mat-list-item *ngFor="let childItem1 of childItem.children1" routerLinkActive="open">
-                        <a
-                          [routerLink]="[childItem1.state]"
-                          [queryParams]="{ action: childItem1.paramValue }"
-                          class="relative"
-                          mat-ripple
-                          >{{ childItem1.name | translate }}</a
-                        >
-                      </mat-list-item>
-                    </mat-nav-list>
+                    <mat-menu
+                      #subMenus="matMenu"
+                      class="my-menu"
+                      yPosition="below" xPosition="before"
+                    >
+                      <button
+                        mat-menu-item
+                        [routerLink]="[childItem1.state]"
+                        [queryParams]="{ action: childItem1.paramValue }"
+                        *ngFor="let childItem1 of childItem.children1"
+                      >
+                        {{ childItem1.name | translate }}
+                      </button>
+                    </mat-menu>
                   </mat-list-item>
                 </mat-nav-list>
               </mat-list-item>
