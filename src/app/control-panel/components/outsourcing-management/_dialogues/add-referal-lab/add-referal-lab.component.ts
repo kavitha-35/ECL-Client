@@ -7,6 +7,7 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import {
   ContactPerson,
   OutsourcingManagementModel,
+  AddOutsourcingManagementModel,
 } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
 
 @Component({
@@ -18,7 +19,9 @@ export class AddReferalLabComponent implements OnInit {
   public cities: LookUpModel[];
   public countries: LookUpModel[];
   public contactPersonList: ContactPerson[] = [];
-  public outsource: OutsourcingManagementModel = new OutsourcingManagementModel();
+  public outsource: AddOutsourcingManagementModel = new AddOutsourcingManagementModel();
+  public couriers: LookUpModel[];
+  public departments: LookUpModel[];
   constructor(
     private readonly _dialogRef: MatDialogRef<AddReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
@@ -29,6 +32,8 @@ export class AddReferalLabComponent implements OnInit {
     this.getCities();
     this.getCountries();
     this.addContact();
+    this.getCourier();
+    this.getdepartments();
   }
   public onAddReferalLabClicked(): void {
     console.log(this.outsource);
@@ -44,9 +49,21 @@ export class AddReferalLabComponent implements OnInit {
     });
   }
 
+  public getCourier(): void {
+    this._lookUpService.getLookUp('courier').subscribe((data: LookUpModel[]) => {
+      this.couriers = data;
+    });
+  }
+
   public getCountries(): void {
     this._lookUpService.getLookUp('country').subscribe((data: LookUpModel[]) => {
       this.countries = data;
+    });
+  }
+
+  public getdepartments(): void {
+    this._lookUpService.getLookUp('contactDepartment').subscribe((data: LookUpModel[]) => {
+      this.departments = data;
     });
   }
 

@@ -15,7 +15,7 @@
       <mat-dialog-content class="outsource-dialog">
         <section>
           <!-- Outsource Management Form -->
-          <form class="outsource-management-form" >
+          <form class="outsource-management-form">
             <!-- Basic Information -->
             <section class="basic-wrapper">
               <!-- Header -->
@@ -73,7 +73,7 @@
                 </mat-form-field>
 
                 <!-- Relation -->
-                <mat-form-field >
+                <mat-form-field>
                   <mat-label>Relation</mat-label>
                   <mat-select disableOptionCentering name="relation" [(ngModel)]="outsource.relation">
                     <mat-option value="Intra">
@@ -97,10 +97,15 @@
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
+
                 <!-- courier -->
                 <mat-form-field>
                   <mat-label>Courier</mat-label>
-                  <input matInput placeholder="courier" class="uppercase" name="courier" [(ngModel)]="outsource.courier" />
+                  <mat-select disableOptionCentering name="courier" [(ngModel)]="outsource.courierId">
+                    <mat-option *ngFor="let options of couriers" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
               </section>
             </section>
@@ -131,8 +136,8 @@
                   </mat-error>
                 </mat-form-field>
 
-                 <!-- Area -->
-                 <mat-form-field>
+                <!-- Area -->
+                <mat-form-field>
                   <mat-label>Area</mat-label>
                   <input matInput placeholder="Area" name="area" required [(ngModel)]="outsource.area" />
                 </mat-form-field>
@@ -146,7 +151,7 @@
                 <!-- City-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
-                  <mat-select disableOptionCenteringn name="city" [(ngModel)]="outsource.city">
+                  <mat-select disableOptionCentering name="city" [(ngModel)]="outsource.city">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -181,21 +186,21 @@
                       matInput
                       placeholder="Designation"
                       class="uppercase"
-                      name="designation{{i}}"
+                      name="designation{{ i }}"
                       required
                       [(ngModel)]="contact.designation"
                     />
                   </mat-form-field>
 
-                   <!-- Department-->
-                <mat-form-field class="mt-n7">
-                  <mat-label> Department</mat-label>
-                  <mat-select disableOptionCenteringn name=" department" [(ngModel)]="outsource.department">
-                    <mat-option *ngFor="let options of regions" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
+                  <!-- Department-->
+                  <mat-form-field class="mt-n7">
+                    <mat-label> Department</mat-label>
+                    <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
+                      <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
+                        options.keyValue
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
 
                   <!-- Contact Person Name  -->
                   <mat-form-field>
@@ -204,7 +209,7 @@
                       matInput
                       class="uppercase"
                       placeholder="Contact Person Name"
-                      name="contactPersonName{{i}}"
+                      name="contactPersonName{{ i }}"
                       required
                       [(ngModel)]="contact.contactPersonName"
                     />
@@ -216,7 +221,7 @@
                     <input
                       matInput
                       placeholder="Mobile"
-                      name="mobile{{i}}"
+                      name="mobile{{ i }}"
                       #mobile="ngModel"
                       pattern="[0-9]*"
                       required
@@ -234,7 +239,7 @@
                     <input
                       matInput
                       placeholder="Email"
-                      name="email{{i}}"
+                      name="email{{ i }}"
                       #email="ngModel"
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                       required
@@ -311,15 +316,14 @@
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
+
+                <!-- Credit limit -->
+                <mat-form-field>
+                  <mat-label> Credit limit</mat-label>
+                  <input matInput placeholder="Credit limit" name="creditLimit" [(ngModel)]="outsource.creditLimit" />
+                </mat-form-field>
               </section>
             </section>
-
-            <!-- Credit limit -->
-            <mat-form-field>
-              <mat-label> Credit limit</mat-label>
-              <input matInput placeholder=" Credit limit" name="creditLimit"  [(ngModel)]="outsource. creditLimit" />
-            </mat-form-field>
-
 
             <!-- Login Information -->
             <section class="login-information-wrapper">
