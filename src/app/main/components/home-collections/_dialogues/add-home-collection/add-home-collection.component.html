@@ -1,77 +1,71 @@
-<section id="add-home-collection-container">
-  <mat-card>
-    <!-- Mat Card Header -->
-    <app-mat-dialog-header title="Add Home Collection" subTitle="Add New Home Collection"></app-mat-dialog-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
-      <section>
-        <mat-horizontal-stepper>
-          <mat-step>
-            <!-- User Details -->
-            <form autocomplete="off">
-              <ng-template matStepLabel>Demographics</ng-template>
-
-              <section class="user-details-container">
-                <!-- Patient Name -->
-                <mat-form-field>
-                  <mat-label>Name</mat-label>
-                  <input matInput placeholder="Name" />
-                </mat-form-field>
-
-                <!-- DOB -->
-                <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Date of birth" />
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-
-                <!-- Gender -->
-                <section class="pt-13">
-                  <label for="gender">Gender</label>
-                  <mat-radio-group id="gender" name="gender" label="Gender">
-                    <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
-                    <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
-                  </mat-radio-group>
-                </section>
-
-                <!-- Landline -->
-                <mat-form-field>
-                  <mat-label>Landline</mat-label>
-                  <input matInput placeholder="Landline" />
-                </mat-form-field>
-
-                <!-- Mobile Number -->
-                <mat-form-field>
-                  <mat-label>Mobile Number</mat-label>
-                  <input matInput placeholder="Phone Number" />
-                </mat-form-field>
-
-                <!-- Email ID -->
-                <mat-form-field>
-                  <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" />
-                </mat-form-field>
+<section id="doctor-container">
+  <mat-card class="doctor-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Home Collections" subTitle="Add Home collection" icon="fa-calendar"> </app-dialog-caption>
+    </section>
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="doctor-dialog">
+        <section>
+          <!-- Outsource Management Form -->
+          <form class="doctor-form">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Demographics"></app-section-header>
+              <!-- Content -->
+              <section class="basic-content">
+            <!-- Patient Name -->
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Name" />
+            </mat-form-field>
+            <!-- DOB -->
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Date of birth" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!-- Gender -->
+            <section class="pt-13">
+              <label for="gender">Gender</label>
+              <mat-radio-group id="gender" name="gender" label="Gender">
+                <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
+                <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+              </mat-radio-group>
+            </section>
+            <!-- Landline -->
+            <mat-form-field>
+              <mat-label>Landline</mat-label>
+              <input matInput placeholder="Landline" />
+            </mat-form-field>
+            <!-- Mobile Number -->
+            <mat-form-field>
+              <mat-label>Mobile Number</mat-label>
+              <input matInput placeholder="Phone Number" />
+            </mat-form-field>
+            <!-- Email ID -->
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" />
+            </mat-form-field>
               </section>
-            </form>
-
-            <!-- Buttons Container -->
-            <section  class="action-buttons-container" >
-              <button mat-button color="primary" class="mr-48" [matDialogClose]>Close</button>
-                <button mat-raised-button color="primary" matStepperNext>Next</button>
-              </section>
-          </mat-step>
-
-          <mat-step>
-            <!-- Home Collection Information -->
-            <form autocomplete="off">
-              <ng-template matStepLabel>Address Information</ng-template>
-              <section class="home-collection-information-container">
+            </section>
+                <!-- Address Information -->
+            <section class="address-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Address Information"></app-section-header>
+              <!-- Content -->
+              <section class="address-information-content">
                 <!-- Postal Code -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
                   <input matInput maxlength="10" placeholder="P.O.Box" />
                 </mat-form-field>
-
                 <!-- Area -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Area</mat-label>
@@ -79,7 +73,6 @@
                     <mat-option></mat-option>
                   </mat-select>
                 </mat-form-field>
-
                 <!-- City -->
                 <mat-form-field>
                   <mat-label>City</mat-label>
@@ -87,7 +80,6 @@
                     <mat-option></mat-option>
                   </mat-select>
                 </mat-form-field>
-
                 <!-- Country -->
                 <mat-form-field>
                   <mat-label>Country</mat-label>
@@ -96,46 +88,31 @@
                   </mat-select>
                 </mat-form-field>
               </section>
-            </form>
+            </section>
 
-            <!-- Buttons Container -->
-              <section  class="action-buttons-container" >
-              <button mat-button color="primary" class="mr-48" matStepperPrevious>Back</button>
-                <button mat-raised-button color="primary" matStepperNext>Next</button>
-              </section>
-          </mat-step>
-
-          <mat-step>
-            <!-- Referral Information -->
-            <form autocomplete="off">
-              <ng-template matStepLabel>Referral Information</ng-template>
-              <section class="referral-information-container">
+            <!-- Login & Access -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Referral Information"></app-section-header>
+              <!-- Content -->
+              <section class="user-credentials-content">
                 <!-- Referral Organization -->
                 <mat-form-field>
                   <mat-label> Organization</mat-label>
                   <input matInput placeholder="Organization" />
                 </mat-form-field>
-
                 <!-- Referral Doctor -->
                 <mat-form-field>
                   <mat-label>Physician</mat-label>
                   <input matInput placeholder="Physician" />
                 </mat-form-field>
               </section>
-            </form>
-            <!-- Buttons Container -->
-            <section  class="action-buttons-container" >
-              <button mat-button color="primary" class="mr-48" matStepperPrevious>Back</button>
-                <button mat-raised-button color="primary" matStepperNext>Next</button>
-              </section>
-          </mat-step>
-
-          <mat-step>
-            <!-- Home Collection Information -->
-            <form autocomplete="off">
-              <ng-template matStepLabel>Collection Information</ng-template>
-              <section class="home-collection-information-container">
-                <!-- Scheduled Date and Time -->
+            </section>
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Collection Information"></app-section-header>
+              <!-- Content -->
+              <section class="user-credentials-content">
                 <mat-form-field>
                   <input
                     matInput
@@ -145,50 +122,37 @@
                   />
                   <owl-date-time #Scheduled></owl-date-time>
                 </mat-form-field>
-              </section>
 
-              <!-- Comment -->
-              <section class="comment-wrapper">
                 <mat-form-field class="full-width">
                   <mat-label>Comment</mat-label>
                   <input matInput maxlength="100" placeholder="Enter Comment (Optional)" />
                 </mat-form-field>
               </section>
-            </form>
-            <!-- Buttons Container -->
-            <section  class="action-buttons-container" >
-              <button mat-button color="primary" class="mr-48" matStepperPrevious>Back</button>
-                <button mat-raised-button color="primary" matStepperNext>Next</button>
-              </section>
-          </mat-step>
+            </section>
 
-          <mat-step>
-            <!-- Office Use -->
-            <form autocomplete="off">
-              <ng-template matStepLabel>Office Use</ng-template>
-              <section class="office-use-information-container">
-                <!-- Assigned Driver -->
+            <section class="user-credentials-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Office Use"></app-section-header>
+              <!-- Content -->
+              <section class="user-credentials-content">
                 <mat-form-field>
                   <mat-label>Assigned Driver</mat-label>
                   <input matInput placeholder="Assigned Driver" />
                 </mat-form-field>
-
                 <!-- Assigned Phlebotomist -->
                 <mat-form-field>
                   <mat-label> Assigned Phlebotomist</mat-label>
                   <input matInput placeholder=" Assigned Phlebotomist" />
                 </mat-form-field>
               </section>
-            </form>
-            <!-- Dialog Actions -->
-            <section  class="action-buttons-container" >
-              <button mat-button color="primary" class="mr-48" [matDialogClose]>Close</button>
-                <button mat-raised-button color="primary"  (click)="onAddHomeCollectionClicked()">
-                  Add Home Collection(s)</button>
-              </section>
-          </mat-step>
-        </mat-horizontal-stepper>
-      </section>
-    </mat-card-content>
+            </section>
+          </form>
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial>Add Home Collection</button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
   </mat-card>
 </section>
