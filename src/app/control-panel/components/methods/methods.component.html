@@ -52,6 +52,7 @@
         [method]="method"
         (editMethodClicked)="onEditMethodClicked($event)"
         (viewMethodClicked)="onViewMethodClicked($event)"
+        (deleteMethodClicked)="onDeleteMethodClicked($event)"
         [isBusy]="isFetchingMethods"
       ></app-method-list-data-table>
     </ng-template>

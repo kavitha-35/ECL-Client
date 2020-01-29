@@ -34,11 +34,11 @@
                 <!-- Doctor Name -->
                 <mat-form-field >
                   <mat-label>Doctor Name</mat-label>
-                  <input matInput placeholder="Doctor Name" class="uppercase" name="doctorname" ngModel #doctorname="ngModel" pattern="[a-zA-Z]*" required  />
+                  <input matInput placeholder="Doctor Name" class="uppercase" name="doctorName" ngModel #doctorName="ngModel" pattern="[a-zA-Z]*" required  />
                 <mat-hint>
-                  <div *ngIf="doctorname.invalid && (doctorname.dirty ||doctorname.touched) " class= "validation">
-                    <div *ngIf="doctorname.errors.required" >doctorname is required</div>
-                    <div *ngIf="doctorname.errors?.pattern" >text is required</div>
+                  <div *ngIf="doctorName.invalid && (doctorName.dirty ||doctorName.touched) " class= "validation">
+                    <div *ngIf="doctorName.errors.required" >doctorname is required</div>
+                    <div *ngIf="doctorName.errors?.pattern" >text is required</div>
                   </div>
                 </mat-hint>
                 </mat-form-field>
@@ -73,7 +73,7 @@
                 <!-- Doctor PassKey -->
                 <mat-form-field>
                   <mat-label>Doctor PassKey</mat-label>
-                  <input matInput placeholder="Doctor PassKey" name=doctorpasskey ngModel #doctorpasskey="ngModel" />
+                  <input matInput placeholder="Doctor PassKey" name=doctorPassKey ngModel #doctorPassKey="ngModel" />
                 </mat-form-field>
 
                 <!-- Doctor Specialist -->
@@ -95,7 +95,7 @@
                 <!-- Visiting days -->
                 <mat-form-field>
                   <mat-label>Visiting Days</mat-label>
-                  <input matInput placeholder="Visiting Days" name=contactnumber ngModel #contactnumber="ngModel" />
+                  <input matInput placeholder="Contact Number" name=contactNumber ngModel #contactNumber="ngModel" />
                 </mat-form-field>
 
                 <!-- Department -->

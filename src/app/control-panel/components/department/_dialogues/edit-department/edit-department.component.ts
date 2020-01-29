@@ -14,6 +14,7 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 })
 export class EditDepartmentComponent implements OnInit {
   public departmentTypes: LookUpModel[];
+  public regions: LookUpModel[];
   public selectedForEdit: DepartmentModel;
   constructor(
     private readonly dialogRef: MatDialogRef<EditDepartmentComponent>,
@@ -27,6 +28,7 @@ export class EditDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDepartmentType();
+    this.getRegions();
   }
   public onEditDepartmentClicked(department: NgForm): void {
     console.log(department.form.value);
@@ -39,6 +41,11 @@ export class EditDepartmentComponent implements OnInit {
     this._lookUpService.getLookUp('DepartmentType').subscribe((data: LookUpModel[]) => {
       this.departmentTypes = data;
       this.cRef.detectChanges();
+    });
+  }
+  public getRegions(): void {
+    this._lookUpService.getLookUp('region').subscribe((data: LookUpModel[]) => {
+      this.regions = data;
     });
   }
 }
