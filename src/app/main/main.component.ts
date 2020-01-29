@@ -1,5 +1,5 @@
 import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
-import { Component, OnDestroy, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, HostListener, ViewEncapsulation } from '@angular/core';
 
 import { filter } from 'rxjs/operators';
 
@@ -19,6 +19,7 @@ import { UsersFacade } from './state/users/users.facade';
 
 @Component({
   templateUrl: 'main.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class MainComponent implements OnInit, OnDestroy {
   url                 : string;

@@ -49,7 +49,7 @@
                 <!-- Serial No -->
                 <mat-form-field>
                   <mat-label>Serial No</mat-label>
-                  <input matInput placeholder="Serial No" name="serialNo" ngModel #serialNo="ngModel" />
+                  <input matInput placeholder="Serial No" name="serialNo" [(ngModel)]="selectedForEdit.equipmentId"  #serialNo="ngModel" />
                 </mat-form-field>
         
               </section>

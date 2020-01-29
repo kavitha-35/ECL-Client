@@ -1,4 +1,4 @@
-@import "color";
+@import 'color';
 
 .full-width {
   width: 100%;
@@ -38,7 +38,7 @@
   visibility: hidden;
 }
 
-.uppercase{
+.uppercase {
   text-transform: uppercase;
 }
 
@@ -62,27 +62,27 @@
 }
 
 .red {
-  color: #E11F24;
+  color: #e11f24;
 }
 
 .orange {
-  color: #911E61;
+  color: #911e61;
 }
 
 .deep-orange {
-  color: #D65D39;
+  color: #d65d39;
 }
 
 .dark-blue {
-  color: #034F79;
+  color: #034f79;
 }
 
 .purple {
-  color: #79248A;
+  color: #79248a;
 }
 
 .tan-blue {
-  color: #0755AD;
+  color: #0755ad;
 }
 
 .white {
@@ -90,22 +90,22 @@
 }
 
 .grad-blue {
-  background: #4065E0;
+  background: #4065e0;
   color: #ffffff;
 }
 
 .grad-not-blue {
-  background: #1BDAE4;
+  background: #1bdae4;
   color: #ffffff;
 }
 
 .grad-green {
-  background: #1EC9B4;
+  background: #1ec9b4;
   color: #fff;
 }
 
 .grad-orange {
-  background: #EEB21E;
+  background: #eeb21e;
   color: #fff;
 }
 
@@ -118,7 +118,6 @@
   border-radius: 5px;
   display: grid;
   grid-template-rows: 1fr 1fr auto;
-
 
   .title {
     font-size: 28px;
@@ -139,9 +138,9 @@
   }
 }
 
-.card:hover{
+.card:hover {
   transform: scale(1.1);
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .mat-row:nth-child(odd) {
@@ -151,4 +150,11 @@
 .section-header {
   font-size: 20px;
   color: $primary-color;
+}
+
+.my-menu .mat-menu-content {
+  background: #034f79;
+  .mat-menu-item {
+    color: #ffffff;
+  }
 }

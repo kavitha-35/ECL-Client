@@ -8,10 +8,10 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'apps',
     children: [
-      { state: 'calendar', name: 'Calendar' },
-      { state: 'email', name: 'Email' },
-      { state: 'social', name: 'Social' },
-      { state: 'chat', name: 'Chat' },
+      { state: 'calendar', name: 'Calendar', type: 'link' },
+      { state: 'email', name: 'Email', type: 'link' },
+      { state: 'social', name: 'Social', type: 'link' },
+      { state: 'chat', name: 'Chat', type: 'link' },
     ],
   },
   {
@@ -32,8 +32,8 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'polymer',
     children: [
-      { state: 'logistics-reception', name: 'Reception' },
-      { state: 'logistics-messenger', name: 'Messenger' },
+      { state: 'logistics-reception', name: 'Reception', type: 'link' },
+      { state: 'logistics-messenger', name: 'Messenger', type: 'link' },
     ],
   },
   {
@@ -42,21 +42,20 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'supervised_user_circle',
     children: [
-      { state: 'patient', name: 'Add Registration', paramValue: 'registration' },
-      { state: 'patient', name: 'Revisit Registration', paramValue: 'revisit-registration' },
-      { state: 'bulk-registration', name: 'Bulk Registration' },
-      { state: 'additional-tests', name: 'Additional Tests' },
-      { state: 'registration-list', name: 'Registration List' },
-      { state: 'reports', name: 'Reports' },
-      { state: 'customer-feedback', name: 'Customer Feedback System' },
+      { state: 'patient', name: 'Add Registration', paramValue: 'registration', type: 'link' },
+      { state: 'patient', name: 'Revisit Registration', paramValue: 'revisit-registration', type: 'link' },
+      { state: 'bulk-registration', name: 'Bulk Registration', type: 'link' },
+      { state: 'additional-tests', name: 'Additional Tests', type: 'link' },
+      { state: 'registration-list', name: 'Registration List', type: 'link' },
+      { state: 'reports', name: 'Reports', type: 'link' },
+      { state: 'customer-feedback', name: 'Customer Feedback System', type: 'link' },
     ],
   },
   {
-    state: 'payment',
+    state: 'payment-list',
     name: 'Payment',
-    type: 'sub',
+    type: 'link',
     icon: 'payment',
-    children: [{ state: 'add-payment', name: 'Add Payment' }, { state: 'payment-list', name: 'Payment List' }],
   },
   {
     state: 'accession',
@@ -64,12 +63,12 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'offline_pin',
     children: [
-      { state: 'temperature-control', name: 'Temperature Control' },
-      { state: 'branch-samples', name: 'Branch Samples' },
-      { state: 'sample-mapping', name: 'Samples Mapping' },
-      { state: 'pending-accession', name: 'Pending Accession' },
-      { state: 'problem-sample-notification', name: 'Problem Sample Notification' },
-      { state: 'shipments', name: 'Shipments' },
+      { state: 'temperature-control', name: 'Temperature Control', type: 'link' },
+      { state: 'branch-samples', name: 'Branch Samples', type: 'link' },
+      { state: 'sample-mapping', name: 'Samples Mapping', type: 'link' },
+      { state: 'pending-accession', name: 'Pending Accession', type: 'link' },
+      { state: 'problem-sample-notification', name: 'Problem Sample Notification', type: 'link' },
+      { state: 'shipments', name: 'Shipments', type: 'link' },
     ],
   },
   {
@@ -78,12 +77,59 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'rate_review',
     children: [
-      { state: 'operations-home', name: 'Home' },
-      { state: 'waiting-list', name: 'Waiting List' },
-      { state: 'worksheets', name: 'Work Sheets' },
-      { state: 'not-found', name: 'Lab Interface Module' },
-      { state: 'results-authorization', name: 'Results Authorization' },
-      { state: 'case', name: 'Case' },
+      { state: 'operations-home', name: 'Home', type: 'link' },
+      {
+        state: 'waiting-list',
+        name: 'Waiting List',
+        type: 'sub',
+        children1: [
+          {
+            state: 'waiting-list',
+            name: 'STAT Sample',
+            type: 'link',
+          },
+          {
+            state: 'waiting-list',
+            name: 'Delay Notification',
+            type: 'link',
+          },
+          {
+            state: 'waiting-list',
+            name: 'Critical Calls',
+            type: 'link',
+          },
+        ],
+      },
+      {
+        state: 'worksheets',
+        name: 'Work Sheets',
+        type: 'sub',
+        children1: [
+          {
+            state: 'worksheets',
+            name: 'Outsource Test Request ',
+            type: 'link',
+          },
+          {
+            state: 'worksheets',
+            name: 'Delay Notification',
+            type: 'link',
+          },
+          {
+            state: 'worksheets',
+            name: 'Workload Register',
+            type: 'link',
+          },
+          {
+            state: 'worksheets',
+            name: 'Complete Register',
+            type: 'link',
+          },
+        ],
+      },
+      { state: 'not-found', name: 'Lab Interface Module', type: 'link' },
+      { state: 'results-authorization', name: 'Results Authorization', type: 'link' },
+      { state: 'case', name: 'Case', type: 'link' },
     ],
   },
   {
@@ -92,10 +138,10 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'timeline',
     children: [
-      { state: 'not-found', name: 'Devices' },
-      { state: 'not-found', name: 'Levey Jennings Chart' },
-      { state: 'not-found', name: 'WestGuard Rules' },
-      { state: 'not-found', name: 'UserTrial Reports' },
+      { state: 'not-found', name: 'Devices', type: 'link' },
+      { state: 'not-found', name: 'Levey Jennings Chart', type: 'link' },
+      { state: 'not-found', name: 'WestGuard Rules', type: 'link' },
+      { state: 'not-found', name: 'UserTrial Reports', type: 'link' },
     ],
   },
   {
@@ -104,10 +150,58 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'attach_money',
     children: [
-      { state: 'invoice', name: 'Invoice' },
-      { state: 'not-found', name: 'Insurance' },
-      { state: 'not-found', name: 'Credit Notes' },
-      { state: 'not-found', name: 'Payment Collection' },
+      {
+        state: 'invoice',
+        name: 'Invoice',
+        type: 'sub',
+        children1: [
+          {
+            state: 'invoice',
+            name: 'Add Newn Invoice',
+            type: 'link',
+          },
+          {
+            state: 'invoice',
+            name: 'Invoice Summary',
+            type: 'link',
+          },
+          {
+            state: 'invoice',
+            name: 'Invoice List',
+            type: 'link',
+          },
+        ],
+      },
+      {
+        state: 'not-found',
+        name: 'Insurance',
+        type: 'sub',
+        children1: [
+          {
+            state: 'insurance',
+            name: 'Revenue Cycle Management',
+            type: 'link',
+          },
+          {
+            state: 'insurance',
+            name: 'Eclaims Management',
+            type: 'link',
+          },
+        ],
+      },
+      { state: 'not-found', name: 'Credit Notes', type: 'link'},
+      {
+        state: 'problem-sample-notification',
+        name: 'Payment Collection',
+        type: 'sub',
+        children1: [
+          {
+            state: 'ledger-account',
+            name: 'Ledger Account ',
+            type: 'link',
+          },
+        ],
+      },
     ],
   },
   {
@@ -115,7 +209,7 @@ const MENUITEMS: Menu[] = [
     name: 'Maps',
     type: 'sub',
     icon: 'map',
-    children: [{ state: 'google', name: 'Google' }, { state: 'leaflet', name: 'LeafLet' }],
+    children: [{ state: 'google', name: 'Google', type: 'link' }, { state: 'leaflet', name: 'LeafLet', type: 'link' }],
   },
   {
     state: 'download',
@@ -123,8 +217,8 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'get_app',
     children: [
-      { state: 'request-forms', name: 'Request Forms' },
-      { state: 'brochures', name: 'Brochures' }
+      { state: 'request-forms', name: 'Request Forms', type: 'link' },
+      { state: 'brochures', name: 'Brochures', type: 'link' },
     ],
   },
   {
@@ -133,10 +227,10 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'storefront',
     children: [
-      { state: 'not-found', name: 'Directory of Services' },
-      { state: 'not-found', name: 'Health Packages' },
-      { state: 'not-found', name: 'Cart' },
-      { state: 'not-found', name: 'Checkout' },
+      { state: 'not-found', name: 'Directory of Services', type: 'link' },
+      { state: 'not-found', name: 'Health Packages', type: 'link' },
+      { state: 'not-found', name: 'Cart', type: 'link' },
+      { state: 'not-found', name: 'Checkout', type: 'link' },
     ],
   },
   {
@@ -145,9 +239,9 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'supervised_user_circle',
     children: [
-      { state: 'user-list', name: 'User List' },
-      { state: 'not-found', name: 'User Profile' },
-      { state: 'not-found', name: 'User PriceList' },
+      { state: 'user-list', name: 'User List', type: 'link' },
+      { state: 'not-found', name: 'User Profile', type: 'link' },
+      { state: 'not-found', name: 'User PriceList', type: 'link' },
     ],
   },
   {
@@ -156,9 +250,9 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'pages',
     children: [
-      { state: 'about-us', name: 'About Us' },
-      { state: 'contact-us', name: 'Contact Us' },
-      { state: 'send-message', name: 'Send us a Message' },
+      { state: 'about-us', name: 'About Us', type: 'link' },
+      { state: 'contact-us', name: 'Contact Us', type: 'link' },
+      { state: 'send-message', name: 'Send us a Message', type: 'link' },
     ],
   },
 ];

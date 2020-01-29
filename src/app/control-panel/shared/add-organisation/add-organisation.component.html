@@ -39,15 +39,21 @@
 
                 <!-- Relation -->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Relation</mat-label>
+                  <mat-label>Branch</mat-label>
                   <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
                     <mat-option value="1">
-                      Intra
+                      Yes
                     </mat-option>
                     <mat-option value="2">
-                      Inter
+                      No
                     </mat-option>
                   </mat-select>
+                </mat-form-field>
+
+                <!-- Type -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Type </mat-label>
+                  <mat-select matInput placeholder="Type " name="type" ngModel #type="ngModel"></mat-select>
                 </mat-form-field>
 
                 <!-- Business Hours -->
@@ -81,6 +87,13 @@
                   </mat-error>
                 </mat-form-field>
 
+                <!-- Area -->
+                <mat-form-field>
+                  <mat-label> Area</mat-label>
+                  <input matInput placeholder=" Area" name=" area" ngModel #area="ngModel" />
+                </mat-form-field>
+
+
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
@@ -97,6 +110,13 @@
                     <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
                   </mat-error>
                 </mat-form-field>
+
+                <!-- Email-->
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
+                </mat-form-field>
+
 
                 <!-- Fax -->
                 <mat-form-field>
@@ -139,6 +159,22 @@
                     <input matInput placeholder="Designation" name="designation" [(ngModel)]="contact.designation" />
                   </mat-form-field>
 
+                  <!-- Department -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Department</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option >
+                      Bio Chemistry
+                    </mat-option>
+                    <mat-option >
+                      Micro Biology
+                    </mat-option>
+                    <mat-option >
+                      Molecular Biology
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
                   <!-- Courier -->
                   <!-- <mat-form-field>
                   <mat-label>Courier</mat-label>
@@ -163,6 +199,13 @@
                       <mat-error *ngIf="contactPersonName.errors?.pattern" >text is required</mat-error>
                       </mat-error>
                   </mat-form-field>
+
+                   <!-- Date of Birth -->
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" />
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
 
                   <!-- Mobile -->
                   <mat-form-field>
@@ -369,7 +412,7 @@
                 </mat-form-field>
 
                 <!-- Payment Type -->
-                <mat-form-field>
+                <mat-form-field class="mt-n7">
                   <mat-label>Payment Type</mat-label>
                   <mat-select disableOptionCentering ngModel name="paymentType" #paymentType="ngModel">
                     <mat-option value="cash">

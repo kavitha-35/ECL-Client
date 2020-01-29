@@ -6,10 +6,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   selector: 'app-view-equipment',
   templateUrl: './view-equipment.component.html',
   styleUrls: ['./view-equipment.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ViewEquipmentComponent implements OnInit {
-selectedForView: EquipmentModel;
+  selectedForView: EquipmentModel;
   constructor(
     private readonly dialogRef: MatDialogRef<ViewEquipmentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: EquipmentModel,
@@ -17,12 +17,9 @@ selectedForView: EquipmentModel;
     this.selectedForView = data;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public onCloseButtonClicked(): void {
     this.dialogRef.close();
   }
-
 }
-

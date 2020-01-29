@@ -7,6 +7,7 @@ import { IndividualTestModel } from 'app/control-panel/models/test-master/indivi
 import { ActivatedRoute, Router } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
 import { IndividualTestService } from 'app/control-panel/services/individual-test.service';
+import { AddReferenceRangeComponent } from '../../refernce-range/_dialogues/add-reference-range/add-reference-range.component';
 
 @Component({
   selector: 'app-individual-test',
@@ -64,6 +65,22 @@ export class IndividualTestComponent implements OnInit {
     });
   }
 
+  public onAddReferenceRangeClicked(testId: string): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: testId,
+    };
+
+    this.matDialog
+      .open(AddReferenceRangeComponent, matDialogConfig)
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllIndividualTests();
+      });
+  }
   public onEditIndividualTestClicked(individualTest: IndividualTestModel): void {
     const matDialogConfig: MatDialogConfig = {
       panelClass: 'mat-dialogue-no-padding',

@@ -4,6 +4,7 @@ export class OutsourcingManagementModel {
   labName: string;
   relation: string;
   address: string;
+  area: string;
   city: string;
   poNumber: string;
   telephone: string;
@@ -20,7 +21,7 @@ export class OutsourcingManagementModel {
   creditPeriod: string;
   creditLimit: string;
   url: string;
-  username: string;
+  userName: string;
   password: string;
   constructor() {}
 }

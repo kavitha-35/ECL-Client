@@ -15,7 +15,7 @@ import {
   styleUrls: ['./add-referal-lab.component.scss'],
 })
 export class AddReferalLabComponent implements OnInit {
-  public regions: LookUpModel[];
+  public cities: LookUpModel[];
   public countries: LookUpModel[];
   public contactPersonList: ContactPerson[] = [];
   public outsource: OutsourcingManagementModel = new OutsourcingManagementModel();
@@ -26,21 +26,21 @@ export class AddReferalLabComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getRegions();
+    this.getCities();
     this.getCountries();
     this.addContact();
   }
   public onAddReferalLabClicked(): void {
-    this.outsource.contactPersons = this.contactPersonList;
     console.log(this.outsource);
+    this.outsource.contactPersons = this.contactPersonList;
     this.outsourcingService.addOutsourcing(this.outsource).subscribe(() => {
       this._dialogRef.close();
     });
   }
 
-  public getRegions(): void {
-    this._lookUpService.getLookUp('region').subscribe((data: LookUpModel[]) => {
-      this.regions = data;
+  public getCities(): void {
+    this._lookUpService.getLookUp('city').subscribe((data: LookUpModel[]) => {
+      this.cities = data;
     });
   }
 

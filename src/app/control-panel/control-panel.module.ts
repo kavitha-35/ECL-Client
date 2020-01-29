@@ -144,6 +144,9 @@ import { ReportFormatSearchComponent } from './components/report-format/report-f
 import { ReportFormatDataListComponent } from './components/report-format/report-format-data-list/report-format-data-list.component';
 import { ViewDepartmentsComponent } from './components/department/_dialogues/view-departments/view-departments.component';
 import { ViewEquipmentComponent } from './components/equipment/_dialogues/view-equipment/view-equipment.component';
+import { EmailGatewayComponent } from './components/gateways/email-gateway/email-gateway.component';
+import { PaymentGatewayComponent } from './components/gateways/payment-gateway/payment-gateway.component';
+import { ContainersComponent } from './components/accession-settings/containers/containers.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { ViewMethodComponent } from './components/methods/_dialogues/view-method/view-method/view-method.component';
 import { CommentsComponent } from './components/comments/comments.component';
@@ -263,6 +266,9 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     ReportFormatDataListComponent,
     ViewDepartmentsComponent,
     ViewEquipmentComponent,
+    EmailGatewayComponent,
+    PaymentGatewayComponent,
+    ContainersComponent,
     ViewMethodComponent,
     AddCommentsComponent,
     EditCommentsComponent,
