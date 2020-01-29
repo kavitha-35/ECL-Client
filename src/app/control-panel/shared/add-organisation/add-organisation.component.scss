@@ -75,6 +75,14 @@
         }
       }
 
+      .contract-wrapper {
+        @include margin-bottom-18;
+
+        .contract-information-content{
+          @include forms-grid;
+        }
+      }
+
       .user-credentials-information-wrapper {
         @include margin-bottom-18;
 
