@@ -10,9 +10,9 @@ import { DepartmentService } from 'app/control-panel/services/department.service
 @Component({
   selector: 'app-edit-doctor',
   templateUrl: './edit-doctor.component.html',
-  styleUrls: ['./edit-doctor.component.scss']
+  styleUrls: ['./edit-doctor.component.scss'],
 })
-export class EditDoctorComponent implements OnInit{
+export class EditDoctorComponent implements OnInit {
   public selectedForEdit: DoctorModel;
   public countries: LookUpModel[];
   public departments: DepartmentModel[];
@@ -25,10 +25,10 @@ export class EditDoctorComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public data: DoctorModel,
   ) {
     this.selectedForEdit = data;
-   }
-   ngOnInit(): void {
-     this.getCountries();
-     this.getDepartment();
+  }
+  ngOnInit(): void {
+    this.getCountries();
+    this.getDepartment();
   }
   public getCountries(): void {
     this._lookUpService.getLookUp('country').subscribe((data: LookUpModel[]) => {
