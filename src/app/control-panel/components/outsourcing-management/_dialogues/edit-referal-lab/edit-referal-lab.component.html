@@ -26,7 +26,13 @@
                 <!-- Lab Name -->
                 <mat-form-field>
                   <mat-label>Lab Name</mat-label>
-                  <input matInput placeholder="Lab Name" />
+                  <input matInput placeholder="Lab Name" 
+                    class="uppercase"
+                    name="labName"
+                    #labName="ngModel"
+                    pattern="[a-zA-Z]*"
+                    required
+                    [(ngModel)]="outsource.labName"/>
                 </mat-form-field>
 
                 <!-- Web -->
@@ -88,7 +94,18 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput placeholder="Address" />
+                  <textarea
+                    matInput
+                    placeholder="Address"
+                    class="uppercase"
+                    #address="ngModel"
+                    name="address"
+                    required
+                    [(ngModel)]="outsource.address"
+                  ></textarea>
+                  <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
+                    <mat-error *ngIf="address.errors.required">Address is required</mat-error>
+                  </mat-error>
                 </mat-form-field>
 
                 <!-- P.O.Box -->
@@ -245,7 +262,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Save Change(s)</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditReferalLabClicked()">Save Change(s)</button>
           </section>
         </section>
       </mat-dialog-content>

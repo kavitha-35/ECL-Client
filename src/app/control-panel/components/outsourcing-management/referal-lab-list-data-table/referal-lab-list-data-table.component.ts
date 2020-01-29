@@ -10,7 +10,7 @@ import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing
 export class ReferalLabListDataTableComponent implements OnInit {
   @Input() labs : OutsourcingManagementModel[];
   @Input() isBusy: boolean;
-  @Output() editReferalLabClicked = new EventEmitter();
+  @Output() editReferalLabClicked = new EventEmitter<string>();
   @Output() deleteReferalLabClicked = new EventEmitter<string>();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
@@ -21,8 +21,9 @@ export class ReferalLabListDataTableComponent implements OnInit {
     this._initializeDisplayedColumns();
   }
 
-  public onEditReferalLabClicked(): void {
-    this.editReferalLabClicked.emit();
+  public onEditReferalLabClicked(outsource: any): void {
+    console.log('Selected row', outsource);
+    this.editReferalLabClicked.emit(outsource);
   }
 
   public onDeleteReferalLabClicked(outsourceId: string): void {
