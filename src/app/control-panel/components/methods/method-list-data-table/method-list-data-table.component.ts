@@ -30,8 +30,8 @@ export class MethodListDataTableComponent implements OnInit  {
     this.editMethodClicked.emit(method);
   }
 
-  public onDeleteMethodClicked(): void {
-    this.deleteMethodClicked.emit();
+  public onDeleteMethodClicked(methodId: string): void {
+    this.deleteMethodClicked.emit(methodId);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
