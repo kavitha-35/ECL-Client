@@ -9,6 +9,7 @@ import { DISPLAY_MODE } from '../../models/constants';
 import { AppointmentModel } from '../../models/appointment/appointment.model';
 import { AppointmentFacade } from '../../state/appointments/appointment.facade';
 import { AddAppointmentComponent } from './_dialogues/add-appointment/add-appointment.component';
+import { AppointmentServices } from 'app/main/services/appointment.services';
 
 @Component({
   selector: 'app-appointments',
@@ -20,22 +21,35 @@ export class AppointmentsComponent implements OnInit {
   public pageEvent        : PageEvent;
   public pageSizeOptions  : number[];
   public appointments$    : Observable<AppointmentModel[]>;
+  public appointments    : AppointmentModel[];
+  public isFetchingReferalLab: boolean;
 
   constructor(
     private readonly _router: Router,
     private readonly _matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _appointmentsFacade: AppointmentFacade,
+    private readonly _appointmentService: AppointmentServices
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
-    this.appointments$ = this._appointmentsFacade.appointments$;
-    this._appointmentsFacade.loadAppointments();
+    //this.appointments$ = this._appointmentsFacade.appointments$;
+    //this._appointmentsFacade.loadAppointments();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
+    });
+    this.getAllAppointments();
+  }
+
+  public getAllAppointments(): void {
+    this.isFetchingReferalLab = true;
+    this._appointmentService.getAllAppointments().subscribe((data) => {
+      this.appointments = data;
+      this.isFetchingReferalLab = false;
+      console.log(data);
     });
   }
 

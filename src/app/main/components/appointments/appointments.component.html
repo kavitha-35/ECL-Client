@@ -40,13 +40,15 @@
     <!-- Mat Divider -->
     <mat-divider></mat-divider>
 
-    <section *ngIf="appointments$ | async as appointments">
+    <section>
       <!-- Test List -->
       <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
 
       <!-- List View -->
       <ng-template #listView>
-        <app-appointment-list [appointments]="appointments | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-appointment-list>
+        <app-appointment-list 
+        [appointments]="appointments | slice: pageEvent.pageIndex:pageEvent.pageSize">
+      </app-appointment-list>
       </ng-template>
 
       <!-- Table View -->
