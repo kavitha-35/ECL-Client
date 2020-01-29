@@ -61,14 +61,8 @@
                   <mat-label>Business Hours</mat-label>
                   <input matInput placeholder="Business Hours" name="businessHours" ngModel #address="ngModel" />
                 </mat-form-field>
-
-                <!-- Remarks -->
-                <mat-form-field>
-                  <mat-label>Remarks</mat-label>
-                  <textarea matInput placeholder="Remarks" name="address" ngModel #address="ngModel"></textarea>
-                </mat-form-field>
-              </section>
-            </section>
+                </section>
+                </section>
 
             <!-- Locale Information -->
             <section class="locale-information-wrapper">
@@ -83,7 +77,6 @@
                   <textarea matInput placeholder="Address" class="uppercase" name="address" ngModel #address="ngModel" required ></textarea>
                   <mat-error *ngIf="address.invalid && (address.dirty || address.touched) " >
                     <mat-error *ngIf="address.errors.required" >Address is required</mat-error>
-                    
                   </mat-error>
                 </mat-form-field>
 
@@ -91,43 +84,6 @@
                 <mat-form-field>
                   <mat-label> Area</mat-label>
                   <input matInput placeholder=" Area" name=" area" ngModel #area="ngModel" />
-                </mat-form-field>
-
-
-                <!-- P.O.Box -->
-                <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
-                </mat-form-field>
-
-                <!-- Telephone -->
-                <mat-form-field>
-                  <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
-                
-                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " >
-                    <mat-error *ngIf="telephone.errors.required" >telephone is required</mat-error>
-                    <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
-                  </mat-error>
-                </mat-form-field>
-
-                <!-- Email-->
-                <mat-form-field>
-                  <mat-label>Email</mat-label>
-                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
-                </mat-form-field>
-
-
-                <!-- Fax -->
-                <mat-form-field>
-                  <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" name="fax" ngModel #fax="ngModel" />
-                </mat-form-field>
-
-                <!-- Web -->
-                <mat-form-field>
-                  <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
                 </mat-form-field>
 
                 <!-- Region-->
@@ -141,9 +97,68 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel"> </mat-select>
                 </mat-form-field>
+
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" name="fax" ngModel #fax="ngModel" />
+                </mat-form-field>
+
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
+                </mat-form-field>
+                
+                 <!-- Email-->
+                 <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
+                
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " >
+                    <mat-error *ngIf="telephone.errors.required" >telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Whatsapp Number -->
+                <mat-form-field>
+                  <mat-label>Whatsapp Number </mat-label>
+                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
+                </mat-form-field>
+              
+                <!-- Facebook Id -->
+                <mat-form-field>
+                  <mat-label>Facebook Id </mat-label>
+                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                </mat-form-field>
+
+                 <!-- Instagram Id-->
+                 <mat-form-field>
+                  <mat-label>Instagram Id </mat-label>
+                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                </mat-form-field>
+               
+                <!-- Twitter Id-->
+                <mat-form-field>
+                  <mat-label>Twitter Id </mat-label>
+                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                </mat-form-field>
               </section>
             </section>
-
+                
             <!-- Contact person -->
             <section class="contactperson-information-wrapper" *ngIf="contactPersonList">
               <!-- Header -->
@@ -217,6 +232,17 @@
                     </mat-error>
                   </mat-form-field>
 
+                  <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
+                
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " >
+                    <mat-error *ngIf="telephone.errors.required" >telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
+
                   <!-- Email -->
                   <mat-form-field>
                     <mat-label>Email</mat-label>
@@ -269,6 +295,35 @@
               </section>
             </section>
 
+            <!-- constract -->
+            <section class="contract-wrapper">
+              <!-- Header -->
+              <app-section-header title="contract"></app-section-header>
+              <!-- Content -->
+              <section class="contract-information-content">
+
+                <!-- Start Date-->
+                <mat-form-field>
+                  <mat-label>Start Date</mat-label>
+                  <input matInput placeholder="DD/MM/YY" name="startDate" ngModel #startDate="ngModel" />
+                </mat-form-field>
+
+                <!-- Exipiry Date-->
+                <mat-form-field>
+                  <mat-label>Exipiry Date</mat-label>
+                  <input matInput placeholder="DD/MM/YY" name="exipiryDate" ngModel #exipiryDate="ngModel" />
+                </mat-form-field>
+
+                <!-- Contract -->
+                <section class="label">
+                  Contract
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+                </section>
+                </section>
+
             <!-- Locale Information -->
             <section class="locale-information-wrapper">
               <!-- Header -->
@@ -310,13 +365,13 @@
                 <!-- User Id -->
                 <mat-form-field>
                   <mat-label>User Name</mat-label>
-                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" required/>
+                  <input matInput placeholder="User Name" name="userId" ngModel #userId="ngModel"/>
                 </mat-form-field>
 
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" required/>
+                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel"/>
                 </mat-form-field>
               </section>
             </section>
@@ -344,28 +399,6 @@
                   <input matInput placeholder="Sales Representative" />
                 </mat-form-field>
 
-                <!-- Country -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Email Report</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="uae">
-                      Part
-                    </mat-option>
-                    <mat-option value="india">
-                      Final
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Active SMS -->
-                <mat-checkbox>Active SMS</mat-checkbox>
-
-                <!-- Active E-mail -->
-                <mat-checkbox>Active E-mail</mat-checkbox>
-
-                <!-- Active Auto Invoice -->
-                <mat-checkbox>Active Auto Invoice</mat-checkbox>
-
                 <!-- Price List -->
                 <section class="label">
                   Price List
@@ -373,6 +406,18 @@
                     Upload
                   </button>
                 </section>
+
+                 <!-- Email Report -->
+                <mat-slide-toggle color="primary" name="emailReport" ngModel #emailReport="ngModel">Email Report</mat-slide-toggle>
+               
+                <!-- Active SMS -->
+                <mat-slide-toggle color="primary" name="activeSms" ngModel #activeSms="ngModel">Active SMS</mat-slide-toggle>
+
+                <!-- Active E-mail -->
+                <mat-slide-toggle color="primary" name="activeEmail" ngModel #activeEmail="ngModel">Active E-mail</mat-slide-toggle>
+
+                <!-- Active Auto Invoice -->
+                <mat-slide-toggle color="primary" name="activeInvoice" ngModel #activeInvoice="ngModel">Active Auto Invoice</mat-slide-toggle>
               </section>
             </section>
 
