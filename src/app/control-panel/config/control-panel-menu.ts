@@ -28,7 +28,6 @@ const MENUITEMS: Menu[] = [
     children: [
       { state: 'organisation', name: 'Add Organisation' },
       { state: 'doctor', name: 'Add Doctor' },
-      { state: 'organisation-price-list', name: 'Add Organisation Price List' },
     ],
   },
   {
@@ -46,7 +45,7 @@ const MENUITEMS: Menu[] = [
   {
     state: 'testresult',
     name: 'Test Result Calculation',
-    type: 'sub',
+    type: 'link',
     icon: 'offline_pin',
     paramValue: 'Test Result Calculation'
   },
@@ -91,7 +90,7 @@ const MENUITEMS: Menu[] = [
   {
     state: 'coupons',
     name: 'Coupons Management',
-    type: 'sub',
+    type: 'link',
     paramValue: 'Coupon',
     icon: 'storefront',
   },

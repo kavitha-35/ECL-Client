@@ -45,6 +45,14 @@
         }
       }
 
+      .social-media-wrapper{
+        @include margin-bottom-18;
+
+        .social-media-content{
+          @include forms-grid;
+        }
+      }
+      
       .contactperson-information-wrapper {
         @include margin-bottom-18;
 
