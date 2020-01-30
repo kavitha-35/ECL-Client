@@ -9,19 +9,19 @@ import { CommentModel } from 'app/control-panel/models/method/comment.model';
 import { MethodService } from 'app/control-panel/services/method.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { LookupService } from 'app/control-panel/services/lookup.service';
+import { CommentService } from 'app/control-panel/services/comment.service';
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentsComponent implements OnInit {
-  public comment: CommentModel[];
+  public comments: LookUpModel[];
   public showListView: boolean;
   public pageEvent: PageEvent;
   public pageSizeOptions: number[];
-  public isFetchingcomments: boolean;
+  public isFetchingComments: boolean;
   matDialogConfig: MatDialogConfig = {
     panelClass: 'mat-dialogue-no-padding',
     width: '1400px',
@@ -32,7 +32,7 @@ export class CommentsComponent implements OnInit {
     private readonly _matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
-    private readonly _methodService: MethodService,
+    private readonly _commentService: CommentService,
     private readonly cRef: ChangeDetectorRef,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
@@ -40,7 +40,7 @@ export class CommentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllComments();
+    this.getAllComment();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -50,15 +50,27 @@ export class CommentsComponent implements OnInit {
     this._matDialog
       .open(AddCommentsComponent, this.matDialogConfig)
       .afterClosed()
-      .pipe(take(1));
-    this.getAllComments();
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllComment();
+      });
   }
 
-  public onEditCommentClicked(): void {
+  public onEditCommentClicked(comment: CommentModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: comment,
+    };
+    console.log(comment);
     this._matDialog
-      .open(EditCommentsComponent, this.matDialogConfig)
+      .open(EditCommentsComponent, matDialogConfig)
       .afterClosed()
-      .pipe(take(1));
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllComment();
+      });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -69,22 +81,18 @@ export class CommentsComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public getAllComments(): void {
-    this.isFetchingcomments = true;
-   /**  this._methodService.getAllComments().subscribe((data: CommentModel[]) => {
-      this.comment = data;
-       console.log(data);
-      this.isFetchingcomments = false;
-      this.cRef.detectChanges();
-    });**/
+  public getAllComment(): void {
+    this.isFetchingComments = true;
+    this._commentService.getAllComments().subscribe((data) => {
+      this.comments = data;
+      console.log(data);
+      this.isFetchingComments = false;
+    });
   }
 
-  private _initializeValues(): void {
-    this.comment = [
-      {
-        id: '1',
-        name: 'ahmed',
-      },
-    ];
+  public onDeleteCommentClicked(commentId: string): void {
+    this._commentService.deleteComment(commentId).subscribe((data) => {
+      this.getAllComment();
+    });
   }
 }
