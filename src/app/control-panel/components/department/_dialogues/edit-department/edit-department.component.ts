@@ -41,7 +41,7 @@ export class EditDepartmentComponent implements OnInit {
   public getDepartmentType(): void {
     this._lookUpService.getLookUp('DepartmentType').subscribe((data: LookUpModel[]) => {
       this.departmentTypes = data;
-      this.departmentTypesFilter = this.departmentTypes; 
+      this.departmentTypesFilter = this.departmentTypes;
       this.cRef.detectChanges();
     });
   }
@@ -51,24 +51,23 @@ export class EditDepartmentComponent implements OnInit {
     });
   }
 
-  onKeySearch(value) { 
-    if(value){
-      this.selectSearch(value);  
-    }
-    else{
+  onKeySearch(value: string): void {
+    if (value) {
+      this.selectSearch(value);
+    } else {
       this.departmentTypes = this.departmentTypesFilter;
     }
-         
-}
-selectSearch(value:string){
-  this.departmentTypes = [];
-  let filter = value.toLowerCase();
-  for ( let i = 0 ; i < this.departmentTypesFilter.length; i ++ ) {
-      let option = this.departmentTypesFilter[i];
-      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
-          this.departmentTypes.push(option);
-      }
+
   }
-}
+  selectSearch(value: string): void {
+    this.departmentTypes = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.departmentTypesFilter.length; i++) {
+      const option = this.departmentTypesFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.departmentTypes.push(option);
+      }
+    }
+  }
 
 }

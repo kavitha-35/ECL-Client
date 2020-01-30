@@ -41,25 +41,22 @@ export class AddDepartmentComponent implements OnInit {
     });
   }
 
-  onKeySearch(value) { 
-    if(value){
-      this.selectSearch(value);  
-    }
-    else{
+  public onKeySearch(value: string): void {
+    if (value) {
+      this.selectSearch(value);
+    } else {
       this.departmentTypes = this.departmentTypesFilter;
     }
-         
-}
-
-selectSearch(value:string){
-  this.departmentTypes = [];
-  let filter = value.toLowerCase();
-  for ( let i = 0 ; i < this.departmentTypesFilter.length; i ++ ) {
-      let option = this.departmentTypesFilter[i];
-      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
-          this.departmentTypes.push(option);
-      }
   }
-}
 
+  public selectSearch(value: string): void {
+    this.departmentTypes = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.departmentTypesFilter.length; i++) {
+      const option = this.departmentTypesFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.departmentTypes.push(option);
+      }
+    }
+  }
 }
