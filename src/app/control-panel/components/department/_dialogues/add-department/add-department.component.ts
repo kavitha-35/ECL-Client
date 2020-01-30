@@ -15,6 +15,7 @@ import { DoctorModel } from 'app/control-panel/models/Doctor/doctor.model';
 })
 export class AddDepartmentComponent implements OnInit {
   public departmentTypes: LookUpModel[];
+  departmentTypesFilter: LookUpModel[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddDepartmentComponent>,
     private readonly _departmentService: DepartmentService,
@@ -35,7 +36,30 @@ export class AddDepartmentComponent implements OnInit {
   public getDepartmentType(): void {
     this._lookUpService.getLookUp('DepartmentType').subscribe((data: LookUpModel[]) => {
       this.departmentTypes = data;
+      this.departmentTypesFilter = this.departmentTypes;
       console.log(data);
     });
   }
+
+  onKeySearch(value) { 
+    if(value){
+      this.selectSearch(value);  
+    }
+    else{
+      this.departmentTypes = this.departmentTypesFilter;
+    }
+         
+}
+
+selectSearch(value:string){
+  this.departmentTypes = [];
+  let filter = value.toLowerCase();
+  for ( let i = 0 ; i < this.departmentTypesFilter.length; i ++ ) {
+      let option = this.departmentTypesFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+          this.departmentTypes.push(option);
+      }
+  }
+}
+
 }

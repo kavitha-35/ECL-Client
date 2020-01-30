@@ -37,7 +37,8 @@
                 <!-- Department Type -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Department Type</mat-label>
-                  <mat-select disableOptionCentering name=departmentType [(ngModel)]="selectedForEdit.departmentType.departmentTypeId" #departmentType="ngModel">
+                  <mat-select disableOptionCentering name=departmentTypeId [(ngModel)]="selectedForEdit.departmentType.departmentTypeId" #departmentTypeId="ngModel">
+                    <input matInput placeholder ="Search Department" (keyup)="onKeySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of departmentTypes"[value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
