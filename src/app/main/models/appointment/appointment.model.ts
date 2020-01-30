@@ -5,8 +5,7 @@ export class AppointmentModel {
   email           : string;
   landline        : string;
   mobile          : string;
-  appointmentDate : string;
-  appointmentTime : string;
+  appointmentDateTime : string;
   comments         : string;
   gender          : string;
   status          : StatusModel;
