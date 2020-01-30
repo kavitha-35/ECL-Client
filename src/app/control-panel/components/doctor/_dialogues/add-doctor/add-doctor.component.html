@@ -23,10 +23,6 @@
               <!-- Content -->
               <section class="basic-content">
 
-                <!-- Active-->
-                <section class="pt-19">
-                  <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
-                </section>
                 <!-- Doctor Name -->
                 <mat-form-field >
                   <mat-label>Doctor Name</mat-label>
@@ -39,6 +35,11 @@
                 </mat-hint>
                 </mat-form-field>
 
+                <!-- Active-->
+                <section class="pt-19">
+                  <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
+                </section>
+                
                 <!-- Organization-->
                 <mat-form-field>
                   <mat-label>Organization</mat-label>
@@ -48,14 +49,14 @@
             
                 <!-- Date of Birth -->
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" />
+                  <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" name="dateOfBirth" ngModel #dateOfBirth="ngModel" />
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
 
                 <!-- Date of Anniversary -->
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker1" placeholder="Date Of Anniversary" />
+                  <input matInput [matDatepicker]="picker1" placeholder="Date Of Anniversary" name="dateOfAnniversary" ngModel #dateOfAnniversary="ngModel" />
                   <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                   <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
@@ -63,16 +64,8 @@
                 <!-- Doctor Speciality -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Doctor Speciality</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option>
-                      Emergency Medicine
-                    </mat-option>
-                    <mat-option>
-                      Pediatrics
-                    </mat-option>
-                    <mat-option>
-                      oncology
-                    </mat-option>
+                  <mat-select disableOptionCentering name=doctorSpeciality ngModel #doctorSpeciality="ngModel">
+                    <mat-option *ngFor="let options of specialities"[value]="options.lookupId">{{options.keyValue}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>
@@ -103,13 +96,17 @@
                 <!-- Region-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
-                  <mat-select disableOptionCentering name="region" ngModel #region="ngModel"> </mat-select>
+                  <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
+                    <mat-option *ngFor="let options of cities"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Country -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering name="country" ngModel #country="ngModel"> </mat-select>
+                  <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
+                    <mat-option *ngFor="let options of countries"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- P.O.Box -->
@@ -150,24 +147,33 @@
                   <mat-label>Whatsapp Number </mat-label>
                   <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
                 </mat-form-field>
-              
-                <!-- Facebook Id -->
-                <mat-form-field>
-                  <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
-                </mat-form-field>
+              </section>
+            </section>
 
-                 <!-- Instagram Id-->
-                 <mat-form-field>
-                  <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
-                </mat-form-field>
-               
-                <!-- Twitter Id-->
-                <mat-form-field>
-                  <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
-                </mat-form-field>
+            <!-- Social Media -->
+            <section class="social-media-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Social Media ID"></app-section-header>
+              <!-- Content -->
+              <section class="social-media-content">
+
+               <!-- Facebook Id -->
+               <mat-form-field>
+                <mat-label>Facebook Id </mat-label>
+                <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+              </mat-form-field>
+
+               <!-- Instagram Id-->
+               <mat-form-field>
+                <mat-label>Instagram Id </mat-label>
+                <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+              </mat-form-field>
+             
+              <!-- Twitter Id-->
+              <mat-form-field>
+                <mat-label>Twitter Id </mat-label>
+                <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+              </mat-form-field>
               </section>
             </section>
 
@@ -189,11 +195,9 @@
                   <mat-label>Password</mat-label>
                   <input matInput placeholder="Password" name="password" ngModel #password="ngModel" />
                 </mat-form-field>
-
               </section>
             </section>
           </form>
-
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
             <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddDoctorButtonClicked(doctor)">Add Doctor</button>

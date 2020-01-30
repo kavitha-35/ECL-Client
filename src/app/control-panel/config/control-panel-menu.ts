@@ -88,14 +88,14 @@ const MENUITEMS: Menu[] = [
     icon: 'get_app',
   },
   {
-    state: 'coupons',
+    state: 'not-found',
     name: 'Coupons Management',
     type: 'link',
     paramValue: 'Coupon',
     icon: 'storefront',
   },
   {
-    state: 'promotion',
+    state: 'not-found',
     name: 'Promotion Corner',
     type: 'link',
     paramValue: 'Promotion',
@@ -114,7 +114,7 @@ const MENUITEMS: Menu[] = [
     ],
   },
   {
-    state: 'news',
+    state: 'not-found',
     name: 'News',
     type: 'link',
     paramValue: 'News',
