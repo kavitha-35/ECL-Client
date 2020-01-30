@@ -61,6 +61,13 @@
         }
       }
 
+      .social-media-wrapper{
+        @include margin-bottom-18;
+
+        .social-media-content{
+          @include forms-grid;
+        }
+      }
       .user-credentials-information-wrapper {
         @include margin-bottom-18;
 
