@@ -58,7 +58,8 @@ export class OutsourcingManagementComponent implements OnInit {
     this._matDialog
       .open(EditReferalLabComponent, this.matDialogConfig)
       .afterClosed()
-      .pipe(take(1)).subscribe(() => {
+      .pipe(take(1))
+      .subscribe(() => {
         this.getAllOutsoure();
       });
   }
