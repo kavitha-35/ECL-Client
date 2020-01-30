@@ -1,23 +1,23 @@
-export interface AppointmentModel {
-  id              : string;
-  name            : string;
-  dateOfBirth     : string;
+export class AppointmentModel {
+  appointmentId   : number;
+  patientName     : string;
+  dob             : string;
   email           : string;
-  phoneNumber     : string;
-  mobileNumber    : string;
-  from            : string;
-  to              : string;
-  comment         : string;
-  gender          : GenderModel;
+  landline        : string;
+  mobile          : string;
+  appointmentDate : string;
+  appointmentTime : string;
+  comments         : string;
+  gender          : string;
   status          : StatusModel;
-}
-
-interface GenderModel {
-  id              : string;
-  name            : string;
+  poBox           : string;
+  area            : string;
+  city            : string;
+  country         : string;
+  constructor(){}
 }
 
 interface StatusModel {
-  id              : string;
-  name            : string;
+  statusId        : string;
+  statusValue     : string;
 }

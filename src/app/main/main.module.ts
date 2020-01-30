@@ -172,6 +172,7 @@ import { CaseDataListComponent } from './components/operations/case/case-data-li
 import { CaseRibbonMenuComponent } from './components/operations/case/case-ribbon-menu/case-ribbon-menu.component';
 import { CaseSearchComponent } from './components/operations/case/case-search/case-search.component';
 import { ClinicHistoryComponent } from './components/registration/add-registration/clinic-history/clinic-history.component';
+import { EditAppointmentComponent } from './components/appointments/_dialogues/edit-appointment/edit-appointment.component';
 
 @NgModule({
   declarations: [
@@ -302,6 +303,7 @@ import { ClinicHistoryComponent } from './components/registration/add-registrati
     CaseRibbonMenuComponent,
     CaseSearchComponent,
     ClinicHistoryComponent,
+    EditAppointmentComponent
   ],
   providers: [
     DatePipe,

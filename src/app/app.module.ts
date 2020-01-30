@@ -63,6 +63,7 @@ import { WaitingListDataSearchComponent } from './main/components/operations/wai
 import { WorkSheetSearchComponent } from './main/components/operations/work-sheets/work-sheet-search/work-sheet-search.component';
 import { ResultsAuthorizationDataSearchComponent } from './main/components/operations/results-authorization/results-authorization-data-search/results-authorization-data-search.component';
 import { CaseSearchComponent } from './main/components/operations/case/case-search/case-search.component';
+import { EditAppointmentComponent } from './main/components/appointments/_dialogues/edit-appointment/edit-appointment.component';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -142,7 +143,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     WaitingListDataSearchComponent,
     WorkSheetSearchComponent,
     ResultsAuthorizationDataSearchComponent,
-    CaseSearchComponent
+    CaseSearchComponent,
+    EditAppointmentComponent
   ],
   providers: [
     MatDatepickerModule,

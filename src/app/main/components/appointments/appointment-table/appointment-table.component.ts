@@ -11,7 +11,9 @@ import { FilterItemModel } from '../../../../shared/models/filter-item.model';
 })
 export class AppointmentTableComponent implements OnInit, OnChanges {
   @Input() public appointments       : AppointmentModel[];
-  @Output() public rowSelected       : EventEmitter<string>;
+  @Output() public rowSelected       : EventEmitter<number>;
+  @Output() public deleteAppointmentClicked   : EventEmitter<number>;
+  @Output() public editAppointmentClicked   : EventEmitter<any>;
 
   public displayedColumns            : string[];
   public filteredColumns             : GridColumnModel[];
@@ -23,7 +25,9 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
     this.emailFilterList = [];
     this.filteredAppointments = [];
 
-    this.rowSelected = new EventEmitter<string>();
+    this.rowSelected = new EventEmitter<number>();
+    this.deleteAppointmentClicked = new EventEmitter<number>();
+    this.editAppointmentClicked = new EventEmitter<any>();
   }
 
   ngOnInit(): void {
@@ -41,7 +45,15 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
   }
 
   public onRowClicked(selectedRow: AppointmentModel): void {
-    this.rowSelected.emit(selectedRow.id);
+    this.rowSelected.emit(selectedRow.appointmentId);
+  }
+
+  public onEditClicked(selectedRow: any): void {
+    this.editAppointmentClicked.emit(selectedRow);
+  }
+
+  public onDeleteClicked(selectedRow: AppointmentModel): void {
+    this.deleteAppointmentClicked.emit(selectedRow.appointmentId);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {

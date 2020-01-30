@@ -30,11 +30,18 @@ export class AppointmentServices {
     return this.httpClient.get<AppointmentModel[]>(apiUrl, { headers: headers });
   }
 
-  updateAppointment(AppointmentId: number, Appointment: AppointmentModel): Observable<AppointmentModel> {
+  getAppointment(appointmentId: number): Observable<AppointmentModel> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
-    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${AppointmentId}`;
-    return this.httpClient.put<AppointmentModel>(apiUrl, Appointment, { headers: headers });
+    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${appointmentId}`;
+    return this.httpClient.get<AppointmentModel>(apiUrl, { headers: headers });
+  }
+
+  updateAppointment(appointmentId: number, appointment: AppointmentModel): Observable<AppointmentModel> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
+    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${appointmentId}`;
+    return this.httpClient.put<AppointmentModel>(apiUrl, appointment, { headers: headers });
   }
 
   deleteAppointment(AppointmentId: string): Observable<boolean> {

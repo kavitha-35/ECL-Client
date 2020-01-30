@@ -10,6 +10,8 @@ import { AppointmentModel } from '../../models/appointment/appointment.model';
 import { AppointmentFacade } from '../../state/appointments/appointment.facade';
 import { AddAppointmentComponent } from './_dialogues/add-appointment/add-appointment.component';
 import { AppointmentServices } from 'app/main/services/appointment.services';
+import { take } from 'rxjs/operators';
+import { EditAppointmentComponent } from './_dialogues/edit-appointment/edit-appointment.component';
 
 @Component({
   selector: 'app-appointments',
@@ -23,6 +25,11 @@ export class AppointmentsComponent implements OnInit {
   public appointments$    : Observable<AppointmentModel[]>;
   public appointments    : AppointmentModel[];
   public isFetchingReferalLab: boolean;
+  public matDialogConfig: MatDialogConfig = {
+    panelClass: 'mat-dialogue-no-padding',
+    width: '1400px',
+    height: '640px',
+  };
 
   constructor(
     private readonly _router: Router,
@@ -62,16 +69,34 @@ export class AppointmentsComponent implements OnInit {
   }
 
   public onAddAppointmentButtonClicked(): void {
-    const matDialogConfig: MatDialogConfig = {
-      panelClass: 'mat-dialogue-no-padding',
-      width: '1400px',
-      height: '640px',
-    };
-
-    this._matDialog.open(AddAppointmentComponent, matDialogConfig);
+    //this._matDialog.open(AddAppointmentComponent, matDialogConfig);
+    this._matDialog
+      .open(AddAppointmentComponent, this.matDialogConfig)
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe(() => {
+        this.getAllAppointments();
+      });
   }
 
   public async onRowSelected(appointmentId: string): Promise<void> {
     await this._router.navigate(['/main/appointment-details'], { queryParams: { id: appointmentId } });
+  }
+
+  public onDeleteAppointmentClicked(appointmentId: string): void {
+    this._appointmentService.deleteAppointment(appointmentId).subscribe(() => {
+      this.getAllAppointments();
+    });
+  }
+
+  public onEditClicked(appointment: AppointmentModel): void {
+    console.debug("edit appointment", appointment);
+    this.matDialogConfig['data'] = appointment;
+    this._matDialog
+      .open(EditAppointmentComponent, this.matDialogConfig)
+      .afterClosed()
+      .pipe(take(1)).subscribe(() => {
+        this.getAllAppointments();
+      });
   }
 }

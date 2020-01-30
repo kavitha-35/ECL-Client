@@ -46,21 +46,23 @@
 
       <!-- List View -->
       <ng-template #listView>
-        <app-appointment-list 
+        <app-appointment-list *ngIf="appointments"
         [appointments]="appointments | slice: pageEvent.pageIndex:pageEvent.pageSize">
       </app-appointment-list>
       </ng-template>
 
       <!-- Table View -->
       <ng-template #tableView>
-        <app-appointment-table
+        <app-appointment-table *ngIf="appointments"
           [appointments]="appointments | slice: pageEvent.pageIndex:pageEvent.pageSize"
           (rowSelected)="onRowSelected($event)"
+          (editAppointmentClicked)="onEditClicked($event)"
+          (deleteAppointmentClicked)="onDeleteAppointmentClicked($event)"
         >
         </app-appointment-table>
       </ng-template>
 
-      <mat-paginator
+      <mat-paginator *ngIf="appointments"
         [length]="appointments.length"
         [pageSizeOptions]="pageSizeOptions"
         [pageSize]="pageSize"
