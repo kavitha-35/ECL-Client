@@ -77,7 +77,7 @@ const MENUITEMS: Menu[] = [
     icon: 'attach_money',
   },
   {
-    state: 'not-found',
+    state: 'comment',
     name: 'Comments',
     type: 'link',
     icon: 'map',

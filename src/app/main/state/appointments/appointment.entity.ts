@@ -8,17 +8,20 @@ export class AppointmentEntity {
 
     for (let i = 0; i < 500; i++) {
       appointmentList.push({
-        id: faker.random.number().toString(),
-        phoneNumber: faker.phone.phoneNumber(),
-        gender: { id: '1', name: 'Male' },
-        dateOfBirth: faker.date.past().toDateString(),
+        appointmentId: faker.random.number(),
+        mobile: faker.phone.phoneNumber(),
+        gender: '1',
+        dob: faker.date.past().toDateString(),
         email: faker.internet.email(),
-        mobileNumber: faker.phone.phoneNumber(),
-        name: faker.name.firstName(),
-        comment: faker.random.words(25),
-        from: faker.date.future().toDateString(),
-        to: faker.date.future().toDateString(),
-        status: { id: '1', name: faker.random.arrayElement(['Pending', 'Cancelled', 'Confirmed']) }
+        landline: faker.phone.phoneNumber(),
+        patientName: faker.name.firstName(),
+        comments: faker.random.words(25),
+        poBox: faker.date.future().toDateString(),
+        appointmentDateTime: faker.date.future().toDateString(),
+        area: faker.name.firstName(),
+        city: faker.name.firstName(),
+        country: faker.name.firstName(),
+        status: { statusId: '1', statusValue: faker.random.arrayElement(['Pending', 'Cancelled', 'Confirmed']) }
       })
     }
 

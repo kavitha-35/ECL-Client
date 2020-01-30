@@ -5,6 +5,7 @@ import { DoctorService } from 'app/control-panel/services/doctor.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { LookupService } from 'app/control-panel/services/lookup.service';
+import { OrganisationModel } from 'app/control-panel/models/organisations/organisation.model';
 
 @Component({
   selector: 'app-add-doctor',
@@ -12,6 +13,7 @@ import { LookupService } from 'app/control-panel/services/lookup.service';
   styleUrls: ['./add-doctor.component.scss'],
 })
 export class AddDoctorComponent implements OnInit {
+  public organizations: OrganisationModel[];
   public countries: LookUpModel[];
   public cities: LookUpModel[];
   public specialities: LookUpModel[];
