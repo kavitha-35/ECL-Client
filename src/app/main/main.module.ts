@@ -173,6 +173,7 @@ import { CaseRibbonMenuComponent } from './components/operations/case/case-ribbo
 import { CaseSearchComponent } from './components/operations/case/case-search/case-search.component';
 import { ClinicHistoryComponent } from './components/registration/add-registration/clinic-history/clinic-history.component';
 import { PatientAddressComponent } from './components/registration/add-registration/patient-address/patient-address.component';
+import { PatientSocialmediaComponent } from './components/registration/add-registration/patient-socialmedia/patient-socialmedia.component';
 
 @NgModule({
   declarations: [
@@ -304,6 +305,7 @@ import { PatientAddressComponent } from './components/registration/add-registrat
     CaseSearchComponent,
     ClinicHistoryComponent,
     PatientAddressComponent,
+    PatientSocialmediaComponent,
   ],
   providers: [
     DatePipe,

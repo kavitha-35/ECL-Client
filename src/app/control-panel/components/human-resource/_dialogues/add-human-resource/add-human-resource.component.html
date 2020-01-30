@@ -26,10 +26,19 @@
                 <!-- Employee Name -->
                 <mat-form-field>
                   <mat-label>Employee Name</mat-label>
-                  <input matInput placeholder="Employee Name" class="uppercase" required pattern="[a-zA-Z]*" name="employeeName" #employeeName="ngModel" ngModel/>
-                  <mat-error *ngIf="employeeName.invalid && (employeeName.dirty || employeeName.touched) ">
-                    <mat-error *ngIf="employeeName.errors.required" >Employee Name is required</mat-error>
-                    <mat-error *ngIf="employeeName.errors?.pattern" >Text is required</mat-error>
+                  <input
+                    matInput
+                    placeholder="Employee Name"
+                    class="uppercase"
+                    required
+                    pattern="[a-zA-Z]*"
+                    name="employeeName"
+                    #employeeName="ngModel"
+                    ngModel
+                  />
+                  <mat-error *ngIf="employeeName.invalid && (employeeName.dirty || employeeName.touched)">
+                    <mat-error *ngIf="employeeName.errors.required">Employee Name is required</mat-error>
+                    <mat-error *ngIf="employeeName.errors?.pattern">Text is required</mat-error>
                   </mat-error>
                 </mat-form-field>
 
@@ -42,12 +51,24 @@
                 <!-- DOB -->
                 <mat-form-field>
                   <mat-label>Date Of Birth</mat-label>
-                  <input matInput placeholder="DOB"/>
+                  <input matInput placeholder="DOB" />
                 </mat-form-field>
-                </section>
-                </section>
 
-                <!-- Address Information -->
+                <!-- Education -->
+                <mat-form-field>
+                  <mat-label>Education</mat-label>
+                  <input matInput placeholder="Education" />
+                </mat-form-field>
+
+                <!-- Experience -->
+                <mat-form-field>
+                  <mat-label>Experience</mat-label>
+                  <input matInput placeholder="Experience" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Address Information -->
             <section class="address-information-wrapper">
               <!-- Header -->
               <app-section-header title="Address Information"></app-section-header>
@@ -57,9 +78,17 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <textarea matInput placeholder="Address" class="uppercase" name="address" ngModel #address="ngModel" required ></textarea>
-                  <mat-error *ngIf="address.invalid && (address.dirty || address.touched) " >
-                    <mat-error *ngIf="address.errors.required" >Address is required</mat-error>
+                  <textarea
+                    matInput
+                    placeholder="Address"
+                    class="uppercase"
+                    name="address"
+                    ngModel
+                    #address="ngModel"
+                    required
+                  ></textarea>
+                  <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
+                    <mat-error *ngIf="address.errors.required">Address is required</mat-error>
                   </mat-error>
                 </mat-form-field>
 
@@ -98,9 +127,9 @@
                   <mat-label>Web</mat-label>
                   <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
                 </mat-form-field>
-                
-                 <!-- Email-->
-                 <mat-form-field>
+
+                <!-- Email-->
+                <mat-form-field>
                   <mat-label>Email</mat-label>
                   <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
                 </mat-form-field>
@@ -108,32 +137,62 @@
                 <!-- Telephone -->
                 <mat-form-field>
                   <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
-                
-                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " >
-                    <mat-error *ngIf="telephone.errors.required" >telephone is required</mat-error>
-                    <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
+                  <input
+                    matInput
+                    placeholder="Telephone"
+                    name="telephone"
+                    ngModel
+                    #telephone="ngModel"
+                    pattern="[0-9]+"
+                    minlength="10"
+                    required
+                  />
+
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
+                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
                   </mat-error>
                 </mat-form-field>
 
+                <section class="label">
+                  Picture
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+              </section>
+            </section>
+
+            <!-- Socialmedia Information -->
+            <section class="socialmedia-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Social Media"></app-section-header>
+              <!-- Content -->
+              <section class="socialmedia-information-content">
                 <!-- Whatsapp Number -->
                 <mat-form-field>
                   <mat-label>Whatsapp Number </mat-label>
-                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
+                  <input
+                    matInput
+                    placeholder="Whatsapp Number "
+                    name="whatsappNumber "
+                    ngModel
+                    #whatsappNumber="ngModel"
+                  />
                 </mat-form-field>
-              
+
                 <!-- Facebook Id -->
                 <mat-form-field>
                   <mat-label>Facebook Id </mat-label>
                   <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
                 </mat-form-field>
 
-                 <!-- Instagram Id-->
-                 <mat-form-field>
+                <!-- Instagram Id-->
+                <mat-form-field>
                   <mat-label>Instagram Id </mat-label>
                   <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
                 </mat-form-field>
-               
+
                 <!-- Twitter Id-->
                 <mat-form-field>
                   <mat-label>Twitter Id </mat-label>
@@ -149,20 +208,14 @@
 
               <!-- Content -->
               <section class="user-credential-content">
-                <!-- Default URL -->
-                <mat-form-field>
-                  <mat-label>URL</mat-label>
-                  <input matInput placeholder=" URL"/>
-                </mat-form-field>
-
                 <mat-form-field>
                   <mat-label>User Name</mat-label>
-                  <input matInput placeholder="User Name"/>
+                  <input matInput placeholder="User Name" />
                 </mat-form-field>
 
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password"/>
+                  <input matInput placeholder="Password" />
                 </mat-form-field>
               </section>
             </section>

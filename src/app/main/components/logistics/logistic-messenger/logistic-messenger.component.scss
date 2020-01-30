@@ -3,9 +3,11 @@
     display: grid;
     grid-template-columns: 1fr auto;
 
-    button {
-      padding: 0;
-      line-height: 0;
+    .logistic-button {
+      margin-bottom: 12px;
+      margin-right: 12px;
+      background-color: #5388a5;
+      color: white;
     }
   }
 }
