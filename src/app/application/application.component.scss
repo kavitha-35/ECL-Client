@@ -1,0 +1,34 @@
+#application-dashboard-container {
+
+    display: grid;
+    grid-gap: 100px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-flow: column;
+    
+    height: 250px;
+    grid-template-areas:
+      'First         Second           Third';
+  
+    .third-menu {
+      grid-area: Third;
+    }
+  
+    .second-menu {
+      grid-area: Second;
+    }
+  
+    .first-menu {
+      grid-area: First;
+    }
+  }
+  .app-container{
+    margin-top: 100px;
+    margin-left: 100px;
+  }
+  .form-bg{
+    background-image: url("/assets/images/appbg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }

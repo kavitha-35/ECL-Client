@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 
 
 @Component({
@@ -12,7 +11,6 @@ import { DepartmentModel } from 'app/control-panel/models/department/department.
 
 export class EditCommentsComponent  {
 
-  departments: DepartmentModel[];
   constructor(private readonly _dialogRef: MatDialogRef<EditCommentsComponent>) { }
 
   public onEditCommentClicked(): void {

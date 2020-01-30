@@ -64,6 +64,7 @@ import { WorkSheetSearchComponent } from './main/components/operations/work-shee
 import { ResultsAuthorizationDataSearchComponent } from './main/components/operations/results-authorization/results-authorization-data-search/results-authorization-data-search.component';
 import { CaseSearchComponent } from './main/components/operations/case/case-search/case-search.component';
 import { EditAppointmentComponent } from './main/components/appointments/_dialogues/edit-appointment/edit-appointment.component';
+import { ApplicationComponent } from './application/application.component';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,7 +75,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ApplicationComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -144,7 +145,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     WorkSheetSearchComponent,
     ResultsAuthorizationDataSearchComponent,
     CaseSearchComponent,
-    EditAppointmentComponent
+    EditAppointmentComponent,
+    ApplicationComponent
   ],
   providers: [
     MatDatepickerModule,

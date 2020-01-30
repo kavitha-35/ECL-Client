@@ -277,6 +277,7 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     CommentsComponent,
     CommentSearchComponent,
     CommentRibbonMenuComponent,
+    EditEquipmentComponent,
   ],
   providers: [
     DatePipe,
@@ -387,6 +388,7 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     AddCommentsComponent,
     EditCommentsComponent,
     CommentSearchComponent,
+    EditEquipmentComponent,
     ViewMethodComponent,
   ],
 })

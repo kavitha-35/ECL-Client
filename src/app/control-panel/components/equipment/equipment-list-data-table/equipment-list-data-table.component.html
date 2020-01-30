@@ -6,33 +6,100 @@
       <td mat-cell *matCellDef="let element">{{ element.equipmentId }}</td>
     </ng-container>
 
+    <!-- Asset Name -->
+    <ng-container matColumnDef="assetName">
+      <th mat-header-cell *matHeaderCellDef>Asset Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.assetName }}</td>
+    </ng-container>
+
+    <!-- Asset Id -->
+    <ng-container matColumnDef="assetId">
+      <th mat-header-cell *matHeaderCellDef>Asset Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.assetId }}</td>
+    </ng-container>
+
+    
+
     <!-- Brand -->
     <ng-container matColumnDef="brand">
       <th mat-header-cell *matHeaderCellDef>Brand</th>
       <td mat-cell *matCellDef="let element">{{ element.brand.brandName }}</td>
     </ng-container>
 
-    <!-- Machine -->
+    <!-- Puchase Date -->
     <ng-container matColumnDef="machine">
-      <th mat-header-cell *matHeaderCellDef>Machine</th>
-      <td mat-cell *matCellDef="let element">{{ element.equipmentName }}</td>
+      <th mat-header-cell *matHeaderCellDef>Puchase Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.machine }}</td>
     </ng-container>
 
-    <!-- Model -->
+    <!-- Puchase From -->
+    <ng-container matColumnDef="puchaseFrom">
+      <th mat-header-cell *matHeaderCellDef>Puchase From</th>
+      <td mat-cell *matCellDef="let element">{{ element.puchaseFrom }}</td>
+    </ng-container>
+
+    <!-- Manufacturer Model -->
     <ng-container matColumnDef="model">
-      <th mat-header-cell *matHeaderCellDef>Model</th>
-      <td mat-cell *matCellDef="let element">{{ element.model }}</td>
+      <th mat-header-cell *matHeaderCellDef>Manufacturer Model</th>
+      <td mat-cell *matCellDef="let element">{{ element.model}}</td>
     </ng-container>
 
     <!-- Serial No -->
-    <ng-container matColumnDef="serial">
+    <ng-container matColumnDef="serialNo">
       <th mat-header-cell *matHeaderCellDef>Serial No</th>
       <td mat-cell *matCellDef="let element">{{ element.serialNo }}</td>
     </ng-container>
 
+    <!-- Supplier -->
+    <ng-container matColumnDef="supplier">
+      <th mat-header-cell *matHeaderCellDef>Supplier</th>
+      <td mat-cell *matCellDef="let element">{{ element.supplier }}</td>
+    </ng-container>
+
+    <!-- Condition -->
+    <ng-container matColumnDef="condition">
+      <th mat-header-cell *matHeaderCellDef>Condition</th>
+      <td mat-cell *matCellDef="let element">{{ element.condition }}</td>
+    </ng-container>
+
+    <!-- Warranty -->
+    <ng-container matColumnDef="warranty">
+      <th mat-header-cell *matHeaderCellDef>Condition</th>
+      <td mat-cell *matCellDef="let element">{{ element.warranty }}</td>
+    </ng-container>
+
+    <!-- Depreciation -->
+    <ng-container matColumnDef="depreciation">
+      <th mat-header-cell *matHeaderCellDef>Depreciation</th>
+      <td mat-cell *matCellDef="let element">{{ element.depreciation }}</td>
+    </ng-container>
+
+    <!-- Value -->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>Value</th>
+      <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+    </ng-container>
+
+    <!-- Location -->
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef>Location</th>
+      <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+    </ng-container>
+
+
+    <!-- Description -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
     <!--Action-->
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef></th>
+      <th mat-header-cell *matHeaderCellDef>
+        <section class="actions-wrapper">
+          <app-column-chooser [columns]="filteredColumns" (closed)="onColumnChooserClosed($event)"></app-column-chooser>
+        </section>
+      </th>
       <td mat-cell *matCellDef="let element">
         <section class="actions-wrapper">
           <button class="edit-button" mat-button color="primary" (click)="onViewEquipmentClicked(element)" disableRipple>

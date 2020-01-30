@@ -32,7 +32,6 @@ export class LinkTestComponent implements OnInit {
       'name',
       'additionalCost',
       'discount',
-      'total',
       'action'
     ];
   }

@@ -43,6 +43,14 @@
           @include forms-grid;
         }
       }
+       
+      .address-information-wrapper {
+        @include margin-bottom-18;
+
+        .address-information-content {
+          @include forms-grid;
+        }
+      }
 
       .control-panel-wrapper {
         @include margin-bottom-18;
