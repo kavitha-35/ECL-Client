@@ -5,6 +5,7 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { NgForm } from '@angular/forms';
 import { OrganisationService } from 'app/control-panel/services/organisation.service';
 import { ContactPerson } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
+import { ImageService } from 'app/control-panel/services/image.service';
 
 @Component({
   selector: 'app-add-organisation',
@@ -12,8 +13,9 @@ import { ContactPerson } from 'app/control-panel/models/outsourcing-management/o
   styleUrls: ['./add-organisation.component.scss'],
 })
 export class AddOrganisationComponent implements OnInit {
+  contract: string;
   public relations: LookUpModel[];
-  public regions: LookUpModel[];
+  public cities: LookUpModel[];
   public countries: LookUpModel[];
   public areas: LookUpModel[];
   public languages: LookUpModel[];
@@ -25,43 +27,45 @@ export class AddOrganisationComponent implements OnInit {
   public branches: LookUpModel[];
   public currencies: LookUpModel[];
   public contactPersonList: ContactPerson[] = [];
+  public organisationTypes: LookUpModel[];
+  departments: LookUpModel[];
+  logo: string;
+  priceList: string;
+  footer: string;
+  header: string;
   constructor(
     private readonly dialogRef: MatDialogRef<AddOrganisationComponent>,
     private readonly _lookUpService: LookupService,
     private readonly _organisationService: OrganisationService,
+    private readonly _imageService: ImageService,
   ) {}
 
   ngOnInit(): void {
-    this.getRelations();
-    this.getRegions();
+    this.getCities();
     this.getCountries();
-    this.getAreas();
-    this.getBusinessHour();
-    this.getLanguages();
-    this.getPaymentTypes();
-    this.getTimeZone();
-    this.getRevenueTargets();
-    this.getReportAndBilling();
     this.getBranches();
-    this.getcurrencies();
     this.addContact();
+    this.getOrganisationTypes();
+    this.getDepartments();
+    this.getLanguages();
+    this.getTimeZone();
+    this.getCurrencies();
   }
   public onAddOrganisationClicked(organisation: NgForm): void {
+    organisation.form.value.contactPerson = this.contactPersonList;
+    organisation.form.value.contract = this.contract;
+    organisation.form.value.logo = this.logo;
+    organisation.form.value.header = this.header;
+    organisation.form.value.priceList = this.priceList;
     console.log(organisation.form.value);
     this._organisationService.addOrganisation(organisation.form.value).subscribe((data) => {
       this.dialogRef.close();
     });
   }
 
-  public getRelations(): void {
-    this._lookUpService.getLookUp('organisationRelation').subscribe((data) => {
-      this.relations = data;
-    });
-  }
-
-  public getRegions(): void {
-    this._lookUpService.getLookUp('region').subscribe((data: LookUpModel[]) => {
-      this.regions = data;
+  public getCities(): void {
+    this._lookUpService.getLookUp('city').subscribe((data: LookUpModel[]) => {
+      this.cities = data;
     });
   }
 
@@ -71,9 +75,75 @@ export class AddOrganisationComponent implements OnInit {
     });
   }
 
-  public getBusinessHour(): void {
-    this._lookUpService.getLookUp('businessHours').subscribe((data: LookUpModel[]) => {
-      this.businessHours = data;
+  onContractChange(event: any): void {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      const formData: FormData = new FormData();
+      formData.append('uploadFile', file, file.name);
+      this._imageService.fileUpload(formData).subscribe((data) => {
+        this.contract = data;
+      });
+    }
+  }
+
+  onLogoInput(event: any): void {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      const formData: FormData = new FormData();
+      formData.append('uploadFile', file, file.name);
+      this._imageService.fileUpload(formData).subscribe((data) => {
+        this.logo = data;
+      });
+    }
+  }
+
+  onHeaderInput(event: any): void {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      const formData: FormData = new FormData();
+      formData.append('uploadFile', file, file.name);
+      this._imageService.fileUpload(formData).subscribe((data) => {
+        this.header = data;
+      });
+    }
+  }
+
+  onFooterInput(event: any): void {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      const formData: FormData = new FormData();
+      formData.append('uploadFile', file, file.name);
+      this._imageService.fileUpload(formData).subscribe((data) => {
+        this.footer = data;
+      });
+    }
+  }
+
+  onPriceListInput(event: any): void {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      const formData: FormData = new FormData();
+      formData.append('uploadFile', file, file.name);
+      this._imageService.fileUpload(formData).subscribe((data) => {
+        this.priceList = data;
+      });
+    }
+  }
+
+  public getCurrencies(): void {
+    this._lookUpService.getLookUp('currency').subscribe((data: LookUpModel[]) => {
+      this.currencies = data;
+    });
+  }
+
+  public getOrganisationTypes(): void {
+    this._lookUpService.getLookUp('organisationType').subscribe((data: LookUpModel[]) => {
+      this.organisationTypes = data;
     });
   }
 
@@ -83,32 +153,9 @@ export class AddOrganisationComponent implements OnInit {
     });
   }
 
-  public getPaymentTypes(): void {
-    this._lookUpService.getLookUp('paymentType').subscribe((data: LookUpModel[]) => {
-      this.paymentTypes = data;
-    });
-  }
-
   public getTimeZone(): void {
     this._lookUpService.getLookUp('timeZone').subscribe((data: LookUpModel[]) => {
       this.timeZones = data;
-    });
-  }
-
-  public getRevenueTargets(): void {
-    this._lookUpService.getLookUp('area').subscribe((data: LookUpModel[]) => {
-      this.revenueTargets = data;
-    });
-  }
-
-  public getReportAndBilling(): void {
-    this._lookUpService.getLookUp('reportAndBilling').subscribe((data: LookUpModel[]) => {
-      this.reportAndBillings = data;
-    });
-  }
-  public getAreas(): void {
-    this._lookUpService.getLookUp('area').subscribe((data: LookUpModel[]) => {
-      this.areas = data;
     });
   }
 
@@ -118,9 +165,9 @@ export class AddOrganisationComponent implements OnInit {
     });
   }
 
-  public getcurrencies(): void {
-    this._lookUpService.getLookUp('currency').subscribe((data: LookUpModel[]) => {
-      this.currencies = data;
+  public getDepartments(): void {
+    this._lookUpService.getLookUp('contactDepartment').subscribe((data: LookUpModel[]) => {
+      this.departments = data;
     });
   }
 
