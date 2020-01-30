@@ -25,13 +25,13 @@ export class EditAppointmentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private readonly data: any
   ) {}
 
-  
+
   ngOnInit(): void {
     this.appointment = this.data;
   }
 
   public onEditAppointmentClicked(): void {
-    console.log("edit appointment payload", this.appointment);
+    console.log('edit appointment payload', this.appointment);
     this.appointmentService.updateAppointment(this.appointment.appointmentId, this.appointment).subscribe(() => {
       this._dialogRef.close();
     });

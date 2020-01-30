@@ -24,13 +24,13 @@ export class AddAppointmentComponent implements OnInit {
     private readonly _lookUpService: LookupService,
   ) {}
 
-  
+
   ngOnInit(): void {
     this.initializeTime();
   }
 
   public onAddAppointmentClicked(): void {
-    console.log("add appointment payload", this.appointment);
+    console.log('add appointment payload', this.appointment);
     this.appointmentService.addAppointment(this.appointment).subscribe(() => {
       this._dialogRef.close();
     });

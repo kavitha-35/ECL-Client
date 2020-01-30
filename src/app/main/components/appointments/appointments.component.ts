@@ -43,8 +43,8 @@ export class AppointmentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.appointments$ = this._appointmentsFacade.appointments$;
-    //this._appointmentsFacade.loadAppointments();
+    // this.appointments$ = this._appointmentsFacade.appointments$;
+    // this._appointmentsFacade.loadAppointments();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -69,7 +69,7 @@ export class AppointmentsComponent implements OnInit {
   }
 
   public onAddAppointmentButtonClicked(): void {
-    //this._matDialog.open(AddAppointmentComponent, matDialogConfig);
+    // this._matDialog.open(AddAppointmentComponent, matDialogConfig);
     this._matDialog
       .open(AddAppointmentComponent, this.matDialogConfig)
       .afterClosed()
@@ -90,7 +90,7 @@ export class AppointmentsComponent implements OnInit {
   }
 
   public onEditClicked(appointment: AppointmentModel): void {
-    console.debug("edit appointment", appointment);
+    console.log('edit appointment', appointment);
     this.matDialogConfig['data'] = appointment;
     this._matDialog
       .open(EditAppointmentComponent, this.matDialogConfig)

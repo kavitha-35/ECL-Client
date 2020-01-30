@@ -17,7 +17,7 @@ export class AppointmentDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly _activatedRoute: ActivatedRoute,
-    //private readonly _appointmentFacade: AppointmentFacade,
+    // private readonly _appointmentFacade: AppointmentFacade,
     private readonly _appointmentService: AppointmentServices
   ) {
     this.selectedAppointment = new AppointmentModel();
@@ -32,7 +32,7 @@ export class AppointmentDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  private fetchAppointment(appointmentId: number) {
+  private fetchAppointment(appointmentId: number): void {
     this._appointmentService.getAppointment(appointmentId).subscribe((data) => {
       this.selectedAppointment = data;
       console.log(data);

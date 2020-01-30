@@ -14,7 +14,7 @@ export class AppointmentModel {
   area            : string;
   city            : string;
   country         : string;
-  constructor(){}
+  constructor() {}
 }
 
 interface StatusModel {
