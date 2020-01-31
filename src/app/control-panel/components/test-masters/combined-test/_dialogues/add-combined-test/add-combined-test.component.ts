@@ -101,7 +101,7 @@ export class AddCombinedTestComponent implements OnInit {
   }
 
   public getSpecimen(): void {
-    this._lookUpService.getLookUp('Specimen').subscribe((data: LookUpModel[]) => {
+    this._lookUpService.getLookUp('specimen').subscribe((data: LookUpModel[]) => {
       this.specimen = data;
     });
   }
