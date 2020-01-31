@@ -1,4 +1,4 @@
 export const ROUTE_CONFIG = {
   PatientServiceBaseUrl: 'http://lis-server-patients.azurewebsites.net',
-  ConfigurationServiceBaseUrl: 'http://192.168.0.13/lis-server/index.php',
+  ConfigurationServiceBaseUrl: 'https://ec2-18-223-21-23.us-east-2.compute.amazonaws.com/lis-server/index.php',
 };
