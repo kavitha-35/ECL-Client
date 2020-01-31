@@ -261,7 +261,6 @@
                 <mat-checkbox name="criticalRange" ngModel #criticalRange="ngModel"> Critical Range</mat-checkbox>
 
                 <!-- max -->
-                <section *ngIf="criticalRange">
                   <mat-form-field>
                     <mat-label>Max</mat-label>
                     <input matInput placeholder="max" name="individualTestName" required ngModel #max="ngModel" />
@@ -272,7 +271,6 @@
                     <mat-label>Min</mat-label>
                     <input matInput placeholder="min" name="individualTestName" required ngModel #min="ngModel" />
                   </mat-form-field>
-                </section>
               </section>
             </section>
           </form>
