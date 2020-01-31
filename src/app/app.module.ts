@@ -65,6 +65,8 @@ import { ResultsAuthorizationDataSearchComponent } from './main/components/opera
 import { CaseSearchComponent } from './main/components/operations/case/case-search/case-search.component';
 import { EditAppointmentComponent } from './main/components/appointments/_dialogues/edit-appointment/edit-appointment.component';
 import { ApplicationComponent } from './application/application.component';
+import { RegistrationsComponent } from './main/components/registrations/registrations.component';
+import { AddRegisterComponent } from './main/components/registrations/_dialogues/add-register/add-register.component';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -146,7 +148,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ResultsAuthorizationDataSearchComponent,
     CaseSearchComponent,
     EditAppointmentComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    RegistrationsComponent,
+    AddRegisterComponent
   ],
   providers: [
     MatDatepickerModule,

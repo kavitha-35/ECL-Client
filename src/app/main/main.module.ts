@@ -175,6 +175,13 @@ import { ClinicHistoryComponent } from './components/registration/add-registrati
 import { EditAppointmentComponent } from './components/appointments/_dialogues/edit-appointment/edit-appointment.component';
 import { PatientAddressComponent } from './components/registration/add-registration/patient-address/patient-address.component';
 import { PatientSocialmediaComponent } from './components/registration/add-registration/patient-socialmedia/patient-socialmedia.component';
+import { RegistrationsComponent } from './components/registrations/registrations.component';
+import { EditRegisterComponent } from './components/registrations/_dialogues/edit-register/edit-register.component';
+import { RegistrationListDataTableComponent } from './components/registrations/registration-list-data-table/registration-list-data-table.component';
+import { RegistrationRibbonMenuComponent } from './components/registrations/registration-ribbon-menu/registration-ribbon-menu.component';
+import { RegistrationSearchComponent } from './components/registrations/registration-search/registration-search.component';
+import { AddRegisterComponent } from './components/registrations/_dialogues/add-register/add-register.component';
+
 
 @NgModule({
   declarations: [
@@ -307,7 +314,13 @@ import { PatientSocialmediaComponent } from './components/registration/add-regis
     ClinicHistoryComponent,
     PatientAddressComponent,
     PatientSocialmediaComponent,
-    EditAppointmentComponent
+    EditAppointmentComponent,
+    RegistrationsComponent,
+    AddRegisterComponent,
+    EditRegisterComponent,
+    RegistrationListDataTableComponent,
+    RegistrationRibbonMenuComponent,
+    RegistrationSearchComponent
   ],
   providers: [
     DatePipe,

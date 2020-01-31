@@ -1,0 +1,61 @@
+<section id="registration-container" class="animated fadeIn">
+    <!-- Material Card -->
+    <mat-card>
+      <section class="mat-header-container">
+        <!-- Mat Header Image -->
+        <section class="mat-header-image-wrapper">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">apps </mat-icon>
+        </section>
+  
+        <!-- Mat Header Title -->
+        <section>
+          <!-- Mat Card Title -->
+          <mat-card-title>
+            <section class="mat-card-title-container">
+              <section>
+              Registration
+              </section>
+            </section>
+          </mat-card-title>
+  
+          <!-- Mat Card SubTitle -->
+          <mat-card-subtitle> View/Manage Registration </mat-card-subtitle>
+        </section>
+  
+        <!-- Add Registration Button -->
+        <section class="registration-button-wrapper">
+          <button class="registration-button" mat-stroked-button (click)="onAddRegisterButtonClicked()">Add registration</button>
+        </section>
+      </section>
+  
+      <!-- Mat Table Ribbon -->
+      <app-registration-ribbon-menu
+        (showListViewButtonClicked)="onShowListViewButtonClicked()"
+        (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+      >
+      </app-registration-ribbon-menu>
+  
+      <!-- Mat Divider -->
+      <mat-divider></mat-divider>
+  
+      <!-- Test List -->
+      <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+  
+      <!-- List View -->
+      <!-- <ng-template #listView>
+        <app-registration-list [comment]="comments"></app-registration-list>
+      </ng-template> -->
+  
+      <!-- Table View -->
+      <!-- <ng-template #tableView>
+        <app-comment-list-data-table
+          [comment]="comments"
+          (editCommentClicked)="onEditCommentClicked($event)"
+          (deleteCommentClicked)="onDeleteCommentClicked($event)"
+          [isBusy]="isFetchingComments"
+        ></app-comment-list-data-table>
+      </ng-template> -->
+  
+    </mat-card>
+  </section>
+  
