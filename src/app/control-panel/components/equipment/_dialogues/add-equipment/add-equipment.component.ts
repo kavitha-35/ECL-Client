@@ -20,22 +20,14 @@ export class AddEquipmentComponent implements OnInit {
   constructor(
     private readonly _dialogRef: MatDialogRef<AddEquipmentComponent>,
     private readonly _equipmentService: EquipmentService,
-    private readonly lookUpService: LookupService,
   ) {}
 
-  ngOnInit(): void {
-    this.getBrands();
-  }
+  ngOnInit(): void {}
 
   public onAddEquipmentClicked(equipment: NgForm): void {
     console.log(equipment.form.value);
     this._equipmentService.addEquipment(equipment.form.value).subscribe((data) => {
       this._dialogRef.close();
-    });
-  }
-  public getBrands(): void {
-    this.lookUpService.getLookUp('Brand').subscribe((data) => {
-      this.brands = data;
     });
   }
 }
