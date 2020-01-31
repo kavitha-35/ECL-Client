@@ -23,14 +23,41 @@ export class AddIndividualTestComponent implements OnInit {
   public methods: MethodModel[];
   public equipments: EquipmentModel[];
   public accrediationSymbols: LookUpModel[];
+  public editorConfig: any;
   public accrediationSymbolsFilter: LookUpModel[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddIndividualTestComponent>,
     private readonly _individualTestService: IndividualTestService,
     private readonly lookUpService: LookupService,
     private readonly _equipmentService: EquipmentService,
-    private readonly _methodService: MethodService
-  ) { }
+    private readonly _methodService: MethodService,
+  ) {
+    this.editorConfig = {
+      uiColor: '#ffffff',
+      toolbarGroups: [
+        { name: 'clipboard', groups: ['clipboard', 'undo'] },
+        { name: 'editing', groups: ['find', 'selection', 'spellchecker'] },
+        { name: 'links' },
+        { name: 'insert' },
+        { name: 'document', groups: ['mode', 'document', 'doctools'] },
+        { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] },
+        { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align'] },
+        { name: 'styles' },
+        { name: 'colors' },
+      ],
+      resize_enabled: true,
+      removePlugins: 'elementspath,save,magicline',
+      extraPlugins: 'smiley,justify,indentblock,colordialog',
+      colorButton_foreStyle: {
+        element: 'font',
+        attributes: { color: '#(color)' },
+      },
+      height: 75,
+      removeDialogTabs: 'image:advanced;link:advanced',
+      removeButtons: 'Subscript,Superscript,Anchor,Source',
+      format_tags: 'p;h1;h2;h3;pre;div',
+    };
+  }
 
   ngOnInit(): void {
     this.getProcessingCenter();
@@ -83,7 +110,6 @@ export class AddIndividualTestComponent implements OnInit {
     } else {
       this.accrediationSymbols = this.accrediationSymbolsFilter;
     }
-
   }
   public selectSearch(value: string): void {
     this.accrediationSymbols = [];
@@ -95,6 +121,4 @@ export class AddIndividualTestComponent implements OnInit {
       }
     }
   }
-
-
 }
