@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { NgForm } from '@angular/forms';
 import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import {
   ContactPerson,
-  OutsourcingManagementModel,
   AddOutsourcingManagementModel,
 } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
+import { DepartmentService } from 'app/control-panel/services/department.service';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 
 @Component({
   selector: 'app-add-referal-lab',
@@ -21,11 +21,12 @@ export class AddReferalLabComponent implements OnInit {
   public contactPersonList: ContactPerson[] = [];
   public outsource: AddOutsourcingManagementModel = new AddOutsourcingManagementModel();
   public couriers: LookUpModel[];
-  public departments: LookUpModel[];
+  public departments: DepartmentModel[];
   constructor(
     private readonly _dialogRef: MatDialogRef<AddReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
     private readonly _lookUpService: LookupService,
+    private readonly _departmentService: DepartmentService,
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +63,7 @@ export class AddReferalLabComponent implements OnInit {
   }
 
   public getdepartments(): void {
-    this._lookUpService.getLookUp('contactDepartment').subscribe((data: LookUpModel[]) => {
+    this._departmentService.getAllDepartments().subscribe((data: DepartmentModel[]) => {
       this.departments = data;
     });
   }

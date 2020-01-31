@@ -8,6 +8,7 @@ export class AddOutsourcingManagementModel {
   city: string;
   poNumber: string;
   telephone: string;
+  mobileNumber: string;
   fax: string;
   web: string;
   region: string;
@@ -46,8 +47,15 @@ export class ContactPerson {
   courierId: string;
   mobile: string;
   contactPersonName: string;
+  dateOfBirth?: string;
   email: string;
   departmentId: number;
+  telephone?: string;
+  twitter?: string;
+  facebook?: string;
+  instagram?: string;
+  whatsapp?: string;
+
   constructor() {}
 }
 
@@ -61,6 +69,7 @@ export class OutsourcingManagementModel {
   city: CityModel;
   poNumber: string;
   telephone: string;
+  mobileNumber: string;
   fax: string;
   web: string;
   region: string;

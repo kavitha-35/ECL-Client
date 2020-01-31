@@ -42,15 +42,15 @@
                   </mat-error>
                 </mat-form-field>
 
-                <!-- Relation -->
+                <!-- Branch -->
                 <mat-form-field>
-                  <mat-label>Relation</mat-label>
+                  <mat-label>Branch</mat-label>
                   <mat-select disableOptionCentering name="relation" [(ngModel)]="outsource.relation">
-                    <mat-option value="Intra">
-                      Intra
+                    <mat-option value="Yes">
+                      Yes
                     </mat-option>
-                    <mat-option value="Inter">
-                      Inter
+                    <mat-option value="No">
+                      No
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -150,6 +150,24 @@
                   <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
                 </mat-form-field>
 
+                <!-- Mobile Number -->
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input
+                    matInput
+                    placeholder="Mobile Number"
+                    required
+                    name="mobileNumber"
+                    #mobileNumber="ngModel"
+                    pattern="[0-9]*"
+                    [(ngModel)]="outsource.mobileNumber"
+                  />
+                  <mat-error *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
+                    <mat-error *ngIf="mobileNumber.errors.required">MobileNumber is required</mat-error>
+                    <mat-error *ngIf="mobileNumber.errors?.pattern">MobileNumber is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
+
                 <!-- Telephone -->
                 <mat-form-field>
                   <mat-label>Telephone</mat-label>
@@ -170,32 +188,37 @@
               </section>
             </section>
 
-             <!-- Social Media -->
-             <section class="social-media-wrapper">
+            <!-- Social Media -->
+            <section class="social-media-wrapper">
               <!-- Header -->
               <app-section-header title="Social Media "></app-section-header>
 
               <!-- Content -->
               <section class="social-media-content">
-
                 <!-- Whatsapp Number -->
                 <mat-form-field>
                   <mat-label>Whatsapp Number </mat-label>
-                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
+                  <input
+                    matInput
+                    placeholder="Whatsapp Number "
+                    name="whatsappNumber "
+                    ngModel
+                    #whatsappNumber="ngModel"
+                  />
                 </mat-form-field>
-              
+
                 <!-- Facebook Id -->
                 <mat-form-field>
                   <mat-label>Facebook Id </mat-label>
                   <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
                 </mat-form-field>
 
-                 <!-- Instagram Id-->
-                 <mat-form-field>
+                <!-- Instagram Id-->
+                <mat-form-field>
                   <mat-label>Instagram Id </mat-label>
                   <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
                 </mat-form-field>
-               
+
                 <!-- Twitter Id-->
                 <mat-form-field>
                   <mat-label>Twitter Id </mat-label>
@@ -204,7 +227,6 @@
               </section>
             </section>
 
-                
             <!-- Contact person -->
             <section class="contactperson-information-wrapper">
               <!-- Header -->
@@ -231,8 +253,8 @@
                   <mat-form-field class="mt-n7">
                     <mat-label> Department</mat-label>
                     <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
-                      <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
-                        options.keyValue
+                      <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
+                        options.departmentName
                       }}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -286,29 +308,35 @@
                     </mat-error>
                   </mat-form-field>
 
-                   <!-- Whatsapp Number -->
-                <mat-form-field>
-                  <mat-label>Whatsapp Number </mat-label>
-                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
-                </mat-form-field>
-              
-                <!-- Facebook Id -->
-                <mat-form-field>
-                  <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
-                </mat-form-field>
+                  <!-- Whatsapp Number -->
+                  <mat-form-field>
+                    <mat-label>Whatsapp Number </mat-label>
+                    <input
+                      matInput
+                      placeholder="Whatsapp Number "
+                      name="whatsappNumber "
+                      ngModel
+                      #whatsappNumber="ngModel"
+                    />
+                  </mat-form-field>
 
-                 <!-- Instagram Id-->
-                 <mat-form-field>
-                  <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
-                </mat-form-field>
-               
-                <!-- Twitter Id-->
-                <mat-form-field>
-                  <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
-                </mat-form-field>
+                  <!-- Facebook Id -->
+                  <mat-form-field>
+                    <mat-label>Facebook Id </mat-label>
+                    <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                  </mat-form-field>
+
+                  <!-- Instagram Id-->
+                  <mat-form-field>
+                    <mat-label>Instagram Id </mat-label>
+                    <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                  </mat-form-field>
+
+                  <!-- Twitter Id-->
+                  <mat-form-field>
+                    <mat-label>Twitter Id </mat-label>
+                    <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                  </mat-form-field>
                 </section>
 
                 <section class="cancel-contact-section">
@@ -347,6 +375,12 @@
                     </mat-option>
                     <mat-option value="debit">
                       Debit Card
+                    </mat-option>
+                    <mat-option value="cheque">
+                      Cheque
+                    </mat-option>
+                    <mat-option value="paymentgateway">
+                      Payment Gateway
                     </mat-option>
                   </mat-select>
                 </mat-form-field>

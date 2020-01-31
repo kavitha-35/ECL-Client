@@ -53,7 +53,7 @@ import { PatientTestsInformationComponent } from './components/registration/add-
 import { MatStepperModule } from '@angular/material/stepper';
 import { PatientVerificationComponent } from './components/registration/add-registration/patient-verification/patient-verification.component';
 import { NgChatModule } from 'ng-chat';
-import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule, MatAutocompleteModule } from '@angular/material';
 import { BulkRegistrationComponent } from './components/registration/bulk-registration/bulk-registration.component';
 import { RegistrationListComponent } from './components/registration/registration-list/registration-list.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -174,6 +174,7 @@ import { CaseSearchComponent } from './components/operations/case/case-search/ca
 import { ClinicHistoryComponent } from './components/registration/add-registration/clinic-history/clinic-history.component';
 import { EditAppointmentComponent } from './components/appointments/_dialogues/edit-appointment/edit-appointment.component';
 import { PatientAddressComponent } from './components/registration/add-registration/patient-address/patient-address.component';
+import { PatientSocialmediaComponent } from './components/registration/add-registration/patient-socialmedia/patient-socialmedia.component';
 
 @NgModule({
   declarations: [
@@ -304,8 +305,9 @@ import { PatientAddressComponent } from './components/registration/add-registrat
     CaseRibbonMenuComponent,
     CaseSearchComponent,
     ClinicHistoryComponent,
-    EditAppointmentComponent,
-    PatientAddressComponent
+    PatientAddressComponent,
+    PatientSocialmediaComponent,
+    EditAppointmentComponent
   ],
   providers: [
     DatePipe,
@@ -354,6 +356,7 @@ import { PatientAddressComponent } from './components/registration/add-registrat
     MatTableModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
     NgxLoadingModule,
     MatStepperModule,
     MatChipsModule,

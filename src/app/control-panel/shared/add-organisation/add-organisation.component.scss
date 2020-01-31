@@ -18,9 +18,9 @@
     .outsource-dialog {
       margin: auto;
     }
-    .validation{
-      color:rgb(238,65,65);
-      font-size:10px;
+    .validation {
+      color: rgb(238, 65, 65);
+      font-size: 10px;
     }
     .organisation-form {
       .basic-wrapper {
@@ -39,6 +39,14 @@
         @include margin-bottom-18;
 
         .locale-information-content {
+          @include forms-grid;
+        }
+      }
+
+      .social-media-wrapper {
+        @include margin-bottom-18;
+
+        .social-media-content {
           @include forms-grid;
         }
       }
@@ -78,7 +86,7 @@
       .contract-wrapper {
         @include margin-bottom-18;
 
-        .contract-information-content{
+        .contract-information-content {
           @include forms-grid;
         }
       }
