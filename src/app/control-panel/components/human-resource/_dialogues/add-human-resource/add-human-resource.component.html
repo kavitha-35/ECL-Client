@@ -57,13 +57,13 @@
                 <!-- Education -->
                 <mat-form-field>
                   <mat-label>Education</mat-label>
-                  <input matInput placeholder="Education" />
+                  <textarea matInput placeholder="Education" ></textarea>
                 </mat-form-field>
 
                 <!-- Experience -->
                 <mat-form-field>
                   <mat-label>Experience</mat-label>
-                  <input matInput placeholder="Experience" />
+                  <textarea matInput placeholder="Experience" ></textarea>
                 </mat-form-field>
               </section>
             </section>
@@ -154,6 +154,11 @@
                   </mat-error>
                 </mat-form-field>
 
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput placeholder="Mobile Number" name="mobileNumber" ngModel #mobileNumber="ngModel" />
+                </mat-form-field>
+
                 <section class="label">
                   Picture
                   <button mat-button color="primary">
@@ -204,7 +209,7 @@
             <!-- User Credential -->
             <section class="user-credential-wrapper">
               <!-- Header -->
-              <app-section-header title="User Credential"></app-section-header>
+              <app-section-header title="User & Access"></app-section-header>
 
               <!-- Content -->
               <section class="user-credential-content">

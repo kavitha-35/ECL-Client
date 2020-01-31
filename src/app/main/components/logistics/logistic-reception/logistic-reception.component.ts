@@ -40,7 +40,6 @@ export class LogisticReceptionComponent implements OnInit {
       } as LogisticModel,
       width: '1400px',
     };
-
     this._matDialog.open(AddLogisticItemComponent, matDialogConfig);
   }
 }

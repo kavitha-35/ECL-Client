@@ -1,78 +1,93 @@
-<section>
-  <mat-card>
-    <!-- Mat Card Header -->
-    <app-mat-dialog-header title="Add Logistic" subTitle="Add New Logistic"></app-mat-dialog-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
-      <section>
-        <!-- General Information -->
-        <form class="add-logistic-form logistic-info">
-          <mat-form-field>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              placeholder="Date"
-              [(ngModel)]="logistic.modifiedOn"
-              [ngModelOptions]="{ standalone: true }"
-              disabled
-            />
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+<section id="logistic-container">
+  <mat-card class="logistic-mat-card">
+    <!--  Dialog Caption -->
+    <section >
+      <app-dialog-caption title="Logistics" subTitle="Add a logistics" icon="fa-calendar"> </app-dialog-caption>
+    </section>
 
-          <!-- Organization -->
-          <mat-form-field>
-            <mat-select placeholder="Organization">
-              <mat-option value="Organization 1">Organization 1</mat-option>
-              <mat-option value="Organization 2">Organization 2</mat-option>
-              <mat-option value="Organization 3">Organization 3</mat-option>
-              <mat-option value="Organization 4">Organization 4</mat-option>
-            </mat-select>
-          </mat-form-field>
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
 
-          <!-- Called by -->
-          <mat-form-field>
-            <mat-label>Called By</mat-label>
-            <input matInput [(ngModel)]="logistic.calledBy" [ngModelOptions]="{ standalone: true }" />
-          </mat-form-field>
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
 
-          <mat-form-field>
-            <mat-label>Landline</mat-label>
-            <input matInput [(ngModel)]="logistic.landLine" [ngModelOptions]="{ standalone: true }" />
-          </mat-form-field>
+          <!-- Management Form -->
+          <form class="logistic-form" #logistic="ngForm">
 
-          <mat-form-field>
-            <mat-label>Mobile</mat-label>
-            <input matInput [(ngModel)]="logistic.mobile" [ngModelOptions]="{ standalone: true }" />
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input matInput [(ngModel)]="logistic.email" [ngModelOptions]="{ standalone: true }" />
-          </mat-form-field>
-
-          <!-- Driver select -->
-          <mat-form-field class="driver-select drop-down">
-            <mat-label>Driver Assigned</mat-label>
-            <mat-select value="driver1" disableOptionCentering>
-              <mat-option value="driver 1">
-                Driver 1
-              </mat-option>
-              <mat-option value="driver 2">
-                Driver 2
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </form>
-      </section>
-
-      <!-- Dialog Actions -->
-      <section mat-dialog-actions>
-        <section class="mt-1 mb-1 full-width" fxLayout="row" fxFlexAlign="center center" fxLayoutAlign="center center">
-          <button mat-button color="primary" matDialogClose>Close</button>
-          <button mat-raised-button color="primary" cdkFocusInitial (click)="onSaveClicked()">Save</button>
-        </section>
-      </section>
-    </mat-card-content>
+            <section class="locale-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="General Information"></app-section-header>
+              <!-- Content -->
+              <section class="locale-information-content">
+                <mat-form-field>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Date"
+                    [(ngModel)]="logistic.modifiedOn"
+                    [ngModelOptions]="{ standalone: true }"
+                    disabled
+                  />
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> 
+      
+                <!-- Organization -->
+                <mat-form-field>
+                  <mat-select placeholder="Organization">
+                    <mat-option value="Organization 1">Organization 1</mat-option>
+                    <mat-option value="Organization 2">Organization 2</mat-option>
+                    <mat-option value="Organization 3">Organization 3</mat-option>
+                    <mat-option value="Organization 4">Organization 4</mat-option>
+                  </mat-select>
+                </mat-form-field>
+      
+                <!-- Called by -->
+               <mat-form-field>
+                  <mat-label>Called By</mat-label>
+                  <input matInput [(ngModel)]="logistic.calledBy" [ngModelOptions]="{ standalone: true }" />
+                </mat-form-field>
+      
+                <mat-form-field>
+                  <mat-label>Landline</mat-label>
+                  <input matInput [(ngModel)]="logistic.landLine" [ngModelOptions]="{ standalone: true }" />
+                </mat-form-field>
+      
+                <mat-form-field>
+                  <mat-label>Mobile</mat-label>
+                  <input matInput [(ngModel)]="logistic.mobile" [ngModelOptions]="{ standalone: true }" />
+                </mat-form-field>
+      
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput [(ngModel)]="logistic.email" [ngModelOptions]="{ standalone: true }" />
+                </mat-form-field>
+      
+                <!-- Driver select -->
+                <mat-form-field class="driver-select drop-down">
+                  <mat-label>Driver Assigned</mat-label>
+                  <mat-select value="driver1" disableOptionCentering>
+                    <mat-option value="driver 1">
+                      Driver 1
+                    </mat-option>
+                    <mat-option value="driver 2">
+                      Driver 2
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+           <!--  Dialog Actions --> 
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Close</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onSaveClicked()">
+              Save
+            </button>
+          </section>
+      </mat-dialog-content>
+    </section>
   </mat-card>
-</section>
+  </section>
