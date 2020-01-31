@@ -20,7 +20,7 @@ export class RegistrationsComponent implements OnInit {
   public isFetchingRegister: boolean;
   matDialogConfig: MatDialogConfig = {
     panelClass: 'mat-dialogue-no-padding',
-   /* width: '1400px',*/
+    width: '1400px',
     autoFocus: false,
   };
 
@@ -60,8 +60,5 @@ export class RegistrationsComponent implements OnInit {
   public onShowTableViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
-
-
-
 }
 

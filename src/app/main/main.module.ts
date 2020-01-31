@@ -177,7 +177,6 @@ import { PatientAddressComponent } from './components/registration/add-registrat
 import { PatientSocialmediaComponent } from './components/registration/add-registration/patient-socialmedia/patient-socialmedia.component';
 import { RegistrationsComponent } from './components/registrations/registrations.component';
 import { EditRegisterComponent } from './components/registrations/_dialogues/edit-register/edit-register.component';
-import { RegistrationListDataTableComponent } from './components/registrations/registration-list-data-table/registration-list-data-table.component';
 import { RegistrationRibbonMenuComponent } from './components/registrations/registration-ribbon-menu/registration-ribbon-menu.component';
 import { RegistrationSearchComponent } from './components/registrations/registration-search/registration-search.component';
 import { AddRegisterComponent } from './components/registrations/_dialogues/add-register/add-register.component';
@@ -318,7 +317,6 @@ import { AddRegisterComponent } from './components/registrations/_dialogues/add-
     RegistrationsComponent,
     AddRegisterComponent,
     EditRegisterComponent,
-    RegistrationListDataTableComponent,
     RegistrationRibbonMenuComponent,
     RegistrationSearchComponent
   ],
