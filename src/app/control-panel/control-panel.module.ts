@@ -156,6 +156,7 @@ import { CommentRibbonMenuComponent } from './components/comments/comment-ribbon
 import { CommentSearchComponent } from './components/comments/comment-search/comment-search.component';
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 import { AddCommentsComponent } from './components/comments/_dialogues/add-comments/add-comments.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -297,6 +298,8 @@ import { AddCommentsComponent } from './components/comments/_dialogues/add-comme
     CKEditorModule,
     RouterModule,
     SharedModule,
+    CommonModule,
+    BrowserModule,
     MatIconModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
