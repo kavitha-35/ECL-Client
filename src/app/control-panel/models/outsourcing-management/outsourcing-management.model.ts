@@ -69,6 +69,7 @@ export class OutsourcingManagementModel {
   city: CityModel;
   poNumber: string;
   telephone: string;
+  mobileNumber: string;
   fax: string;
   web: string;
   region: string;
