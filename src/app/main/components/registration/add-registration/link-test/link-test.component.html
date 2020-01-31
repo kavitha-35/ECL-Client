@@ -4,7 +4,7 @@
     <ng-container matColumnDef="nestedSymbol">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <section *ngIf="element.tests && element.tests.length">
+        <section *ngIf="element.individualTests && element.individualTests.length">
           <mat-icon *ngIf="element.isExpanded" color="primary" class="pointer mt-5" (click)="element.isExpanded = false"
             >keyboard_arrow_down</mat-icon
           >
@@ -16,21 +16,21 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
+    <ng-container matColumnDef="combineTestId">
       <th mat-header-cell *matHeaderCellDef>Test Id</th>
-      <td mat-cell *matCellDef="let element">{{ element.sample.name }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.combineTestId }}</td>
     </ng-container>
 
     <!-- Price Column -->
-    <ng-container matColumnDef="additionalCost">
+    <ng-container matColumnDef="testName">
       <th mat-header-cell *matHeaderCellDef>Test name</th>
-      <td mat-cell *matCellDef="let element">300</td>
+      <td mat-cell *matCellDef="let element">{{ element.testName }}</td>
     </ng-container>
 
     <!-- Average TAT Column -->
-    <ng-container matColumnDef="discount">
+    <ng-container matColumnDef="netFee">
       <th mat-header-cell *matHeaderCellDef>Cost</th>
-      <td mat-cell *matCellDef="let element">10</td>
+      <td mat-cell *matCellDef="let element">{{ element.netFee }}</td>
     </ng-container>
 
     
@@ -62,21 +62,21 @@
             </ng-container>
 
             <!-- Name Column -->
-            <ng-container matColumnDef="name">
+            <ng-container matColumnDef="combineTestId">
               <th mat-header-cell *matHeaderCellDef>Test ID</th>
-              <td mat-cell *matCellDef="let element">{{ element.sample.name }}</td>
+              <td mat-cell *matCellDef="let element">{{ element.combineTestId }}</td>
             </ng-container>
 
             <!-- Price Column -->
-            <ng-container matColumnDef="additionalCost">
+            <ng-container matColumnDef="testName">
               <th mat-header-cell *matHeaderCellDef>Test name</th>
-              <td mat-cell *matCellDef="let element">300</td>
+              <td mat-cell *matCellDef="let element">{{ element.testName }}</td>
             </ng-container>
 
             <!-- Average TAT Column -->
-            <ng-container matColumnDef="discount">
+            <ng-container matColumnDef="netFee">
               <th mat-header-cell *matHeaderCellDef>Cost</th>
-              <td mat-cell *matCellDef="let element">10</td>
+              <td mat-cell *matCellDef="let element">{{ element.netFee }}</td>
             </ng-container>
 
             

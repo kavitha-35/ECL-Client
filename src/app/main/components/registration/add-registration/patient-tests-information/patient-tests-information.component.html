@@ -2,18 +2,18 @@
   <section class="mat-card-title-container">
     <section>
       <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="Search for Test(s)"/>
-        <button mat-button matSuffix mat-icon-button>
+        <input matInput type="text" [(ngModel)]="searchQuery" placeholder="Search for Test(s)"/>
+        <button mat-button matSuffix mat-icon-button (click)="searchFromCombinedTestData()">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
     </section>
   </section>
   <mat-divider></mat-divider>
-  <app-link-test [linkedTests]="linkedTests" showDeleteIcon="true"></app-link-test>
+  <app-link-test [linkedTests]="combinedTestData" showDeleteIcon="true"></app-link-test>
 
   <!-- No Linked Record(s) Message -->
-  <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3" *ngIf="!linkedTests">
+  <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3" *ngIf="!combinedTestData">
     No Linked Tests
   </section>
 </section>

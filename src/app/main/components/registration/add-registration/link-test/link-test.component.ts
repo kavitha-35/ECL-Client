@@ -29,9 +29,9 @@ export class LinkTestComponent implements OnInit {
   private _initializeDisplayColumns(): void {
     this.displayedColumns = [
       'nestedSymbol',
-      'name',
-      'additionalCost',
-      'discount',
+      'combineTestId',
+      'testName',
+      'netFee',
       'action'
     ];
   }
