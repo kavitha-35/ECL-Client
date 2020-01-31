@@ -43,7 +43,7 @@ const MENUITEMS: Menu[] = [
     icon: 'play_for_work',
   },
   {
-    state: 'testresult',
+    state: 'not-found',
     name: 'Test Result Calculation',
     type: 'link',
     icon: 'offline_pin',

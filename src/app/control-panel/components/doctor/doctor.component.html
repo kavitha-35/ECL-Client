@@ -43,25 +43,20 @@
       <!-- List View -->
       <ng-template #listView>
         <app-doctor-list
-        [doctors]="doctors | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-doctor-list
+        [doctors]="doctors"></app-doctor-list
             >
       </ng-template>
   
       <!-- Table View -->
       <ng-template #tableView>
         <app-doctor-list-data-table
-        [doctors]="doctors | slice: pageEvent.pageIndex:pageEvent.pageSize"
-        (editDoctorClicked)="onEditDoctorButtonClicked()"
+        [doctors]="doctors"
+        (addDoctorClicked)="onAddDoctorButtonClicked($event)"
+        (editDoctorClicked)="onEditDoctorButtonClicked($event)"
+        (deleteDoctorClicked)="onDeleteDoctorButtonClicked($event)"
         [isBusy]="isFetchingDoctors"
         ></app-doctor-list-data-table>
       </ng-template>
-  
-      <mat-paginator
-          [length]="doctors.length"
-          [pageSizeOptions]="pageSizeOptions"
-          (page)="pageEvent = $event"
-        >
-        </mat-paginator>
     </mat-card>
   </section>
   

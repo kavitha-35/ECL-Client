@@ -53,7 +53,7 @@ import { PatientTestsInformationComponent } from './components/registration/add-
 import { MatStepperModule } from '@angular/material/stepper';
 import { PatientVerificationComponent } from './components/registration/add-registration/patient-verification/patient-verification.component';
 import { NgChatModule } from 'ng-chat';
-import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule, MatAutocompleteModule } from '@angular/material';
 import { BulkRegistrationComponent } from './components/registration/bulk-registration/bulk-registration.component';
 import { RegistrationListComponent } from './components/registration/registration-list/registration-list.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -359,6 +359,7 @@ import { RegistrationRibbonMenuComponent } from './components/registration/regis
     MatTableModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
     NgxLoadingModule,
     MatStepperModule,
     MatChipsModule,

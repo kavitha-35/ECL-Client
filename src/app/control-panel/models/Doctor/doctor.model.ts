@@ -1,26 +1,36 @@
 export interface DoctorModel {
   id: string;
-  designation: string;
   doctorName: string;
-  emailId: string;
-  address: string;
-  telephone: string;
-  zipCode: string;
-  area: string;
-  country: string;
+  active: string;
+  organization: OrganizationModel;
   dateOfBirth: string;
-  dateofAnniversary: string;
-  doctorPassKey: string;
+  dateOfAnniversary: string;
   doctorSpeciality: string;
-  department: string;
-  visitingDays: string;
-  remarks: string;
-  signature: SignatureModel;
-  login: LoginModel;
+  email: string;
+  telephone: string;
+  mobileNumber: string;
+  whatsappNumber: string;
+  address: AddressModel;
+  socialmedia: SocialMediaModel;
+  loginAccess: LoginModel;
 }
 
-interface SignatureModel {
-  signatureImage: string;
+interface OrganizationModel {
+  organizationId: string;
+}
+
+interface AddressModel {
+  address: string;
+  postBox: string;
+  area: string;
+  city: string;
+  country: string;
+}
+
+interface SocialMediaModel {
+  facebook: string;
+  instagram: string;
+  twitter: string;
 }
 
 interface LoginModel {

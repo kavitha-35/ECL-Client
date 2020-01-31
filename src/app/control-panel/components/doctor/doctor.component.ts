@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialogConfig, MatDialog, PageEvent } from '@angular/material';
 import { AddDoctorComponent } from './_dialogues/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './_dialogues/edit-doctor/edit-doctor.component';
@@ -6,6 +6,7 @@ import { take } from 'rxjs/operators';
 import { DoctorModel } from 'app/control-panel/models/Doctor/doctor.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
+import { DoctorService } from 'app/control-panel/services/doctor.service';
 
 @Component({
   selector: 'app-doctor',
@@ -24,21 +25,20 @@ export class DoctorComponent implements OnInit {
     width: '1400px',
     autoFocus: false,
   };
-  _doctorService: any;
-  method: DoctorModel[];
-  cRef: any;
 
   constructor(
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
+    private readonly _doctorService: DoctorService,
+    private readonly cRef: ChangeDetectorRef,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
-    this._initializeValues();
+    this.getAllDoctor();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -49,15 +49,25 @@ export class DoctorComponent implements OnInit {
       .open(AddDoctorComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe(() => {
+        this.getAllDoctor();
+      });
   }
 
-  public onEditDoctorButtonClicked(): void {
+  public onEditDoctorButtonClicked(doctor: DoctorModel): void {
+    const matDialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialogue-no-padding',
+      width: '1400px',
+      autoFocus: false,
+      data: doctor,
+    };
     this.matDialog
-      .open(EditDoctorComponent, this.matDialogConfig)
+      .open(EditDoctorComponent, matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe(() => {
+        this.getAllDoctor();
+      });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -70,42 +80,16 @@ export class DoctorComponent implements OnInit {
 
   public getAllDoctor(): void {
     this.isFetchingDoctors = true;
-    this._doctorService.getAllDoctor().subscribe((data: DoctorModel[]) => {
-      this.method = data;
+    this._doctorService.getAllDoctor().subscribe((data) => {
+      this.doctors = data;
       this.isFetchingDoctors = false;
       this.cRef.detectChanges();
     });
   }
 
-   public onDeleteTestClicked(testId: string): void {}
-
-  public _initializeValues(): void {
-    this.doctors = [
-      {
-        id: '1',
-        designation: 'DR',
-        doctorName: 'vincy scaria',
-        emailId: 'v.scaria@ecl.ae',
-        address: '105, barsha road',
-        telephone: '554541234',
-        zipCode: '97756',
-        area: 'dubai',
-        country: 'UAE',
-        dateOfBirth: '27/02/1985',
-        dateofAnniversary: '12/01/2017',
-        doctorPassKey: '89765',
-        doctorSpeciality: 'immunology',
-        department: 'immunology',
-        visitingDays: 'mon to fri',
-        remarks: 'string',
-        signature: {
-          signatureImage: 'jpg',
-        },
-        login: {
-          userName: 'scariaecl',
-          password: 'eclvincy@123',
-        },
-      },
-    ];
-  }
+   public onDeleteTestClicked(id: string): void {
+    this._doctorService.deleteDoctor(id).subscribe(() => {
+      this.getAllDoctor();
+    });
+   }
 }

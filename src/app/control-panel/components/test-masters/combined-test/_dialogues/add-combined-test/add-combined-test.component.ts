@@ -19,6 +19,8 @@ export class AddCombinedTestComponent implements OnInit {
   public get lookUpService(): LookupService {
     return this._lookUpService;
   }
+  groupById: number;
+  orderById: number;
   test: CombinedTest = new CombinedTest();
   specimen: LookUpModel[] = [];
   specimenType: LookUpModel[] = [];
@@ -39,7 +41,10 @@ export class AddCombinedTestComponent implements OnInit {
     private readonly _combinedTestService: CombinedTestService,
     private readonly _lookUpService: LookupService,
     private readonly _departmentService: DepartmentService,
-  ) {}
+  ) {
+    this.groupById = 0;
+    this.orderById = 0;
+  }
 
   ngOnInit(): void {
     this.getSpecimen();
@@ -52,7 +57,10 @@ export class AddCombinedTestComponent implements OnInit {
   }
 
   public selectedAutoComplete(element: IndividualTestModel): void {
+    element.groupById = this.groupById;
+    element.orderById = this.orderById;
     this.testsInTable.push(element);
+    console.log(this.testsInTable);
     this._matTable.renderRows();
   }
 

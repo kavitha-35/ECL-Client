@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { LinkTestModel } from '../../../../models/tests/link-test.model';
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { MatTable } from '@angular/material';
 
 @Component({
   selector: 'app-link-test',
@@ -16,22 +18,27 @@ import { LinkTestModel } from '../../../../models/tests/link-test.model';
 })
 export class LinkTestComponent implements OnInit {
 
-  @Input() public linkedTests           : LinkTestModel[];
+  @Input() public linkedTests           : CombinedTestModel[];
   @Input() public showLinkIcon          : boolean;
   @Input() public showDeleteIcon        : boolean;
 
   public displayedColumns               : string[];
+  @ViewChild(MatTable, {static: false}) table: MatTable<any>;
 
   ngOnInit(): void {
     this._initializeDisplayColumns();
   }
 
+  refreshTable(): void {
+    this.table.renderRows();
+  }
+
   private _initializeDisplayColumns(): void {
     this.displayedColumns = [
       'nestedSymbol',
-      'name',
-      'additionalCost',
-      'discount',
+      'combineTestId',
+      'testName',
+      'netFee',
       'action'
     ];
   }

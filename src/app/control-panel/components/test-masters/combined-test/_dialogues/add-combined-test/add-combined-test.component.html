@@ -159,7 +159,7 @@
                 <!-- Group By-->
                 <mat-form-field style="padding-left: 10px;">
                   <mat-label>Group By</mat-label>
-                  <mat-select disableOptionCentering name="groupById" [(ngModel)]="test.groupById">
+                  <mat-select disableOptionCentering name="groupById" [(ngModel)]="groupById">
                     <mat-option *ngFor="let options of groupBys" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -169,7 +169,7 @@
                 <!-- Order By-->
                 <mat-form-field style="padding-left: 10px;">
                   <mat-label>Order By</mat-label>
-                  <mat-select disableOptionCentering name="orderById" [(ngModel)]="test.orderById">
+                  <mat-select disableOptionCentering name="orderById" [(ngModel)]="orderById">
                     <mat-option [value]="1">1</mat-option>
                     <mat-option [value]="2">2</mat-option>
                     <mat-option [value]="3">3</mat-option>
