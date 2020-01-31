@@ -100,11 +100,6 @@
                     <mat-error *ngIf="mobileNumber.errors?.pattern" >number is required</mat-error>
                   </mat-error>
                 </mat-form-field>
-                  <!-- Whatsapp Number -->
-                  <mat-form-field>
-                    <mat-label>Whatsapp Number </mat-label>
-                    <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
-                  </mat-form-field>
               </section>
             </section>
 
@@ -160,6 +155,12 @@
               <app-section-header title="Social Media"></app-section-header>
               <!-- Content -->
               <section class="social-media-content">
+
+                <!-- Whatsapp Number -->
+                <mat-form-field>
+                  <mat-label>Whatsapp Number </mat-label>
+                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
+                </mat-form-field>
 
                <!-- Facebook Id -->
                <mat-form-field>

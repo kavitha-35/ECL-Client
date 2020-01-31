@@ -46,11 +46,6 @@
       <th mat-header-cell *matHeaderCellDef>Telephone</th>
       <td mat-cell *matCellDef="let element">{{ element.tmobileNumber }}</td>
     </ng-container>
-    <!-- Whatsapp Number -->
-    <ng-container matColumnDef="whatsappNumber">
-      <th mat-header-cell *matHeaderCellDef>Whatsapp Number</th>
-      <td mat-cell *matCellDef="let element">{{ element.whatsappNumber }}</td>
-    </ng-container>
     <!-- Address -->
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef>Address</th>
@@ -76,17 +71,22 @@
       <th mat-header-cell *matHeaderCellDef>Country</th>
       <td mat-cell *matCellDef="let element">{{ element.country }}</td>
     </ng-container>
-    <!-- Department -->
+     <!-- Whatsapp Number -->
+     <ng-container matColumnDef="whatsappNumber">
+      <th mat-header-cell *matHeaderCellDef>Whatsapp Number</th>
+      <td mat-cell *matCellDef="let element">{{ element.whatsappNumber }}</td>
+    </ng-container>
+    <!-- Facebook -->
     <ng-container matColumnDef="facebookId">
       <th mat-header-cell *matHeaderCellDef>Facebook Id</th>
       <td mat-cell *matCellDef="let element">{{ element.facebookId }}</td>
     </ng-container>
-    <!-- Department -->
+    <!-- Instagram -->
     <ng-container matColumnDef="instagramId">
       <th mat-header-cell *matHeaderCellDef>InstagramId Id</th>
       <td mat-cell *matCellDef="let element">{{ element.instagramId }}</td>
     </ng-container>
-    <!-- Department -->
+    <!-- Twitter -->
     <ng-container matColumnDef="twitterId">
       <th mat-header-cell *matHeaderCellDef>Twitter Id</th>
       <td mat-cell *matCellDef="let element">{{ element.twitterId }}</td>
