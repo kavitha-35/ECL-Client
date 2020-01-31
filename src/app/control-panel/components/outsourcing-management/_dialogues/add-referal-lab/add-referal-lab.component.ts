@@ -22,6 +22,7 @@ export class AddReferalLabComponent implements OnInit {
   public outsource: AddOutsourcingManagementModel = new AddOutsourcingManagementModel();
   public couriers: LookUpModel[];
   public departments: DepartmentModel[];
+  courierFilter: LookUpModel[];
   constructor(
     private readonly _dialogRef: MatDialogRef<AddReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
@@ -53,6 +54,8 @@ export class AddReferalLabComponent implements OnInit {
   public getCourier(): void {
     this._lookUpService.getLookUp('courier').subscribe((data: LookUpModel[]) => {
       this.couriers = data;
+       this.courierFilter = this.couriers;
+      console.log(data);
     });
   }
 
@@ -76,6 +79,25 @@ export class AddReferalLabComponent implements OnInit {
     const index: number = this.contactPersonList.indexOf(contact);
     if (index !== -1) {
       this.contactPersonList.splice(index, 1);
+    }
+  }
+
+  public onKeySearch(value: string): void {
+    if (value) {
+      this.selectSearch(value);
+    } else {
+      this.couriers = this.courierFilter;
+    }
+  }
+
+  public selectSearch(value: string): void {
+    this.couriers = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.courierFilter.length; i++) {
+      const option = this.courierFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.couriers.push(option);
+      }
     }
   }
 }
