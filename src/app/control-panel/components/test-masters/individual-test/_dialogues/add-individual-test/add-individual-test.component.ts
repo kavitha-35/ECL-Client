@@ -23,13 +23,14 @@ export class AddIndividualTestComponent implements OnInit {
   public methods: MethodModel[];
   public equipments: EquipmentModel[];
   public accrediationSymbols: LookUpModel[];
+  public accrediationSymbolsFilter: LookUpModel[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddIndividualTestComponent>,
     private readonly _individualTestService: IndividualTestService,
     private readonly lookUpService: LookupService,
     private readonly _equipmentService: EquipmentService,
     private readonly _methodService: MethodService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getProcessingCenter();
@@ -60,6 +61,7 @@ export class AddIndividualTestComponent implements OnInit {
   public getAccrediationSymbol(): void {
     this.lookUpService.getLookUp('accreditationSymbol').subscribe((data: LookUpModel[]) => {
       this.accrediationSymbols = data;
+      this.accrediationSymbolsFilter = this.accrediationSymbols;
     });
   }
 
@@ -74,5 +76,25 @@ export class AddIndividualTestComponent implements OnInit {
       this.equipments = data;
     });
   }
+
+  public onKeySearch(value: string): void {
+    if (value) {
+      this.selectSearch(value);
+    } else {
+      this.accrediationSymbols = this.accrediationSymbolsFilter;
+    }
+
+  }
+  public selectSearch(value: string): void {
+    this.accrediationSymbols = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.accrediationSymbolsFilter.length; i++) {
+      const option = this.accrediationSymbolsFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.accrediationSymbols.push(option);
+      }
+    }
+  }
+
 
 }

@@ -44,6 +44,14 @@
         }
       }
        
+      .socialmedia-information-wrapper {
+        @include margin-bottom-18;
+
+        .socialmedia-information-content {
+          @include forms-grid;
+        }
+      }
+
       .address-information-wrapper {
         @include margin-bottom-18;
 

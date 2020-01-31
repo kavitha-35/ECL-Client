@@ -46,8 +46,15 @@ export class ContactPerson {
   courierId: string;
   mobile: string;
   contactPersonName: string;
+  dateOfBirth?: string;
   email: string;
   departmentId: number;
+  telephone?: string;
+  twitter?: string;
+  facebook?: string;
+  instagram?: string;
+  whatsapp?: string;
+
   constructor() {}
 }
 

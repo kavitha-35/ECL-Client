@@ -34,12 +34,21 @@
               <!-- Name -->
               <mat-form-field>
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Name" />
+                <input matInput 
+                placeholder="Name" 
+                name="patientName"
+                #patientName="ngModel"
+                required
+                [(ngModel)]="appointment.patientName"/>
+                <mat-error *ngIf="patientName.invalid && (patientName.dirty || patientName.touched)">
+                  <mat-error *ngIf="patientName.errors.required">Patient Name is required</mat-error>
+                  <mat-error *ngIf="patientName.errors?.pattern">text is required</mat-error>
+                </mat-error>
               </mat-form-field>
 
               <!-- Date of Birth -->
               <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" />
+                <input matInput name="picker" placeholder="Date Of Birth" [(ngModel)]="appointment.dob"/>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
@@ -47,7 +56,7 @@
               <!-- Gender -->
               <section class="pt-13">
                 <label for="gender" class="sub-title">Gender</label>
-                <mat-radio-group id="gender" name="gender" label="Gender">
+                <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="appointment.gender">
                   <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
                   <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
                 </mat-radio-group>
@@ -56,21 +65,49 @@
               <!-- Landline Number -->
               <mat-form-field>
                 <mat-label>Landline Number</mat-label>
-                <input matInput />
+                <input matInput placeholder="Landline"
+                name="landline"
+                #landline="ngModel"
+                pattern="[0-9]*"
+                required
+                [(ngModel)]="appointment.landline"/>
               </mat-form-field>
 
               <!-- Mobile Number -->
               <mat-form-field>
-                <mat-label>Mobile Number</mat-label>
-                <input matInput />
+                <mat-label>Mobile</mat-label>
+                <input
+                  matInput
+                  placeholder="Mobile"
+                  name="mobile"
+                  #mobile="ngModel"
+                  pattern="[0-9]*"
+                  required
+                  [(ngModel)]="appointment.mobile"
+                />
+                <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+                  <mat-error *ngIf="mobile.errors.required">Mobile is required</mat-error>
+                  <mat-error *ngIf="mobile.errors?.pattern">number is required</mat-error>
+                </mat-error>
               </mat-form-field>
 
               <!-- Email -->
               <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput maxlength="25" placeholder="Email" type="email" />
+                <input 
+                  matInput
+                  placeholder="Email"
+                  name="email"
+                  #email="ngModel"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  required
+                  [(ngModel)]="appointment.email"
+                />
+                <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <mat-error *ngIf="email.errors.required">Email is required</mat-error>
+                  <mat-error *ngIf="email.errors?.pattern">abc@gmail.com format is required</mat-error>
+                </mat-error>
               </mat-form-field>
-
               </section>
 
             </section>
@@ -89,11 +126,15 @@
                 <mat-label>P.O.Box</mat-label>
                 <input matInput placeholder="P.O.Box" />
               </mat-form-field>
+              <mat-form-field>
+                <mat-label>P.O.Box</mat-label>
+                <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="appointment.poBox" />
+              </mat-form-field>
 
               <!-- Area -->
               <mat-form-field class="mt-n7">
                 <mat-label>Area</mat-label>
-                <mat-select disableOptionCentering>
+                <mat-select disableOptionCentering name="area" [(ngModel)]="appointment.area">
                   <mat-option value="gulfarea">
                     Gulf Area
                   </mat-option>
@@ -107,34 +148,22 @@
               </mat-form-field>
 
               <!-- City -->
-              <mat-form-field>
+              <mat-form-field class="mt-n7">
                 <mat-label>City</mat-label>
-                <mat-select disableOptionCentering>
-                  <mat-option value="abudhabi">
-                    Abu Dhabi
-                  </mat-option>
-                  <mat-option value="ajman">
-                    Ajman
-                  </mat-option>
-                  <mat-option value="dubai">
-                    Dubai
-                  </mat-option>
+                <mat-select disableOptionCenteringn name="city" [(ngModel)]="appointment.city">
+                  <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
+                    options.keyValue
+                  }}</mat-option>
                 </mat-select>
               </mat-form-field>
 
               <!-- Country -->
-              <mat-form-field>
+              <mat-form-field class="mt-n7">
                 <mat-label>Country</mat-label>
-                <mat-select disableOptionCentering>
-                  <mat-option value="uae">
-                    UAE
-                  </mat-option>
-                  <mat-option value="india">
-                    India
-                  </mat-option>
-                  <mat-option value="England">
-                    India
-                  </mat-option>
+                <mat-select disableOptionCentering name="country" [(ngModel)]="appointment.country">
+                  <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
+                    options.keyValue
+                  }}</mat-option>
                 </mat-select>
               </mat-form-field>
               </section>
@@ -152,7 +181,9 @@
               <!-- Appointment Date and Time -->
               <mat-form-field>
                 <input
-                  matInput
+                  matInput 
+                  name="appointmentDateTime"
+                  [(ngModel)]="appointment.appointmentDateTime"
                   placeholder="Appointment Date and Time"
                   [owlDateTimeTrigger]="Appointment"
                   [owlDateTime]="Appointment"
@@ -174,7 +205,7 @@
               <!-- Comment -->
               <mat-form-field class="comment-mat-field full-width">
                 <mat-label>Comment</mat-label>
-                <input matInput placeholder="Comment" />
+                <input matInput placeholder="Comment" [(ngModel)]="appointment.comments" name="comments"/>
               </mat-form-field>
               </section>
             </section>
@@ -182,7 +213,7 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Add Appointment</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddAppointmentClicked()">Add Appointment</button>
           </section>
         </section>
       </mat-card-content>

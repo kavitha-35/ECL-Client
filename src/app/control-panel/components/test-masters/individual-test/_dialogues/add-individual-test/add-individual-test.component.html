@@ -45,6 +45,7 @@
                 <mat-form-field>
                   <mat-label>Accreditation Symbol</mat-label>
                   <mat-select disableOptionCentering name="accrediationSymbolId" ngModel #accrediationSymbolId="ngModel">
+                    <input matInput placeholder ="Search Accreditation Symbol" (keyup)="onKeySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of accrediationSymbols" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
