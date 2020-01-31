@@ -28,7 +28,6 @@ const MENUITEMS: Menu[] = [
     children: [
       { state: 'organisation', name: 'Add Organisation' },
       { state: 'doctor', name: 'Add Doctor' },
-      { state: 'organisation-price-list', name: 'Add Organisation Price List' },
     ],
   },
   {
@@ -46,7 +45,7 @@ const MENUITEMS: Menu[] = [
   {
     state: 'testresult',
     name: 'Test Result Calculation',
-    type: 'sub',
+    type: 'link',
     icon: 'offline_pin',
     paramValue: 'Test Result Calculation'
   },
@@ -77,7 +76,7 @@ const MENUITEMS: Menu[] = [
     icon: 'attach_money',
   },
   {
-    state: 'comments',
+    state: 'comment',
     name: 'Comments',
     type: 'link',
     icon: 'map',
@@ -89,14 +88,14 @@ const MENUITEMS: Menu[] = [
     icon: 'get_app',
   },
   {
-    state: 'coupons',
+    state: 'not-found',
     name: 'Coupons Management',
-    type: 'sub',
+    type: 'link',
     paramValue: 'Coupon',
     icon: 'storefront',
   },
   {
-    state: 'promotion',
+    state: 'not-found',
     name: 'Promotion Corner',
     type: 'link',
     paramValue: 'Promotion',
@@ -115,7 +114,7 @@ const MENUITEMS: Menu[] = [
     ],
   },
   {
-    state: 'news',
+    state: 'not-found',
     name: 'News',
     type: 'link',
     paramValue: 'News',

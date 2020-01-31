@@ -24,3 +24,9 @@ export interface CombinedTestModel {
   description: string;
   individualTests?: IndividualTestModel[];
 }
+
+export interface LinkTestToCombineTestModel {
+  groupById: number;
+  orderById: number;
+  tests: IndividualTestModel[];
+}

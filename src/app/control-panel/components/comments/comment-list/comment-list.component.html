@@ -1,7 +1,7 @@
 <section id="comment-list-container">
     <section *ngFor="let element of comment">
       <section class="title-wrapper">
-        <section class="title">#{{ element.id }} / {{ element.commentId}}</section>
+        <section class="title">#{{ element.lookupId }} </section>
         <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
         <mat-menu #statusMenu="matMenu">
           <button mat-menu-item>Edit</button>
@@ -24,7 +24,7 @@
       <section class="comment-container">
         <!-- comment Name -->
         <section class="sub-title">Comment Name</section>
-        <section>{{ element.commentName }}</section>
+        <section>{{ element.keyValue }}</section>
        
       </section>
     </section>

@@ -15,7 +15,7 @@
         <mat-dialog-content class="comment-dialog">
           <section>
             <!-- comment  Form -->
-            <form class="comment-form">
+            <form class="comment-form" #comment="ngForm">
               <!-- Basic Information -->
               <section class="basic-wrapper">
                 <!-- Header -->
@@ -25,7 +25,7 @@
                 <section class="basic-content">
                   <!-- comment Nmae -->
                   <mat-form-field class="mt-n7">
-                    <textarea matInput placeholder="Comment" name="commentName" ngModel #commentName="ngModel"></textarea>
+                    <textarea matInput placeholder="Comment" name="keyValue" [(ngModel)]="comments.keyValue" #keyValue="ngModel"></textarea>
                   </mat-form-field>
                 </section>
               </section>
@@ -33,7 +33,7 @@
   
             <section class="action-buttons-wrapper">
               <button mat-button color="primary">Clear</button>
-              <button mat-raised-button color="primary" cdkFocusInitial>Save Change(s)</button>
+              <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditCommentClicked(comment)">Save Change(s)</button>
             </section>
           </section>
         </mat-dialog-content>

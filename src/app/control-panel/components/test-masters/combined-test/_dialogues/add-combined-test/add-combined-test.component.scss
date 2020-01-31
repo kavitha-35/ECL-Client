@@ -1,4 +1,4 @@
-@import "../../../../../../../assets/styles/scss/color";
+@import '../../../../../../../assets/styles/scss/color';
 
 @mixin forms-grid {
   display: grid;
@@ -10,12 +10,53 @@
   margin-bottom: 18px;
 }
 
-.validation{
-  color:rgb(238, 65, 65);
+.validation {
+  color: rgb(238, 65, 65);
   font-size: 10px;
-
 }
 #combined-test-container {
+  $status-card-background: #f44335;
+  $status-card-color: #ffffff;
+  table {
+    .status-card {
+      border: $status-card-background 1px solid;
+      border-radius: 4px;
+
+      background: $status-card-background;
+      color: $status-card-color;
+
+      text-align: center;
+      padding: 0 6px;
+    }
+
+    .actions-wrapper {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 0;
+        line-height: 1;
+        min-width: 32px;
+      }
+
+      .edit-button {
+        visibility: hidden;
+      }
+
+      .action-button {
+        color: rgba(0, 0, 0, 0.54);
+      }
+    }
+
+    .mat-row:hover {
+      cursor: pointer;
+
+      .edit-button {
+        visibility: visible;
+      }
+    }
+  }
+
   .combined-test-mat-card {
     display: grid;
     grid-template-columns: 220px 1fr;

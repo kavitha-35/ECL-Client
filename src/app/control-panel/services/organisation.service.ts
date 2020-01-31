@@ -8,7 +8,7 @@ import { ROUTE_CONFIG } from 'app/shared/models/constant';
   providedIn: 'root',
 })
 export class OrganisationService {
-  private readonly routePrefix = 'organisations';
+  private readonly routePrefix = 'organization';
 
   constructor(private readonly httpClient: HttpClient) {}
 
@@ -39,4 +39,5 @@ export class OrganisationService {
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${organisationId}`;
     return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
   }
+
 }
