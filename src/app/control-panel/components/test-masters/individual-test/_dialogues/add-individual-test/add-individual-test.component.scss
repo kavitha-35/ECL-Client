@@ -17,10 +17,31 @@
   grid-column-gap: 10px;
   margin-top: 14px;
 }
+.age
+{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+}
 .tatcolor{
   margin-top:20px;
   color:gray;
 }
+
+.comment-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.values
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 50px;
+  margin-top: 14px;
+}
+
+
 #individual-test-container {
   .individual-test-mat-card {
     display: grid;
@@ -43,6 +64,14 @@
           .sub-color {
             color: rgba(0, 0, 0, 0.54);
           }
+        }
+      }
+
+      .reference-range-wrapper {
+        @include margin-bottom-18;
+
+        .reference-range-content {
+          @include forms-grid;
         }
       }
 
