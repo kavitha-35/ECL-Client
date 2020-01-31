@@ -10,7 +10,7 @@ import { GridColumnModel } from 'app/shared/models/grid-column.model';
 export class DoctorListDataTableComponent implements OnInit {
   @Input() doctors: DoctorModel[];
   @Input() isBusy: boolean;
-  @Output() editDoctorClicked: EventEmitter<void>;
+  @Output() editDoctorClicked: EventEmitter<DoctorModel>;
   @Output() deleteDoctorClicked: EventEmitter<void>;
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
@@ -23,8 +23,8 @@ export class DoctorListDataTableComponent implements OnInit {
   ngOnInit(): void {
     this._initializeDisplayedColumns();
   }
-  public onEditDoctorClicked(): void {
-    this.editDoctorClicked.emit();
+  public onEditDoctorClicked(doctors: DoctorModel): void {
+    this.editDoctorClicked.emit(doctors);
   }
 
   public onDeleteDoctorClicked(): void {
@@ -39,14 +39,22 @@ export class DoctorListDataTableComponent implements OnInit {
     this.filteredColumns = [
       { columnName: 'id', displayValue: 'Id', isSelected: true },
       { columnName: 'name', displayValue: 'Doctor Name', isSelected: true },
+      { columnName: 'organization', displayValue: 'organization', isSelected: true },
+      { columnName: 'dateOfBirth', displayValue: 'Date Of Birth', isSelected: false },
+      { columnName: 'dateOfAnniversary', displayValue: 'Date Of Anniversary', isSelected: false },
+      { columnName: 'speciality', displayValue: 'Speciality', isSelected: true },
+      { columnName: 'telephone', displayValue: 'Telephone', isSelected: false },
+      { columnName: 'mobileNumber', displayValue: 'Mobile Number', isSelected: false },
+      { columnName: 'whatsapp', displayValue: 'Whatsapp Number', isSelected: false },
       { columnName: 'email', displayValue: 'Email', isSelected: false },
       { columnName: 'address', displayValue: 'Address', isSelected: true },
-      { columnName: 'telephone', displayValue: 'Telephone', isSelected: false },
-      { columnName: 'area', displayValue: 'Area', isSelected: true },
+      { columnName: 'pobox', displayValue: 'P.O.Box', isSelected: false },
+      { columnName: 'area', displayValue: 'Area', isSelected: false },
+      { columnName: 'city', displayValue: 'City', isSelected: true },
       { columnName: 'country', displayValue: 'Country', isSelected: false },
-      { columnName: 'dateOfBirth', displayValue: 'Date Of Birth', isSelected: true },
-      { columnName: 'speciality', displayValue: 'Speciality', isSelected: true },
-      { columnName: 'department', displayValue: 'Department', isSelected: true },
+      { columnName: 'facebookId', displayValue: 'Facebook Id', isSelected: false },
+      { columnName: 'instagramId', displayValue: 'Instagram Id', isSelected: false },
+      { columnName: 'twitterId', displayValue: 'Twitter Id', isSelected: false },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
