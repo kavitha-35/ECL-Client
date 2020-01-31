@@ -21,6 +21,8 @@ export interface IndividualTestModel {
   integrationCode: number;
   comments: string;
   listStatus: string;
+  groupById ?: number;
+  orderById ?: number;
 }
 
 interface ProcessingCenterModel {
