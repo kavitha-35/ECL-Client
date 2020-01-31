@@ -10,6 +10,8 @@ import { EquipmentService } from 'app/control-panel/services/equipment.service';
 import { MethodService } from 'app/control-panel/services/method.service';
 import { MethodModel } from 'app/control-panel/models/method/method.model';
 import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.model';
+import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
+import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
 
 @Component({
   selector: 'app-add-individual-test',
@@ -17,7 +19,7 @@ import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.m
   styleUrls: ['./add-individual-test.component.scss'],
 })
 export class AddIndividualTestComponent implements OnInit {
-  public processingCenter: LookUpModel[];
+  public processingCenter: OutsourcingManagementModel[];
   public units: LookUpModel[];
   public doctor: DoctorModel[];
   public methods: MethodModel[];
@@ -31,6 +33,7 @@ export class AddIndividualTestComponent implements OnInit {
     private readonly lookUpService: LookupService,
     private readonly _equipmentService: EquipmentService,
     private readonly _methodService: MethodService,
+    private readonly _outsourceService: OutsourceManagementService,
   ) {
     this.editorConfig = {
       uiColor: '#ffffff',
@@ -75,7 +78,7 @@ export class AddIndividualTestComponent implements OnInit {
   }
 
   public getProcessingCenter(): void {
-    this.lookUpService.getLookUp('processingCenter').subscribe((data: LookUpModel[]) => {
+    this._outsourceService.getAllOutsourcing().subscribe((data) => {
       this.processingCenter = data;
     });
   }
