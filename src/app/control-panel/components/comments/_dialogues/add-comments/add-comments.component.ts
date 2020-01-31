@@ -3,7 +3,6 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { CommentService } from 'app/control-panel/services/comment.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
-/**import { CommentService } from 'app/control-panel/services/method.service';**/
 
 @Component({
   selector: 'app-add-comments',

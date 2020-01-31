@@ -44,6 +44,7 @@ import { RequestFormsComponent } from './components/download-center/request-form
 import { BrochuresComponent } from './components/download-center/brochures/brochures.component';
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
+import { RegistrationsComponent } from './components/registrations/registrations.component';
 
 export const routes: Routes = [
   {
@@ -177,6 +178,10 @@ export const routes: Routes = [
       {
         path: 'payment-list',
         component: PaymentListComponent,
+      },
+      {
+        path: 'registrations',
+        component: RegistrationsComponent,
       },
       {
         path: 'payment-details',
