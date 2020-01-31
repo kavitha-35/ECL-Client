@@ -22,9 +22,9 @@ export class PatientTestsInformationComponent implements OnInit {
   isBusy: boolean;
   @ViewChild(LinkTestComponent, {static: false}) private linkTestComponent: LinkTestComponent;
 
-  constructor( 
-    private readonly _combinedTestService: CombinedTestService 
-    ) {}
+  constructor(
+    private readonly _combinedTestService: CombinedTestService
+  ) {}
 
   ngOnInit(): void {
     this.getAllCombinedTest();

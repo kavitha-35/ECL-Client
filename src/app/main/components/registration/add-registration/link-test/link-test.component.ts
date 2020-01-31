@@ -29,7 +29,7 @@ export class LinkTestComponent implements OnInit {
     this._initializeDisplayColumns();
   }
 
-  refreshTable() {
+  refreshTable(): void {
     this.table.renderRows();
   }
 
