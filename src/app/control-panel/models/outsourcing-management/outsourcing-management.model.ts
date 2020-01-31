@@ -8,6 +8,7 @@ export class AddOutsourcingManagementModel {
   city: string;
   poNumber: string;
   telephone: string;
+  mobileNumber: string;
   fax: string;
   web: string;
   region: string;

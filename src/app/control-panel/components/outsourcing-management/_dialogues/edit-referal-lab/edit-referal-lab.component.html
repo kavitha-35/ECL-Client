@@ -72,15 +72,15 @@
                   <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
                 </mat-form-field>
 
-                <!-- Relation -->
+                <!-- Branch -->
                 <mat-form-field>
-                  <mat-label>Relation</mat-label>
+                  <mat-label>Branch</mat-label>
                   <mat-select disableOptionCentering name="relation" [(ngModel)]="outsource.relation">
-                    <mat-option value="Intra">
-                      Intra
+                    <mat-option value="Yes">
+                      Yes
                     </mat-option>
-                    <mat-option value="Inter">
-                      Inter
+                    <mat-option value="No">
+                      No
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -167,6 +167,24 @@
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
+
+                <!-- Mobile Number -->
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input
+                    matInput
+                    placeholder="Mobile Number"
+                    required
+                    name="mobileNumber"
+                    #mobileNumber="ngModel"
+                    pattern="[0-9]*"
+                    [(ngModel)]="outsource.mobileNumber"
+                  />
+                  <mat-error *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
+                    <mat-error *ngIf="mobileNumber.errors.required">MobileNumber is required</mat-error>
+                    <mat-error *ngIf="mobileNumber.errors?.pattern">MobileNumber is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
               </section>
             </section>
 
@@ -196,8 +214,8 @@
                   <mat-form-field class="mt-n7">
                     <mat-label> Department</mat-label>
                     <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
-                      <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
-                        options.keyValue
+                      <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
+                        options.departmentName
                       }}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -328,7 +346,7 @@
             <!-- Login Information -->
             <section class="login-information-wrapper">
               <!-- Header -->
-              <app-section-header title="Login Information"></app-section-header>
+              <app-section-header title="Login & Access"></app-section-header>
               <!-- Content -->
               <section class="login-information-content">
                 <!-- URL -->

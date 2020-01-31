@@ -101,7 +101,7 @@ export const routes: Routes = [
       },
       {
         path: '',
-        component: HomeDashboardComponent,
+        component: OutsourcingManagementComponent,
       },
     ],
   },
