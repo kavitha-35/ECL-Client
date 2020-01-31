@@ -1,9 +1,42 @@
-<section class="animated fadeIn">
+<section id="registration-list-container">
   <mat-card>
-    <mat-card-title>Registration List</mat-card-title>
-    <mat-card-subtitle>Registration List for the Organisation</mat-card-subtitle>
+    <section class="mat-header-container">
+      <!-- Mat Header Image -->
+      <section class="mat-header-image-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
+          >offline_pin
+        </mat-icon>
+      </section>
 
+      <!-- Mat Header Title -->
+      <section>
+        <!-- Mat Card Title -->
+        <mat-card-title>
+          <section class="mat-card-title-container">
+            <section>
+             Registration
+            </section>
+          </section>
+        </mat-card-title>
+
+        <!-- Mat Card SubTitle -->
+        <mat-card-subtitle> Registrations </mat-card-subtitle>
+      </section>
+    </section>
+
+    <!-- Mat Table Ribbon -->
+    <app-registration-ribbon-menu
+      (showListViewButtonClicked)="onShowListViewButtonClicked()"
+      (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+    ></app-registration-ribbon-menu>
+
+    <!-- Mat Divider -->
     <mat-divider></mat-divider>
+
+     <!-- Test List -->
+     <ng-container *ngIf="showListView; then listView; else tableView"></ng-container>
+
+     
 
     <mat-card-content  *ngIf="registrations$ | async as registrations">
       <app-registration-table

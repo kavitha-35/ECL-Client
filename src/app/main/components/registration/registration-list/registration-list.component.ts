@@ -6,6 +6,7 @@ import { RegistrationModel } from '../../../models/registration/registration.mod
 import { RegistrationFacade } from '../../../state/registration/registration.facade';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { DISPLAY_MODE } from 'app/main/models/constants';
 
 @Component({
   selector: 'app-registration-list',
@@ -31,5 +32,12 @@ export class RegistrationListComponent implements OnInit {
 
   public async onRegistrationSelected(selectedRegistrationModel: RegistrationModel): Promise<void> {
     await this._router.navigate(['/main/registration-details'], { queryParams: { id: selectedRegistrationModel.id } });
+  }
+  public onShowListViewButtonClicked(): void {
+    this._router.navigate([], { queryParams: { view: DISPLAY_MODE.LIST } });
+  }
+
+  public onShowTableViewButtonClicked(): void {
+    this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 }

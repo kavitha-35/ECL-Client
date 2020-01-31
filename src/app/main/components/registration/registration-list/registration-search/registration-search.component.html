@@ -1,0 +1,51 @@
+<section id="registration-filter-container" class="full-width">
+    <mat-card>
+      <section>
+        <!-- Mat Card header -->
+        <app-mat-dialog-header title="Search" subTitle="Search registration(s)"></app-mat-dialog-header>
+        <mat-divider></mat-divider>
+      </section>
+  
+      <!--Mat Card Filter Content-->
+      <section class="filter-field">
+        <!-- Date -->
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput placeholder="Date" />
+        </mat-form-field>
+  
+        <!-- Patient Name -->
+        <mat-form-field>
+          <mat-label>Patient Name</mat-label>
+          <input matInput placeholder="Patient Name" />
+        </mat-form-field>
+  
+        <!-- Organization -->
+        <mat-form-field>
+          <mat-label>Organization</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Doctor -->
+        <mat-form-field>
+          <mat-label>Doctor</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+       
+  
+        <!-- Status -->
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <input matInput placeholder="P.O.Box" />
+        </mat-form-field>
+      </section>
+  
+      <!-- Apply Filter Button -->
+      <section class="buttons-wrapper">
+        <button mat-stroked-button color="primary" class="mr-24">Clear</button>
+        <button mat-stroked-button color="primary">Search</button>
+      </section>
+    </mat-card>
+  </section>
+  

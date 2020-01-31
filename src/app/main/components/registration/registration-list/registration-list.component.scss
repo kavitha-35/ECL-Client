@@ -1,0 +1,48 @@
+#registration-list-container {
+  .mat-header-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    .mat-header-image-wrapper {
+      padding: 1rem 0.5rem 0 1rem;
+
+      .mat-icon {
+        font-size: 32px;
+        color: #034f79;
+      }
+    }
+
+    .mat-card-title-container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      button {
+        padding: 0;
+        line-height: 0;
+      }
+    }
+
+    .pending-accession-button-wrapper {
+      padding: 1rem;
+    }
+  }
+  
+    .registration-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      padding: 0 1rem 1rem 1rem;
+    }
+  
+    .action-buttons-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 0.5rem;
+      padding-right: 2rem;
+  
+      button {
+        padding: 0 0.5rem;
+        min-width: 0px;
+      }
+    }
+  }
+  
