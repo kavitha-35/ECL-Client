@@ -15,3 +15,18 @@ export interface ReferenceRangeModel {
   minCriticalValue: string;
   maxCriticalValue: string;
 }
+
+export class ReferenceRange {
+  ageRange: string;
+  lowerAge: string;
+  upperAge: string;
+  min: string;
+  max: string;
+  description: string;
+  value: string;
+  alternateResult: string;
+  criticalRangeMax: string;
+  criticalRangeMin: string;
+
+  constructor() {}
+}
