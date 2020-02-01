@@ -27,6 +27,8 @@ export class AddAppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeTime();
+    this.getCities();
+    this.getCountries();
   }
 
   public onAddAppointmentClicked(): void {

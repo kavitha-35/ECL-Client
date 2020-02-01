@@ -28,6 +28,8 @@ export class EditAppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointment = this.data;
+    this.getCountries();
+    this.getCities();
   }
 
   public onEditAppointmentClicked(): void {
