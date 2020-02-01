@@ -6,6 +6,7 @@ import { AddProfileTestComponent } from './_dialogues/add-profile-test/add-profi
 import { ProfileTestModel } from 'app/control-panel/models/test-master/profile-test/profile-test.model';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
+import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
 
 @Component({
   selector: 'app-profile-test',
@@ -29,18 +30,28 @@ export class ProfileTestComponent implements OnInit {
   constructor(
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
-    private readonly _router: Router,
+      private readonly _router: Router,
+      private _profileTest: ProfileTestService
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
+    
+      this.getProfileDetails();
     this._initializeValues();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
   }
+
+    public getProfileDetails() {
+        this._profileTest.getProfileDetails().subscribe((data) => {
+            this.tests = data;
+            console.log("_profileTest", this.tests)
+      }, err => console.log("_profileTest", err))
+    }
 
   public onAddProfileTestButtonClicked(): void {
     this.matDialog
