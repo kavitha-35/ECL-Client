@@ -195,18 +195,6 @@
               <app-section-header title="Test(s) Information"></app-section-header>
               <section class="test-content">
                 <mat-form-field class="full-width">
-                  <input matInput type="text" placeholder="Search for Test(s)" (keyup)="searchQuery($event)" [matAutocomplete]="patient.search" />
-                  <mat-autocomplete #search="matAutocomplete">
-                    <mat-option *ngFor="let element of selectedTests" (click)="selectedAutoComplete(element)">
-                      {{ element.testComponent }}
-                    </mat-option>
-                  </mat-autocomplete>
-<<<<<<< HEAD
-                  <button mat-button matSuffix mat-icon-button>
-                    <mat-icon matsuffix>search</mat-icon>
-                  </button>
-                </mat-form-field> -->
-                <mat-form-field class="full-width">
                   <input matInput type="text" (keyup)="searchQuery($event)" placeholder="Search for Tests"
                     [matAutocomplete]="search" />
                   <mat-autocomplete #search="matAutocomplete">
@@ -215,8 +203,6 @@
                     </mat-option>
                   </mat-autocomplete>
                   <mat-icon matSuffix>search</mat-icon>
-=======
->>>>>>> 6b1165a578043530fb5a2ddb40a1d8e844fd654b
                 </mat-form-field>
               </section>
               <mat-divider></mat-divider>
