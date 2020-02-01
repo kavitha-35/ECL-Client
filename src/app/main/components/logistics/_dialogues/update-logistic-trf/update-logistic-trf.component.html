@@ -1,6 +1,6 @@
 <section id="update-logistic-trf-container">
   <mat-card>
-    <app-mat-dialog-header title="Manage TRF" subTitle="Update TRFs from Client Location"></app-mat-dialog-header>
+    <app-mat-dialog-header title="Manage Messenger" subTitle="Update Messenger from Client Location"></app-mat-dialog-header>
 
     <mat-divider></mat-divider>
 
@@ -41,13 +41,17 @@
         <section class="trf-information-container">
           <mat-form-field>
             <mat-label class="sub-title">Number of TRFs</mat-label>
-            <input matInput placeholder="Number of TRFs" />
+            <mat-select disableOptionCentering name="trf">
+              <mat-option></mat-option>
+            </mat-select>
           </mat-form-field>
 
           <!-- Temperature -->
           <mat-form-field>
             <mat-label class="sub-title">Temperature</mat-label>
-            <input matInput placeholder="Temperature" />
+            <mat-select disableOptionCentering name="temperature">
+              <mat-option></mat-option>
+            </mat-select>
           </mat-form-field>
 
           <!-- Sample Type -->

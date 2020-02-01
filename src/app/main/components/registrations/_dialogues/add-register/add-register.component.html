@@ -2,7 +2,7 @@
   <mat-card class="registration-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="registration" subTitle="Add registration" icon="fa-calendar"> </app-dialog-caption>
+      <app-dialog-caption title="Registration" subTitle="Add Registration" icon="fa-calendar"> </app-dialog-caption>
     </section>
 
     <!-- Dialog Content -->
@@ -69,12 +69,12 @@
                 <!-- LANDLINE -->
                 <mat-form-field>
                   <mat-label>Landline</mat-label>
-                  <input matInput placeholder="Landline" name="landLine" [(ngModel)]="patient.landLine" />
+                  <input matInput placeholder="Landline" name="landline" [(ngModel)]="patient.landline" />
                 </mat-form-field>
 
                 <mat-form-field>
-                  <mat-label>Mobile</mat-label>
-                  <input matInput placeholder="Mobile" name="mobile" [(ngModel)]="patient.mobile" />
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput placeholder="Mobile Number" name="mobile" [(ngModel)]="patient.mobile" />
                 </mat-form-field>
                 <!-- Email ID -->
                 <mat-form-field>
@@ -162,8 +162,8 @@
 
                 <mat-form-field class="mt-n7">
                   <mat-label>Organization</mat-label>
-                  <mat-select disableOptionCentering name="organizationId" [(ngModel)]="patient.organizationId">
-                    <mat-option *ngFor="let item of organisations" [value]="item.id">{{item.organisation}}
+                  <mat-select disableOptionCentering name="organizationId" [(ngModel)]="patient.organization">
+                    <mat-option *ngFor="let item of organisations" [value]="item.OrganizationMasterId">{{item.OrganizationMasterName}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
