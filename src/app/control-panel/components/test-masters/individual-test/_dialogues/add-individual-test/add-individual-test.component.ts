@@ -29,6 +29,9 @@ export class AddIndividualTestComponent implements OnInit {
   public editorConfig: any;
   public accrediationSymbolsFilter: LookUpModel[];
   referenceRangeList: ReferenceRange[] = [];
+  hours: number[];
+  days: number[];
+  minutes: number[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddIndividualTestComponent>,
     private readonly _individualTestService: IndividualTestService,
@@ -37,6 +40,9 @@ export class AddIndividualTestComponent implements OnInit {
     private readonly _methodService: MethodService,
     private readonly _outsourceService: OutsourceManagementService,
   ) {
+    for (let i = 1; i < 25; i++) {
+      this.hours[i] = i;
+    }
     this.editorConfig = {
       uiColor: '#ffffff',
       toolbarGroups: [

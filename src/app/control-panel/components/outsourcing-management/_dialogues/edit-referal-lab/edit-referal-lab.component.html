@@ -42,36 +42,6 @@
                   </mat-error>
                 </mat-form-field>
 
-                <!-- Web -->
-                <mat-form-field>
-                  <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" class="uppercase" name="web" [(ngModel)]="outsource.web" />
-                </mat-form-field>
-
-                <!-- Telephone -->
-                <mat-form-field>
-                  <mat-label>Telephone</mat-label>
-                  <input
-                    matInput
-                    placeholder="Telephone"
-                    required
-                    name="telephone"
-                    #telephone="ngModel"
-                    pattern="[0-9]*"
-                    [(ngModel)]="outsource.telephone"
-                  />
-                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
-                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
-                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
-                  </mat-error>
-                </mat-form-field>
-
-                <!-- Fax -->
-                <mat-form-field>
-                  <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
-                </mat-form-field>
-
                 <!-- Branch -->
                 <mat-form-field>
                   <mat-label>Branch</mat-label>
@@ -142,12 +112,6 @@
                   <input matInput placeholder="Area" name="area" required [(ngModel)]="outsource.area" />
                 </mat-form-field>
 
-                <!-- P.O.Box -->
-                <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="outsource.poNumber" />
-                </mat-form-field>
-
                 <!-- City-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
@@ -168,6 +132,24 @@
                   </mat-select>
                 </mat-form-field>
 
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="outsource.poNumber" />
+                </mat-form-field>
+
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" class="uppercase" name="web" [(ngModel)]="outsource.web" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
+                </mat-form-field>
+
                 <!-- Mobile Number -->
                 <mat-form-field>
                   <mat-label>Mobile Number</mat-label>
@@ -185,6 +167,52 @@
                     <mat-error *ngIf="mobileNumber.errors?.pattern">MobileNumber is required</mat-error>
                   </mat-error>
                 </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input
+                    matInput
+                    placeholder="Telephone"
+                    required
+                    name="telephone"
+                    #telephone="ngModel"
+                    pattern="[0-9]*"
+                    [(ngModel)]="outsource.telephone"
+                  />
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
+                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Whatsapp Number </mat-label>
+                  <input
+                    matInput
+                    placeholder="Whatsapp Number "
+                    name="whatsappNumber "
+                    [(ngModel)]="outsource.whatsapp"
+                  />
+                </mat-form-field>
+
+                <!-- Facebook Id -->
+                <mat-form-field>
+                  <mat-label>Facebook Id </mat-label>
+                  <input matInput placeholder="Facebook Id" name="facebook" [(ngModel)]="outsource.facebook" />
+                </mat-form-field>
+
+                <!-- Instagram Id-->
+                <mat-form-field>
+                  <mat-label>Instagram Id </mat-label>
+                  <input matInput placeholder="Instagram Id" name="instagram" [(ngModel)]="outsource.instagram" />
+                </mat-form-field>
+
+                <!-- Twitter Id-->
+                <mat-form-field>
+                  <mat-label>Twitter Id </mat-label>
+                  <input matInput placeholder="Twitter Id" name="twitter" [(ngModel)]="outsource.twitter" />
+                </mat-form-field>
               </section>
             </section>
 
@@ -196,6 +224,15 @@
               <ng-container *ngFor="let contact of contactPersonList; let i = index">
                 <section class="contactperson-information-content">
                   <!-- Contact person Mode -->
+                  <!-- Department-->
+                  <mat-form-field class="mt-n7">
+                    <mat-label> Department</mat-label>
+                    <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
+                      <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
+                        options.departmentName
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
 
                   <!-- Designation  -->
                   <mat-form-field>
@@ -208,16 +245,6 @@
                       required
                       [(ngModel)]="contact.designation"
                     />
-                  </mat-form-field>
-
-                  <!-- Department-->
-                  <mat-form-field class="mt-n7">
-                    <mat-label> Department</mat-label>
-                    <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
-                      <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
-                        options.departmentName
-                      }}</mat-option>
-                    </mat-select>
                   </mat-form-field>
 
                   <!-- Contact Person Name  -->
@@ -267,6 +294,46 @@
                       <mat-error *ngIf="email.errors.required">Email is required</mat-error>
                       <mat-error *ngIf="email.errors?.pattern">abc@gmail.com format is required</mat-error>
                     </mat-error>
+                  </mat-form-field>
+
+                  <!-- Whatsapp Number -->
+                  <mat-form-field>
+                    <mat-label>Whatsapp Number </mat-label>
+                    <input
+                      matInput
+                      placeholder="Whatsapp Number "
+                      name="whatsappNumber{{ i }} "
+                      [(ngModel)]="contact.whatsapp"
+                    />
+                  </mat-form-field>
+
+                  <!-- Facebook Id -->
+                  <mat-form-field>
+                    <mat-label>Facebook Id </mat-label>
+                    <input matInput placeholder="Facebook Id" name="facebook{{ i }}" [(ngModel)]="contact.faceook" />
+                  </mat-form-field>
+
+                  <!-- Instagram Id-->
+                  <mat-form-field>
+                    <mat-label>Instagram Id </mat-label>
+                    <input
+                      matInput
+                      placeholder="Instagram Id"
+                      name="instagram{{ i }}"
+                      [(ngModel)]="contact.instagram"
+                    />
+                  </mat-form-field>
+
+                  <!-- Twitter Id-->
+                  <mat-form-field>
+                    <mat-label>Twitter Id </mat-label>
+                    <input
+                      matInput
+                      placeholder="Twitter Id"
+                      name="twitter{{ i }}"
+                      ngModel
+                      [(ngModel)]="contact.twitter"
+                    />
                   </mat-form-field>
                 </section>
 
