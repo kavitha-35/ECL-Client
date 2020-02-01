@@ -5,6 +5,7 @@ import { RegistrationModel } from 'app/main/models/registration/registration.mod
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { MatTable } from '@angular/material';
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
 
 @Component({
   selector: 'app-add-register',
@@ -13,8 +14,12 @@ import { MatTable } from '@angular/material';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddRegisterComponent implements OnInit {
-  public tests: IndividualTestModel[];
-  selectedTests: IndividualTestModel[];
+  // public tests: IndividualTestModel[];
+  // selectedTests: IndividualTestModel[];
+
+  public combinedTestData          : CombinedTestModel[] = [];
+  public combinedTests: CombinedTestModel[];
+  public selectedCombinedTests: CombinedTestModel[];
   isBusy: boolean;
   groupById: number;
   orderById: number;
@@ -30,7 +35,9 @@ export class AddRegisterComponent implements OnInit {
     this.orderById = 0;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllCombinedTest();
+  }
 
   public onAddRegisterClicked(registration: NgForm): void {
     /*comment.form.value.lookupName = 'comment';
@@ -39,24 +46,26 @@ export class AddRegisterComponent implements OnInit {
       this._dialogRef.close();
     });*/
   }
-  public selectedAutoComplete(element: IndividualTestModel): void {
-    element.groupById = this.groupById;
-    element.orderById = this.orderById;
-    this.testsInTable.push(element);
-    console.log(this.testsInTable);
-    this._matTable.renderRows();
-  }
   public searchQuery(event: any): void {
-    this.selectedTests = this._filter(event.target.value);
+    this.selectedCombinedTests = this._filter(event.target.value);
   }
-  private _filter(value: string): IndividualTestModel[] {
+
+  private _filter(value: string): CombinedTestModel[] {
     const filterValue = value.toLowerCase();
-    return this.tests.filter((option) => option.testComponent.toLowerCase().includes(filterValue));
+    return this.combinedTests.filter((option) => option.testName.toLowerCase().includes(filterValue));
   }
-  public getAllIndividualTest(): void {
+
+  public selectedAutoComplete(element: CombinedTestModel): void {
+    this.combinedTestData.push(element);
+    console.log('combined test selected result', this.combinedTestData);
+    // this.linkTestComponent.refreshTable();
+  }
+
+  public getAllCombinedTest(): void {
     this.isBusy = true;
-    this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
-      this.tests = data;
+    this._combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) => {
+      console.log('combined test result', data);
+      this.combinedTests = data;
       this.isBusy = false;
     });
   }
