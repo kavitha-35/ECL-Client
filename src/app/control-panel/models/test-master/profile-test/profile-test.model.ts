@@ -1,8 +1,9 @@
 import { CombinedTestModel } from '../combined-test/combined-test.model';
 
-export interface ProfileTestModel {
+export class ProfileTestModel {
   profileTestId: number;
   eclDosCode: string;
+  dosCode: string;
   testId: string;
   cptCode: string;
   testName: string;
@@ -10,5 +11,8 @@ export interface ProfileTestModel {
   specimenType: string;
   patientFee: string;
   netFee: string;
+  storage: string;
+  department: string;
+  currency: string;
   combinedTest: CombinedTestModel[];
 }

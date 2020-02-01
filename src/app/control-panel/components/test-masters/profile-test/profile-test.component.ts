@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig, PageEvent } from '@angular/material';
+import { MatDialog, MatDialogConfig, PageEvent, MatDialogRef } from '@angular/material';
 import { take } from 'rxjs/operators';
 import { EditProfileTestComponent } from './_dialogues/edit-profile-test/edit-profile-test.component';
 import { AddProfileTestComponent } from './_dialogues/add-profile-test/add-profile-test.component';
@@ -31,7 +31,7 @@ export class ProfileTestComponent implements OnInit {
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
-    private _profileTest: ProfileTestService,
+    private _profileTest: ProfileTestService
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
