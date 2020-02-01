@@ -65,11 +65,11 @@
                 <mat-form-field>
                   <mat-label>Accreditation</mat-label>
                   <mat-select disableOptionCentering name="accrediation" ngModel #accrediationId="ngModel">
-                    <mat-option [value]="false">
-                      No
-                    </mat-option>
                     <mat-option [value]="true">
                       yes
+                    </mat-option>
+                    <mat-option [value]="false">
+                      No
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -112,7 +112,7 @@
                   <mat-label>Vendor Code</mat-label>
                   <input
                     matInput
-                    placeholder="Outsouce Vendor Code"
+                    placeholder="Vendor Code"
                     name="outsourceVendorCode"
                     ngModel
                     #outSourceVendorCode="ngModel"
@@ -276,6 +276,16 @@
                       </mat-select>
                     </mat-form-field>
                   </section>
+                  <section class="comment-wrapper">
+                    <!-- Male Range -->
+                    <mat-label>Description </mat-label>
+                    <ckeditor
+                      name="description"
+                      [config]="editorConfig"
+                      debounce="500"
+                      [(ngModel)]="referenceRange.description"
+                    ></ckeditor>
+                  </section>
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -301,16 +311,6 @@
                       />
                     </mat-form-field>
                   </mat-expansion-panel>
-                  <section class="comment-wrapper">
-                    <!-- Male Range -->
-                    <mat-label>Description </mat-label>
-                    <ckeditor
-                      name="description"
-                      [config]="editorConfig"
-                      debounce="500"
-                      [(ngModel)]="referenceRange.description"
-                    ></ckeditor>
-                  </section>
                 </section>
                 <section class="cancel-contact-section">
                   <button mat-raised-button color="primary" (click)="cancelReferenceRange(referenceRange)">
