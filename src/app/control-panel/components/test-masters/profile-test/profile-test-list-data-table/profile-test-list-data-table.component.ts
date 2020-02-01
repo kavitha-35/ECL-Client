@@ -1,12 +1,14 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, ViewChild } from '@angular/core';
 import { take } from 'rxjs/operators';
-import { MatDialogConfig, MatDialog } from '@angular/material';
+import { MatDialogConfig, MatDialog, MatTable, MatDialogRef } from '@angular/material';
 import { LinkTestToProfiletestComponent } from '../_dialogues/link-test-to-profiletest/link-test-to-profiletest.component';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ProfileTestModel } from 'app/control-panel/models/test-master/profile-test/profile-test.model';
 import { TestModel } from 'app/control-panel/models/tests/test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
+import { ProfileTestComponent } from '../profile-test.component';
 
 @Component({
   selector: 'app-profile-test-list-data-table',
@@ -21,31 +23,58 @@ import { CombinedTestModel } from 'app/control-panel/models/test-master/combined
   ],
 })
 export class ProfileTestListDataTableComponent implements OnInit {
+  @Output() addTestClicked: EventEmitter<string>;
   @Input() tests: ProfileTestModel[];
   @Output() editProfileTestClicked = new EventEmitter<ProfileTestModel>();
+  @Output() deleteprofileTestClicked: EventEmitter<string>;
   @Output() manageButtonClicked: EventEmitter<string>;
   @Input() isBusy: boolean;
   public expandedElement: ProfileTestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
+  @ViewChild(MatTable, {static: false}) table: MatTable<any>;
 
-  constructor(private readonly matDialog: MatDialog) {
+  constructor(
+    private readonly matDialog: MatDialog,
+    private readonly _dialogRef: MatDialogRef<ProfileTestComponent>,
+    private readonly _profileTestService: ProfileTestService) {
+    this.addTestClicked = new EventEmitter<string>();
+    this.deleteprofileTestClicked = new EventEmitter<string>();
     this.manageButtonClicked = new EventEmitter<string>();
   }
 
   ngOnInit(): void {
     this._initializeDisplayedColumns();
+    this._getTests();
   }
 
   public onEditProfileTestClicked(profiletest: ProfileTestModel): void {
     this.editProfileTestClicked.emit(profiletest);
   }
-
+  public onDeleteProfileTestClicked(index: number): void {
+    this.tests.splice(index, 1);
+    this.table.renderRows();
+    // this.deleteprofileTestClicked.emit();
+  }
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
   public onManageButtonClicked(dosCode: string): void {
     this.manageButtonClicked.emit(dosCode);
+  }
+  public onAddCombineTestClicked(testId: string): void {
+    this._dialogRef.close();
+    // this.addTestClicked.emit(testId);
+  }
+
+  public _getTests(): void {
+    this._profileTestService.getProfileDetails().subscribe(
+      (data) => {
+        this.tests = data;
+        console.log('_profileTest', this.tests);
+      },
+      (err) => console.log('_profileTest', err),
+    );
   }
 
   private _initializeDisplayedColumns(): void {

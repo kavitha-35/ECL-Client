@@ -35,7 +35,7 @@ export class ProfileTestDetailsComponent implements OnInit, OnDestroy {
     this._activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       const selectedId = queryParams['id'];
       if (selectedId) {
-        this.test = this.profileTest.find((x) => x.dosCode === selectedId);
+        this.test = this.profileTest.find((x) => x.eclDosCode === selectedId);
       }
     });
   }

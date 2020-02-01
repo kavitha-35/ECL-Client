@@ -9,7 +9,7 @@
         <section class="profile-test-information">
           <!-- DOS Code -->
           <section class="sub-title">ECL DOS Code</section>
-          <section>{{ test.dosCode }}</section>
+          <section>{{ test.eclDosCode }}</section>
 
           <!-- Patient Phone Number -->
           <section class="sub-title">CPT Code</section>
@@ -50,7 +50,7 @@
         <!-- Dos Code -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>DOS Code</th>
-          <td mat-cell *matCellDef="let element">{{ element.eclDosCode }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.dosCode }}</td>
         </ng-container>
 
         <!-- Test Id -->

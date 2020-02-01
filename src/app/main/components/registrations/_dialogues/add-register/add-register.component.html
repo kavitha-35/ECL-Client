@@ -22,30 +22,37 @@
 
               <!-- Content -->
               <section class="basic-content">
+
                 <mat-form-field>
                   <mat-label>Type</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option>CASH</mat-option>
-                    <mat-option>CREDIT</mat-option>
-                    <mat-option>INSURANCE</mat-option>
+                  <mat-select disableOptionCentering name="registrationType" [(ngModel)]="patient.registrationType">
+                    <mat-option value="1">
+                      CASH
+                    </mat-option>
+                    <mat-option value="2">
+                      CREDIT
+                    </mat-option>
+                    <mat-option value="3">
+                      Insurance
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Name -->
                 <mat-form-field class="mt-7">
                   <mat-label>Name</mat-label>
-                  <input matInput maxlength="25" placeholder="Name" />
+                  <input matInput maxlength="25" placeholder="Name" name="fullName" [(ngModel)]="patient.fullName" />
                 </mat-form-field>
 
                 <!-- Age -->
                 <mat-form-field class="mt-7">
                   <mat-label>Age</mat-label>
-                  <input matInput placeholder="Age" />
+                  <input matInput placeholder="Age" name="age" [(ngModel)]="patient.age" />
                 </mat-form-field>
 
                 <!-- DOB -->
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Date of birth" />
+                  <input matInput [matDatepicker]="picker" placeholder="Date of birth" name="patient.dateOfBirth" [(ngModel)]="patient.dateOfBirth" />
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -53,7 +60,7 @@
                 <!-- Gender -->
                 <section class="mt-13">
                   <label for="gender">Gender</label>
-                  <mat-radio-group id="gender" name="gender" label="Gender">
+                  <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="patient.gender">
                     <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
                     <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
                   </mat-radio-group>
@@ -62,17 +69,17 @@
                 <!-- LANDLINE -->
                 <mat-form-field>
                   <mat-label>Landline</mat-label>
-                  <input matInput placeholder="Landline" />
+                  <input matInput placeholder="Landline" name="landLine" [(ngModel)]="patient.landLine" />
                 </mat-form-field>
 
                 <mat-form-field>
                   <mat-label>Mobile</mat-label>
-                  <input matInput placeholder="Mobile" />
+                  <input matInput placeholder="Mobile" name="mobile" [(ngModel)]="patient.mobile" />
                 </mat-form-field>
                 <!-- Email ID -->
                 <mat-form-field>
                   <mat-label>Email</mat-label>
-                  <input matInput type="email" placeholder="Email" />
+                  <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="patient.email" />
                 </mat-form-field>
               </section>
             </section>
@@ -83,43 +90,39 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput maxlength="10" placeholder="Address" />
+                  <input matInput placeholder="Address" name="address" [(ngModel)]="patient.address" />
                 </mat-form-field>
 
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput maxlength="10" placeholder="P.O.Box" />
+                  <input matInput placeholder="P.O.Box" name="poBox" [(ngModel)]="patient.poBox" />
                 </mat-form-field>
                 <!-- Area -->
                 <mat-form-field>
                   <mat-label>Area</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option>Area 1</mat-option>
-                    <mat-option>Area 2</mat-option>
-                    <mat-option>Area 3</mat-option>
-                  </mat-select>
+                  <input matInput placeholder="Area" name="area" [(ngModel)]="patient.area" />
                 </mat-form-field>
 
                 <!-- City -->
-                <mat-form-field>
+                <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option>City 1</mat-option>
-                    <mat-option>City 2</mat-option>
-                    <mat-option>City 3</mat-option>
+                  <mat-select disableOptionCenteringn name="city" [(ngModel)]="patient.city">
+                    <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Country -->
-                <mat-form-field>
-                  <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option>Country 1</mat-option>
-                    <mat-option>Country 2</mat-option>
-                    <mat-option>Country 3</mat-option>
-                  </mat-select>
-                </mat-form-field>
+              <mat-form-field class="mt-n7">
+                <mat-label>Country</mat-label>
+                <mat-select disableOptionCentering name="country" [(ngModel)]="patient.country">
+                  <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
+                    options.keyValue
+                  }}</mat-option>
+                </mat-select>
+              </mat-form-field>
               </section>
             </section>
             <section class="social-media-wrapper">
@@ -128,52 +131,52 @@
                 <!-- Whatsapp Number -->
                 <mat-form-field>
                   <mat-label>Whatsapp Number </mat-label>
-                  <input
-                    matInput
-                    placeholder="Whatsapp Number "
-                    name="whatsappNumber "
-                    ngModel
-                    #whatsappNumber="ngModel"
-                  />
+                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber"  [(ngModel)]="patient.whatsappNumber"
+                    />
                 </mat-form-field>
 
                 <!-- Facebook Id -->
                 <mat-form-field>
                   <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                  <input matInput placeholder="Facebook Id" name="facebook" [(ngModel)]="patient.facebook" />
                 </mat-form-field>
 
                 <!-- Instagram Id-->
                 <mat-form-field>
                   <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                  <input matInput placeholder="Instagram Id" name="instagram" [(ngModel)]="patient.instagram" />
                 </mat-form-field>
 
                 <!-- Twitter Id-->
                 <mat-form-field>
                   <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                  <input matInput placeholder="Twitter Id" name="twitter" [(ngModel)]="patient.twitter" />
                 </mat-form-field>
               </section>
+            </section>
 
-              <section class="social-media-wrapper">
+            <section class="social-media-wrapper">
               <app-section-header title="Referral Information"></app-section-header>
               <section class="social-media-content">
                 <!-- Referral Organization -->
-                <mat-form-field>
+
+                <mat-form-field class="mt-n7">
                   <mat-label>Organization</mat-label>
-                  <input matInput maxlength="10" placeholder="Organization" />
+                  <mat-select disableOptionCentering name="organizationId" [(ngModel)]="patient.organizationId">
+                    <mat-option *ngFor="let item of organisations" [value]="item.id">{{item.organisation}}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Referral Doctor -->
                 <mat-form-field>
                   <mat-label>Physician</mat-label>
-                  <input matInput maxlength="10" placeholder="Physician" />
+                  <input matInput maxlength="10" placeholder="Physician" name="physician" [(ngModel)]="patient.physician" />
                 </mat-form-field>
                 <!-- Referral file No -->
                 <mat-form-field>
                   <mat-label>File No</mat-label>
-                  <input matInput maxlength="10" placeholder="fileNo" />
+                  <input matInput maxlength="10" placeholder="fileNo" name="fileNo" [(ngModel)]="patient.fileNo" />
                 </mat-form-field>
               </section>
             </section>
@@ -183,29 +186,17 @@
               <section class="clinical-history-content">
                 <mat-form-field>
                   <mat-label>clinical History</mat-label>
-                  <textarea matInput maxlength="10" placeholder="clinical History" class="uppercase"></textarea>
+                  <textarea matInput maxlength="10" placeholder="clinical History" class="uppercase" name="clinicalHistory" [(ngModel)]="patient.clinicalHistory"></textarea>
                 </mat-form-field>
               </section>
-              </section>
+            </section>
 
-              <section class="test-wrapper">
+            <section class="test-wrapper">
               <app-section-header title="Test(s) Information"></app-section-header>
               <section class="test-content">
-
-
-                <!-- <mat-form-field class="full-width">
-                  <input matInput type="text" placeholder="Search for Test(s)" (keyup)="searchQuery($event)" [matAutocomplete]="search" />
-                  <mat-autocomplete #search="matAutocomplete">
-                    <mat-option *ngFor="let element of selectedTests" (click)="selectedAutoComplete(element)">
-                      {{ element.testComponent }}
-                    </mat-option>
-                  </mat-autocomplete>
-                  <button mat-button matSuffix mat-icon-button>
-                    <mat-icon matsuffix>search</mat-icon>
-                  </button>
-                </mat-form-field> -->
-                <mat-form-field  class="full-width">
-                  <input matInput type="text" (keyup)="searchQuery($event)" placeholder="Search for Tests" [matAutocomplete]="search" />
+                <mat-form-field class="full-width">
+                  <input matInput type="text" (keyup)="searchQuery($event)" placeholder="Search for Tests"
+                    [matAutocomplete]="search" />
                   <mat-autocomplete #search="matAutocomplete">
                     <mat-option *ngFor="let element of selectedCombinedTests" (click)="selectedAutoComplete(element)">
                       {{ element.testName }}
@@ -213,6 +204,13 @@
                   </mat-autocomplete>
                   <mat-icon matSuffix>search</mat-icon>
                 </mat-form-field>
+              </section>
+              <app-link-test [linkedTests]="combinedTestData" showDeleteIcon="true"></app-link-test>
+
+              <!-- No Linked Record(s) Message -->
+              <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3"
+                *ngIf="!combinedTestData">
+                No Linked Tests
               </section>
             </section>
 
@@ -222,45 +220,55 @@
                 <!-- Member Number -->
                 <mat-form-field>
                   <mat-label>Member Number</mat-label>
-                  <input matInput maxlength="10" placeholder="Member Number" />
+                  <input matInput maxlength="10" placeholder="Member Number" name="memberNumber" [(ngModel)]="patient.memberNumber" />
                 </mat-form-field>
 
                 <!-- Employee Number -->
                 <mat-form-field>
                   <mat-label>Employee Number</mat-label>
-                  <input matInput maxlength="10" placeholder="Employee Number" />
+                  <input matInput maxlength="10" placeholder="Employee Number" name="employeeNumber" [(ngModel)]="patient.employeeNumber" />
                 </mat-form-field>
 
                 <!-- Validity -->
                 <mat-form-field>
                   <mat-label>Validity</mat-label>
-                  <input matInput maxlength="10" placeholder="Validity" />
+                  <input matInput maxlength="10" placeholder="Validity" name="validity" [(ngModel)]="patient.validity" />
                 </mat-form-field>
 
                 <!-- Network -->
                 <mat-form-field>
                   <mat-label>Network</mat-label>
-                  <input matInput maxlength="10" placeholder="Network" />
+                  <input matInput maxlength="10" placeholder="Network" name="network" [(ngModel)]="patient.network" />
                 </mat-form-field>
 
                 <!-- Sub Network -->
                 <mat-form-field>
                   <mat-label>Sub Network</mat-label>
-                  <input matInput maxlength="10" placeholder="Sub Network" />
+                  <input matInput maxlength="10" placeholder="Sub Network" name="subNetwork" [(ngModel)]="patient.subNetwork" />
                 </mat-form-field>
               </section>
-              </section>
-              <section class="document-wrapper">
+            </section>
+            <section class="document-wrapper">
               <app-section-header title="Document Upload"></app-section-header>
               <section class="document-content">
                 <mat-form-field>
                   <mat-label>Select a document</mat-label>
                   <mat-select disableOptionCentering>
-                    <mat-option>PHOTO</mat-option>
-                    <mat-option>EMIRATES ID</mat-option>
-                    <mat-option>INSURANCE ID</mat-option>
-                    <mat-option>DRIVING LICENSE</mat-option>
-                    <mat-option>PRESCRIPTION</mat-option>
+                    <mat-option value="1">
+                      PHOTO
+                    </mat-option>
+                    <mat-option value="2">
+                      EMIRATES ID
+                    </mat-option>
+                    <mat-option value="3">
+                      INSURANCE ID
+                    </mat-option>
+                    <mat-option value="4">
+                      DRIVING LICENSE
+                    </mat-option>
+                    <mat-option value="5">
+                      PRESCRIPTION
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
                 <section>
@@ -270,15 +278,14 @@
                 </section>
               </section>
             </section>
+        </form>
         </section>
-          </form>
 
-          <section class="action-buttons-wrapper">
-            <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary">
-              Add registration
-            </button>
-          </section>
+        <section class="action-buttons-wrapper">
+          <button mat-button color="primary" matDialogClose>Clear</button>
+          <button mat-raised-button color="primary" (click)="onAddRegisterClicked()">
+            Add registration
+          </button>
         </section>
       </mat-dialog-content>
     </section>
