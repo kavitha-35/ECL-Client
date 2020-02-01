@@ -11,6 +11,7 @@ import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { OrganisationService } from 'app/control-panel/services/organisation.service';
 import { OrganisationModel } from 'app/control-panel/models/organisations/organisation.model';
+import { PatientServices } from 'app/main/services/patient.services';
 
 @Component({
   selector: 'app-add-register',
@@ -36,14 +37,10 @@ export class AddRegisterComponent implements OnInit {
   constructor(
     private readonly _lookUpService: LookupService,
     private readonly _combinedTestService: CombinedTestService,
+    private readonly _dialogRef: MatDialogRef<AddRegisterComponent>,
     private readonly _organisationservice: OrganisationService,
-    private readonly _dialogRef: MatDialogRef<
-      AddRegisterComponent
-    > /*private readonly commentService: CommentService,*/,
-  ) {
-    this.groupById = 0;
-    this.orderById = 0;
-  }
+    private readonly _patientService: PatientServices
+  ) {}
 
   ngOnInit(): void {
     this.getAllCombinedTest();
@@ -52,12 +49,10 @@ export class AddRegisterComponent implements OnInit {
     this.getOrganizations();
   }
 
-  public onAddRegisterClicked(registration: NgForm): void {
-    /*comment.form.value.lookupName = 'comment';
-    console.log(comment.form.value);
-    /*this.commentService.addComment(comment.form.value).subscribe((data) => {
+  public onAddRegisterClicked(): void {
+    this._patientService.savePatient(null).subscribe((data) => {
       this._dialogRef.close();
-    });*/
+    });
   }
   public searchQuery(event: any): void {
     this.selectedCombinedTests = this._filter(event.target.value);
