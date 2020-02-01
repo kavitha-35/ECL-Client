@@ -42,7 +42,7 @@ export class ReferalLabListDataTableComponent implements OnInit {
       { columnName: 'web', displayValue: 'Web', isSelected: false },
       { columnName: 'telephone', displayValue: 'Telephone', isSelected: true },
       { columnName: 'fax', displayValue: 'Fax', isSelected: true },
-      { columnName: 'realtion', displayValue: 'Realtion', isSelected: true },
+      { columnName: 'relation', displayValue: 'Relation', isSelected: true },
       { columnName: 'interfacingType', displayValue: 'Interfacing Type', isSelected: true },
       { columnName: 'address', displayValue: 'Address', isSelected: false },
       { columnName: 'postBox', displayValue: 'Post Box', isSelected: false },

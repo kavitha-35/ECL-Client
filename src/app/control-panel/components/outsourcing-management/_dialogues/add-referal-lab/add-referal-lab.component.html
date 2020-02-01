@@ -117,6 +117,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" [(ngModel)]="outsource.city">
+                    <input matInput placeholder ="Search City" (keyup)="onCitySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -127,6 +128,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" [(ngModel)]="outsource.country">
+                    <input matInput placeholder ="Search Country" (keyup)="onCountrySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -254,6 +256,7 @@
                   <mat-form-field class="mt-n7">
                     <mat-label> Department</mat-label>
                     <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
+                      <input matInput placeholder ="Search Department" (keyup)="onDepartmentSearch($event.target.value)">
                       <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
                         options.departmentName
                       }}</mat-option>

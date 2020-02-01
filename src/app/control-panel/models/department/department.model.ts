@@ -1,4 +1,5 @@
 export interface DepartmentModel {
+  keyValue: any;
   departmentId: string;
   departmentName: string;
   departmentType: DepartmentTypeModel;

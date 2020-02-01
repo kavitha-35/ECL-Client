@@ -22,6 +22,10 @@ export class EditReferalLabComponent implements OnInit {
   public couriers: LookUpModel[];
   public departments: DepartmentModel[];
   public outsource: OutsourcingManagementModel;
+  courierFilter: LookUpModel[];
+  citieFilter: LookUpModel[];
+  countryFilter: LookUpModel[];
+  departmentFilter: DepartmentModel[];
   constructor(
     private readonly _dialogRef: MatDialogRef<EditReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
@@ -49,24 +53,32 @@ export class EditReferalLabComponent implements OnInit {
   public getCities(): void {
     this._lookUpService.getLookUp('city').subscribe((data: LookUpModel[]) => {
       this.cities = data;
+      this.citieFilter = this.cities;
+      console.log(data);
     });
   }
 
   public getCountries(): void {
     this._lookUpService.getLookUp('country').subscribe((data: LookUpModel[]) => {
       this.countries = data;
+      this.courierFilter = this.couriers;
+      console.log(data);
     });
   }
 
   public getCourier(): void {
     this._lookUpService.getLookUp('courier').subscribe((data: LookUpModel[]) => {
       this.couriers = data;
+      this.countryFilter = this.countries;
+      console.log(data);
     });
   }
 
   public getdepartments(): void {
     this._departmentService.getAllDepartments().subscribe((data: DepartmentModel[]) => {
       this.departments = data;
+      this.departmentFilter = this.departments;
+      console.log(data);
     });
   }
 
@@ -78,6 +90,81 @@ export class EditReferalLabComponent implements OnInit {
     const index: number = this.contactPersonList.indexOf(contact);
     if (index !== -1) {
       this.contactPersonList.splice(index, 1);
+    }
+  }
+
+  public onKeySearch(value: string): void {
+    if (value) {
+      this.selectSearch(value);
+    } else {
+      this.couriers = this.courierFilter;
+    }
+  }
+
+  public selectSearch(value: string): void {
+    this.couriers = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.courierFilter.length; i++) {
+      const option = this.courierFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.couriers.push(option);
+      }
+    }
+  }
+  public onCitySearch(value: string): void {
+    if (value) {
+      this.citySearch(value);
+    } else {
+      this.cities = this.citieFilter;
+    }
+  }
+
+  public citySearch(value: string): void {
+    this.cities = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.citieFilter.length; i++) {
+      const option = this.citieFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.cities.push(option);
+      }
+    }
+  }
+
+  public onCountrySearch(value: string): void {
+    if (value) {
+      this.countrySearch(value);
+    } else {
+      this.countries = this.countryFilter;
+    }
+  }
+
+  public countrySearch(value: string): void {
+    this.countries = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.countryFilter.length; i++) {
+      const option = this.countryFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.countries.push(option);
+      }
+    }
+  }
+
+  public onDepartmentSearch(value: string): void {
+    if (value) {
+      this.departmentSearch(value);
+    } else {
+      this.departments = this.departmentFilter;
+    }
+  }
+
+  public departmentSearch(value: string): void {
+    this.departments = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.departmentFilter.length; i++) {
+      const option = this.departmentFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.departments.push(option);
+      }
     }
   }
 }

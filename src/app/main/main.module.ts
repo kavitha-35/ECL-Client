@@ -175,8 +175,13 @@ import { ClinicHistoryComponent } from './components/registration/add-registrati
 import { EditAppointmentComponent } from './components/appointments/_dialogues/edit-appointment/edit-appointment.component';
 import { PatientAddressComponent } from './components/registration/add-registration/patient-address/patient-address.component';
 import { PatientSocialmediaComponent } from './components/registration/add-registration/patient-socialmedia/patient-socialmedia.component';
-import { RegistrationSearchComponent } from './components/registration/registration-list/registration-search/registration-search.component';
-import { RegistrationRibbonMenuComponent } from './components/registration/registration-list/registration-ribbon-menu/registration-ribbon-menu.component';
+import { RegistrationsComponent } from './components/registrations/registrations.component';
+import { EditRegisterComponent } from './components/registrations/_dialogues/edit-register/edit-register.component';
+import { RegistrationRibbonMenuComponent } from './components/registrations/registration-ribbon-menu/registration-ribbon-menu.component';
+import { RegistrationSearchComponent } from './components/registrations/registration-search/registration-search.component';
+import { AddRegisterComponent } from './components/registrations/_dialogues/add-register/add-register.component';
+
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -309,6 +314,9 @@ import { RegistrationRibbonMenuComponent } from './components/registration/regis
     PatientAddressComponent,
     PatientSocialmediaComponent,
     EditAppointmentComponent,
+    RegistrationsComponent,
+    AddRegisterComponent,
+    EditRegisterComponent,
     RegistrationRibbonMenuComponent,
     RegistrationSearchComponent
   ],

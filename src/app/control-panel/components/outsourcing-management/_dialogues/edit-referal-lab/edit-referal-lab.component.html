@@ -101,7 +101,8 @@
                 <!-- courier -->
                 <mat-form-field>
                   <mat-label>Courier</mat-label>
-                  <mat-select disableOptionCentering name="courier" [(ngModel)]="outsource.courier.courierId">
+                  <mat-select disableOptionCentering name="courier" [(ngModel)]="outsource.courierId">
+                    <input matInput placeholder ="Search Courier" (keyup)="onKeySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of couriers" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -142,16 +143,11 @@
                   <input matInput placeholder="Area" name="area" required [(ngModel)]="outsource.area" />
                 </mat-form-field>
 
-                <!-- P.O.Box -->
-                <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="outsource.poNumber" />
-                </mat-form-field>
-
                 <!-- City-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
-                  <mat-select disableOptionCentering name="city" [(ngModel)]="outsource.city.cityId">
+                  <mat-select disableOptionCentering name="city" [(ngModel)]="outsource.city">
+                    <input matInput placeholder ="Search City" (keyup)="onCitySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -161,11 +157,31 @@
                 <!-- Country -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering name="country" [(ngModel)]="outsource.country.countryId">
+                  <mat-select disableOptionCentering name="country" [(ngModel)]="outsource.country">
+                    <input matInput placeholder ="Search Country" (keyup)="onCountrySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
                   </mat-select>
+                </mat-form-field>
+
+
+                 <!-- P.O.Box -->
+                 <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="outsource.poNumber" />
+                </mat-form-field>
+
+                <!-- Web -->
+                <mat-form-field>
+                  <mat-label>Web</mat-label>
+                  <input matInput placeholder="Web" class="uppercase" name="web" [(ngModel)]="outsource.web" />
+                </mat-form-field>
+
+                <!-- Fax -->
+                <mat-form-field>
+                  <mat-label>Fax</mat-label>
+                  <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
                 </mat-form-field>
 
                 <!-- Mobile Number -->
@@ -183,6 +199,24 @@
                   <mat-error *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
                     <mat-error *ngIf="mobileNumber.errors.required">MobileNumber is required</mat-error>
                     <mat-error *ngIf="mobileNumber.errors?.pattern">MobileNumber is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input
+                    matInput
+                    placeholder="Telephone"
+                    required
+                    name="telephone"
+                    #telephone="ngModel"
+                    pattern="[0-9]*"
+                    [(ngModel)]="outsource.telephone"
+                  />
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
+                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
                   </mat-error>
                 </mat-form-field>
               </section>
@@ -214,6 +248,7 @@
                   <mat-form-field class="mt-n7">
                     <mat-label> Department</mat-label>
                     <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
+                      <input matInput placeholder ="Search Department" (keyup)="onDepartmentSearch($event.target.value)">
                       <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
                         options.departmentName
                       }}</mat-option>
