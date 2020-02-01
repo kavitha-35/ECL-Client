@@ -85,8 +85,15 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <section class="actions-wrapper">
+          <button class="edit-button" mat-button color="primary" disableRipple
+            (click)="onAddCombineTestClicked(element.profileTestId)">
+            <mat-icon>add</mat-icon>
+          </button>
           <button class="edit-button" mat-button color="primary" disableRipple>
             <mat-icon>edit_outline</mat-icon>
+          </button>
+          <button class="delete-button" mat-button color="warn" disableRipple (click)="onDeleteProfileTestClicked(element.profileTestId)">
+            <mat-icon>delete_outline</mat-icon>
           </button>
           <button
             class="action-button"

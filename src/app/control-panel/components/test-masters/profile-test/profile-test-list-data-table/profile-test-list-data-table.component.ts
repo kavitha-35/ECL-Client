@@ -21,8 +21,10 @@ import { CombinedTestModel } from 'app/control-panel/models/test-master/combined
   ],
 })
 export class ProfileTestListDataTableComponent implements OnInit {
+  @Output() addTestClicked: EventEmitter<string>;
   @Input() tests: ProfileTestModel[];
   @Output() editProfileTestClicked = new EventEmitter<ProfileTestModel>();
+  @Output() deleteprofileTestClicked: EventEmitter<string>;
   @Output() manageButtonClicked: EventEmitter<string>;
   @Input() isBusy: boolean;
   public expandedElement: ProfileTestModel[];
@@ -30,6 +32,8 @@ export class ProfileTestListDataTableComponent implements OnInit {
   public filteredColumns: GridColumnModel[];
 
   constructor(private readonly matDialog: MatDialog) {
+    this.addTestClicked = new EventEmitter<string>();
+    this.deleteprofileTestClicked = new EventEmitter<string>();
     this.manageButtonClicked = new EventEmitter<string>();
   }
 
@@ -40,12 +44,17 @@ export class ProfileTestListDataTableComponent implements OnInit {
   public onEditProfileTestClicked(profiletest: ProfileTestModel): void {
     this.editProfileTestClicked.emit(profiletest);
   }
-
+  public onDeleteProfileTestClicked(profileTestId: string): void {
+    this.deleteprofileTestClicked.emit(profileTestId);
+  }
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
   public onManageButtonClicked(dosCode: string): void {
     this.manageButtonClicked.emit(dosCode);
+  }
+  public onAddCombineTestClicked(testId: string): void {
+    this.addTestClicked.emit(testId);
   }
 
   private _initializeDisplayedColumns(): void {
