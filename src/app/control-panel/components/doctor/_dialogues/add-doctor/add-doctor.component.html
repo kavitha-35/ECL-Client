@@ -22,43 +22,66 @@
 
               <!-- Content -->
               <section class="basic-content">
-
                 <!-- Doctor Name -->
-                <mat-form-field >
+                <mat-form-field>
                   <mat-label>Doctor Name</mat-label>
-                  <input matInput placeholder="Doctor Name" class="uppercase" name="doctorName" ngModel #doctorName="ngModel" pattern="[a-zA-Z]*" required  />
-                <mat-hint>
-                  <div *ngIf="doctorName.invalid && (doctorName.dirty ||doctorName.touched) " class= "validation">
-                    <div *ngIf="doctorName.errors.required" >doctorname is required</div>
-                    <div *ngIf="doctorName.errors?.pattern" >text is required</div>
-                  </div>
-                </mat-hint>
+                  <input
+                    matInput
+                    placeholder="Doctor Name"
+                    class="uppercase"
+                    name="doctorName"
+                    ngModel
+                    #doctorName="ngModel"
+                    pattern="[a-zA-Z]*"
+                    required
+                  />
+                  <mat-hint>
+                    <div *ngIf="doctorName.invalid && (doctorName.dirty || doctorName.touched)" class="validation">
+                      <div *ngIf="doctorName.errors.required">doctorname is required</div>
+                      <div *ngIf="doctorName.errors?.pattern">text is required</div>
+                    </div>
+                  </mat-hint>
                 </mat-form-field>
 
                 <!-- Active-->
                 <section class="pt-19">
                   <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
                 </section>
-                
+
                 <!-- Organization-->
                 <mat-form-field class="mt-n7">
                   <mat-label>Organization</mat-label>
                   <mat-select disableOptionCentering name="organizationId" ngModel #organizationId="ngModel">
-                    <mat-option *ngFor="let item of organisations" [value]="item.id">{{item.organisation}}
+                    <mat-option *ngFor="let item of organisations" [value]="item.id"
+                      >{{ item.organisation }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-            
+
                 <!-- Date of Birth -->
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" name="dateOfBirth" ngModel #dateOfBirth="ngModel" />
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Date Of Birth"
+                    name="dateOfBirth"
+                    ngModel
+                    #dateOfBirth="ngModel"
+                  />
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
 
                 <!-- Date of Anniversary -->
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker1" placeholder="Date Of Anniversary" name="dateOfAnniversary" ngModel #dateOfAnniversary="ngModel" />
+                  <input
+                    matInput
+                    [matDatepicker]="picker1"
+                    placeholder="Date Of Anniversary"
+                    name="dateOfAnniversary"
+                    ngModel
+                    #dateOfAnniversary="ngModel"
+                  />
                   <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                   <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
@@ -66,15 +89,15 @@
                 <!-- Doctor Speciality -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Doctor Speciality</mat-label>
-                  <mat-select disableOptionCentering name=doctorSpeciality ngModel #doctorSpeciality="ngModel">
-                    <mat-option *ngFor="let options of specialities"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                  <mat-select disableOptionCentering name="doctorSpeciality" ngModel #doctorSpeciality="ngModel">
+                    <mat-option *ngFor="let options of specialities" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                
-                
-                 <!-- Email-->
-                 <mat-form-field>
+                <!-- Email-->
+                <mat-form-field>
                   <mat-label>Email</mat-label>
                   <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
                 </mat-form-field>
@@ -82,28 +105,46 @@
                 <!-- Telephone -->
                 <mat-form-field>
                   <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" name="telephone" ngModel #telephone="ngModel" pattern="[0-9]+" minlength=10  required/>
-                
-                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched) " >
-                    <mat-error *ngIf="telephone.errors.required" >telephone is required</mat-error>
-                    <mat-error *ngIf="telephone.errors?.pattern" >number is required</mat-error>
+                  <input
+                    matInput
+                    placeholder="Telephone"
+                    name="telephone"
+                    ngModel
+                    #telephone="ngModel"
+                    pattern="[0-9]+"
+                    minlength="10"
+                    required
+                  />
+
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
+                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
                   </mat-error>
                 </mat-form-field>
 
                 <!-- Mobile Number -->
                 <mat-form-field>
                   <mat-label>Mobile Number</mat-label>
-                  <input matInput placeholder="Mobile Number" name="mobileNumber" ngModel #mobileNumber="ngModel" pattern="[0-9]+" minlength=10  required/>
-                
-                  <mat-error *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched) " >
-                    <mat-error *ngIf="mobileNumber.errors.required" >mobileNumber is required</mat-error>
-                    <mat-error *ngIf="mobileNumber.errors?.pattern" >number is required</mat-error>
+                  <input
+                    matInput
+                    placeholder="Mobile Number"
+                    name="mobileNumber"
+                    ngModel
+                    #mobileNumber="ngModel"
+                    pattern="[0-9]+"
+                    minlength="10"
+                    required
+                  />
+
+                  <mat-error *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
+                    <mat-error *ngIf="mobileNumber.errors.required">mobileNumber is required</mat-error>
+                    <mat-error *ngIf="mobileNumber.errors?.pattern">number is required</mat-error>
                   </mat-error>
                 </mat-form-field>
               </section>
             </section>
 
-                <!-- Address Information -->
+            <!-- Address Information -->
             <section class="address-information-wrapper">
               <!-- Header -->
               <app-section-header title="Address Information"></app-section-header>
@@ -113,16 +154,18 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <textarea matInput placeholder="Address" class="uppercase" name="address" ngModel #address="ngModel" required ></textarea>
-                  <mat-error *ngIf="address.invalid && (address.dirty || address.touched) " >
-                    <mat-error *ngIf="address.errors.required" >Address is required</mat-error>
+                  <textarea
+                    matInput
+                    placeholder="Address"
+                    class="uppercase"
+                    name="address"
+                    ngModel
+                    #address="ngModel"
+                    required
+                  ></textarea>
+                  <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
+                    <mat-error *ngIf="address.errors.required">Address is required</mat-error>
                   </mat-error>
-                </mat-form-field>
-
-                 <!-- P.O.Box -->
-                 <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
                 </mat-form-field>
 
                 <!-- Area -->
@@ -135,7 +178,9 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
-                    <mat-option *ngFor="let options of cities"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -143,11 +188,19 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
-                    <mat-option *ngFor="let options of countries"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
-                </section>
-                </section>
+
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
 
             <!-- Social Media -->
             <section class="social-media-information-wrapper">
@@ -155,30 +208,35 @@
               <app-section-header title="Social Media"></app-section-header>
               <!-- Content -->
               <section class="social-media-content">
-
                 <!-- Whatsapp Number -->
                 <mat-form-field>
                   <mat-label>Whatsapp Number </mat-label>
-                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel #whatsappNumber ="ngModel" />
+                  <input
+                    matInput
+                    placeholder="Whatsapp Number "
+                    name="whatsappNumber "
+                    ngModel
+                    #whatsappNumber="ngModel"
+                  />
                 </mat-form-field>
 
-               <!-- Facebook Id -->
-               <mat-form-field>
-                <mat-label>Facebook Id</mat-label>
-                <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
-              </mat-form-field>
+                <!-- Facebook Id -->
+                <mat-form-field>
+                  <mat-label>Facebook Id</mat-label>
+                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                </mat-form-field>
 
-               <!-- Instagram Id-->
-               <mat-form-field>
-                <mat-label>Instagram Id </mat-label>
-                <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
-              </mat-form-field>
-             
-              <!-- Twitter Id-->
-              <mat-form-field>
-                <mat-label>Twitter Id </mat-label>
-                <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
-              </mat-form-field>
+                <!-- Instagram Id-->
+                <mat-form-field>
+                  <mat-label>Instagram Id </mat-label>
+                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                </mat-form-field>
+
+                <!-- Twitter Id-->
+                <mat-form-field>
+                  <mat-label>Twitter Id </mat-label>
+                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                </mat-form-field>
               </section>
             </section>
 
@@ -189,10 +247,16 @@
 
               <!-- Content -->
               <section class="user-credentials-content">
+                <!-- Url -->
+                <mat-form-field>
+                  <mat-label>URL</mat-label>
+                  <input matInput placeholder="URL" name="url" ngModel #url="ngModel" />
+                </mat-form-field>
+
                 <!-- User name -->
                 <mat-form-field>
                   <mat-label>User Name</mat-label>
-                  <input matInput placeholder="User Name" name="userName" ngModel #userName="ngModel"/>
+                  <input matInput placeholder="User Name" name="userName" ngModel #userName="ngModel" />
                 </mat-form-field>
 
                 <!-- Password -->
@@ -205,7 +269,9 @@
           </form>
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddDoctorButtonClicked(doctor)">Add Doctor</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddDoctorButtonClicked(doctor)">
+              Add Doctor
+            </button>
           </section>
         </section>
       </mat-dialog-content>
