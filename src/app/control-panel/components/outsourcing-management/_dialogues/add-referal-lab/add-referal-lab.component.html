@@ -236,6 +236,16 @@
                 <section class="contactperson-information-content">
                   <!-- Contact person Mode -->
 
+                   <!-- Department-->
+                   <mat-form-field class="mt-n7">
+                    <mat-label> Department</mat-label>
+                    <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
+                      <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
+                        options.departmentName
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
                   <!-- Designation  -->
                   <mat-form-field>
                     <mat-label>Designation</mat-label>
@@ -249,15 +259,7 @@
                     />
                   </mat-form-field>
 
-                  <!-- Department-->
-                  <mat-form-field class="mt-n7">
-                    <mat-label> Department</mat-label>
-                    <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
-                      <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
-                        options.departmentName
-                      }}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
+                 
 
                   <!-- Contact Person Name  -->
                   <mat-form-field>
@@ -274,10 +276,10 @@
 
                   <!-- Mobile -->
                   <mat-form-field>
-                    <mat-label>Mobile</mat-label>
+                    <mat-label>Mobile Number</mat-label>
                     <input
                       matInput
-                      placeholder="Mobile"
+                      placeholder="Mobile Number"
                       name="mobile{{ i }}"
                       #mobile="ngModel"
                       pattern="[0-9]*"
@@ -306,6 +308,32 @@
                       <mat-error *ngIf="email.errors.required">Email is required</mat-error>
                       <mat-error *ngIf="email.errors?.pattern">abc@gmail.com format is required</mat-error>
                     </mat-error>
+                  </mat-form-field>
+
+                  <!-- Date of Birth -->
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      name="dateOfBirth{{ i }}"
+                      placeholder="Date Of Birth"
+                      [(ngModel)]="contact.dateOfBirth"
+                    />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <!-- Date of Anniversary -->
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="anniversary"
+                      name="dateOfAnniversary{{ i }}"
+                      placeholder="Date Of Anniversary"
+                      [(ngModel)]="contact.dateOfAnniversary"
+                    />
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
                   </mat-form-field>
 
                   <!-- Whatsapp Number -->
@@ -421,7 +449,7 @@
             <!-- Login Information -->
             <section class="login-information-wrapper">
               <!-- Header -->
-              <app-section-header title="Login Information"></app-section-header>
+              <app-section-header title="Login & Access"></app-section-header>
               <!-- Content -->
               <section class="login-information-content">
                 <!-- URL -->

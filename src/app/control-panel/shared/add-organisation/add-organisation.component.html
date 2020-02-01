@@ -151,6 +151,12 @@
                   <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
                 </mat-form-field>
 
+                <!-- Mobile Number-->
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput placeholder="Mobile Number" name="mobileNumber" ngModel #mobileNumber="ngModel" />
+                </mat-form-field>
+
                 <!-- Telephone -->
                 <mat-form-field>
                   <mat-label>Telephone</mat-label>
@@ -173,6 +179,45 @@
               </section>
             </section>
 
+            <!-- Social Media Wrapper -->
+            <section class="social-media-wrapper">
+              <!-- Header -->
+              <app-section-header title="Social Media"></app-section-header>
+
+              <!-- Content -->
+              <section class="social-media-content">
+                <!-- Whatsapp Number -->
+                <mat-form-field>
+                  <mat-label>Whatsapp Number </mat-label>
+                  <input
+                    matInput
+                    placeholder="Whatsapp Number "
+                    name="whatsappNumber "
+                    ngModel
+                    #whatsappNumber="ngModel"
+                  />
+                </mat-form-field>
+
+                <!-- Facebook Id -->
+                <mat-form-field>
+                  <mat-label>Facebook Id </mat-label>
+                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                </mat-form-field>
+
+                <!-- Instagram Id-->
+                <mat-form-field>
+                  <mat-label>Instagram Id </mat-label>
+                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                </mat-form-field>
+
+                <!-- Twitter Id-->
+                <mat-form-field>
+                  <mat-label>Twitter Id </mat-label>
+                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+
             <!-- Contact person -->
             <section class="contactperson-information-wrapper" *ngIf="contactPersonList">
               <!-- Header -->
@@ -180,6 +225,16 @@
               <!-- Content -->
               <ng-container *ngFor="let contact of contactPersonList; let i = index">
                 <section class="contactperson-information-content">
+                  <!-- Department -->
+                  <mat-form-field class="mt-n7">
+                    <mat-label>Department</mat-label>
+                    <mat-select disableOptionCentering name="departmentId{{ i }}" [(ngModel)]="contact.departmentId">
+                      <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
+                        options.keyValue
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
                   <!-- Designation -->
                   <mat-form-field>
                     <mat-label>Designation</mat-label>
@@ -189,16 +244,6 @@
                       name="designation{{ i }}"
                       [(ngModel)]="contact.designation"
                     />
-                  </mat-form-field>
-
-                  <!-- Department -->
-                  <mat-form-field class="mt-n7">
-                    <mat-label>Department</mat-label>
-                    <mat-select disableOptionCentering name="departmentId{{ i }}" [(ngModel)]="contact.departmentId">
-                      <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
-                        options.keyValue
-                      }}</mat-option>
-                    </mat-select>
                   </mat-form-field>
 
                   <!-- Contact Person Name -->
@@ -222,25 +267,12 @@
                     </mat-error>
                   </mat-form-field>
 
-                  <!-- Date of Birth -->
-                  <mat-form-field>
-                    <input
-                      matInput
-                      [matDatepicker]="picker"
-                      name="dateOfBirth{{ i }}"
-                      placeholder="Date Of Birth"
-                      [(ngModel)]="contact.dateOfBirth"
-                    />
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
-
                   <!-- Mobile -->
                   <mat-form-field>
-                    <mat-label>Mobile</mat-label>
+                    <mat-label>Mobile Number</mat-label>
                     <input
                       matInput
-                      placeholder="Mobile"
+                      placeholder="Mobile Number"
                       name="mobile{{ i }}"
                       [(ngModel)]="contact.mobile"
                       pattern="[0-9]+"
@@ -275,6 +307,32 @@
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                       required
                     />
+                  </mat-form-field>
+
+                  <!-- Date of Birth -->
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      name="dateOfBirth{{ i }}"
+                      placeholder="Date Of Birth"
+                      [(ngModel)]="contact.dateOfBirth"
+                    />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <!-- Date of Anniversary -->
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="picker1"
+                      name="dateOfAnniversary{{ i }}"
+                      placeholder="Date Of Anniversary"
+                      [(ngModel)]="contact.dateOfAnniversary"
+                    />
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
                   </mat-form-field>
 
                   <!-- Whatsapp Number -->
@@ -353,44 +411,6 @@
               </section>
             </section>
 
-            <!-- Social Media Wrapper -->
-            <section class="social-media-wrapper">
-              <!-- Header -->
-              <app-section-header title="Social Media"></app-section-header>
-
-              <!-- Content -->
-              <section class="social-media-content">
-                <!-- Whatsapp Number -->
-                <mat-form-field>
-                  <mat-label>Whatsapp Number </mat-label>
-                  <input
-                    matInput
-                    placeholder="Whatsapp Number "
-                    name="whatsappNumber "
-                    ngModel
-                    #whatsappNumber="ngModel"
-                  />
-                </mat-form-field>
-
-                <!-- Facebook Id -->
-                <mat-form-field>
-                  <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
-                </mat-form-field>
-
-                <!-- Instagram Id-->
-                <mat-form-field>
-                  <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
-                </mat-form-field>
-
-                <!-- Twitter Id-->
-                <mat-form-field>
-                  <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
-                </mat-form-field>
-              </section>
-            </section>
             <!-- constract -->
             <section class="contract-wrapper">
               <!-- Header -->
@@ -435,21 +455,12 @@
                   </button>
                 </section>
 
-                <!-- Header -->
+                <!-- Template -->
                 <section class="label">
-                  Header
-                  <button mat-button color="primary" (click)="header.click()">
+                  Template
+                  <button mat-button color="primary" (click)="template.click()">
                     <span>Upload</span>
-                    <input #header type="file" (change)="onHeaderInput($event)" style="display:none;" />
-                  </button>
-                </section>
-
-                <!-- Footer -->
-                <section class="label">
-                  Footer
-                  <button mat-button color="primary" (click)="footer.click()">
-                    <span>Upload</span>
-                    <input #footer type="file" (change)="onFooterInput($event)" style="display:none;" />
+                    <input #template type="file" (change)="onTemplateInput($event)" style="display:none;" />
                   </button>
                 </section>
               </section>
@@ -515,7 +526,7 @@
 
                 <!-- Email Report -->
                 <mat-slide-toggle color="primary" name="emailReport" ngModel #emailReport="ngModel"
-                  >Email Report</mat-slide-toggle
+                  >Email Report(Part/Final)</mat-slide-toggle
                 >
 
                 <!-- Active SMS -->
@@ -567,6 +578,12 @@
                     <mat-option value="Debit Card">
                       Debit Card
                     </mat-option>
+                    <mat-option value="cheque">
+                      Cheque
+                    </mat-option>
+                    <mat-option value="Payment Gateway">
+                      Payment Gateway
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -599,14 +616,11 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Billing Cycle</mat-label>
                   <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
-                    <mat-option value="2">
+                    <mat-option value="1">
                       BiMonthly
                     </mat-option>
-                    <mat-option value="3">
-                      Quarter Monthly
-                    </mat-option>
-                    <mat-option value="6">
-                      Half Monthly
+                    <mat-option value="2">
+                      Monthly
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
