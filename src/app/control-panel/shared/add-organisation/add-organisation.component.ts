@@ -13,7 +13,7 @@ import { ImageService } from 'app/control-panel/services/image.service';
   styleUrls: ['./add-organisation.component.scss'],
 })
 export class AddOrganisationComponent implements OnInit {
-  contract: string;
+  public contract: string;
   public relations: LookUpModel[];
   public cities: LookUpModel[];
   public countries: LookUpModel[];
@@ -28,11 +28,10 @@ export class AddOrganisationComponent implements OnInit {
   public currencies: LookUpModel[];
   public contactPersonList: ContactPerson[] = [];
   public organisationTypes: LookUpModel[];
-  departments: LookUpModel[];
-  logo: string;
-  priceList: string;
-  footer: string;
-  header: string;
+  public departments: LookUpModel[];
+  public logo: string;
+  public priceList: string;
+  public template: string;
   constructor(
     private readonly dialogRef: MatDialogRef<AddOrganisationComponent>,
     private readonly _lookUpService: LookupService,
@@ -55,7 +54,7 @@ export class AddOrganisationComponent implements OnInit {
     organisation.form.value.contactPerson = this.contactPersonList;
     organisation.form.value.contract = this.contract;
     organisation.form.value.logo = this.logo;
-    organisation.form.value.header = this.header;
+    organisation.form.value.template = this.template;
     organisation.form.value.priceList = this.priceList;
     console.log(organisation.form.value);
     this._organisationService.addOrganisation(organisation.form.value).subscribe((data) => {
@@ -99,26 +98,14 @@ export class AddOrganisationComponent implements OnInit {
     }
   }
 
-  onHeaderInput(event: any): void {
+  onTemplateInput(event: any): void {
     const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
       const file: File = fileList[0];
       const formData: FormData = new FormData();
       formData.append('uploadFile', file, file.name);
       this._imageService.fileUpload(formData).subscribe((data) => {
-        this.header = data;
-      });
-    }
-  }
-
-  onFooterInput(event: any): void {
-    const fileList: FileList = event.target.files;
-    if (fileList.length > 0) {
-      const file: File = fileList[0];
-      const formData: FormData = new FormData();
-      formData.append('uploadFile', file, file.name);
-      this._imageService.fileUpload(formData).subscribe((data) => {
-        this.footer = data;
+        this.template = data;
       });
     }
   }
