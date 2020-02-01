@@ -12,6 +12,7 @@ import { MethodModel } from 'app/control-panel/models/method/method.model';
 import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.model';
 import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
 import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
+import { ReferenceRangeModel, ReferenceRange } from 'app/control-panel/models/reference-range/reference-range. model';
 
 @Component({
   selector: 'app-add-individual-test',
@@ -27,6 +28,7 @@ export class AddIndividualTestComponent implements OnInit {
   public accrediationSymbols: LookUpModel[];
   public editorConfig: any;
   public accrediationSymbolsFilter: LookUpModel[];
+  referenceRangeList: ReferenceRange[] = [];
   constructor(
     private readonly dialogRef: MatDialogRef<AddIndividualTestComponent>,
     private readonly _individualTestService: IndividualTestService,
@@ -65,6 +67,7 @@ export class AddIndividualTestComponent implements OnInit {
   ngOnInit(): void {
     this.getProcessingCenter();
     this.getUnits();
+    this.addReferenceRange();
     this.getEquipments();
     this.getMethods();
     this.getAccrediationSymbol();
@@ -122,6 +125,18 @@ export class AddIndividualTestComponent implements OnInit {
       if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
         this.accrediationSymbols.push(option);
       }
+    }
+  }
+
+  public addReferenceRange(): void {
+    this.referenceRangeList.push(new ReferenceRange());
+    console.log(this.referenceRangeList);
+  }
+
+  public cancelReferenceRange(referenceRange: ReferenceRange): void {
+    const index: number = this.referenceRangeList.indexOf(referenceRange);
+    if (index !== -1) {
+      this.referenceRangeList.splice(index, 1);
     }
   }
 }

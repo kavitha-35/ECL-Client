@@ -48,6 +48,7 @@ export class ContactPerson {
   mobile: string;
   contactPersonName: string;
   dateOfBirth?: string;
+  dateOfAnniversary?: string;
   email: string;
   departmentId: number;
   telephone?: string;
