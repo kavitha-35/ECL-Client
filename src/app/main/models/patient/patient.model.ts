@@ -1,3 +1,5 @@
+import { CombinedTestModel } from "app/control-panel/models/test-master/combined-test/combined-test.model";
+
 export class PatientModel {
   id            : string;
   registrationType          : string;
@@ -24,4 +26,5 @@ export class PatientModel {
   documentUploadId: string;
   drivingLicense: string;
   activeStatus: string;
+  tests: CombinedTestModel[];
 }

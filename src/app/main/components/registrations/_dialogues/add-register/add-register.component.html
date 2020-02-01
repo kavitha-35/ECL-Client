@@ -128,13 +128,8 @@
                 <!-- Whatsapp Number -->
                 <mat-form-field>
                   <mat-label>Whatsapp Number </mat-label>
-                  <input
-                    matInput
-                    placeholder="Whatsapp Number "
-                    name="whatsappNumber "
-                    ngModel
-                    #whatsappNumber="ngModel"
-                  />
+                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber " ngModel
+                    #whatsappNumber="ngModel" />
                 </mat-form-field>
 
                 <!-- Facebook Id -->
@@ -155,8 +150,9 @@
                   <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
                 </mat-form-field>
               </section>
+            </section>
 
-              <section class="social-media-wrapper">
+            <section class="social-media-wrapper">
               <app-section-header title="Referral Information"></app-section-header>
               <section class="social-media-content">
                 <!-- Referral Organization -->
@@ -186,9 +182,9 @@
                   <textarea matInput maxlength="10" placeholder="clinical History" class="uppercase"></textarea>
                 </mat-form-field>
               </section>
-              </section>
+            </section>
 
-              <section class="test-wrapper">
+            <section class="test-wrapper">
               <app-section-header title="Test(s) Information"></app-section-header>
               <section class="test-content">
 
@@ -204,8 +200,9 @@
                     <mat-icon matsuffix>search</mat-icon>
                   </button>
                 </mat-form-field> -->
-                <mat-form-field  class="full-width">
-                  <input matInput type="text" (keyup)="searchQuery($event)" placeholder="Search for Tests" [matAutocomplete]="search" />
+                <mat-form-field class="full-width">
+                  <input matInput type="text" (keyup)="searchQuery($event)" placeholder="Search for Tests"
+                    [matAutocomplete]="search" />
                   <mat-autocomplete #search="matAutocomplete">
                     <mat-option *ngFor="let element of selectedCombinedTests" (click)="selectedAutoComplete(element)">
                       {{ element.testName }}
@@ -213,6 +210,14 @@
                   </mat-autocomplete>
                   <mat-icon matSuffix>search</mat-icon>
                 </mat-form-field>
+              </section>
+              <mat-divider></mat-divider>
+              <app-link-test [linkedTests]="combinedTestData" showDeleteIcon="true"></app-link-test>
+
+              <!-- No Linked Record(s) Message -->
+              <section fxLayout fxLayoutAlign="center center" class="mat-card-subtitle mt-3 mb-3"
+                *ngIf="!combinedTestData">
+                No Linked Tests
               </section>
             </section>
 
@@ -249,8 +254,8 @@
                   <input matInput maxlength="10" placeholder="Sub Network" />
                 </mat-form-field>
               </section>
-              </section>
-              <section class="document-wrapper">
+            </section>
+            <section class="document-wrapper">
               <app-section-header title="Document Upload"></app-section-header>
               <section class="document-content">
                 <mat-form-field>
@@ -270,15 +275,14 @@
                 </section>
               </section>
             </section>
+        </form>
         </section>
-          </form>
 
-          <section class="action-buttons-wrapper">
-            <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary">
-              Add registration
-            </button>
-          </section>
+        <section class="action-buttons-wrapper">
+          <button mat-button color="primary" matDialogClose>Clear</button>
+          <button mat-raised-button color="primary" (click)="onAddRegisterClicked()">
+            Add registration
+          </button>
         </section>
       </mat-dialog-content>
     </section>
