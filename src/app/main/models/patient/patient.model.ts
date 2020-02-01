@@ -1,18 +1,18 @@
-import { CombinedTestModel } from "app/control-panel/models/test-master/combined-test/combined-test.model";
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
 
 export class PatientModel {
-  id            : string;
-  registrationType          : string;
-  fullName         : string;
-  age : string;
-  dateOfBirth        : string;
-  gender          : string;
-  landLine   : string;
-  mobile  : string;
-  email           : string;
-  address    : string;
+  id: string;
+  registrationType: string;
+  fullName: string;
+  age: string;
+  dateOfBirth: string;
+  gender: string;
+  landLine: string;
+  mobile: string;
+  email: string;
+  address: string;
   poBox: string;
-  area          : string;
+  area: string;
   city: string;
   country: number;
   whatsapp: string;
