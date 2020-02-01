@@ -33,6 +33,11 @@ export class LinkTestComponent implements OnInit {
     this.table.renderRows();
   }
 
+  public removeRow(rowIndex: number): void {
+    this.linkedTests.splice(rowIndex, 1);
+    this.refreshTable();
+  }
+
   private _initializeDisplayColumns(): void {
     this.displayedColumns = [
       'nestedSymbol',

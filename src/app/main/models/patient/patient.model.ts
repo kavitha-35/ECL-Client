@@ -1,12 +1,38 @@
-export interface PatientModel {
-  id            : string;
-  name          : string;
-  email         : string;
-  phoneNumber   : string;
-  mobileNumber  : string;
-  age           : string;
-  gender        : string;
-  area          : string;
-  postalCode    : string;
-  city          : string;
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+
+export class PatientModel {
+  id: string;
+  registrationType: string;
+  fullName: string;
+  age: string;
+  dateOfBirth: string;
+  gender: string;
+  landLine: string;
+  mobile: string;
+  email: string;
+  address: string;
+  poBox: string;
+  area: string;
+  city: string;
+  country: number;
+  whatsappNumber: string;
+  facebook: string;
+  instagram: string;
+  twitter: string;
+  organizationId: number;
+  physician: number;
+  fileNo: number;
+  clinicalHistory: string;
+  testInformation: string;
+  memberNumber: string;
+  employeeNumber: string;
+  validity: string;
+  network: string;
+  subNetwork: string;
+  photo: string;
+  emiratesId: string;
+  documentUploadId: string;
+  drivingLicense: string;
+  activeStatus: string;
+  tests: CombinedTestModel[];
 }

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig, PageEvent } from '@angular/material';
+import { MatDialog, MatDialogConfig, PageEvent, MatDialogRef } from '@angular/material';
 import { take } from 'rxjs/operators';
 import { EditProfileTestComponent } from './_dialogues/edit-profile-test/edit-profile-test.component';
 import { AddProfileTestComponent } from './_dialogues/add-profile-test/add-profile-test.component';
 import { ProfileTestModel } from 'app/control-panel/models/test-master/profile-test/profile-test.model';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
+import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
+import { LinkTestToProfiletestComponent } from './_dialogues/link-test-to-profiletest/link-test-to-profiletest.component';
 
 @Component({
   selector: 'app-profile-test',
@@ -28,18 +30,31 @@ export class ProfileTestComponent implements OnInit {
 
   constructor(
     private readonly matDialog: MatDialog,
+    private readonly profileTestService: ProfileTestService,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
+    private _profileTest: ProfileTestService
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
   }
 
   ngOnInit(): void {
+    this.getProfileDetails();
     this._initializeValues();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
+  }
+
+  public getProfileDetails(): void {
+    this._profileTest.getProfileDetails().subscribe(
+      (data) => {
+        this.tests = data;
+        console.log('_profileTest', this.tests);
+      },
+      (err) => console.log('_profileTest', err),
+    );
   }
 
   public onAddProfileTestButtonClicked(): void {
@@ -109,5 +124,29 @@ export class ProfileTestComponent implements OnInit {
     // ];
 
     this.tests = [];
+  }
+  public onAddButtonClicked(testId: string): void {
+    const dialogRef = this.matDialog.open(LinkTestToProfiletestComponent, this.matDialogConfig);
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data[0] === 'save') {
+        const Payload = data[1].map((combinetest) => {
+          return {
+            profileTestId: testId,
+            individualTestId: combinetest.combineTestId,
+            ActiveStatus: 1,
+          };
+        });
+        this.profileTestService.addCombineTestToProfileTest(Payload).subscribe((recievedData) => {
+          this.getAllProfileTest();
+        });
+      }
+    });
+  }
+  public getAllProfileTest(): void {
+    this.isFetchingTests = true;
+    this._profileTest.getAllTests().subscribe((data: ProfileTestModel[]) => {
+      this.tests = data;
+      this.isFetchingTests = false;
+    });
   }
 }

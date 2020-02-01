@@ -13,6 +13,7 @@ export class AppointmentModel {
   area            : string;
   city            : string;
   country         : string;
+  address: string;
   constructor() {}
 }
 
