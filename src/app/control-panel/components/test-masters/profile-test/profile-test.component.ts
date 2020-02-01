@@ -7,6 +7,7 @@ import { ProfileTestModel } from 'app/control-panel/models/test-master/profile-t
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
 import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
+import { LinkTestToProfiletestComponent } from './_dialogues/link-test-to-profiletest/link-test-to-profiletest.component';
 
 @Component({
   selector: 'app-profile-test',
@@ -29,6 +30,7 @@ export class ProfileTestComponent implements OnInit {
 
   constructor(
     private readonly matDialog: MatDialog,
+    private readonly profileTestService: ProfileTestService,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
     private _profileTest: ProfileTestService
@@ -122,5 +124,29 @@ export class ProfileTestComponent implements OnInit {
     // ];
 
     this.tests = [];
+  }
+  public onAddButtonClicked(testId: string): void {
+    const dialogRef = this.matDialog.open(LinkTestToProfiletestComponent, this.matDialogConfig);
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data[0] === 'save') {
+        const Payload = data[1].map((combinetest) => {
+          return {
+            profileTestId: testId,
+            individualTestId: combinetest.combineTestId,
+            ActiveStatus: 1,
+          };
+        });
+        this.profileTestService.addCombineTestToProfileTest(Payload).subscribe((recievedData) => {
+          this.getAllProfileTest();
+        });
+      }
+    });
+  }
+  public getAllProfileTest(): void {
+    this.isFetchingTests = true;
+    this._profileTest.getAllTests().subscribe((data: ProfileTestModel[]) => {
+      this.tests = data;
+      this.isFetchingTests = false;
+    });
   }
 }
