@@ -51,7 +51,7 @@ export class AddRegisterComponent implements OnInit {
   }
 
   public onAddRegisterClicked(): void {
-    this.patient['tests'] = this.combinedTestData;
+    this.patient.tests = this.combinedTestData;
     console.log('patient payload', this.patient);
     this._patientService.savePatient(this.patient).subscribe((data) => {
       this._dialogRef.close();
