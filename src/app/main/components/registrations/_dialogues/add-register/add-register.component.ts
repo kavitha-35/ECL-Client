@@ -21,15 +21,15 @@ import { LinkTestComponent } from 'app/main/components/registration/add-registra
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddRegisterComponent implements OnInit {
-  public organisations : OrganisationModel[];
+  public organisations: OrganisationModel[];
   public patient: PatientModel = new PatientModel();
-  public combinedTestData          : CombinedTestModel[] = [];
+  public combinedTestData: CombinedTestModel[] = [];
   public combinedTests: CombinedTestModel[];
   public selectedCombinedTests: CombinedTestModel[];
   public countries: LookUpModel[];
   public cities: LookUpModel[];
   isBusy: boolean;
-  @ViewChild(LinkTestComponent, {static: false}) private linkTestComponent: LinkTestComponent;
+  @ViewChild(LinkTestComponent, { static: false }) private linkTestComponent: LinkTestComponent;
 
   groupById: number;
   orderById: number;
@@ -40,7 +40,7 @@ export class AddRegisterComponent implements OnInit {
     private readonly _combinedTestService: CombinedTestService,
     private readonly _dialogRef: MatDialogRef<AddRegisterComponent>,
     private readonly _organisationservice: OrganisationService,
-    private readonly _patientService: PatientServices
+    private readonly _patientService: PatientServices,
   ) {}
 
   ngOnInit(): void {
