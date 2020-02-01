@@ -244,16 +244,16 @@
                     />
                   </mat-form-field>
 
-                  <!-- Department-->
-                  <mat-form-field class="mt-n7">
-                    <mat-label> Department</mat-label>
-                    <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
-                      <input matInput placeholder ="Search Department" (keyup)="onDepartmentSearch($event.target.value)">
-                      <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
-                        options.departmentName
-                      }}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
+                 <!-- Department-->
+                 <mat-form-field class="mt-n7">
+                  <mat-label> Department</mat-label>
+                  <mat-select disableOptionCenteringn name="department" [(ngModel)]="contact.departmentId">
+                    <input matInput placeholder ="Search Department" (keyup)="onDepartmentSearch($event.target.value)">
+                    <mat-option *ngFor="let options of selectedDepartments" [value]="options.departmentId">{{
+                      options.departmentName
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
 
                   <!-- Contact Person Name  -->
                   <mat-form-field>

@@ -20,7 +20,7 @@ import { ReferenceRangeModel, ReferenceRange } from 'app/control-panel/models/re
   styleUrls: ['./add-individual-test.component.scss'],
 })
 export class AddIndividualTestComponent implements OnInit {
-  public processingCenter: OutsourcingManagementModel[];
+  public processingCenters: OutsourcingManagementModel[];
   public units: LookUpModel[];
   public doctor: DoctorModel[];
   public methods: MethodModel[];
@@ -29,6 +29,7 @@ export class AddIndividualTestComponent implements OnInit {
   public editorConfig: any;
   public accrediationSymbolsFilter: LookUpModel[];
   referenceRangeList: ReferenceRange[] = [];
+  public selectedprocessingCenters: OutsourcingManagementModel[];
   constructor(
     private readonly dialogRef: MatDialogRef<AddIndividualTestComponent>,
     private readonly _individualTestService: IndividualTestService,
@@ -81,8 +82,10 @@ export class AddIndividualTestComponent implements OnInit {
   }
 
   public getProcessingCenter(): void {
-    this._outsourceService.getAllOutsourcing().subscribe((data) => {
-      this.processingCenter = data;
+    this._outsourceService.getAllOutsourcing().subscribe((data: OutsourcingManagementModel[]) => {
+      this.selectedprocessingCenters = data;
+      this.processingCenters = this.selectedprocessingCenters;
+      console.log(data);
     });
   }
   public getUnits(): void {
@@ -139,4 +142,13 @@ export class AddIndividualTestComponent implements OnInit {
       this.referenceRangeList.splice(index, 1);
     }
   }
+
+  public onProcessingCenterSearch(value: string): void {
+    this.selectedprocessingCenters = this._filterProcessingCenter(value);
+}
+
+private _filterProcessingCenter(value: string): OutsourcingManagementModel[] {
+  const filterValue = value.toLowerCase();
+  return this.processingCenters.filter((option) => option.labName.toLowerCase().includes(filterValue));
+}
 }

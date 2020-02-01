@@ -91,6 +91,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Equipment</mat-label>
                   <mat-select disableOptionCentering name="equipmentId" ngModel #equipmentId="ngModel">
+                    <input matInput placeholder ="Search Equipment" (keyup)="onEquipmentSearch($event.target.value)">
                     <mat-option *ngFor="let options of equipments" [value]="options.equipmentId">{{
                       options.equipmentName
                     }}</mat-option>
@@ -100,8 +101,9 @@
                 <!-- Processing center -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Processing center</mat-label>
-                  <mat-select disableOptionCentering name="processingCentreId" ngModel #processingCentreId="ngModel">
-                    <mat-option *ngFor="let options of processingCenter" [value]="options.outsourceId">{{
+                  <mat-select disableOptionCenteringn name="processingCentreId" [(ngModel)]="processingCentreId">
+                    <input matInput placeholder ="Search processingCentre" (keyup)="onProcessingCentreSearch($event.target.value)">
+                    <mat-option *ngFor="let options of selectedprocessingCenters" [value]="options.outsourceId">{{
                       options.labName
                     }}</mat-option>
                   </mat-select>
@@ -123,6 +125,7 @@
                 <mat-form-field>
                   <mat-label>Method</mat-label>
                   <mat-select disableOptionCentering name="methodId" ngModel #methodId="ngModel">
+                    <input matInput placeholder ="Search Method" (keyup)="onMethodSearch($event.target.value)">
                     <mat-option *ngFor="let options of methods" [value]="options.methodId">{{
                       options.methodName
                     }}</mat-option>

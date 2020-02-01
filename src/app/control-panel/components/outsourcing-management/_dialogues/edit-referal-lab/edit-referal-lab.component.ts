@@ -25,7 +25,7 @@ export class EditReferalLabComponent implements OnInit {
   courierFilter: LookUpModel[];
   citieFilter: LookUpModel[];
   countryFilter: LookUpModel[];
-  departmentFilter: DepartmentModel[];
+  public selectedDepartments: DepartmentModel[];
   constructor(
     private readonly _dialogRef: MatDialogRef<EditReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
@@ -76,8 +76,8 @@ export class EditReferalLabComponent implements OnInit {
 
   public getdepartments(): void {
     this._departmentService.getAllDepartments().subscribe((data: DepartmentModel[]) => {
-      this.departments = data;
-      this.departmentFilter = this.departments;
+      this.selectedDepartments = data;
+      this.departments = this.selectedDepartments;
       console.log(data);
     });
   }
@@ -150,21 +150,11 @@ export class EditReferalLabComponent implements OnInit {
   }
 
   public onDepartmentSearch(value: string): void {
-    if (value) {
-      this.departmentSearch(value);
-    } else {
-      this.departments = this.departmentFilter;
-    }
-  }
+    this.selectedDepartments = this._filterDepartment(value);
+}
 
-  public departmentSearch(value: string): void {
-    this.departments = [];
-    const filter = value.toLowerCase();
-    for (let i = 0; i < this.departmentFilter.length; i++) {
-      const option = this.departmentFilter[i];
-      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
-        this.departments.push(option);
-      }
-    }
-  }
+private _filterDepartment(value: string): DepartmentModel[] {
+  const filterValue = value.toLowerCase();
+  return this.departments.filter((option) => option.departmentName.toLowerCase().includes(filterValue));
+}
 }

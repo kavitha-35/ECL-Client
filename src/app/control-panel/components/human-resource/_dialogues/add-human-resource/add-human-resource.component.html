@@ -44,8 +44,12 @@
 
                 <!-- Department -->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Department</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-label> Department</mat-label>
+                  <mat-select disableOptionCenteringn name="department" [(ngModel)]="contact.departmentId">
+                    <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
+                      options.departmentName
+                    }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- DOB -->
