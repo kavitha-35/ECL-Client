@@ -38,27 +38,42 @@
                   <input matInput placeholder="Asset Id" name="assetId" class="uppercase" ngModel #assetId="ngModel" required />
                 </mat-form-field>
 
-
-                <!-- Brand -->
-                <mat-form-field>
+                 <!-- Brand -->
+                 <mat-form-field>
                   <mat-label>Brand</mat-label>
-                  <mat-select disableOptionCentering name="brandId" ngModel #brandId="ngModel">
-                    <mat-option *ngFor="let options of brands" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
+                  <input matInput placeholder="Brand" name="Brand" class="uppercase" ngModel #Brand="ngModel" required />
                 </mat-form-field>
-
+                
                 <!-- Puchase Date -->
                 <mat-form-field>
                   <mat-label>Puchase Date</mat-label>
                   <input matInput placeholder="Puchase Date" name="puchaseDate" class="uppercase" ngModel #puchaseDate="ngModel" required/>
                 </mat-form-field>
 
-                <!-- Puchase From -->
+                <!-- Interface Type -->
                 <mat-form-field>
-                  <mat-label>Puchase From</mat-label>
-                  <input matInput placeholder="Puchase From" name="puchaseFrom" class="uppercase" ngModel #puchaseFrom="ngModel" required/>
+                  <mat-label>Interface Type</mat-label>
+                  <mat-select disableOptionCentering name="interfaceType" ngModel #interfaceType="ngModel">
+                    <mat-option value="1">
+                      Yes
+                    </mat-option>
+                    <mat-option value="2">
+                      No
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Analysed -->
+                <mat-form-field>
+                  <mat-label>Analysed</mat-label>
+                  <mat-select disableOptionCentering name="analysed" ngModel #analysed="ngModel">
+                    <mat-option value="1">
+                      Yes
+                    </mat-option>
+                    <mat-option value="2">
+                      No
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!--Manufacturer Model -->

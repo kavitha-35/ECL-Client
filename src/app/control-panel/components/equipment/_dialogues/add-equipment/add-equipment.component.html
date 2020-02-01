@@ -40,7 +40,6 @@
                   <input matInput placeholder="Asset Id" name="assetId" class="uppercase" ngModel #assetId="ngModel" required />
                 </mat-form-field>
 
-
                 <!-- Brand -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Brand</mat-label>
@@ -60,7 +59,20 @@
                 <!-- Interface Type -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Interface Type</mat-label>
-                  <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
+                  <mat-select disableOptionCentering name="interfaceType" ngModel #interfaceType="ngModel">
+                    <mat-option value="1">
+                      Yes
+                    </mat-option>
+                    <mat-option value="2">
+                      No
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Interface Type -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Analysed</mat-label>
+                  <mat-select disableOptionCentering name="analysed" ngModel #analysed="ngModel">
                     <mat-option value="1">
                       Yes
                     </mat-option>
