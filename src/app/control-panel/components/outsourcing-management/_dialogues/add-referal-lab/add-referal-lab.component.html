@@ -202,27 +202,26 @@
                     matInput
                     placeholder="Whatsapp Number "
                     name="whatsappNumber "
-                    ngModel
-                    #whatsappNumber="ngModel"
+                    [(ngModel)]="outsource.whatsapp"
                   />
                 </mat-form-field>
 
                 <!-- Facebook Id -->
                 <mat-form-field>
                   <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                  <input matInput placeholder="Facebook Id" name="facebook" [(ngModel)]="outsource.facebook" />
                 </mat-form-field>
 
                 <!-- Instagram Id-->
                 <mat-form-field>
                   <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                  <input matInput placeholder="Instagram Id" name="instagram" [(ngModel)]="outsource.instagram" />
                 </mat-form-field>
 
                 <!-- Twitter Id-->
                 <mat-form-field>
                   <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                  <input matInput placeholder="Twitter Id" name="twitter" [(ngModel)]="outsource.twitter" />
                 </mat-form-field>
               </section>
             </section>
@@ -327,7 +326,7 @@
                   <mat-form-field>
                     <input
                       matInput
-                      [matDatepicker]="anniversary"
+                      [matDatepicker]="picker1"
                       name="dateOfAnniversary{{ i }}"
                       placeholder="Date Of Anniversary"
                       [(ngModel)]="contact.dateOfAnniversary"
@@ -342,28 +341,27 @@
                     <input
                       matInput
                       placeholder="Whatsapp Number "
-                      name="whatsappNumber "
-                      ngModel
-                      #whatsappNumber="ngModel"
+                      name="whatsappNumber{{ i }} "
+                      [(ngModel)]="contact.whatsapp"
                     />
                   </mat-form-field>
 
                   <!-- Facebook Id -->
                   <mat-form-field>
                     <mat-label>Facebook Id </mat-label>
-                    <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                    <input matInput placeholder="Facebook Id" name="facebook{{ i }}" [(ngModel)]="contact.faceook" />
                   </mat-form-field>
 
                   <!-- Instagram Id-->
                   <mat-form-field>
                     <mat-label>Instagram Id </mat-label>
-                    <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                    <input matInput placeholder="Instagram Id" name="instagram{{ i }}" [(ngModel)]="contact.instagram" />
                   </mat-form-field>
 
                   <!-- Twitter Id-->
                   <mat-form-field>
                     <mat-label>Twitter Id </mat-label>
-                    <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                    <input matInput placeholder="Twitter Id" name="twitter{{ i }}" ngModel [(ngModel)]="contact.twitter" />
                   </mat-form-field>
                 </section>
 

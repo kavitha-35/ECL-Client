@@ -18,6 +18,10 @@ export class AddOutsourcingManagementModel {
   contactPerson: string;
   contactPersons: ContactPerson[];
   email: string;
+  facebook: string;
+  whatsapp: string;
+  twitter: string;
+  instagram: string;
   paymentMethod: string;
   creditPeriod: string;
   creditLimit: string;
