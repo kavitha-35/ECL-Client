@@ -164,20 +164,18 @@
                     <mat-select
                       disableOptionCentering
                       placeholder="Days"
-                      name="tatMinutes"
+                      name="tatDays"
                       ngModel
-                      #tatMinutes="ngModel"
+                      #tatDays="ngModel"
                     >
-                      <mat-option>1</mat-option>
+                      <mat-option *ngFor="let option of days">1</mat-option>
                       <mat-option>2</mat-option>
                       <mat-option>3</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field style="width: 100px;">
                     <mat-select disableOptionCentering placeholder="Hours" name="tatHours" ngModel #tatHours="ngModel">
-                      <mat-option>1</mat-option>
-                      <mat-option>2</mat-option>
-                      <mat-option>3</mat-option>
+                      <mat-option *ngFor="let option of hours">{{option}}</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field style="width: 100px;">

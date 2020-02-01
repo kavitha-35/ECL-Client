@@ -78,6 +78,10 @@ export class OutsourcingManagementModel {
   fax: string;
   web: string;
   region: string;
+  facebook: string;
+  whatsapp: string;
+  twitter: string;
+  instagram: string;
   country: CountryModel;
   interfacingType: string;
   courier: CourierModel;
