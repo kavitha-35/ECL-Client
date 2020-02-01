@@ -12,7 +12,7 @@ import { MethodModel } from 'app/control-panel/models/method/method.model';
 import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.model';
 import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
 import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
-import { ReferenceRangeModel, ReferenceRange } from 'app/control-panel/models/reference-range/reference-range. model';
+import { ReferenceRange, ValuesModel } from 'app/control-panel/models/reference-range/reference-range. model';
 
 @Component({
   selector: 'app-add-individual-test',
@@ -20,6 +20,8 @@ import { ReferenceRangeModel, ReferenceRange } from 'app/control-panel/models/re
   styleUrls: ['./add-individual-test.component.scss'],
 })
 export class AddIndividualTestComponent implements OnInit {
+  value: string;
+  deleteValue: string;
   public processingCenter: OutsourcingManagementModel[];
   public units: LookUpModel[];
   public doctor: DoctorModel[];
@@ -29,9 +31,10 @@ export class AddIndividualTestComponent implements OnInit {
   public editorConfig: any;
   public accrediationSymbolsFilter: LookUpModel[];
   referenceRangeList: ReferenceRange[] = [];
-  hours: number[];
-  days: number[];
-  minutes: number[];
+  minutes: number[] = [];
+  hours: number[] = [];
+  days: number[] = [];
+  values: string[] = [];
   constructor(
     private readonly dialogRef: MatDialogRef<AddIndividualTestComponent>,
     private readonly _individualTestService: IndividualTestService,
@@ -40,9 +43,8 @@ export class AddIndividualTestComponent implements OnInit {
     private readonly _methodService: MethodService,
     private readonly _outsourceService: OutsourceManagementService,
   ) {
-    for (let i = 1; i < 25; i++) {
-      this.hours[i] = i;
-    }
+    this.value = '';
+    this.deleteValue = '';
     this.editorConfig = {
       uiColor: '#ffffff',
       toolbarGroups: [
@@ -77,13 +79,38 @@ export class AddIndividualTestComponent implements OnInit {
     this.getEquipments();
     this.getMethods();
     this.getAccrediationSymbol();
+    this.initializeValues();
   }
 
   public onAddIndividualTestButtonClicked(individualTest: NgForm): void {
+    individualTest.form.value.referenceRange = this.referenceRangeList;
     console.log(individualTest.form.value);
     this._individualTestService.addIndividualTest(individualTest.form.value).subscribe(() => {
       this.dialogRef.close();
     });
+  }
+
+  public initializeValues(): void {
+    for (let i = 1; i < 25; i++) {
+      this.hours.push(i);
+    }
+    for (let i = 1; i < 61; i++) {
+      this.minutes.push(i);
+    }
+    for (let i = 1; i < 91; i++) {
+      this.days.push(i);
+    }
+  }
+
+  onAddValuesClicked(): void {
+    this.values.push(this.value);
+  }
+
+  onDeleteValuesClicked(): void {
+    const index = this.values.indexOf(this.deleteValue);
+    if (index >= 0) {
+      this.values.splice(index, 1);
+    }
   }
 
   public getProcessingCenter(): void {
@@ -135,8 +162,9 @@ export class AddIndividualTestComponent implements OnInit {
   }
 
   public addReferenceRange(): void {
-    this.referenceRangeList.push(new ReferenceRange());
-    console.log(this.referenceRangeList);
+    const referenceRange = new ReferenceRange();
+    referenceRange.values = this.values;
+    this.referenceRangeList.push(referenceRange);
   }
 
   public cancelReferenceRange(referenceRange: ReferenceRange): void {

@@ -161,21 +161,13 @@
                 <section class="tat">
                   <mat-label class="tatcolor">TAT</mat-label>
                   <mat-form-field style="width: 100px;">
-                    <mat-select
-                      disableOptionCentering
-                      placeholder="Days"
-                      name="tatDays"
-                      ngModel
-                      #tatDays="ngModel"
-                    >
-                      <mat-option *ngFor="let option of days">1</mat-option>
-                      <mat-option>2</mat-option>
-                      <mat-option>3</mat-option>
+                    <mat-select disableOptionCentering placeholder="Days" name="tatDays" ngModel #tatDays="ngModel">
+                      <mat-option *ngFor="let option of days" [value]="option">{{ option }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field style="width: 100px;">
                     <mat-select disableOptionCentering placeholder="Hours" name="tatHours" ngModel #tatHours="ngModel">
-                      <mat-option *ngFor="let option of hours">{{option}}</mat-option>
+                      <mat-option *ngFor="let option of hours" [value]="option">{{ option }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field style="width: 100px;">
@@ -186,9 +178,7 @@
                       ngModel
                       #tatMinutes="ngModel"
                     >
-                      <mat-option>1</mat-option>
-                      <mat-option>2</mat-option>
-                      <mat-option>3</mat-option>
+                      <mat-option *ngFor="let option of minutes" [value]="option">{{ option }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </section>
@@ -207,9 +197,9 @@
                     <mat-form-field class="mt-n7">
                       <mat-label>Age Range</mat-label>
                       <mat-select
-                        name="ageRange"
+                        name="ageRange{{i}}"
                         disableOptionCentering
-                        placeholder="Age Range (in Days)"
+                        placeholder="Age Range"
                         [(ngModel)]="referenceRange.ageRange"
                       >
                         <mat-option value="Age Range (in Days)">Age Range (in Days)</mat-option>
@@ -221,16 +211,16 @@
                     <!-- AGE -->
                     <section class="age">
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="lower age" name="lowerAge" [(ngModel)]="referenceRange.lowerAge" />
+                        <input matInput placeholder="lower age" name="lowerAge{{i}}" [(ngModel)]="referenceRange.lowerAge" />
                       </mat-form-field>
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="upper age" name="upperAge" [(ngModel)]="referenceRange.upperAge" />
+                        <input matInput placeholder="upper age" name="upperAge{{i}}" [(ngModel)]="referenceRange.upperAge" />
                       </mat-form-field>
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="Min" name="min" [(ngModel)]="referenceRange.min" />
+                        <input matInput placeholder="Min" name="min{{i}}" [(ngModel)]="referenceRange.min" />
                       </mat-form-field>
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="Max" name="max" [(ngModel)]="referenceRange.max" />
+                        <input matInput placeholder="Max" name="max{{i}}" [(ngModel)]="referenceRange.max" />
                       </mat-form-field>
                     </section>
                   </section>
@@ -243,25 +233,34 @@
                       <!--Enter Values -->
                       <mat-form-field>
                         <mat-label>Enter Values</mat-label>
-                        <input matInput placeholder="Enter Values" name="value" [(ngModel)]="referenceRange.value" />
+                        <input matInput placeholder="Enter Values" name="value" [(ngModel)]="value" />
                       </mat-form-field>
 
                       <section class="pl-100">
                         <!-- Enter Values -->
-                        <button mat-raised-button class="mr-16" color="primary">Add</button>
-                        <button mat-raised-button class="mr-0" color="warn">Delete</button>
+                        <button mat-raised-button class="mr-16" color="primary" (click)="onAddValuesClicked()">
+                          Add
+                        </button>
+                        <button mat-raised-button class="mr-0" color="warn" (click)="onDeleteValuesClicked()">
+                          Delete
+                        </button>
                       </section>
                       <!-- Added Values  -->
                       <mat-form-field>
                         <mat-label>Values</mat-label>
-                        <mat-select disableOptionCentering placeholder="Values">
-                          <mat-option></mat-option>
+                        <mat-select
+                          disableOptionCentering
+                          name="deleteValue"
+                          placeholder="Values"
+                          [(ngModel)]="deleteValue"
+                        >
+                          <mat-option *ngFor="let option of values" [value]="option">{{ option }}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </section>
                     <mat-form-field>
                       <mat-label>Alternate Result</mat-label>
-                      <mat-select disableOptionCentering name="result" [(ngModel)]="referenceRange.alternateResult">
+                      <mat-select disableOptionCentering name="alternateResult{{i}}" [(ngModel)]="referenceRange.alternateResult">
                         <mat-option value="0">
                           Normal
                         </mat-option>
@@ -278,7 +277,7 @@
                     <!-- Male Range -->
                     <mat-label>Description </mat-label>
                     <ckeditor
-                      name="description"
+                      name="description{{i}}"
                       [config]="editorConfig"
                       debounce="500"
                       [(ngModel)]="referenceRange.description"
@@ -295,6 +294,7 @@
                       <input
                         matInput
                         placeholder="Min"
+                        name="criticalRangeMin {{i}}"
                         [(ngModel)]="referenceRange.criticalRangeMin"
                         #criticalRangeMin="ngModel"
                       />
@@ -303,6 +303,7 @@
                     <mat-form-field>
                       <input
                         matInput
+                        name="criticalRangeMax {{i}}"
                         placeholder="Max"
                         [(ngModel)]="referenceRange.criticalRangeMax"
                         #criticalRangeMax="ngModel"
