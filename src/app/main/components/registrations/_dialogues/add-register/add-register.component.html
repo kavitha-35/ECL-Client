@@ -191,11 +191,27 @@
               <section class="test-wrapper">
               <app-section-header title="Test(s) Information"></app-section-header>
               <section class="test-content">
-                <mat-form-field class="full-width">
-                  <input matInput type="text" placeholder="Search for Test(s)" />
+
+
+                <!-- <mat-form-field class="full-width">
+                  <input matInput type="text" placeholder="Search for Test(s)" (keyup)="searchQuery($event)" [matAutocomplete]="search" />
+                  <mat-autocomplete #search="matAutocomplete">
+                    <mat-option *ngFor="let element of selectedTests" (click)="selectedAutoComplete(element)">
+                      {{ element.testComponent }}
+                    </mat-option>
+                  </mat-autocomplete>
                   <button mat-button matSuffix mat-icon-button>
-                    <mat-icon>search</mat-icon>
+                    <mat-icon matsuffix>search</mat-icon>
                   </button>
+                </mat-form-field> -->
+                <mat-form-field  class="full-width">
+                  <input matInput type="text" (keyup)="searchQuery($event)" placeholder="Search for Tests" [matAutocomplete]="search" />
+                  <mat-autocomplete #search="matAutocomplete">
+                    <mat-option *ngFor="let element of selectedCombinedTests" (click)="selectedAutoComplete(element)">
+                      {{ element.testName }}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-icon matSuffix>search</mat-icon>
                 </mat-form-field>
               </section>
             </section>
