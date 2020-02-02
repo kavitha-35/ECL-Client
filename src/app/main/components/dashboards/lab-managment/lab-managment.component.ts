@@ -10,7 +10,7 @@ export class LabManagmentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

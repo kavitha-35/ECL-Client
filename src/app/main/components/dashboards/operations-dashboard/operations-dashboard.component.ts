@@ -10,7 +10,7 @@ export class OperationsDashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }
