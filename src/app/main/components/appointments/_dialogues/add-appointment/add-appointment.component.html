@@ -62,6 +62,17 @@
                 </mat-radio-group>
               </section>
 
+              <!--Age  -->
+              <mat-form-field>
+                <mat-label>Age</mat-label>
+                <input matInput placeholder="Age"
+                name="age"
+                #landline="ngModel"
+                pattern="[0-9]*"
+                required
+                [(ngModel)]="appointment.age"/>
+              </mat-form-field>
+
               <!-- Landline Number -->
               <mat-form-field>
                 <mat-label>Landline Number</mat-label>
@@ -75,10 +86,10 @@
 
               <!-- Mobile Number -->
               <mat-form-field>
-                <mat-label>Mobile</mat-label>
+                <mat-label>Mobile Number</mat-label>
                 <input
                   matInput
-                  placeholder="Mobile"
+                  placeholder="Mobile Number"
                   name="mobile"
                   #mobile="ngModel"
                   pattern="[0-9]*"
@@ -131,17 +142,7 @@
               <!-- Area -->
               <mat-form-field class="mt-n7">
                 <mat-label>Area</mat-label>
-                <mat-select disableOptionCentering name="area" [(ngModel)]="appointment.area">
-                  <mat-option value="gulfarea">
-                    Gulf Area
-                  </mat-option>
-                  <mat-option value="deira">
-                    Deira
-                  </mat-option>
-                  <mat-option value="burdubai">
-                    Bur Dubai
-                  </mat-option>
-                </mat-select>
+                  <input matInput placeholder="Address" name="address" [(ngModel)]="appointment.area" />
               </mat-form-field>
 
               <!-- City -->

@@ -7,7 +7,7 @@ export class PatientModel {
   age: string;
   dateOfBirth: string;
   gender: string;
-  landLine: string;
+  landline: string;
   mobile: string;
   email: string;
   address: string;
@@ -19,7 +19,7 @@ export class PatientModel {
   facebook: string;
   instagram: string;
   twitter: string;
-  organizationId: number;
+  organization: number;
   physician: number;
   fileNo: number;
   clinicalHistory: string;

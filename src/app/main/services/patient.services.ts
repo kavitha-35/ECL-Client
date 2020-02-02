@@ -35,10 +35,10 @@ export class PatientServices {
     return this.httpClient.put<GetPatientResponseModel[]>(apiUrl, { headers: headers });
   }
 
-  savePatient(patient: PatientModel): Observable<PatientModel> {
+  savePatient(patient: PatientModel): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
-    return this.httpClient.post<PatientModel>(apiUrl, patient, { headers: headers });
+    return this.httpClient.post<any>(apiUrl, patient, { headers: headers });
   }
 }

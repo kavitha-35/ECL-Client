@@ -17,13 +17,13 @@ import { MatTable } from '@angular/material';
   ],
 })
 export class LinkTestComponent implements OnInit {
+  @Input() public linkedTests: CombinedTestModel[];
+  @Input() public showLinkIcon: boolean;
+  @Input() public showDeleteIcon: boolean;
 
-  @Input() public linkedTests           : CombinedTestModel[];
-  @Input() public showLinkIcon          : boolean;
-  @Input() public showDeleteIcon        : boolean;
-
-  public displayedColumns               : string[];
-  @ViewChild(MatTable, {static: false}) table: MatTable<any>;
+  public displayedColumns: string[];
+  @ViewChild(MatTable, { static: false }) table: MatTable<any>;
+  public expansionColumns: string[];
 
   ngOnInit(): void {
     this._initializeDisplayColumns();
@@ -41,12 +41,22 @@ export class LinkTestComponent implements OnInit {
   private _initializeDisplayColumns(): void {
     this.displayedColumns = [
       'nestedSymbol',
+      'stat',
+      'date',
+      'combineTestId',
+      'testName',
+      'cost',
+      'discount',
+      'testPrice',
+      'action',
+    ];
+    this.expansionColumns = [
+      'nestedSymbol',
       'combineTestId',
       'testName',
       'netFee',
       'action'
-    ];
+
+    ]
   }
-
 }
-
