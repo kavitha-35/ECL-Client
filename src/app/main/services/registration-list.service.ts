@@ -8,7 +8,7 @@ import { RegistrationListModel } from '../models/registration-list/registration-
   providedIn: 'root'
 })
 export class RegistrationListService {
-  private readonly routePrefix = 'registrationList';
+  private readonly routePrefix = 'registration';
 
   constructor(private httpClient: HttpClient) { }
 

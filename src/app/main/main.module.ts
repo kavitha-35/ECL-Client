@@ -151,7 +151,7 @@ import { PendingAccessionSearchComponent } from './components/accession/pending-
 import { PendingAccessionListComponent } from './components/accession/pending-accession/pending-accession-list/pending-accession-list.component';
 import { InsuranceDetailsComponent } from './components/registration/add-registration/insurance-details/insurance-details.component';
 import { LinkTestComponent } from './components/registration/add-registration/link-test/link-test.component';
-import { RegistrationTableComponent } from './components/registration/registration-table/registration-table.component';
+import { RegistrationTableComponent } from './components/registrations/registration-table/registration-table.component';
 import { ProblemSampleNotificationSearchComponent } from './components/accession/problem-sample-notification/problem-sample-notification-search/problem-sample-notification-search.component';
 import { ProblemSampleNotificationRibbonMenuComponent } from './components/accession/problem-sample-notification/problem-sample-notification-ribbon-menu/problem-sample-notification-ribbon-menu.component';
 import { ProblemSampleNotificationDataListComponent } from './components/accession/problem-sample-notification/problem-sample-notification-data-list/problem-sample-notification-data-list.component';
@@ -180,6 +180,10 @@ import { EditRegisterComponent } from './components/registrations/_dialogues/edi
 import { RegistrationRibbonMenuComponent } from './components/registrations/registration-ribbon-menu/registration-ribbon-menu.component';
 import { RegistrationSearchComponent } from './components/registrations/registration-search/registration-search.component';
 import { AddRegisterComponent } from './components/registrations/_dialogues/add-register/add-register.component';
+import { OperationsDashboardComponent } from './components/dashboards/operations-dashboard/operations-dashboard.component';
+import { ManagementInformationComponent } from './components/dashboards/management-information/management-information.component';
+import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
+import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
 
 
 @NgModule({
@@ -318,7 +322,11 @@ import { AddRegisterComponent } from './components/registrations/_dialogues/add-
     AddRegisterComponent,
     EditRegisterComponent,
     RegistrationRibbonMenuComponent,
-    RegistrationSearchComponent
+    RegistrationSearchComponent,
+    OperationsDashboardComponent,
+    ManagementInformationComponent,
+    LabManagmentComponent,
+    FinanceManagementComponent
   ],
   providers: [
     DatePipe,
