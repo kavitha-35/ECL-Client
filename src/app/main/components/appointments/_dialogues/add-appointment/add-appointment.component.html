@@ -123,13 +123,10 @@
 
               <!-- P.O.Box -->
               <mat-form-field>
-                <mat-label>P.O.Box</mat-label>
-                <input matInput placeholder="P.O.Box" />
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Address" name="address" [(ngModel)]="appointment.address" />
               </mat-form-field>
-              <mat-form-field>
-                <mat-label>P.O.Box</mat-label>
-                <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="appointment.poBox" />
-              </mat-form-field>
+              
 
               <!-- Area -->
               <mat-form-field class="mt-n7">
@@ -165,6 +162,12 @@
                     options.keyValue
                   }}</mat-option>
                 </mat-select>
+              </mat-form-field>
+
+              <!-- post Box -->
+              <mat-form-field>
+                <mat-label>P.O.Box</mat-label>
+                <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="appointment.poBox" />
               </mat-form-field>
               </section>
             </section>

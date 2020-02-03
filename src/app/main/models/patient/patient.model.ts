@@ -1,21 +1,31 @@
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+
 export class PatientModel {
-  id            : string;
-  registrationType          : string;
-  fullName         : string;
-  landLine   : string;
-  mobile  : string;
-  email           : string;
-  dateOfBirth        : string;
-  gender          : string;
-  address    : string;
-  area          : string;
-  country: number;
+  id: string;
+  registrationType: string;
+  fullName: string;
+  age: string;
+  dateOfBirth: string;
+  gender: string;
+  landLine: string;
+  mobile: string;
+  email: string;
+  address: string;
   poBox: string;
+  area: string;
   city: string;
-  organization: number;
+  country: number;
+  whatsappNumber: string;
+  facebook: string;
+  instagram: string;
+  twitter: string;
+  organizationId: number;
   physician: number;
-  memberNo: number;
-  employeeNo: string;
+  fileNo: number;
+  clinicalHistory: string;
+  testInformation: string;
+  memberNumber: string;
+  employeeNumber: string;
   validity: string;
   network: string;
   subNetwork: string;
@@ -24,4 +34,5 @@ export class PatientModel {
   documentUploadId: string;
   drivingLicense: string;
   activeStatus: string;
+  tests: CombinedTestModel[];
 }
