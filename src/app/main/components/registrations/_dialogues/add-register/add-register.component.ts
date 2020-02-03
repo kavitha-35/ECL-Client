@@ -26,8 +26,10 @@ export class AddRegisterComponent implements OnInit {
   public combinedTestData: CombinedTestModel[] = [];
   public combinedTests: CombinedTestModel[];
   public selectedCombinedTests: CombinedTestModel[];
-  public countries: LookUpModel[];
   public cities: LookUpModel[];
+  cityFilter: LookUpModel[];
+  public countries: LookUpModel[];
+  countryFilter: LookUpModel[];
   isBusy: boolean;
   @ViewChild(LinkTestComponent, { static: false }) private linkTestComponent: LinkTestComponent;
 
@@ -84,11 +86,15 @@ export class AddRegisterComponent implements OnInit {
   public getCities(): void {
     this._lookUpService.getLookUp('city').subscribe((data: LookUpModel[]) => {
       this.cities = data;
+      this.cityFilter = this.cities;
+      console.log(data);
     });
   }
+
   public getCountries(): void {
     this._lookUpService.getLookUp('country').subscribe((data: LookUpModel[]) => {
       this.countries = data;
+      this.countryFilter = this.countries;
       console.log(data);
     });
   }
@@ -96,5 +102,41 @@ export class AddRegisterComponent implements OnInit {
     this._organisationservice.getAllOrganisations().subscribe((data) => {
       this.organisations = data;
     });
+  }
+  public onCountrySearch(value: string): void {
+    if (value) {
+      this.countrySearch(value);
+    } else {
+      this.countries = this.countryFilter;
+    }
+  }
+
+  public countrySearch(value: string): void {
+    this.countries = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.countryFilter.length; i++) {
+      const option = this.countryFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.countries.push(option);
+      }
+    }
+  }
+  public onCitySearch(value: string): void {
+    if (value) {
+      this.citySearch(value);
+    } else {
+      this.cities = this.cityFilter;
+    }
+  }
+
+  public citySearch(value: string): void {
+    this.cities = [];
+    const filter = value.toLowerCase();
+    for (let i = 0; i < this.cityFilter.length; i++) {
+      const option = this.cityFilter[i];
+      if (option.keyValue.toLowerCase().indexOf(filter) >= 0) {
+        this.cities.push(option);
+      }
+    }
   }
 }

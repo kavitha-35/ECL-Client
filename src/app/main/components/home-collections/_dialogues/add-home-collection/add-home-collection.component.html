@@ -61,18 +61,14 @@
               <app-section-header title="Address Information"></app-section-header>
               <!-- Content -->
               <section class="address-information-content">
-                <!-- Postal Code -->
-                <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput maxlength="10" placeholder="P.O.Box" />
-                </mat-form-field>
-                <!-- Area -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Area</mat-label>
-                  <mat-select disableOptionCentering placeholder="Area">
+                 <!-- Country -->
+                 <mat-form-field>
+                  <mat-label>Country</mat-label>
+                  <mat-select disableOptionCentering placeholder="Country">
                     <mat-option></mat-option>
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> 
+                
                 <!-- City -->
                 <mat-form-field>
                   <mat-label>City</mat-label>
@@ -80,13 +76,27 @@
                     <mat-option></mat-option>
                   </mat-select>
                 </mat-form-field>
-                <!-- Country -->
+
+                <!-- Address -->
+              <mat-form-field class="mt-n7">
+                <mat-label>Address</mat-label>
+                  <input matInput placeholder="Address"  />
+              </mat-form-field>
+
+                <!-- Area -->
+              <mat-form-field class="mt-n7">
+                <mat-label>Area</mat-label>
+                  <input matInput placeholder="Area"  />
+              </mat-form-field>
+
+                <!-- Postal Code -->
                 <mat-form-field>
-                  <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering placeholder="Country">
-                    <mat-option></mat-option>
-                  </mat-select>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput maxlength="10" placeholder="P.O.Box" />
                 </mat-form-field>
+               
+                
+               
               </section>
             </section>
 

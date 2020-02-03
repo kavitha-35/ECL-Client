@@ -87,42 +87,51 @@
             <section class="address-information-wrapper">
               <app-section-header title="Address Information"></app-section-header>
               <section class="address-information-content">
+
+                <!-- Country -->
+              <mat-form-field class="mt-n7">
+                <mat-label>Country</mat-label>
+                <mat-select disableOptionCentering name="country" [(ngModel)]="patient.country">
+                  <input matInput placeholder ="Search Country" (keyup)="onCountrySearch($event.target.value)">
+                  <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
+                    options.keyValue
+                  }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+               <!-- City -->
+               <mat-form-field class="mt-n7">
+                <mat-label>City</mat-label>
+                <mat-select disableOptionCenteringn name="city" [(ngModel)]="patient.city">
+                  <input matInput placeholder ="Search City" (keyup)="onCitySearch($event.target.value)">
+                  <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
+                    options.keyValue
+                  }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+                
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
                   <input matInput placeholder="Address" name="address" [(ngModel)]="patient.address" />
                 </mat-form-field>
 
-                <!-- P.O.Box -->
-                <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="poBox" [(ngModel)]="patient.poBox" />
-                </mat-form-field>
+               
                 <!-- Area -->
                 <mat-form-field>
                   <mat-label>Area</mat-label>
                   <input matInput placeholder="Area" name="area" [(ngModel)]="patient.area" />
                 </mat-form-field>
 
-                <!-- City -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>City</mat-label>
-                  <mat-select disableOptionCenteringn name="city" [(ngModel)]="patient.city">
-                    <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
+                 <!-- P.O.Box -->
+                 <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="poBox" [(ngModel)]="patient.poBox" />
                 </mat-form-field>
 
-                <!-- Country -->
-              <mat-form-field class="mt-n7">
-                <mat-label>Country</mat-label>
-                <mat-select disableOptionCentering name="country" [(ngModel)]="patient.country">
-                  <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                    options.keyValue
-                  }}</mat-option>
-                </mat-select>
-              </mat-form-field>
+               
+
+                
               </section>
             </section>
             <section class="social-media-wrapper">
