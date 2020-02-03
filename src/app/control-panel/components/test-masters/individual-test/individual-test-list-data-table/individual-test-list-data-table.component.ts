@@ -50,7 +50,6 @@ export class IndividualTestListDataTableComponent implements OnInit {
       { columnName: 'unit', displayValue: 'Unit', isSelected: true },
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
-      { columnName: 'comments', displayValue: 'Comments', isSelected: true },
       { columnName: 'activity', displayValue: 'Activity', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
