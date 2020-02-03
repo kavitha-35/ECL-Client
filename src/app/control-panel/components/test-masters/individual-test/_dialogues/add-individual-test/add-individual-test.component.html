@@ -135,7 +135,7 @@
                 <!-- Unit-->
                 <mat-form-field>
                   <mat-label>Unit</mat-label>
-                  <mat-select disableOptionCentering name="unitName" ngModel #unitName="ngModel">
+                  <mat-select disableOptionCentering name="unitId" ngModel #unitName="ngModel">
                     <mat-option *ngFor="let options of units" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
@@ -200,30 +200,40 @@
                     <mat-form-field class="mt-n7">
                       <mat-label>Age Range</mat-label>
                       <mat-select
-                        name="ageRange{{i}}"
+                        name="ageRange{{ i }}"
                         disableOptionCentering
                         placeholder="Age Range"
                         [(ngModel)]="referenceRange.ageRange"
                       >
-                        <mat-option value="Age Range (in Days)">Age Range (in Days)</mat-option>
-                        <mat-option value="Age Range (in Months)">Age Range (in Months)</mat-option>
-                        <mat-option value="Age Range (in Years)">Age Range (in Years)</mat-option>
+                        <mat-option [value]=1>Age Range (in Years)</mat-option>
+                        <mat-option [value]=1>Age Range (in Days)</mat-option>
+                        <mat-option [value]=1>Age Range (in Months)</mat-option>
                       </mat-select>
                     </mat-form-field>
 
                     <!-- AGE -->
                     <section class="age">
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="lower age" name="lowerAge{{i}}" [(ngModel)]="referenceRange.lowerAge" />
+                        <input
+                          matInput
+                          placeholder="lower age"
+                          name="lowerAge{{ i }}"
+                          [(ngModel)]="referenceRange.lowerAge"
+                        />
                       </mat-form-field>
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="upper age" name="upperAge{{i}}" [(ngModel)]="referenceRange.upperAge" />
+                        <input
+                          matInput
+                          placeholder="upper age"
+                          name="upperAge{{ i }}"
+                          [(ngModel)]="referenceRange.upperAge"
+                        />
                       </mat-form-field>
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="Min" name="min{{i}}" [(ngModel)]="referenceRange.min" />
+                        <input matInput placeholder="Min" name="min{{ i }}" [(ngModel)]="referenceRange.min" />
                       </mat-form-field>
                       <mat-form-field style="width: 100px;">
-                        <input matInput placeholder="Max" name="max{{i}}" [(ngModel)]="referenceRange.max" />
+                        <input matInput placeholder="Max" name="max{{ i }}" [(ngModel)]="referenceRange.max" />
                       </mat-form-field>
                     </section>
                   </section>
@@ -263,7 +273,11 @@
                     </section>
                     <mat-form-field>
                       <mat-label>Alternate Result</mat-label>
-                      <mat-select disableOptionCentering name="alternateResult{{i}}" [(ngModel)]="referenceRange.alternateResult">
+                      <mat-select
+                        disableOptionCentering
+                        name="alternateResult{{ i }}"
+                        [(ngModel)]="referenceRange.alternateResult"
+                      >
                         <mat-option value="0">
                           Normal
                         </mat-option>
@@ -280,7 +294,7 @@
                     <!-- Male Range -->
                     <mat-label>Description </mat-label>
                     <ckeditor
-                      name="description{{i}}"
+                      name="description{{ i }}"
                       [config]="editorConfig"
                       debounce="500"
                       [(ngModel)]="referenceRange.description"
@@ -297,7 +311,7 @@
                       <input
                         matInput
                         placeholder="Min"
-                        name="criticalRangeMin {{i}}"
+                        name="criticalRangeMin {{ i }}"
                         [(ngModel)]="referenceRange.criticalRangeMin"
                         #criticalRangeMin="ngModel"
                       />
@@ -306,7 +320,7 @@
                     <mat-form-field>
                       <input
                         matInput
-                        name="criticalRangeMax {{i}}"
+                        name="criticalRangeMax {{ i }}"
                         placeholder="Max"
                         [(ngModel)]="referenceRange.criticalRangeMax"
                         #criticalRangeMax="ngModel"
