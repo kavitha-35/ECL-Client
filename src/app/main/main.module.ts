@@ -326,7 +326,8 @@ import { FinanceManagementComponent } from './components/dashboards/finance-mana
     OperationsDashboardComponent,
     ManagementInformationComponent,
     LabManagmentComponent,
-    FinanceManagementComponent
+    FinanceManagementComponent,
+    RegistrationTableComponent
   ],
   providers: [
     DatePipe,
