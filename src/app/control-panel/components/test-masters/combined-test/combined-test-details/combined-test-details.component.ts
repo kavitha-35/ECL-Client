@@ -61,6 +61,9 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
+  public onDeleteIndividualTestMapping(individualTestId: string): void {
+  }
+
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
       { columnName: 'id', displayValue: 'ID', isSelected: true },
