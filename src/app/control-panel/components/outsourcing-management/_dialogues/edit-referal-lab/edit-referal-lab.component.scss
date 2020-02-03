@@ -32,6 +32,14 @@
         }
       }
 
+      .social-media-wrapper{
+        @include margin-bottom-18;
+
+        .social-media-content{
+          @include forms-grid;
+        }
+      }
+
       .address-information-wrapper {
         @include margin-bottom-18;
 

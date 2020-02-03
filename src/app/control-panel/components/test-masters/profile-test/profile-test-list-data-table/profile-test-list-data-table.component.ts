@@ -35,8 +35,6 @@ export class ProfileTestListDataTableComponent implements OnInit {
   @ViewChild(MatTable, {static: false}) table: MatTable<any>;
 
   constructor(
-    private readonly matDialog: MatDialog,
-    private readonly _dialogRef: MatDialogRef<ProfileTestComponent>,
     private readonly _profileTestService: ProfileTestService) {
     this.addTestClicked = new EventEmitter<string>();
     this.deleteprofileTestClicked = new EventEmitter<string>();
@@ -61,10 +59,6 @@ export class ProfileTestListDataTableComponent implements OnInit {
   }
   public onManageButtonClicked(dosCode: string): void {
     this.manageButtonClicked.emit(dosCode);
-  }
-  public onAddCombineTestClicked(testId: string): void {
-    this._dialogRef.close();
-    // this.addTestClicked.emit(testId);
   }
 
   public _getTests(): void {
