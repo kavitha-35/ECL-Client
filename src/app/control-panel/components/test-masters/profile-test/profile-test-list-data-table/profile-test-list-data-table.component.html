@@ -19,7 +19,7 @@
     <!-- Dos Code -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>DOS Code</th>
-      <td mat-cell *matCellDef="let element">{{ element.dosCode }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.eclDosCode }}</td>
     </ng-container>
 
     <!-- Test Id -->
@@ -55,7 +55,7 @@
     <!-- department -->
     <ng-container matColumnDef="department">
       <th mat-header-cell *matHeaderCellDef>Department</th>
-      <td mat-cell *matCellDef="let element">{{ element.department }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.department.departmentName }}</td>
     </ng-container>
 
     <!-- Location -->
