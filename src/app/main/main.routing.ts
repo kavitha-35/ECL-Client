@@ -45,6 +45,10 @@ import { BrochuresComponent } from './components/download-center/brochures/broch
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
 import { RegistrationsComponent } from './components/registrations/registrations.component';
+import { ManagementInformationComponent } from './components/dashboards/management-information/management-information.component';
+import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
+import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
+import { OperationsDashboardComponent } from './components/dashboards/operations-dashboard/operations-dashboard.component';
 
 export const routes: Routes = [
   {
@@ -65,15 +69,15 @@ export const routes: Routes = [
       },
       {
         path: 'about-us',
-        component: AboutUsComponent
+        component: AboutUsComponent,
       },
       {
         path: 'contact-us',
-        component: ContactUsComponent
+        component: ContactUsComponent,
       },
       {
         path: 'send-message',
-        component: SendMessageComponent
+        component: SendMessageComponent,
       },
       {
         path: 'reports',
@@ -105,11 +109,11 @@ export const routes: Routes = [
       },
       {
         path: 'google',
-        component: GoogleComponent
+        component: GoogleComponent,
       },
       {
         path: 'leaflet',
-        component: LeafletComponent
+        component: LeafletComponent,
       },
       {
         path: 'case',
@@ -222,6 +226,22 @@ export const routes: Routes = [
       {
         path: 'not-found',
         component: NotFoundComponent,
+      },
+      {
+        path: 'dashboard',
+        component: HomeDashboardComponent,
+      },
+      {
+        path: 'management-information',
+        component: ManagementInformationComponent,
+      },
+      {
+        path: 'lab-management',
+        component: LabManagmentComponent,
+      },
+      {
+        path: 'finance-management',
+        component: FinanceManagementComponent,
       },
       {
         path: '',

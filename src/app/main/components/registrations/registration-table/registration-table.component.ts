@@ -30,17 +30,19 @@ export class RegistrationTableComponent {
 
     this.filteredColumns = [
       { columnName: 'id', displayValue: 'SID', isSelected: true },
+      { columnName: 'visitId', displayValue: 'Visit ID', isSelected: true },
       { columnName: 'date', displayValue: 'Date', isSelected: true },
-      { columnName: 'name', displayValue: 'Name', isSelected: true },
+      { columnName: 'patientDetails', displayValue: 'Patient Details', isSelected: true },
       { columnName: 'organization', displayValue: 'Organization', isSelected: true },
       { columnName: 'physician', displayValue: 'Physician', isSelected: true },
+      { columnName: 'sample', displayValue: 'Sample', isSelected: true },
+      { columnName: 'tat', displayValue: 'TAT', isSelected: true },
+      { columnName: 'billingDate', displayValue: 'Billing Date', isSelected: true },
       { columnName: 'status', displayValue: 'Status', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
 
     this.displayedColumns = this.filteredColumns.map(x => x.columnName);
-
-    this.displayedColumns = ['id', 'date', 'name', 'organization', 'physician', 'status', 'action'];
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
