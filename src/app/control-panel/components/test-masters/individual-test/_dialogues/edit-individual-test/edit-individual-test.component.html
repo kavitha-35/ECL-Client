@@ -91,8 +91,8 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Processing center</mat-label>
                   <mat-select disableOptionCentering name="processingCentreId" [(ngModel)]="selectedForEdit.processingCenter.processingCenterId" #processingCentreId="ngModel">
-                    <mat-option *ngFor="let options of processingCenter" [value]="options.lookupId">{{
-                      options.keyValue
+                    <mat-option  *ngFor="let options of processingCenter" [value]="options.outsourceId">{{
+                      options.labName
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>

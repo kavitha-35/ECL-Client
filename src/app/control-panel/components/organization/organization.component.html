@@ -43,24 +43,24 @@
     <!-- List View -->
     <ng-template #listView>
       <app-organisation-list
-      [organisations]="organisations | slice: pageEvent.pageIndex:pageEvent.pageSize"></app-organisation-list
+      [organisations]="organisations"></app-organisation-list
           >
     </ng-template>
 
     <!-- Table View -->
     <ng-template #tableView>
       <app-organisation-list-data-table
-        [organisations]="organisations | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [organisations]="organisations"
         (editOrganisationClicked)="onEditOrganisationClicked()"
         [isBusy]="isFetchingOrganisations"
       ></app-organisation-list-data-table>
     </ng-template>
 
-    <mat-paginator
+    <!-- <mat-paginator
         [length]="organisations.length"
         [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = $event"
       >
-      </mat-paginator>
+      </mat-paginator> -->
   </mat-card>
 </section>
