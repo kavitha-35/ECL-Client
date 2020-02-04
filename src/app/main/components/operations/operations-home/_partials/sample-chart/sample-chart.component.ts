@@ -11,7 +11,7 @@ export class SampleChartComponent {
     responsive: true,
   };
   public barChartLabels = ['micro-bio', 'nano-particles', 'macro-bio', 'analytical'];
-  public barChartType = 'bar';
+  public barChartType = 'spline';
   public barChartLegend = true;
   public barChartData = [
     { data: [65, 59, 80, 81], label: 'This Week' },

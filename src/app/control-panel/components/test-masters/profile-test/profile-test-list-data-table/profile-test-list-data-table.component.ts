@@ -64,9 +64,6 @@ export class ProfileTestListDataTableComponent implements OnInit {
   public onManageButtonClicked(dosCode: string): void {
     this.manageButtonClicked.emit(dosCode);
   }
-  public onAddCombineTestClicked(testId: string): void {
-    this.addTestClicked.emit(testId);
-  }
 
   public _getTests(): void {
     this._profileTestService.getProfileDetails().subscribe(

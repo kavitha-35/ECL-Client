@@ -46,7 +46,7 @@ export class EditCombinedTestComponent implements OnInit {
   }
 
   public onEditTestClicked(): void {
-    this._combinedTestService.updateTest(this.test.testId + '', this.test).subscribe((data) => {
+    this._combinedTestService.updateTest(this.test.combineTestId + '', this.test).subscribe((data) => {
       this.dialogRef.close();
     });
   }

@@ -3,6 +3,19 @@ import { Menu } from '../models/menu/menu';
 
 const MENUITEMS: Menu[] = [
   {
+    state: 'dashboard',
+    name: 'Dashboards',
+    type: 'sub',
+    icon: 'bar_chart',
+    children: [
+      { state: 'dashboard', name: 'Home', type: 'link' },
+      { state: 'operations-home', name: 'Operations Management', type: 'link' },
+      { state: 'management-information', name: 'Management Information', type: 'link' },
+      { state: 'lab-management', name: 'Lab Management', type: 'link' },
+      { state: 'finance-management', name: 'Finance Management', type: 'link' },
+    ],
+  },
+  {
     state: 'apps',
     name: 'Apps',
     type: 'sub',
@@ -42,7 +55,7 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'supervised_user_circle',
     children: [
-      { state: 'patient', name: 'Add Registration', paramValue: 'registration', type: 'link' },
+      { state: 'registrations', name: 'Add Registration', paramValue: 'registration', type: 'link' },
       { state: 'patient', name: 'Revisit Registration', paramValue: 'revisit-registration', type: 'link' },
       { state: 'bulk-registration', name: 'Bulk Registration', type: 'link' },
       { state: 'additional-tests', name: 'Additional Tests', type: 'link' },
@@ -77,7 +90,6 @@ const MENUITEMS: Menu[] = [
     type: 'sub',
     icon: 'rate_review',
     children: [
-      { state: 'operations-home', name: 'Home', type: 'link' },
       {
         state: 'waiting-list',
         name: 'Waiting List',
@@ -189,7 +201,7 @@ const MENUITEMS: Menu[] = [
           },
         ],
       },
-      { state: 'not-found', name: 'Credit Notes', type: 'link'},
+      { state: 'not-found', name: 'Credit Notes', type: 'link' },
       {
         state: 'problem-sample-notification',
         name: 'Payment Collection',

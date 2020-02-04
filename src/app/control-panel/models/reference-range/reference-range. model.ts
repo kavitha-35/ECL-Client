@@ -23,10 +23,15 @@ export class ReferenceRange {
   min: string;
   max: string;
   description: string;
-  value: string;
+  values: string[];
   alternateResult: string;
   criticalRangeMax: string;
   criticalRangeMin: string;
 
+
   constructor() {}
+}
+
+export class ValuesModel {
+  value: string;
 }

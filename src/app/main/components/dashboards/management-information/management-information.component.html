@@ -1,0 +1,59 @@
+ <mat-card>
+     <mat-card-content>
+        <div class="row">
+          <mat-card-content class="column">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+            >
+            </canvas>
+          </mat-card-content>
+
+
+          <mat-card-content class="column">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="pieChartType"
+            >
+            </canvas>
+          </mat-card-content>
+        </div>
+
+        <div class="row">
+
+          <mat-card-content class="column">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="pieChartType"
+            >
+            </canvas>
+          </mat-card-content>
+
+          <mat-card-content class="column">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+            >
+            </canvas>
+          </mat-card-content>
+        </div>
+     </mat-card-content>
+ </mat-card>
+
+  
