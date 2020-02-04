@@ -67,6 +67,8 @@ import { EditAppointmentComponent } from './main/components/appointments/_dialog
 import { ApplicationComponent } from './application/application.component';
 import { RegistrationsComponent } from './main/components/registrations/registrations.component';
 import { AddRegisterComponent } from './main/components/registrations/_dialogues/add-register/add-register.component';
+import { CreditNotesComponent } from './main/components/credit-notes/credit-notes.component';
+import { AddCreditnotesComponent } from './main/components/credit-notes/_dialogues/add-creditnotes/add-creditnotes.component';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -150,7 +152,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     EditAppointmentComponent,
     ApplicationComponent,
     RegistrationsComponent,
-    AddRegisterComponent
+    AddRegisterComponent,
+    CreditNotesComponent,
+    AddCreditnotesComponent
   ],
   providers: [
     MatDatepickerModule,

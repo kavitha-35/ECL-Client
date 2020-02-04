@@ -278,7 +278,7 @@ import { BrowserModule } from '@angular/platform-browser';
     CommentsComponent,
     CommentSearchComponent,
     CommentRibbonMenuComponent,
-    EditEquipmentComponent,
+    EditEquipmentComponent
   ],
   providers: [
     DatePipe,

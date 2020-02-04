@@ -49,6 +49,7 @@ import { ManagementInformationComponent } from './components/dashboards/manageme
 import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
 import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
 import { OperationsDashboardComponent } from './components/dashboards/operations-dashboard/operations-dashboard.component';
+import { CreditNotesComponent } from './components/credit-notes/credit-notes.component';
 
 export const routes: Routes = [
   {
@@ -102,6 +103,10 @@ export const routes: Routes = [
       {
         path: 'waiting-list',
         component: WaitingListComponent,
+      },
+      {
+        path: 'creditnotes',
+        component: CreditNotesComponent,
       },
       {
         path: 'worksheets',
