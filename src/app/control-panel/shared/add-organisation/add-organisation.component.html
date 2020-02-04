@@ -84,6 +84,27 @@
 
               <!-- Content -->
               <section class="locale-information-content">
+
+                  <!-- Country -->
+                  <mat-form-field class="mt-n7">
+                    <mat-label>Country</mat-label>
+                    <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
+                      <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
+                        options.keyValue
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <!-- City-->
+                <mat-form-field class="mt-n7">
+                  <mat-label>City</mat-label>
+                  <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
+                    <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
@@ -105,26 +126,6 @@
                 <mat-form-field>
                   <mat-label> Area</mat-label>
                   <input matInput placeholder=" Area" name="area" ngModel #area="ngModel" />
-                </mat-form-field>
-
-                <!-- City-->
-                <mat-form-field class="mt-n7">
-                  <mat-label>City</mat-label>
-                  <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
-                    <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Country -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
-                    <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
-                  </mat-select>
                 </mat-form-field>
 
                 <!-- P.O.Box -->

@@ -177,13 +177,16 @@ import { PatientAddressComponent } from './components/registration/add-registrat
 import { PatientSocialmediaComponent } from './components/registration/add-registration/patient-socialmedia/patient-socialmedia.component';
 import { RegistrationsComponent } from './components/registrations/registrations.component';
 import { EditRegisterComponent } from './components/registrations/_dialogues/edit-register/edit-register.component';
-import { RegistrationRibbonMenuComponent } from './components/registrations/registration-ribbon-menu/registration-ribbon-menu.component';
-import { RegistrationSearchComponent } from './components/registrations/registration-search/registration-search.component';
 import { AddRegisterComponent } from './components/registrations/_dialogues/add-register/add-register.component';
 import { OperationsDashboardComponent } from './components/dashboards/operations-dashboard/operations-dashboard.component';
 import { ManagementInformationComponent } from './components/dashboards/management-information/management-information.component';
 import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
 import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
+import { RegistrationSearchComponent } from './components/registrations/registration-search/registration-search.component';
+import { RegistrationRibbonMenuComponent } from './components/registrations/registration-ribbon-menu/registration-ribbon-menu.component';
+import { RegistrationlistRibbonMenuComponent } from './components/registration/registration-list/registrationlist-ribbon-menu/registrationlist-ribbon-menu.component';
+import { RegistrationlistSearchComponent } from './components/registration/registration-list/registrationlist-search/registrationlist-search.component';
+
 
 
 @NgModule({
@@ -212,7 +215,6 @@ import { FinanceManagementComponent } from './components/dashboards/finance-mana
     HomeCollectionTableComponent,
     PatientVerificationComponent,
     BulkRegistrationComponent,
-    RegistrationListComponent,
     UpdateLogisticTrfComponent,
     LogisticMessengerComponent,
     TemperatureControlComponent,
@@ -321,13 +323,14 @@ import { FinanceManagementComponent } from './components/dashboards/finance-mana
     RegistrationsComponent,
     AddRegisterComponent,
     EditRegisterComponent,
-    RegistrationRibbonMenuComponent,
-    RegistrationSearchComponent,
     OperationsDashboardComponent,
     ManagementInformationComponent,
     LabManagmentComponent,
     FinanceManagementComponent,
-    RegistrationTableComponent
+    RegistrationRibbonMenuComponent,
+    RegistrationSearchComponent,
+    RegistrationlistRibbonMenuComponent,
+    RegistrationlistSearchComponent
   ],
   providers: [
     DatePipe,

@@ -1,14 +1,15 @@
-import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, ElementRef, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { RegistrationSearchComponent } from '../registration-search/registration-search.component';
+import { RegistrationlistSearchComponent } from '../registrationlist-search/registrationlist-search.component';
 
 @Component({
-  selector: 'app-registration-ribbon-menu',
-  templateUrl: './registration-ribbon-menu.component.html',
-  styleUrls: ['./registration-ribbon-menu.component.scss'],
+  selector: 'app-registrationlist-ribbon-menu',
+  templateUrl: './registrationlist-ribbon-menu.component.html',
+  styleUrls: ['./registrationlist-ribbon-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegistrationRibbonMenuComponent  {
+export class RegistrationlistRibbonMenuComponent  {
+
   @Output() public showListViewButtonClicked = new EventEmitter();
   @Output() public showTableViewButtonClicked = new EventEmitter();
 
@@ -22,7 +23,7 @@ export class RegistrationRibbonMenuComponent  {
       width: '1400px',
     };
 
-    this._matDialog.open(RegistrationSearchComponent, matDialogConfig);
+    this._matDialog.open(RegistrationlistSearchComponent, matDialogConfig);
   }
 
   public onShowListViewButtonClicked(): void {

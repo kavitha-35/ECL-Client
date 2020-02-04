@@ -61,7 +61,7 @@ export class EditReferalLabComponent implements OnInit {
   public getCountries(): void {
     this._lookUpService.getLookUp('country').subscribe((data: LookUpModel[]) => {
       this.countries = data;
-      this.courierFilter = this.couriers;
+      this.countryFilter = this.countries;
       console.log(data);
     });
   }
@@ -69,7 +69,7 @@ export class EditReferalLabComponent implements OnInit {
   public getCourier(): void {
     this._lookUpService.getLookUp('courier').subscribe((data: LookUpModel[]) => {
       this.couriers = data;
-      this.countryFilter = this.countries;
+      this.courierFilter = this.couriers;
       console.log(data);
     });
   }

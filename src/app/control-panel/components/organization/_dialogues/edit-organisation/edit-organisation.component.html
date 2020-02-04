@@ -67,6 +67,27 @@
 
               <!-- Content -->
               <section class="locale-information-content">
+
+                 <!-- Country -->
+                 <mat-form-field class="mt-n7">
+                  <mat-label>Country</mat-label>
+                  <mat-select disableOptionCentering>
+                  </mat-select>
+                </mat-form-field>
+
+                 <!-- Region-->
+                 <mat-form-field class="mt-n7">
+                  <mat-label>City</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                    <mat-option value="cash">
+                      Cash
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
                 <!-- Language -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
@@ -97,25 +118,9 @@
                   <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
                 </mat-form-field>
 
-                <!-- Region-->
-                <mat-form-field class="mt-n7">
-                  <mat-label>City</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="cash">
-                      Cash
-                    </mat-option>
-                    <mat-option value="cash">
-                      Cash
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
+               
 
-                <!-- Country -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering>
-                  </mat-select>
-                </mat-form-field>
+               
               </section>
             </section>
 
