@@ -8,6 +8,7 @@ import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
 import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
 import { LinkTestToProfiletestComponent } from './_dialogues/link-test-to-profiletest/link-test-to-profiletest.component';
+import { IndividualTestComponent } from '../individual-test/individual-test.component';
 
 @Component({
   selector: 'app-profile-test',
@@ -70,7 +71,8 @@ export class ProfileTestComponent implements OnInit {
     this._router.navigate(['/control-panel/profile-test-details'], { queryParams: { id: dosCode } });
   }
 
-  public onEditTestClicked(): void {
+  public onEditTestClicked(profileTestModel: ProfileTestModel): void {
+    this.matDialogConfig.data = profileTestModel;
     this.matDialog
       .open(EditProfileTestComponent, this.matDialogConfig)
       .afterClosed()

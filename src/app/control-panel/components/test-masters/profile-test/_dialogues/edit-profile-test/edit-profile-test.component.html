@@ -1,4 +1,4 @@
-<form #testprofile="ngForm">
+<form class="profile-test-form">
   <section>
     <mat-card>
       <!-- Mat Card header -->
@@ -12,16 +12,28 @@
           <!-- General Information -->
           <section fxLayout="row wrap" fxLayoutAlign="start end" fxLayoutGap="20px grid">
             <!-- Department -->
-            <mat-form-field fxFlex="50">
-              <mat-label>Department</mat-label>
-              <mat-select placeholder="Select Department"> </mat-select>
-            </mat-form-field>
+              <mat-form-field>
+                <mat-label>Department</mat-label>
+                <mat-select disableOptionCentering [(ngModel)]="testprofile.department" name="departmentId">
+                    <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{
+                      item.departmentName
+                    }}</mat-option>
+                  </mat-select>
+              </mat-form-field>
 
-            <!-- Test Profile Name -->
-            <mat-form-field fxFlex="50">
-              <mat-label>Test Profile name</mat-label>
-              <input matInput placeholder="Test Profile Name" name="name" />
-            </mat-form-field>
+            <!-- Test Name-->
+            <mat-form-field>
+                <mat-label>Test Name</mat-label>
+                <!-- <mat-select disableOptionCentering> </mat-select> -->
+                <input
+                  matInput
+                  placeholder="Test Name"
+                  required
+                  [(ngModel)]="testprofile.testName"
+                  name="testName"
+                  class="uppercase"
+                />
+              </mat-form-field>
 
             <!-- DOS Code -->
             <mat-form-field fxFlex="25">
@@ -32,7 +44,7 @@
             <!-- Profile Test CPT Code -->
             <mat-form-field fxFlex="25">
               <mat-label>CPT Code</mat-label>
-              <input matInput placeholder="CPT Code" name="cptCode" />
+              <input matInput placeholder="CPT Code" name="cptCode" [(ngModel)]="testprofile.cptCode" />
             </mat-form-field>
 
             <!-- Outsource Id -->
@@ -101,8 +113,8 @@
               fxFlexAlign="center center"
               fxLayoutAlign="center center"
             >
-              <button mat-button color="primary" matDialogClose>Cancel</button>
-              <button mat-raised-button color="primary" cdkFocusInitial>
+              <button mat-button color="primary" matDialogClose (click)="cancel()">Cancel</button>
+              <button mat-raised-button color="primary" cdkFocusInitial (click)="updateProfile()">
                 Save Change(s)
               </button>
             </section>

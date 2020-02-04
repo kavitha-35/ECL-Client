@@ -112,4 +112,12 @@ export class LinkTestToProfiletestComponent implements OnInit {
   }
 
   public onSearchButtonClicked(): void {}
+
+  public refreshLinkedTests(elements: IndividualTestModel[]): void {
+    if (!elements || elements.length === 0) {
+      return
+    }
+    this.testsInTable = elements;
+    this._matTable.renderRows();
+  }
 }
