@@ -12,6 +12,7 @@
       }
     }
 
+  
     .mat-card-title-container {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -42,4 +43,20 @@
   margin-right: 12px;
   background-color: #5388a5;
     color: white;
+}
+.worksheet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3px;
+}
+.sheet{
+  margin-right: 50px;
+  padding: 1rem;
+}
+.Button-work{
+  margin-left: 70%;
+  margin-top: 3%;
+  background-color:#5388a5;
+  color:  white;
+  position: absolute;
 }
