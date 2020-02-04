@@ -33,7 +33,11 @@ export class ProfileTestListDataTableComponent implements OnInit {
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
   @ViewChild(MatTable, {static: false}) table: MatTable<any>;
-
+  matDialogConfig: MatDialogConfig = {
+    panelClass: 'mat-dialogue-no-padding',
+    width: '1400px',
+    autoFocus: false,
+  };
   constructor(
     private readonly _profileTestService: ProfileTestService) {
     this.addTestClicked = new EventEmitter<string>();

@@ -57,7 +57,7 @@
       ></app-profile-test-list-data-table>
     </ng-template>
 
-    <mat-paginator
+    <mat-paginator *ngIf="tests"
         [length]="tests.length"
         [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = $event"

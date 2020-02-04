@@ -40,8 +40,8 @@ export class ProfileTestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProfileDetails();
-    this._initializeValues();
+    // this.getProfileDetails();
+    // this._initializeValues();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });

@@ -31,6 +31,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PageNotFoundRibbonMenuComponent } from './components/page-not-found/page-not-found-ribbon-menu/page-not-found-ribbon-menu.component';
 import { MatButtonModule, MatTableModule } from '@angular/material';
 import { PageNotFoundDataTableComponent } from './components/page-not-found/page-not-found-data-table/page-not-found-data-table.component';
+import { RemoveDuplicateTestPipe } from './pipes/remove-duplicate-test.pipe';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { PageNotFoundDataTableComponent } from './components/page-not-found/page
     PageNotFoundComponent,
     PageNotFoundRibbonMenuComponent,
     PageNotFoundDataTableComponent,
+    RemoveDuplicateTestPipe,
   ],
   imports: [
     CommonModule,

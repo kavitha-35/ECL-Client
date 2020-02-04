@@ -89,7 +89,8 @@
             (click)="onAddCombineTestClicked(element.profileTestId)">
             <mat-icon>add</mat-icon>
           </button>
-          <button class="edit-button" mat-button color="primary" disableRipple>
+          <button class="edit-button" mat-button color="primary" disableRipple 
+          (click)="onEditProfileTestClicked(element)">
             <mat-icon>edit_outline</mat-icon>
           </button>
           <button class="delete-button" mat-button color="warn" disableRipple (click)="onDeleteProfileTestClicked(i)">
