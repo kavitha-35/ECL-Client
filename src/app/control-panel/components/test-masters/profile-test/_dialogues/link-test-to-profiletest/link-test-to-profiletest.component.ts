@@ -28,7 +28,7 @@ export class LinkTestToProfiletestComponent implements OnInit {
   groupBys: LookUpModel[];
   public tests: IndividualTestModel[];
   selectedTests: IndividualTestModel[];
-  testsInTable: IndividualTestModel[] = [];
+  public testsInTable: IndividualTestModel[] = [];
   isBusy: boolean;
   public searchResults: TestModel[];
   public displayedColumns: string[];

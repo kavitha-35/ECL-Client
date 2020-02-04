@@ -1,11 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ProfileTestModel } from 'app/control-panel/models/test-master/profile-test/profile-test.model';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
-import { MatTable } from '@angular/material';
+import { MatTable, MatDialogRef } from '@angular/material';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
+import { LinkTestComponent } from 'app/main/components/registration/add-registration/link-test/link-test.component';
+import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
+import { LinkTestToProfiletestComponent } from '../link-test-to-profiletest/link-test-to-profiletest.component';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
+import { DepartmentService } from 'app/control-panel/services/department.service';
 
 @Component({
   selector: 'app-add-profile-test',
@@ -14,93 +19,63 @@ import { CombinedTestService } from 'app/control-panel/services/combinedtest.ser
 })
 export class AddProfileTestComponent implements OnInit {
   public testprofile: ProfileTestModel;
-  // groupById: number;
-  // orderById: number;
-  // public displayedColumns: string[];
-  // public filteredColumns: GridColumnModel[];
-  // groupBys: LookUpModel[];
-  // public tests: IndividualTestModel[];
-  // selectedTests: IndividualTestModel[];
-  // testsInTable: IndividualTestModel[] = [];
-  // isBusy: boolean;
-  @ViewChild(MatTable, { static: false }) _matTable: MatTable<any>;
+  specimen: LookUpModel[] = [];
+  specimenType: LookUpModel[] = [];
+  storage: LookUpModel[] = [];
+  reportFormat: LookUpModel[] = [];
+  departments: DepartmentModel[] = [];
+  @ViewChild(LinkTestToProfiletestComponent, { static: false }) linkTestProfileComponent: LinkTestToProfiletestComponent;
   constructor(
     private readonly _lookUpService: LookupService,
-    private readonly _combinedTestService: CombinedTestService,
+    private readonly _profileTestService: ProfileTestService,
+    private readonly dialogRef: MatDialogRef<AddProfileTestComponent>,
+    private readonly _departmentService: DepartmentService
   ) {
-    // this.groupById = 0;
-    // this.orderById = 0;
+
    }
 
   ngOnInit(): void {
-    // this.getAllIndividualTest();
-    // this.getGroupBy();
-    // this._initializeDisplayedColumns();
+    this.testprofile = new ProfileTestModel();
+    this.getStorage();
+    this.getDepartments();
+    this.getSpecimen();
+    this.getSpecimenType();
   }
 
-  public get lookUpService(): LookupService {
-    return this._lookUpService;
+  public getSpecimen(): void {
+    this._lookUpService.getLookUp('specimen').subscribe((data: LookUpModel[]) => {
+      this.specimen = data;
+    });
   }
 
-  // public selectedAutoComplete(element: IndividualTestModel): void {
-  //   element.groupById = this.groupById;
-  //   element.orderById = this.orderById;
-  //   this.testsInTable.push(element);
-  //   console.log(this.testsInTable);
-  //   this._matTable.renderRows();
-  // }
+  public getSpecimenType(): void {
+    this._lookUpService.getLookUp('SpecimenType').subscribe((data: LookUpModel[]) => {
+      this.specimenType = data;
+    });
+  }
 
-  // public searchQuery(event: any): void {
-  //   this.selectedTests = this._filter(event.target.value);
-  // }
+  public saveProfile(): void {
+    this.testprofile.combinedTest = this.linkTestProfileComponent.testsInTable;
+    console.log('profile save data', this.testprofile);
+    return;
+    this._profileTestService.addProfileDetails(this.testprofile).subscribe((data) => {
+      this.dialogRef.close();
+    });
+  }
 
-  // private _filter(value: string): IndividualTestModel[] {
-  //   const filterValue = value.toLowerCase();
-  //   return this.tests.filter((option) => option.testComponent.toLowerCase().includes(filterValue));
-  // }
+  public getStorage(): void {
+    this._lookUpService.getLookUp('Storage').subscribe((data: LookUpModel[]) => {
+      this.storage = data;
+    });
+  }
 
-  // public getGroupBy(): void {
-  //   this._lookUpService.getLookUp('groupBy').subscribe((data: LookUpModel[]) => {
-  //     this.groupBys = data;
-  //   });
-  // }
+  public getDepartments(): void {
+    this._departmentService.getAllDepartments().subscribe((data: DepartmentModel[]) => {
+      this.departments = data;
+    });
+  }
 
-  // public onClearButtonClicked(index: number): void {
-  //   this.testsInTable.splice(index, 1);
-  //   this._matTable.renderRows();
-  // }
-
-  // public getAllIndividualTest(): void {
-  //   this.isBusy = true;
-  //   this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
-  //     this.tests = data;
-  //     this.isBusy = false;
-  //   });
-  // }
-
-  // private _initializeDisplayedColumns(): void {
-  //   this.filteredColumns = [
-  //     { columnName: 'id', displayValue: 'ID', isSelected: true },
-  //     { columnName: 'activity', displayValue: 'Activity', isSelected: true },
-  //     { columnName: 'testCategory', displayValue: 'Test Category', isSelected: false },
-  //     { columnName: 'accreditiationSymbol', displayValue: 'Accreditiation Symbol', isSelected: false },
-  //     { columnName: 'integrationCode', displayValue: 'Integration Code', isSelected: true },
-  //     { columnName: 'testComponent', displayValue: 'Test Component', isSelected: true },
-  //     { columnName: 'processingCenter', displayValue: 'Processing Center', isSelected: false },
-  //     { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
-  //     { columnName: 'method', displayValue: 'Method', isSelected: true },
-  //     { columnName: 'unit', displayValue: 'Unit', isSelected: true },
-  //     { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: false },
-  //     { columnName: 'tat', displayValue: 'TAT', isSelected: true },
-  //     { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
-  //     { columnName: 'comments', displayValue: 'Comments', isSelected: true },
-  //     { columnName: 'action', displayValue: 'Action', isSelected: true },
-  //   ];
-  //   const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
-  //   this.displayedColumns = selectedColumns.map((x) => x.columnName);
-  // }
-
-  // public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
-  //   this.displayedColumns = selectedColumns.map((x) => x.columnName);
-  // }
+  public clear(): void {
+    this.dialogRef.close();
+  }
 }

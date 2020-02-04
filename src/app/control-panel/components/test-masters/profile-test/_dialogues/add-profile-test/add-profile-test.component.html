@@ -26,61 +26,96 @@
                 <!-- ECl Code-->
                 <mat-form-field>
                   <mat-label>ECl DOS Code</mat-label>
-                  <input matInput name="eclDosCode" placeholder="ECl DOS Code" required ngModel/>
+                  <input matInput name="eclDosCode" placeholder="ECl DOS Code" required [(ngModel)]="testprofile.eclDosCode"/>
                 </mat-form-field>
 
                 <!-- Test Id-->
                 <mat-form-field>
                   <mat-label>Test Id</mat-label>
-                  <input matInput name="testId" placeholder="Test Id" />
+                  <input matInput name="testId" placeholder="Test Id" [(ngModel)]="testprofile.testId" />
                 </mat-form-field>
 
                 <!-- CPT Code-->
                 <mat-form-field>
                   <mat-label>CPT Code</mat-label>
-                  <input matInput placeholder="CPT Code" name="cptCode" required/>
+                  <input matInput placeholder="CPT Code" name="cptCode" required [(ngModel)]="testprofile.cptCode"/>
                 </mat-form-field>
 
                 <!-- Test Name-->
                 <mat-form-field>
                   <mat-label>Test Name</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <!-- <mat-select disableOptionCentering> </mat-select> -->
+                  <input
+                    matInput
+                    placeholder="Test Name"
+                    required
+                    [(ngModel)]="testprofile.testName"
+                    name="testName"
+                    class="uppercase"
+                  />
                 </mat-form-field>
 
                 <!-- Specimmen-->
                 <mat-form-field>
                   <mat-label>Specimen</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering [(ngModel)]="testprofile.specimen" name="specimen">
+                      <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
+                    </mat-select>
                 </mat-form-field>
 
                 <!-- Specimmen -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Specimen Type</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering [(ngModel)]="testprofile.specimenType" name="specimenType">
+                      <mat-option *ngFor="let item of specimenType" [value]="item.lookupId"
+                        >{{ item.keyValue }}
+                      </mat-option>
+                    </mat-select>
                 </mat-form-field>
 
                 <!-- Storage-->
                 <mat-form-field class="mt-n7">
                   <mat-label>Storage</mat-label>
-                  <mat-select disableOptionCentering> </mat-select>
+                  <mat-select disableOptionCentering [(ngModel)]="testprofile.storage" name="storageId">
+                      <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
+                    </mat-select>
                 </mat-form-field>
 
                 <!-- Department-->
                 <mat-form-field>
                   <mat-label>Department</mat-label>
-                  <input matInput placeholder="Department" required />
+                  <mat-select disableOptionCentering [(ngModel)]="testprofile.department" name="departmentId">
+                      <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{
+                        item.departmentName
+                      }}</mat-option>
+                    </mat-select>
                 </mat-form-field>
 
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
                   <input matInput name="patientFee" placeholder="Patient Fee" required ngModel/>
+                  <input
+                    matInput
+                    placeholder="Patient Fee"
+                    required
+                    [(ngModel)]="testprofile.patientFee"
+                    name="patientFee"
+                    class="uppercase"
+                  />
                 </mat-form-field>
 
                 <!-- Net Fee-->
                 <mat-form-field>
                   <mat-label>Net Fee</mat-label>
-                  <input matInput name="netFee" placeholder="Net Fee" required ngModel/>
+                  <input
+                    matInput
+                    placeholder="Net Fee"
+                    required
+                    [(ngModel)]="testprofile.netFee"
+                    name="netFee"
+                    class="uppercase"
+                  />
                 </mat-form-field>
               </section>
             </section>
@@ -90,8 +125,8 @@
           </form>
 
           <section class="action-buttons-wrapper">
-            <button mat-button color="primary">Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial>Add Profile Test</button>
+            <button mat-button color="primary" (click)="clear()">Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="saveProfile()">Add Profile Test</button>
           </section>
         </section>
       </mat-dialog-content>
