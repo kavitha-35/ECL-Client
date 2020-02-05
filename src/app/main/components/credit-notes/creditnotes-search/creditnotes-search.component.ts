@@ -10,7 +10,7 @@ export class CreditnotesSearchComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

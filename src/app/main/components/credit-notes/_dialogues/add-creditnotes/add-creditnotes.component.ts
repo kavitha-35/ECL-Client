@@ -10,7 +10,7 @@ export class AddCreditnotesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

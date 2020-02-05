@@ -10,7 +10,7 @@ export class CreditnotesListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }
