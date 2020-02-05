@@ -110,7 +110,7 @@
           </button>
           <mat-menu #statusMenu="matMenu">
             <button mat-menu-item (click)="onAddReferenceRangeClicked(element.individualTestId)">Add Reference Range</button>
-            <button mat-menu-item >Manage Reference Range</button>
+            <button mat-menu-item (click)="onManageReferenceRangeClicked(element.individualTestId)">Manage Reference Range</button>
           </mat-menu>
         </section>
       </td>

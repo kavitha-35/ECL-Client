@@ -21,6 +21,7 @@ import { ReportFormatComponent } from './components/report-format/report-format.
 import { ProfileTestDetailsComponent } from './components/test-masters/profile-test/profile-test-details/profile-test-details.component';
 import { EmailGatewayComponent } from './components/gateways/email-gateway/email-gateway.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { IndividualTestDetailsComponent } from './components/test-masters/individual-test/individual-test-details/individual-test-details.component';
 
 export const routes: Routes = [
   {
@@ -70,6 +71,10 @@ export const routes: Routes = [
       {
         path: 'combined-test-details',
         component: CombinedTestDetailsComponent,
+      },
+      {
+        path: 'individual-test-details',
+        component: IndividualTestDetailsComponent,
       },
       {
         path: 'method',

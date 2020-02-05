@@ -1,0 +1,51 @@
+#individual-test-details-container {
+    .individual-test-information {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 12px;
+    }
+  
+    $status-card-background: #f44335;
+    $status-card-color: #ffffff;
+  
+    table {
+      .status-card {
+        border: $status-card-background 1px solid;
+        border-radius: 4px;
+  
+        background: $status-card-background;
+        color: $status-card-color;
+  
+        text-align: center;
+        padding: 0 6px;
+      }
+  
+      .actions-wrapper {
+        display: flex;
+        justify-content: flex-end;
+  
+        button {
+          padding: 0;
+          line-height: 1;
+          min-width: 32px;
+        }
+  
+        .edit-button {
+          visibility: hidden;
+        }
+  
+        .action-button {
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+  
+      .mat-row:hover {
+        cursor: pointer;
+  
+        .edit-button {
+          visibility: visible;
+        }
+      }
+    }
+  }
+  

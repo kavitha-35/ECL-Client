@@ -1,7 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { NgForm } from '@angular/forms';
-import { RegistrationModel } from 'app/main/models/registration/registration.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
 import { MatTable } from '@angular/material';
