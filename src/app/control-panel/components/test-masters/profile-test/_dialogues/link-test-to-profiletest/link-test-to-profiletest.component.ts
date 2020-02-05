@@ -26,9 +26,9 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class LinkTestToProfiletestComponent implements OnInit {
   groupBys: LookUpModel[];
-  public tests: IndividualTestModel[];
-  selectedTests: IndividualTestModel[];
-  public testsInTable: IndividualTestModel[] = [];
+  public tests: CombinedTestModel[];
+  selectedTests: CombinedTestModel[];
+  public testsInTable: CombinedTestModel[] = [];
   isBusy: boolean;
   public searchResults: TestModel[];
   public displayedColumns: string[];
@@ -39,27 +39,28 @@ export class LinkTestToProfiletestComponent implements OnInit {
   constructor(
     private _combinedTestService: CombinedTestService,
     private readonly _lookUpService: LookupService,
+    private readonly _profileTestService: ProfileTestService
   ) {}
 
   ngOnInit(): void {
-    this.getAllIndividualTest();
+    this.getAllTests();
     this.getGroupBy();
     this._initializeDisplayedColumns();
   }
 
-  private _filter(value: string): IndividualTestModel[] {
+  private _filter(value: string): CombinedTestModel[] {
     const filterValue = value.toLowerCase();
-    return this.tests.filter((option) => option.testComponent.toLowerCase().includes(filterValue));
+    return this.tests.filter((option) => option.testName.toLowerCase().includes(filterValue));
   }
 
   public searchQuery(event: any): void {
     this.selectedTests = this._filter(event.target.value);
   }
 
-  public selectedAutoComplete(element: IndividualTestModel): void {
+  public selectedAutoComplete(element: CombinedTestModel): void {
     // console.log('selected element', element);
-    const individualTest = this.testsInTable.filter(t => t.individualTestId === element.individualTestId)[0];
-    if (individualTest) {
+    const combinedTest = this.testsInTable.filter(t => t.combineTestId === element.combineTestId)[0];
+    if (combinedTest) {
       return;
     }
     this.testsInTable.push(element);
@@ -79,20 +80,16 @@ export class LinkTestToProfiletestComponent implements OnInit {
 
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
-      { columnName: 'id', displayValue: 'ID', isSelected: true },
-      { columnName: 'activity', displayValue: 'Activity', isSelected: true },
-      { columnName: 'testCategory', displayValue: 'Test Category', isSelected: false },
-      { columnName: 'accreditiationSymbol', displayValue: 'Accreditiation Symbol', isSelected: false },
-      { columnName: 'integrationCode', displayValue: 'Integration Code', isSelected: true },
-      { columnName: 'testComponent', displayValue: 'Test Component', isSelected: true },
-      { columnName: 'processingCenter', displayValue: 'Processing Center', isSelected: false },
-      { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
-      { columnName: 'method', displayValue: 'Method', isSelected: true },
-      { columnName: 'unit', displayValue: 'Unit', isSelected: true },
-      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: false },
-      { columnName: 'tat', displayValue: 'TAT', isSelected: true },
-      { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
-      { columnName: 'comments', displayValue: 'Comments', isSelected: true },
+      { columnName: 'combineTestId', displayValue: 'Combine Test ID', isSelected: true },
+      { columnName: 'eclDosCode', displayValue: 'DOS Code', isSelected: true },
+      { columnName: 'testId', displayValue: 'Test Id', isSelected: false },
+      { columnName: 'cptCode', displayValue: 'CPT Code', isSelected: false },
+      { columnName: 'testName', displayValue: 'Test Name', isSelected: true },
+      { columnName: 'specimenType', displayValue: 'Specimen Type', isSelected: true },
+      { columnName: 'storage', displayValue: 'Storage', isSelected: false },
+      { columnName: 'department', displayValue: 'Department', isSelected: true },
+      { columnName: 'location', displayValue: 'Location', isSelected: true },
+      { columnName: 'currency', displayValue: 'Currency', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
@@ -103,9 +100,9 @@ export class LinkTestToProfiletestComponent implements OnInit {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
 
-  public getAllIndividualTest(): void {
+  public getAllTests(): void {
     this.isBusy = true;
-    this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
+    this._combinedTestService.getAllTests().subscribe((data: CombinedTestModel[]) => {
       this.tests = data;
       this.isBusy = false;
     });
@@ -113,7 +110,7 @@ export class LinkTestToProfiletestComponent implements OnInit {
 
   public onSearchButtonClicked(): void {}
 
-  public refreshLinkedTests(elements: IndividualTestModel[]): void {
+  public refreshLinkedTests(elements: CombinedTestModel[]): void {
     if (!elements || elements.length === 0) {
       return
     }

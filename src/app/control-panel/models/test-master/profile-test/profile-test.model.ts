@@ -12,8 +12,14 @@ export class ProfileTestModel {
   specimenType: string;
   patientFee: string;
   netFee: string;
-  storage: string;
-  department: string;
+  storage: {
+    StorageId: string;
+    StorageName: string;
+  };
+  department: {
+    departmentId: string;
+    departmentName: string;
+  };
   currency: string;
-  combinedTest: IndividualTestModel[];
+  combinedTest?: CombinedTestModel[];
 }
