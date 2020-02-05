@@ -32,16 +32,12 @@
                     placeholder="ECl DOS Code"
                     [(ngModel)]="test.eclDosCode"
                     name="eclDosCode"
-                    pattern="[a-zA-Z ]*"
                     required
                     #eclDosCode="ngModel"
                   />
                   <mat-error *ngIf="eclDosCode.invalid && (eclDosCode.dirty || eclDosCode.touched)" class="red">
                     <mat-error *ngIf="eclDosCode.errors.required">
                       Ecl Dos Code is required.
-                    </mat-error>
-                    <mat-error *ngIf="eclDosCode.errors?.pattern">
-                      Text is required.
                     </mat-error>
                   </mat-error>
                 </mat-form-field>
