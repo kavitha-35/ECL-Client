@@ -1,6 +1,6 @@
-<section id="work-sheets-container" class="animated fadeIn">
+ <section id="work-sheets-container" class="animated fadeIn">
   <mat-card>
-    <section class="mat-header-container">
+    <section class="mt-n7" class="mat-header-container">
       <!-- Mat Header Image -->
       <section class="mat-header-image-wrapper">
         <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
@@ -24,13 +24,39 @@
       </section>
 
       <!-- Add WorkSheet Button -->
-      <section class="work-sheet-button-wrapper">
+      <!-- <section class="work-sheet-button-wrapper">
         <button class="add-work" mat-stroked-button (click)="onAddWorkSheetButtonClicked()">
           Add WorkSheet
         </button>
-      </section>
+      </section> -->
     </section>
+    
+      <section class="worksheet">
+        <mat-form-field class="sheet">
+          <mat-label>Select Equipment</mat-label>
+          <mat-select disableOptionCenteringn  >
+            <mat-option>i flash</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="sheet">
+          <mat-label>Select organization</mat-label>
+          <mat-select disableOptionCenteringn  >
+            <mat-option>path care</mat-option>
+          </mat-select>
+        </mat-form-field>
 
+        <button class="Button-work" mat-stroked-button>
+          Generate
+        </button>
+      </section>
+     
+    
+
+   
+    
+  
+     
     <!-- Mat Table Ribbon -->
     <app-work-sheet-ribbon-menu
       (showListViewButtonClicked)="onShowListViewButtonClicked()"
@@ -58,4 +84,5 @@
     <mat-paginator [length]="workSheetList.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
     </mat-paginator>
   </mat-card>
-</section>
+</section> 
+
