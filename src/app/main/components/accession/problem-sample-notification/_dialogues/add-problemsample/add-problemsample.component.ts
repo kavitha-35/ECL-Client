@@ -10,7 +10,7 @@ export class AddProblemsampleComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

@@ -114,9 +114,8 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCenteringn name="city">
-                    <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
+                    <mat-option>
+                    </mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -124,9 +123,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country">
-                    <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
-                    }}</mat-option>
+                    <mat-option></mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>
@@ -168,8 +165,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Organization</mat-label>
                   <mat-select disableOptionCentering name="organizationId">
-                    <mat-option *ngFor="let item of organisations" [value]="item.OrganizationMasterId"
-                      >{{ item.OrganizationMasterName }}
+                    <mat-option>
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -214,8 +210,7 @@
                 fxLayout
                 fxLayoutAlign="center center"
                 class="mat-card-subtitle mt-3 mb-3"
-                *ngIf="!combinedTestData"
-              >
+               >
                 No Linked Tests
               </section>
             </section>
