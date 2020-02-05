@@ -1,15 +1,24 @@
-export interface AddAppointmentRequestModel {
-    from :                   string;
-    to :                     string;
-    comments :               string;
-    docterId :               number;
-    patientType :            number;
-    referal :                string;
-    confirmMode :            number;
-    appointmentTests :       AppointmentTestModel[];
+export class AddAppointmentRequestModel {
+  appointmentId: number;
+  patientName: string;
+  dob: string;
+  age: string;
+  email: string;
+  landline: string;
+  mobile: string;
+  appointmentDateTime: string;
+  comments: string;
+  gender: string;
+  status: StatusModel;
+  poBox: string;
+  area: string;
+  city: string;
+  country: string;
+  address: string;
+  constructor() {}
 }
 
-export interface AppointmentTestModel {
-    appointmentId :          number;
-    testId :                 number;
+interface StatusModel {
+  statusId: string;
+  statusValue: string;
 }

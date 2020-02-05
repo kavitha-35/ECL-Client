@@ -16,18 +16,18 @@ export class EditAppointmentComponent implements OnInit {
   public time: Time[];
   public cities: LookUpModel[];
   public countries: LookUpModel[];
-  public appointment: AppointmentModel = new AppointmentModel();
+  public appointment: AppointmentModel;
 
   constructor(
     private readonly _dialogRef: MatDialogRef<AppointmentModel>,
     private readonly appointmentService: AppointmentServices,
     private readonly _lookUpService: LookupService,
-    @Inject(MAT_DIALOG_DATA) private readonly data: any
-  ) {}
-
+    @Inject(MAT_DIALOG_DATA) private readonly data: any,
+  ) {
+    this.appointment = this.data;
+  }
 
   ngOnInit(): void {
-    this.appointment = this.data;
     this.getCountries();
     this.getCities();
   }
