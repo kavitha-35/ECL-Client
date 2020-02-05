@@ -92,15 +92,26 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <section class="actions-wrapper">
-          <button class="edit-button" mat-button color="primary" (click)="onAddReferenceRangeClicked(element.individualTestId)" disableRipple>
-            <mat-icon>add</mat-icon>
-          </button>
           <button class="edit-button" mat-button color="primary" (click)="onEditTestClicked(element)" disableRipple>
             <mat-icon>edit_outline</mat-icon>
           </button>
           <button class="delete-button" mat-button color="warn" (click)="onDeleteClicked(element.individualTestId)" disableRipple>
             <mat-icon>delete_outline</mat-icon>
           </button>
+
+          <button
+            class="action-button"
+            mat-button
+            color="primary"
+            disableRipple
+            [matMenuTriggerFor]="statusMenu"
+          > 
+            <mat-icon>more_vert_outline</mat-icon>
+          </button>
+          <mat-menu #statusMenu="matMenu">
+            <button mat-menu-item (click)="onAddReferenceRangeClicked(element.individualTestId)">Add Reference Range</button>
+            <button mat-menu-item >Manage Reference Range</button>
+          </mat-menu>
         </section>
       </td>
     </ng-container>

@@ -1,39 +1,98 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { TestModel } from 'app/main/models/patient/registration/add-patient-request.model';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatTable, MatDialogConfig, MatDialog } from '@angular/material';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
+import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
+import { ProfileTestModel } from 'app/control-panel/models/test-master/profile-test/profile-test.model';
+import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { LookupService } from 'app/control-panel/services/lookup.service';
+import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-link-test-to-profiletest',
   templateUrl: './link-test-to-profiletest.component.html',
   styleUrls: ['./link-test-to-profiletest.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', display: 'none' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class LinkTestToProfiletestComponent implements OnInit {
-  tests: CombinedTestModel[];
-  public searchQuery: string;
+  groupBys: LookUpModel[];
+  public tests: IndividualTestModel[];
+  selectedTests: IndividualTestModel[];
+  public testsInTable: IndividualTestModel[] = [];
+  isBusy: boolean;
   public searchResults: TestModel[];
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
+  selection = new SelectionModel<IndividualTestModel>(true, []);
+  @ViewChild(MatTable, { static: false }) _matTable: MatTable<any>;
 
-  constructor(private readonly dialogRef: MatDialogRef<LinkTestToProfiletestComponent>) {}
+  constructor(
+    private _combinedTestService: CombinedTestService,
+    private readonly _lookUpService: LookupService,
+  ) {}
+
   ngOnInit(): void {
+    this.getAllIndividualTest();
+    this.getGroupBy();
     this._initializeDisplayedColumns();
-    this._initializeValues();
+  }
+
+  private _filter(value: string): IndividualTestModel[] {
+    const filterValue = value.toLowerCase();
+    return this.tests.filter((option) => option.testComponent.toLowerCase().includes(filterValue));
+  }
+
+  public searchQuery(event: any): void {
+    this.selectedTests = this._filter(event.target.value);
+  }
+
+  public selectedAutoComplete(element: IndividualTestModel): void {
+    // console.log('selected element', element);
+    const individualTest = this.testsInTable.filter(t => t.individualTestId === element.individualTestId)[0];
+    if (individualTest) {
+      return;
+    }
+    this.testsInTable.push(element);
+    this._matTable.renderRows();
+  }
+
+  public getGroupBy(): void {
+    this._lookUpService.getLookUp('groupBy').subscribe((data: LookUpModel[]) => {
+      this.groupBys = data;
+    });
+  }
+
+  public onClearButtonClicked(index: number): void {
+    this.testsInTable.splice(index, 1);
+    this._matTable.renderRows();
   }
 
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
-      { columnName: 'name', displayValue: 'Name', isSelected: true },
-      { columnName: 'testId', displayValue: 'Test Id', isSelected: false },
-      { columnName: 'cptCode', displayValue: 'CPT Code', isSelected: false },
-      { columnName: 'testName', displayValue: 'Test Name', isSelected: true },
-      { columnName: 'specimenType', displayValue: 'Specimmen Type', isSelected: false },
-      { columnName: 'storage', displayValue: 'Storage', isSelected: true },
-      { columnName: 'department', displayValue: 'Department', isSelected: true },
-      { columnName: 'location', displayValue: 'Location', isSelected: true },
-      { columnName: 'currency', displayValue: 'Currency', isSelected: true },
-      { columnName: 'status', displayValue: 'Status', isSelected: true },
+      { columnName: 'id', displayValue: 'ID', isSelected: true },
+      { columnName: 'activity', displayValue: 'Activity', isSelected: true },
+      { columnName: 'testCategory', displayValue: 'Test Category', isSelected: false },
+      { columnName: 'accreditiationSymbol', displayValue: 'Accreditiation Symbol', isSelected: false },
+      { columnName: 'integrationCode', displayValue: 'Integration Code', isSelected: true },
+      { columnName: 'testComponent', displayValue: 'Test Component', isSelected: true },
+      { columnName: 'processingCenter', displayValue: 'Processing Center', isSelected: false },
+      { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
+      { columnName: 'method', displayValue: 'Method', isSelected: true },
+      { columnName: 'unit', displayValue: 'Unit', isSelected: true },
+      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: false },
+      { columnName: 'tat', displayValue: 'TAT', isSelected: true },
+      { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
+      { columnName: 'comments', displayValue: 'Comments', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
@@ -44,45 +103,21 @@ export class LinkTestToProfiletestComponent implements OnInit {
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
 
-  private _initializeValues(): void {
-    // this.tests = [
-    //   {
-    //     dosCode: 'ECL-767',
-    //     testId: '1313741',
-    //     cptCode: '82465',
-    //     testName: 'cholestrol,Total',
-    //     specimen: '2 ml serum',
-    //     specimenType: 'serum',
-    //     storage: 'refrigerated',
-    //     department: 'biochemistry',
-    //     patientFee: '40.00',
-    //     netFee: '10.00',
-    //     location: 'dubai',
-    //     currency: 'dihram',
-    //     reportFormat: '',
-    //     individualTest: [
-    //       {
-    //         id: '1708027',
-    //         active: 'Active',
-    //         testCategory: 'outsource',
-    //         accreditationSymbol: '**',
-    //         testComponent: 'blood',
-    //         processingCenter: 'pathcare',
-    //         outsourceVendorCode: 'HM052',
-    //         method: 'CLIA',
-    //         unit: '2 ml',
-    //         referenceRange: '3.00 to 40.00',
-    //         tat: '1',
-    //         cptAmount: '4.00',
-    //         integrationCode: 'T105',
-    //         accreditation: 'not enable',
-    //         comments: 'String',
-    //       },
-    //     ],
-    //   },
-    // ];
-    this.tests = [];
+  public getAllIndividualTest(): void {
+    this.isBusy = true;
+    this._combinedTestService.getAllIndividualTests().subscribe((data: IndividualTestModel[]) => {
+      this.tests = data;
+      this.isBusy = false;
+    });
   }
 
   public onSearchButtonClicked(): void {}
+
+  public refreshLinkedTests(elements: IndividualTestModel[]): void {
+    if (!elements || elements.length === 0) {
+      return
+    }
+    this.testsInTable = elements;
+    this._matTable.renderRows();
+  }
 }

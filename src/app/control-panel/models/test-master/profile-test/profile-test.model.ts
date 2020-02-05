@@ -1,4 +1,5 @@
 import { CombinedTestModel } from '../combined-test/combined-test.model';
+import { IndividualTestModel } from '../individual-test/individual-test.model';
 
 export class ProfileTestModel {
   profileTestId: number;
@@ -14,5 +15,5 @@ export class ProfileTestModel {
   storage: string;
   department: string;
   currency: string;
-  combinedTest: CombinedTestModel[];
+  combinedTest: IndividualTestModel[];
 }

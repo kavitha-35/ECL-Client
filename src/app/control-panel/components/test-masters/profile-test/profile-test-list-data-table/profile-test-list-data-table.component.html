@@ -19,7 +19,7 @@
     <!-- Dos Code -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>DOS Code</th>
-      <td mat-cell *matCellDef="let element">{{ element.dosCode }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.eclDosCode }}</td>
     </ng-container>
 
     <!-- Test Id -->
@@ -55,7 +55,7 @@
     <!-- department -->
     <ng-container matColumnDef="department">
       <th mat-header-cell *matHeaderCellDef>Department</th>
-      <td mat-cell *matCellDef="let element">{{ element.department }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.department.departmentName }}</td>
     </ng-container>
 
     <!-- Location -->
@@ -89,7 +89,8 @@
             (click)="onAddCombineTestClicked(element.profileTestId)">
             <mat-icon>add</mat-icon>
           </button>
-          <button class="edit-button" mat-button color="primary" disableRipple>
+          <button class="edit-button" mat-button color="primary" disableRipple 
+          (click)="onEditProfileTestClicked(element)">
             <mat-icon>edit_outline</mat-icon>
           </button>
           <button class="delete-button" mat-button color="warn" disableRipple (click)="onDeleteProfileTestClicked(i)">
