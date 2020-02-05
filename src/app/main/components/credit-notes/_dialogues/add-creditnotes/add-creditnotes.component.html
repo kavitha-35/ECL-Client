@@ -1,0 +1,75 @@
+<section id="credit-container">
+  <mat-card class="credit-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Credit Note" subTitle="Add a credit" icon="fa-calendar"> </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="credit-dialog">
+        <section>
+          <!-- Method Form -->
+          <form class="credit-form" #method="ngForm">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Basic Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <!-- Date -->
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Date" />
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <!-- Invoice No -->
+                <mat-form-field>
+                  <mat-label>Invoice No</mat-label>
+                  <input matInput placeholder="Invoice No" name="invoice" ngModel #invoice="ngModel" />
+                </mat-form-field>
+
+                <!-- Invoice Date -->
+                <mat-form-field>
+                  <mat-label>Invoice Date</mat-label>
+                  <input matInput placeholder="Invoice Date" name="invoiceDate" ngModel #invoiceDate="ngModel" />
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+
+                <!-- Name -->
+                <mat-form-field>
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Name" name="name" ngModel #name="ngModel" />
+                </mat-form-field>
+
+                <!-- Total Paid -->
+                <mat-form-field>
+                  <mat-label>Total Paid</mat-label>
+                  <input matInput placeholder="Total Paid" name="totalPaid" ngModel #totalPaid="ngModel" />
+                </mat-form-field>
+
+                <!-- Credit Amount  -->
+                <mat-form-field>
+                  <mat-label>Credit Amount </mat-label>
+                  <input matInput placeholder="Credit Amount " name="creditAmount" ngModel #creditAmount="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary">Clear</button>
+            <button mat-raised-button color="primary">
+              Add Credit Note
+            </button>
+          </section>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>
