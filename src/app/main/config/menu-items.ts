@@ -203,7 +203,7 @@ const MENUITEMS: Menu[] = [
       },
       { state: 'creditnotes', name: 'Credit Notes', type: 'link' },
       {
-        state: 'problem-sample-notification',
+        state: 'payment-collection',
         name: 'Payment Collection',
         type: 'sub',
         children1: [

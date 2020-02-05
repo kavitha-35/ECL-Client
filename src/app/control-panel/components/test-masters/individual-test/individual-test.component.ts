@@ -110,4 +110,8 @@ export class IndividualTestComponent implements OnInit {
       this.getAllIndividualTests();
     });
   }
+
+  public onManageReferenceRangeClicked( individualTestId: string): void {
+    this._router.navigate(['/control-panel/individual-test-details'], { queryParams: { id: individualTestId } });
+  }
 }

@@ -157,6 +157,7 @@ import { CommentSearchComponent } from './components/comments/comment-search/com
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 import { AddCommentsComponent } from './components/comments/_dialogues/add-comments/add-comments.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { IndividualTestDetailsComponent } from './components/test-masters/individual-test/individual-test-details/individual-test-details.component';
 
 @NgModule({
   declarations: [
@@ -278,7 +279,12 @@ import { BrowserModule } from '@angular/platform-browser';
     CommentsComponent,
     CommentSearchComponent,
     CommentRibbonMenuComponent,
+<<<<<<< HEAD
     EditEquipmentComponent
+=======
+    EditEquipmentComponent,
+    IndividualTestDetailsComponent,
+>>>>>>> 32b2940e0954ba4d7be4877ff9e8bd6488b1f31d
   ],
   providers: [
     DatePipe,

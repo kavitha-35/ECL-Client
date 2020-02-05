@@ -184,12 +184,17 @@ import { OperationsDashboardComponent } from './components/dashboards/operations
 import { ManagementInformationComponent } from './components/dashboards/management-information/management-information.component';
 import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
 import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
+<<<<<<< HEAD
 import { CreditNotesComponent } from './components/credit-notes/credit-notes.component';
 import { AddCreditnotesComponent } from './components/credit-notes/_dialogues/add-creditnotes/add-creditnotes.component';
 import { CreditnotesListComponent } from './components/credit-notes/creditnotes-list/creditnotes-list.component';
 import { CreditnotesListDataTableComponent } from './components/credit-notes/creditnotes-list-data-table/creditnotes-list-data-table.component';
 import { CreditnotesRibbonMenuComponent } from './components/credit-notes/creditnotes-ribbon-menu/creditnotes-ribbon-menu.component';
 import { CreditnotesSearchComponent } from './components/credit-notes/creditnotes-search/creditnotes-search.component';
+=======
+import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
+import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
+>>>>>>> 32b2940e0954ba4d7be4877ff9e8bd6488b1f31d
 
 
 @NgModule({
@@ -333,12 +338,17 @@ import { CreditnotesSearchComponent } from './components/credit-notes/creditnote
     ManagementInformationComponent,
     LabManagmentComponent,
     FinanceManagementComponent,
+<<<<<<< HEAD
     CreditNotesComponent,
     AddCreditnotesComponent,
     CreditnotesListComponent,
     CreditnotesListDataTableComponent,
     CreditnotesRibbonMenuComponent,
     CreditnotesSearchComponent
+=======
+    PaymentCollectionComponent,
+    PaymentCollectionListComponent
+>>>>>>> 32b2940e0954ba4d7be4877ff9e8bd6488b1f31d
   ],
   providers: [
     DatePipe,

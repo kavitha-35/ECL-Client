@@ -49,7 +49,11 @@ import { ManagementInformationComponent } from './components/dashboards/manageme
 import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
 import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
 import { OperationsDashboardComponent } from './components/dashboards/operations-dashboard/operations-dashboard.component';
+<<<<<<< HEAD
 import { CreditNotesComponent } from './components/credit-notes/credit-notes.component';
+=======
+import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
+>>>>>>> 32b2940e0954ba4d7be4877ff9e8bd6488b1f31d
 
 export const routes: Routes = [
   {
@@ -91,6 +95,10 @@ export const routes: Routes = [
       {
         path: 'operations-home',
         component: OperationsHomeComponent,
+      },
+      {
+        path: 'payment-collection',
+        component: PaymentCollectionComponent,
       },
       {
         path: 'request-forms',
