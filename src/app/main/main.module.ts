@@ -184,6 +184,8 @@ import { OperationsDashboardComponent } from './components/dashboards/operations
 import { ManagementInformationComponent } from './components/dashboards/management-information/management-information.component';
 import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
 import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
+import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
+import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
 
 
 @NgModule({
@@ -326,7 +328,9 @@ import { FinanceManagementComponent } from './components/dashboards/finance-mana
     OperationsDashboardComponent,
     ManagementInformationComponent,
     LabManagmentComponent,
-    FinanceManagementComponent
+    FinanceManagementComponent,
+    PaymentCollectionComponent,
+    PaymentCollectionListComponent
   ],
   providers: [
     DatePipe,
