@@ -6,6 +6,7 @@ import { EditOrganisationComponent } from './_dialogues/edit-organisation/edit-o
 import { OrganisationModel } from 'app/control-panel/models/organisations/organisation.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DISPLAY_MODE } from 'app/main/models/constants';
+import { OrganisationService } from 'app/control-panel/services/organisation.service';
 
 @Component({
   selector: 'app-organization',
@@ -29,6 +30,7 @@ export class OrganizationComponent implements OnInit {
     private readonly matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
+    private readonly _organisationService: OrganisationService
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
@@ -46,7 +48,9 @@ export class OrganizationComponent implements OnInit {
       .open(AddOrganisationComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe(() => {
+        this.getAllOrganisations();
+      });
   }
 
   public onEditOrganisationClicked(): void {
@@ -54,7 +58,9 @@ export class OrganizationComponent implements OnInit {
       .open(EditOrganisationComponent, this.matDialogConfig)
       .afterClosed()
       .pipe(take(1))
-      .subscribe(() => {});
+      .subscribe(() => {
+        this.getAllOrganisations();
+      });
   }
 
   public onShowListViewButtonClicked(): void {
@@ -65,7 +71,19 @@ export class OrganizationComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
-  public onDeleteTestClicked(testId: string): void {}
+  public getAllOrganisations(): void {
+    this.isFetchingOrganisations = true;
+    this._organisationService.getAllOrganisations().subscribe((data) => {
+      this.organisations = data;
+      this.isFetchingOrganisations = false;
+    });
+  }
+
+   public onDeleteTestClicked(id: string): void {
+    this._organisationService.deleteOrganisation(id).subscribe(() => {
+      this.getAllOrganisations();
+    });
+   }
 
   public _initializeValues(): void {
     this.organisations = [

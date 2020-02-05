@@ -186,6 +186,9 @@ import { RegistrationSearchComponent } from './components/registrations/registra
 import { RegistrationRibbonMenuComponent } from './components/registrations/registration-ribbon-menu/registration-ribbon-menu.component';
 import { RegistrationlistRibbonMenuComponent } from './components/registration/registration-list/registrationlist-ribbon-menu/registrationlist-ribbon-menu.component';
 import { RegistrationlistSearchComponent } from './components/registration/registration-list/registrationlist-search/registrationlist-search.component';
+import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
+import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
+
 
 
 
@@ -330,7 +333,9 @@ import { RegistrationlistSearchComponent } from './components/registration/regis
     RegistrationRibbonMenuComponent,
     RegistrationSearchComponent,
     RegistrationlistRibbonMenuComponent,
-    RegistrationlistSearchComponent
+    RegistrationlistSearchComponent,
+    PaymentCollectionComponent,
+    PaymentCollectionListComponent
   ],
   providers: [
     DatePipe,

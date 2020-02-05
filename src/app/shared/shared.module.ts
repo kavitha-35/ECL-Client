@@ -48,7 +48,7 @@ import { PageNotFoundDataTableComponent } from './components/page-not-found/page
     SectionHeaderComponent,
     PageNotFoundComponent,
     PageNotFoundRibbonMenuComponent,
-    PageNotFoundDataTableComponent,
+    PageNotFoundDataTableComponent
   ],
   imports: [
     CommonModule,

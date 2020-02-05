@@ -25,21 +25,45 @@
                 <!-- Department ID-->
                 <mat-form-field>
                   <mat-label>Department ID</mat-label>
-                  <input matInput placeholder="Department ID" name=id [(ngModel)]="selectedForEdit.departmentId" disabled />
+                  <input
+                    matInput
+                    placeholder="Department ID"
+                    name="id"
+                    [(ngModel)]="selectedForEdit.departmentId"
+                    disabled
+                  />
                 </mat-form-field>
+
+                <!-- Active-->
+                <section class="pt-19" style="padding-top: 15px;">
+                  <mat-slide-toggle color="primary" name="active" [(ngModel)]="selectedForEdit.active" #active="ngModel">Active</mat-slide-toggle>
+                </section>
 
                 <!-- Department -->
                 <mat-form-field>
                   <mat-label>Department Name</mat-label>
-                  <input matInput placeholder="Department" name=departmentName [(ngModel)]="selectedForEdit.departmentName" #departmentName="ngModel" />
+                  <input
+                    matInput
+                    placeholder="Department"
+                    name="departmentName"
+                    [(ngModel)]="selectedForEdit.departmentName"
+                    #departmentName="ngModel"
+                  />
                 </mat-form-field>
 
                 <!-- Department Type -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Department Type</mat-label>
-                  <mat-select disableOptionCentering name=departmentTypeId [(ngModel)]="selectedForEdit.departmentType.departmentTypeId" #departmentTypeId="ngModel">
-                    <input matInput placeholder ="Search Department" (keyup)="onKeySearch($event.target.value)"> 
-                    <mat-option *ngFor="let options of departmentTypes"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                  <mat-select
+                    disableOptionCentering
+                    name="departmentTypeId"
+                    [(ngModel)]="selectedForEdit.departmentType.departmentTypeId"
+                    #departmentTypeId="ngModel"
+                  >
+                    <input matInput placeholder="Search Department" (keyup)="onKeySearch($event.target.value)" />
+                    <mat-option *ngFor="let options of departmentTypes" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>
@@ -48,7 +72,9 @@
 
           <section class="action-buttons-wrapper">
             <button mat-button color="primary" matDialogClose>Clear</button>
-            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditDepartmentClicked(department)">Save Changes</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditDepartmentClicked(department)">
+              Save Changes
+            </button>
           </section>
         </section>
       </mat-dialog-content>

@@ -1,6 +1,12 @@
-#department-list-data-table-component-container {
-  $status-card-background: #4a90e2;
-  $status-card-color: #ffffff;
+#individual-test-details-container {
+    .individual-test-information {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 12px;
+    }
+  
+    $status-card-background: #f44335;
+    $status-card-color: #ffffff;
   
     table {
       .status-card {

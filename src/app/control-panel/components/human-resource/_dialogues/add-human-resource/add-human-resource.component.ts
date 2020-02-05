@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
+import { DepartmentService } from 'app/control-panel/services/department.service';
 
 @Component({
   selector: 'app-add-human-resource',
@@ -8,8 +10,18 @@ import { MatDialogRef } from '@angular/material';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddHumanResourceComponent implements OnInit {
-  constructor(private readonly dialogRef: MatDialogRef<AddHumanResourceComponent>) {}
-
-  ngOnInit(): void {}
-  public onAddHumanResourceClicked(): void {}
-}
+  public departments: DepartmentModel[];
+  constructor(
+    private readonly dialogRef: MatDialogRef<AddHumanResourceComponent>,
+    private readonly _departmentService: DepartmentService,
+    ) {}
+    ngOnInit(): void {
+      this.getdepartments();
+    }
+    public onAddHumanResourceClicked(): void {}
+    public getdepartments(): void {
+      this._departmentService.getAllDepartments().subscribe((data: DepartmentModel[]) => {
+        this.departments = data;
+      });
+    }
+  }

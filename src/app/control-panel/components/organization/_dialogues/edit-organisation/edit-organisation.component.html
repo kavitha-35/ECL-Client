@@ -25,37 +25,54 @@
                 <!-- Lab Name -->
                 <mat-form-field>
                   <mat-label>Organization</mat-label>
-                  <input matInput placeholder="Clinic Name" />
+                  <input
+                    matInput
+                    placeholder="Organization"
+                    class="uppercase"
+                    name="organizationName"
+                    ngModel
+                    #organizationName="ngModel"
+                    pattern="[a-zA-Z]*"
+                    required
+                  />
+                  <mat-error *ngIf="organizationName.invalid && (organizationName.dirty || organizationName.touched)">
+                    <mat-error *ngIf="organizationName.errors.required">organization is required</mat-error>
+                    <mat-error *ngIf="organizationName.errors?.pattern">text is required</mat-error>
+                  </mat-error>
                 </mat-form-field>
 
                 <!-- Active-->
                 <section class="pt-19">
-                  <mat-slide-toggle color="primary" name="active">Active</mat-slide-toggle>
+                  <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
                 </section>
 
-                <!-- Relation -->
+                <!-- Branch -->
                 <mat-form-field class="mt-n7">
-                  <mat-label>Relation</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="1">
-                      Intra
+                  <mat-label>Branch</mat-label>
+                  <mat-select disableOptionCentering name="branch" ngModel #branch="ngModel">
+                    <mat-option [value]="true">
+                      Yes
                     </mat-option>
-                    <mat-option value="2">
-                      Inter
+                    <mat-option [value]="false">
+                      No
                     </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Type -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Organisation Type </mat-label>
+                  <mat-select matInput placeholder="Type " name="organizationType" ngModel #organizationType="ngModel">
+                    <mat-option *ngFor="let options of organisationTypes" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Business Hours -->
                 <mat-form-field>
-                  <mat-label>Business Hour</mat-label>
-                  <input matInput placeholder="Address" />
-                </mat-form-field>
-
-                <!-- Remarks -->
-                <mat-form-field>
-                  <mat-label>Remarks</mat-label>
-                  <input matInput placeholder="Address" />
+                  <mat-label>Business Hours</mat-label>
+                  <input matInput placeholder="Business Hours" name="businessHours" ngModel #address="ngModel" />
                 </mat-form-field>
               </section>
             </section>
@@ -89,27 +106,59 @@
                 </mat-form-field>
 
                 <!-- Language -->
+                <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput placeholder="Address" />
+                  <textarea
+                    matInput
+                    placeholder="Address"
+                    class="uppercase"
+                    name="organizationAddress"
+                    ngModel
+                    #organizationAddress="ngModel"
+                    required
+                  ></textarea>
+                  <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">
+                    <mat-error *ngIf="address.errors.required">Address is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Area -->
+                <mat-form-field>
+                  <mat-label> Area</mat-label>
+                  <input matInput placeholder=" Area" name="area" ngModel #area="ngModel" />
+                </mat-form-field>
+
+                <!-- City-->
+                <mat-form-field class="mt-n7">
+                  <mat-label>City</mat-label>
+                  <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
+                    <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Country -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Country</mat-label>
+                  <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
+                    <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" />
-                </mat-form-field>
-
-                <!-- Telephone -->
-                <mat-form-field>
-                  <mat-label>Telephone</mat-label>
-                  <input matInput placeholder="Telephone" />
+                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
                 </mat-form-field>
 
                 <!-- Fax -->
                 <mat-form-field>
                   <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" />
+                  <input matInput placeholder="Fax" name="fax" ngModel #fax="ngModel" />
                 </mat-form-field>
 
                 <!-- Web -->
@@ -121,83 +170,322 @@
                
 
                
-              </section>
-            </section>
-
-            <!-- Finance Information -->
-            <section class="finance-information-wrapper">
-              <!-- Header -->
-              <app-section-header title="Contact Person Information"></app-section-header>
-              <!-- Content -->
-              <section class="finance-information-content">
-                <mat-form-field>
-                  <mat-label>Contact Person</mat-label>
-                  <input matInput placeholder="Contact Person" name="contactPerson" ngModel #contactPerson="ngModel" />
-                </mat-form-field>
-
-                <!-- Contact Number -->
-                <mat-form-field>
-                  <mat-label>Contact Number</mat-label>
-                  <input matInput placeholder="Contact Number" name="contactNumber" ngModel #contactNumber="ngModel" />
-                </mat-form-field>
-
-                <!-- Email -->
+                <!-- Email-->
                 <mat-form-field>
                   <mat-label>Email</mat-label>
                   <input matInput placeholder="Email" name="email" ngModel #email="ngModel" />
                 </mat-form-field>
+
+                <!-- Mobile Number-->
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput placeholder="Mobile Number" name="mobileNumber" ngModel #mobileNumber="ngModel" />
+                </mat-form-field>
+
+                <!-- Telephone -->
+                <mat-form-field>
+                  <mat-label>Telephone</mat-label>
+                  <input
+                    matInput
+                    placeholder="Telephone"
+                    name="telephone"
+                    ngModel
+                    #telephone="ngModel"
+                    pattern="[0-9]+"
+                    minlength="10"
+                    required
+                  />
+
+                  <mat-error *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)">
+                    <mat-error *ngIf="telephone.errors.required">telephone is required</mat-error>
+                    <mat-error *ngIf="telephone.errors?.pattern">number is required</mat-error>
+                  </mat-error>
+                </mat-form-field>
               </section>
             </section>
 
-            <!-- User Credentials Information -->
-            <section class="user-credentials-information-wrapper">
+            <!-- Social Media Wrapper -->
+            <section class="social-media-wrapper">
+              <!-- Header -->
+              <app-section-header title="Social Media"></app-section-header>
+
+              <!-- Content -->
+              <section class="social-media-content">
+                <!-- Whatsapp Number -->
+                <mat-form-field>
+                  <mat-label>Whatsapp Number </mat-label>
+                  <input
+                    matInput
+                    placeholder="Whatsapp Number "
+                    name="whatsappNumber "
+                    ngModel
+                    #whatsappNumber="ngModel"
+                  />
+                </mat-form-field>
+
+                <!-- Facebook Id -->
+                <mat-form-field>
+                  <mat-label>Facebook Id </mat-label>
+                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                </mat-form-field>
+
+                <!-- Instagram Id-->
+                <mat-form-field>
+                  <mat-label>Instagram Id </mat-label>
+                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                </mat-form-field>
+
+                <!-- Twitter Id-->
+                <mat-form-field>
+                  <mat-label>Twitter Id </mat-label>
+                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <!-- Contact person -->
+            <section class="contactperson-information-wrapper" *ngIf="contactPersonList">
+              <!-- Header -->
+              <app-section-header title="Contact  Information"> </app-section-header>
+              <!-- Content -->
+              <ng-container *ngFor="let contact of contactPersonList; let i = index">
+                <section class="contactperson-information-content">
+                  <!-- Department -->
+                  <mat-form-field class="mt-n7">
+                    <mat-label>Department</mat-label>
+                    <mat-select disableOptionCentering name="departmentId{{ i }}" [(ngModel)]="contact.departmentId">
+                      <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
+                        options.keyValue
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <!-- Designation -->
+                  <mat-form-field>
+                    <mat-label>Designation</mat-label>
+                    <input
+                      matInput
+                      placeholder="Designation"
+                      name="designation{{ i }}"
+                      [(ngModel)]="contact.designation"
+                    />
+                  </mat-form-field>
+
+                  <!-- Contact Person Name -->
+                  <mat-form-field>
+                    <mat-label>Contact Person Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="Contact Person Name"
+                      name="contactPersonName{{ i }}"
+                      [(ngModel)]="contact.contactPersonName"
+                      #contactPersonName="ngModel"
+                      class="uppercase"
+                      pattern="[a-zA-Z]*"
+                      required
+                    />
+                    <mat-error
+                      *ngIf="contactPersonName.invalid && (contactPersonName.dirty || contactPersonName.touched)"
+                    >
+                      <mat-error *ngIf="contactPersonName.errors.required">Nameis required</mat-error>
+                      <mat-error *ngIf="contactPersonName.errors?.pattern">text is required</mat-error>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <!-- Mobile -->
+                  <mat-form-field>
+                    <mat-label>Mobile Number</mat-label>
+                    <input
+                      matInput
+                      placeholder="Mobile Number"
+                      name="mobile{{ i }}"
+                      [(ngModel)]="contact.mobile"
+                      pattern="[0-9]+"
+                      minlength="10"
+                      required
+                    />
+                  </mat-form-field>
+
+                  <!-- Telephone -->
+                  <mat-form-field>
+                    <mat-label>Telephone</mat-label>
+                    <input
+                      matInput
+                      placeholder="Telephone"
+                      name="telephone{{ i }}"
+                      [(ngModel)]="contact.telephone"
+                      pattern="[0-9]+"
+                      minlength="10"
+                      required
+                    />
+                  </mat-form-field>
+
+                  <!-- Email -->
+                  <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input
+                      matInput
+                      placeholder="Email"
+                      class="uppercase"
+                      name="email{{ i }}"
+                      [(ngModel)]="contact.email"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                      required
+                    />
+                  </mat-form-field>
+
+                  <!-- Date of Birth -->
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      name="dateOfBirth{{ i }}"
+                      placeholder="Date Of Birth"
+                      [(ngModel)]="contact.dateOfBirth"
+                    />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <!-- Date of Anniversary -->
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="picker1"
+                      name="dateOfAnniversary{{ i }}"
+                      placeholder="Date Of Anniversary"
+                      [(ngModel)]="contact.dateOfAnniversary"
+                    />
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+
+                  <!-- Whatsapp Number -->
+                  <mat-form-field>
+                    <mat-label>Whatsapp Number </mat-label>
+                    <input
+                      matInput
+                      placeholder="Whatsapp Number "
+                      name="whatsapp{{ i }}"
+                      [(ngModel)]="contact.whatsapp"
+                    />
+                  </mat-form-field>
+
+                  <!-- Facebook Id -->
+                  <mat-form-field>
+                    <mat-label>Facebook Id </mat-label>
+                    <input matInput placeholder="Facebook Id" name="facebook{{ i }}" [(ngModel)]="contact.facebook" />
+                  </mat-form-field>
+
+                  <!-- Instagram Id-->
+                  <mat-form-field>
+                    <mat-label>Instagram Id </mat-label>
+                    <input
+                      matInput
+                      placeholder="Instagram Id"
+                      name="instagram{{ i }}"
+                      [(ngModel)]="contact.instagram"
+                    />
+                  </mat-form-field>
+
+                  <!-- Twitter Id-->
+                  <mat-form-field>
+                    <mat-label>Twitter Id </mat-label>
+                    <input matInput placeholder="Twitter Id" name="twitter{{ i }}" [(ngModel)]="contact.twitter" />
+                  </mat-form-field>
+                </section>
+                <section class="cancel-contact-section">
+                  <button mat-raised-button color="primary" (click)="cancelContact(contact)">
+                    <mat-icon aria-hidden="false" aria-label="Delete Contact">delete_forever</mat-icon> Remove
+                  </button>
+                </section>
+              </ng-container>
+              <section class="add-contact-section">
+                <button mat-raised-button color="primary" (click)="addContact()">
+                  <mat-icon aria-hidden="false" aria-label="Add Contact">group_add</mat-icon> Add Contact
+                </button>
+              </section>
+            </section>
+            <!-- Locale Information -->
+            <section class="locale-information-wrapper">
               <!-- Header -->
               <app-section-header title="Locale Information"></app-section-header>
 
               <!-- Content -->
-              <section class="user-credentials-content">
-                <!-- User Id -->
+              <section class="locale-information-content">
+                <!-- Contact Person -->
+                <!-- Language -->
                 <mat-form-field>
                   <mat-label>Language</mat-label>
-                  <mat-select disableOptionCentering name="language" ngModel #language="ngModel"> </mat-select>
+                  <mat-select disableOptionCentering name="language" ngModel #language="ngModel">
+                    <mat-option *ngFor="let options of languages" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
 
                 <!-- Time Zone -->
                 <mat-form-field>
                   <mat-label>Time Zone</mat-label>
-                  <mat-select disableOptionCentering name="timeZone" ngModel #timeZone="ngModel"> </mat-select>
+                  <mat-select disableOptionCentering name="timeZone" ngModel #timeZone="ngModel">
+                    <mat-option *ngFor="let options of timeZones" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
               </section>
             </section>
 
-            <!-- User Credentials Information -->
-            <section class="user-credentials-information-wrapper">
+            <!-- constract -->
+            <section class="contract-wrapper">
+              <!-- Header -->
+              <app-section-header title="contract"></app-section-header>
+              <!-- Content -->
+              <section class="contract-information-content">
+                <!-- Start Date-->
+                <mat-form-field>
+                  <mat-label>Start Date</mat-label>
+                  <input matInput placeholder="DD/MM/YY" name="startDate" ngModel #startDate="ngModel" />
+                </mat-form-field>
+
+                <!-- Expiry Date-->
+                <mat-form-field>
+                  <mat-label>Expiry Date</mat-label>
+                  <input matInput placeholder="DD/MM/YY" name="expiryDate" ngModel #expiryDate="ngModel" />
+                </mat-form-field>
+
+                <!-- Contract -->
+                <section class="label">
+                  Contract
+                  <button mat-button color="primary" (click)="contract.click()">
+                    <span>Upload</span>
+                    <input #contract type="file" (change)="onContractChange($event)" style="display:none;" />
+                  </button>
+                </section>
+              </section>
+            </section>
+
+            <!-- Locale Information -->
+            <section class="locale-information-wrapper">
               <!-- Header -->
               <app-section-header title="Uploads"></app-section-header>
-
               <!-- Content -->
-              <section class="user-credentials-content">
+              <section class="locale-information-content">
                 <!-- Logo -->
                 <section class="label">
                   Logo
-                  <button mat-button color="primary">
-                    Upload
+                  <button mat-button color="primary" (click)="logo.click()">
+                    <span>Upload</span>
+                    <input #logo type="file" (change)="onLogoInput($event)" style="display:none;" />
                   </button>
                 </section>
 
-                <!-- Header -->
+                <!-- Template -->
                 <section class="label">
-                  Header
-                  <button mat-button color="primary">
-                    Upload
-                  </button>
-                </section>
-
-                <!-- Footer -->
-                <section class="label">
-                  Footer
-                  <button mat-button color="primary">
-                    Upload
+                  Template
+                  <button mat-button color="primary" (click)="template.click()">
+                    <span>Upload</span>
+                    <input #template type="file" (change)="onTemplateInput($event)" style="display:none;" />
                   </button>
                 </section>
               </section>
@@ -206,14 +494,13 @@
             <!-- User Credentials Information -->
             <section class="user-credentials-information-wrapper">
               <!-- Header -->
-              <app-section-header title="User Credentials Information"></app-section-header>
-
+              <app-section-header title="Login & Access"></app-section-header>
               <!-- Content -->
               <section class="user-credentials-content">
                 <!-- User Id -->
                 <mat-form-field>
-                  <mat-label>User Id</mat-label>
-                  <input matInput placeholder="User Id" name="userId" ngModel #userId="ngModel" />
+                  <mat-label>User Name</mat-label>
+                  <input matInput placeholder="User Name" name="userName" ngModel #userName="ngModel" />
                 </mat-form-field>
 
                 <!-- Password -->
@@ -223,77 +510,80 @@
                 </mat-form-field>
               </section>
             </section>
-
             <!-- User Credentials Information -->
             <section class="user-credentials-information-wrapper">
               <!-- Header -->
               <app-section-header title="Office Use"></app-section-header>
-
               <!-- Content -->
               <section class="user-credentials-content">
                 <!-- Clinic ID -->
                 <mat-form-field>
                   <mat-label>Clinic ID</mat-label>
-                  <input matInput placeholder="Clinic ID" />
+                  <input matInput placeholder="Clinic ID" name="clinicId" ngModel #clinicId="ngModel" />
                 </mat-form-field>
 
                 <!-- Driver -->
                 <mat-form-field>
                   <mat-label>Driver</mat-label>
-                  <input matInput placeholder="Driver" />
+                  <input matInput placeholder="Driver" name="driver" ngModel #driver="ngModel" />
                 </mat-form-field>
 
                 <!-- Sales Rep -->
                 <mat-form-field>
                   <mat-label>Sales Representative</mat-label>
-                  <input matInput placeholder="Sales Representative" />
+                  <input
+                    matInput
+                    placeholder="Sales Representative"
+                    name="salesRepresentative"
+                    ngModel
+                    #salesRepresentative="ngModel"
+                  />
                 </mat-form-field>
-
-                <!-- Country -->
-                <mat-form-field class="mt-n7">
-                  <mat-label>Email Report</mat-label>
-                  <mat-select disableOptionCentering>
-                    <mat-option value="uae">
-                      Part
-                    </mat-option>
-                    <mat-option value="india">
-                      Final
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <!-- Active SMS -->
-                <mat-checkbox>Active SMS</mat-checkbox>
-
-                <!-- Active E-mail -->
-                <mat-checkbox>Active E-mail</mat-checkbox>
-
-                <!-- Active Auto Invoice -->
-                <mat-checkbox>Active Auto Invoice</mat-checkbox>
 
                 <!-- Price List -->
                 <section class="label">
                   Price List
-                  <button mat-button color="primary">
-                    Upload
+                  <button mat-button color="primary" (click)="priceList.click()">
+                    <span>Upload</span>
+                    <input #priceList type="file" (change)="onPriceListInput($event)" style="display:none;" />
                   </button>
                 </section>
+
+                <!-- Email Report -->
+                <mat-slide-toggle color="primary" name="emailReport" ngModel #emailReport="ngModel"
+                  >Email Report(Part/Final)</mat-slide-toggle
+                >
+
+                <!-- Active SMS -->
+                <mat-slide-toggle color="primary" name="activeSms" ngModel #activeSms="ngModel"
+                  >Active SMS</mat-slide-toggle
+                >
+
+                <!-- Active E-mail -->
+                <mat-slide-toggle color="primary" name="activeEmail" ngModel #activeEmail="ngModel"
+                  >Active E-mail</mat-slide-toggle
+                >
+
+                <!-- Active Auto Invoice -->
+                <mat-slide-toggle color="primary" name="activeInvoice" ngModel #activeInvoice="ngModel"
+                  >Active Auto Invoice</mat-slide-toggle
+                >
               </section>
             </section>
 
-            <!-- User Credentials Information -->
-            <section class="user-credentials-information-wrapper">
+            <!-- Finance Information -->
+            <section class="finance-information-wrapper">
               <!-- Header -->
               <app-section-header title="Finance Information"></app-section-header>
 
               <!-- Content -->
-              <section class="user-credentials-content">
+              <section class="finance-information-content">
                 <mat-form-field>
                   <mat-label>Currency</mat-label>
-                  <mat-select disableOptionCentering name="paymentMode" ngModel #paymentMode="ngModel">
-                    <mat-option value="cash">
-                      Cash
-                    </mat-option>
+                  <mat-select disableOptionCentering name="currencyId" ngModel #currencyId="ngModel">
+                    <mat-option *ngFor="let options of currencies" [value]="options.lookupId">{{
+                      options.keyValue
+                    }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -301,29 +591,35 @@
                 <mat-form-field>
                   <mat-label>Payment Mode</mat-label>
                   <mat-select disableOptionCentering name="paymentMode" ngModel #paymentMode="ngModel">
-                    <mat-option value="cash">
+                    <mat-option value="Cash">
                       Cash
                     </mat-option>
-                    <mat-option value="netBanking">
+                    <mat-option value="Net Banking">
                       Net Banking
                     </mat-option>
-                    <mat-option value="credit">
+                    <mat-option value="Credit Card">
                       Credit Card
                     </mat-option>
-                    <mat-option value="debit">
+                    <mat-option value="Debit Card">
                       Debit Card
+                    </mat-option>
+                    <mat-option value="cheque">
+                      Cheque
+                    </mat-option>
+                    <mat-option value="Payment Gateway">
+                      Payment Gateway
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
 
                 <!-- Payment Type -->
-                <mat-form-field>
+                <mat-form-field class="mt-n7">
                   <mat-label>Payment Type</mat-label>
                   <mat-select disableOptionCentering ngModel name="paymentType" #paymentType="ngModel">
-                    <mat-option value="cash">
+                    <mat-option [value]="1">
                       Postpaid
                     </mat-option>
-                    <mat-option value="netBanking">
+                    <mat-option [value]="2">
                       PrePaid
                     </mat-option>
                   </mat-select>
@@ -349,10 +645,7 @@
                       BiMonthly
                     </mat-option>
                     <mat-option value="2">
-                      Quarter Monthly
-                    </mat-option>
-                    <mat-option value="3">
-                      Half Monthly
+                      Monthly
                     </mat-option>
                   </mat-select>
                 </mat-form-field>

@@ -9,6 +9,8 @@ import { MethodService } from 'app/control-panel/services/method.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { MethodModel } from 'app/control-panel/models/method/method.model';
 import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.model';
+import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
+import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
 
 @Component({
   selector: 'app-edit-individual-test',
@@ -17,7 +19,7 @@ import { EquipmentModel } from 'app/control-panel/models/equipments/equipments.m
 })
 export class EditIndividualTestComponent implements OnInit {
   public selectedForEdit: IndividualTestModel;
-  public processingCenter: LookUpModel[];
+  public processingCenter: OutsourcingManagementModel[];
   public units: LookUpModel[];
   public methods: MethodModel[];
   public equipments: EquipmentModel[];
@@ -28,6 +30,7 @@ export class EditIndividualTestComponent implements OnInit {
     private readonly lookUpService: LookupService,
     private readonly _equipmentService: EquipmentService,
     private readonly _methodService: MethodService,
+    private readonly _outsourceService: OutsourceManagementService,
     @Inject(MAT_DIALOG_DATA) public data: IndividualTestModel,
   ) {
     this.selectedForEdit = data;
@@ -52,10 +55,11 @@ export class EditIndividualTestComponent implements OnInit {
   }
 
   public getProcessingCenter(): void {
-    this.lookUpService.getLookUp('processingCenter').subscribe((data: LookUpModel[]) => {
+    this._outsourceService.getAllOutsourcing().subscribe((data) => {
       this.processingCenter = data;
     });
   }
+
   public getUnits(): void {
     this.lookUpService.getLookUp('unit').subscribe((data: LookUpModel[]) => {
       this.units = data;

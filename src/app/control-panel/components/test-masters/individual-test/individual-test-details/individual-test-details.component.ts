@@ -1,23 +1,25 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
-import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { untilDestroyed } from 'ngx-take-until-destroy';
-import { LinkTestToCombinedTestComponent } from '../_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 import { CombinedTestService } from 'app/control-panel/services/combinedtest.service';
+import { untilDestroyed } from 'ngx-take-until-destroy';
+import { CombinedTestModel } from 'app/control-panel/models/test-master/combined-test/combined-test.model';
+import { LinkTestToCombinedTestComponent } from '../../combined-test/_dialogues/link-test-to-combined-test/link-test-to-combined-test.component';
 
 @Component({
-  selector: 'app-combined-test-details',
-  templateUrl: './combined-test-details.component.html',
-  styleUrls: ['./combined-test-details.component.scss'],
+  selector: 'app-individual-test-details',
+  templateUrl: './individual-test-details.component.html',
+  styleUrls: ['./individual-test-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
+export class IndividualTestDetailsComponent implements OnInit, OnDestroy {
   dialogRef: any;
   combinedTestId: number;
   dosCode: string;
-  test: CombinedTestModel;
-  combinedTest: CombinedTestModel[];
+  test: IndividualTestModel;
+  individualTest: IndividualTestModel[];
   isBusy: boolean;
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
@@ -61,25 +63,18 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onDeleteIndividualTestMapping(individualTestId: string): void {
-  }
+  public onDeleteIndividualTestMapping(individualTestId: string): void {}
 
   private _initializeDisplayedColumns(): void {
     this.filteredColumns = [
-      { columnName: 'id', displayValue: 'ID', isSelected: true },
-      { columnName: 'activity', displayValue: 'Activity', isSelected: true },
-      { columnName: 'testCategory', displayValue: 'Test Category', isSelected: false },
-      { columnName: 'accreditiationSymbol', displayValue: 'Accreditiation Symbol', isSelected: false },
-      { columnName: 'integrationCode', displayValue: 'Integration Code', isSelected: true },
-      { columnName: 'testComponent', displayValue: 'Test Component', isSelected: true },
-      { columnName: 'processingCenter', displayValue: 'Processing Center', isSelected: false },
-      { columnName: 'outsourceVendorCode', displayValue: 'Outsource Vendor Code', isSelected: true },
-      { columnName: 'method', displayValue: 'Method', isSelected: true },
-      { columnName: 'unit', displayValue: 'Unit', isSelected: true },
-      { columnName: 'referenceRange', displayValue: 'Reference Range', isSelected: false },
-      { columnName: 'tat', displayValue: 'TAT', isSelected: true },
-      { columnName: 'cptAmount', displayValue: 'CPT Amount', isSelected: false },
-      { columnName: 'comments', displayValue: 'Comments', isSelected: true },
+      { columnName: 'ageRange', displayValue: 'Age Range', isSelected: true },
+      { columnName: 'lowerAge', displayValue: 'Lower Age', isSelected: true },
+      { columnName: 'upperAge', displayValue: 'Upper Age', isSelected: false },
+      { columnName: 'minimum', displayValue: 'Minimum', isSelected: false },
+      { columnName: 'maximum', displayValue: 'Maximum', isSelected: true },
+      { columnName: 'alternateResult', displayValue: 'Alternate Result', isSelected: true },
+      { columnName: 'minimumCriticalRange', displayValue: 'Minimum Critical Range', isSelected: false },
+      { columnName: 'maximumCriticalRange', displayValue: 'Maximum Critical Range', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
@@ -96,7 +91,7 @@ export class CombinedTestDetailsComponent implements OnInit, OnDestroy {
       if (data[0] === 'save') {
         const Payload = data[1].map((individualtest) => {
           return {
-            combineTestId: this.test.combineTestId,
+            // combineTestId: this.test.combineTestId,
             individualTestId: individualtest.individualTestId,
             ActiveStatus: 1,
           };
