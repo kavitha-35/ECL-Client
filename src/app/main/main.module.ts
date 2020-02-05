@@ -186,6 +186,7 @@ import { LabManagmentComponent } from './components/dashboards/lab-managment/lab
 import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
 import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
 import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
+import { AddProblemsampleComponent } from './components/accession/problem-sample-notification/_dialogues/add-problemsample/add-problemsample.component';
 
 
 @NgModule({
@@ -330,7 +331,8 @@ import { PaymentCollectionListComponent } from './components/finance/payment-col
     LabManagmentComponent,
     FinanceManagementComponent,
     PaymentCollectionComponent,
-    PaymentCollectionListComponent
+    PaymentCollectionListComponent,
+    AddProblemsampleComponent
   ],
   providers: [
     DatePipe,
