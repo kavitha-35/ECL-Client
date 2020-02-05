@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { TestModel } from 'app/control-panel/models/tests/test.model';
 import { IndividualTestModel } from 'app/control-panel/models/test-master/individual-test/individual-test.model';
 import { GridColumnModel } from 'app/shared/models/grid-column.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-individual-test-list-data-table',
@@ -14,6 +15,7 @@ export class IndividualTestListDataTableComponent implements OnInit {
   @Output() editTestClicked = new EventEmitter<IndividualTestModel>();
   @Output() deleteTestClicked = new EventEmitter<string>();
   @Output() referenceRangeClicked = new EventEmitter<string>();
+  @Output() manageReferenceClicked = new EventEmitter<string>();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
 
@@ -29,6 +31,10 @@ export class IndividualTestListDataTableComponent implements OnInit {
 
   public onDeleteClicked(testId: string): void {
     this.deleteTestClicked.emit(testId);
+  }
+
+  public onManageReferenceRangeClicked(individualTestId: string): void {
+    this.manageReferenceClicked.emit(individualTestId);
   }
 
   public onAddReferenceRangeClicked(testId: string): void {

@@ -23,6 +23,7 @@ export interface IndividualTestModel {
   listStatus: string;
   groupById ?: number;
   orderById ?: number;
+  referenceRange?: any;
 }
 
 interface ProcessingCenterModel {
