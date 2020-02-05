@@ -279,12 +279,8 @@ import { IndividualTestDetailsComponent } from './components/test-masters/indivi
     CommentsComponent,
     CommentSearchComponent,
     CommentRibbonMenuComponent,
-<<<<<<< HEAD
-    EditEquipmentComponent
-=======
     EditEquipmentComponent,
     IndividualTestDetailsComponent,
->>>>>>> 32b2940e0954ba4d7be4877ff9e8bd6488b1f31d
   ],
   providers: [
     DatePipe,
