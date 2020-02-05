@@ -57,7 +57,6 @@ export class AddProfileTestComponent implements OnInit {
   public saveProfile(): void {
     this.testprofile.combinedTest = this.linkTestProfileComponent.testsInTable;
     console.log('profile save data', this.testprofile);
-    return;
     this._profileTestService.addProfileDetails(this.testprofile).subscribe((data) => {
       this.dialogRef.close();
     });

@@ -93,4 +93,8 @@ export class ProfileTestListDataTableComponent implements OnInit {
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
+
+  public onAddCombineTestClicked(profileTestId: number): void {
+
+  }
 }
