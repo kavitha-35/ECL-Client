@@ -36,6 +36,7 @@
                 <mat-label>Name</mat-label>
                 <input matInput 
                 placeholder="Name" 
+                class="uppercase"
                 name="patientName"
                 #patientName="ngModel"
                 required
@@ -67,6 +68,7 @@
                 <mat-label>Age</mat-label>
                 <input matInput placeholder="Age"
                 name="age"
+                class="uppercase"
                 #landline="ngModel"
                 pattern="[0-9]*"
                 required
@@ -135,14 +137,14 @@
               <!-- P.O.Box -->
               <mat-form-field>
                 <mat-label>Address</mat-label>
-                <input matInput placeholder="Address" name="address" [(ngModel)]="appointment.address" />
+                <input matInput placeholder="Address" class="uppercase" name="address" [(ngModel)]="appointment.address" />
               </mat-form-field>
               
 
               <!-- Area -->
               <mat-form-field class="mt-n7">
                 <mat-label>Area</mat-label>
-                  <input matInput placeholder="Address" name="address" [(ngModel)]="appointment.area" />
+                  <input matInput placeholder="Address" class="uppercase" name="address" [(ngModel)]="appointment.area" />
               </mat-form-field>
 
               <!-- City -->
@@ -168,7 +170,7 @@
               <!-- post Box -->
               <mat-form-field>
                 <mat-label>P.O.Box</mat-label>
-                <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="appointment.poBox" />
+                <input matInput placeholder="P.O.Box" class="uppercase" name="postBox" required [(ngModel)]="appointment.poBox" />
               </mat-form-field>
               </section>
             </section>
