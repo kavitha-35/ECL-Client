@@ -19,16 +19,16 @@ import { EditAppointmentComponent } from './_dialogues/edit-appointment/edit-app
   styleUrls: ['./appointments.component.scss'],
 })
 export class AppointmentsComponent implements OnInit {
-  public showListView     : boolean;
-  public pageEvent        : PageEvent;
-  public pageSizeOptions  : number[];
-  public appointments$    : Observable<AppointmentModel[]>;
-  public appointments    : AppointmentModel[];
+  public showListView: boolean;
+  public pageEvent: PageEvent;
+  public pageSizeOptions: number[];
+  public appointments$: Observable<AppointmentModel[]>;
+  public appointments: AppointmentModel[];
   public isFetchingReferalLab: boolean;
   public matDialogConfig: MatDialogConfig = {
     panelClass: 'mat-dialogue-no-padding',
     width: '1400px',
-    height: '640px',
+    autoFocus: false,
   };
 
   constructor(
@@ -36,7 +36,7 @@ export class AppointmentsComponent implements OnInit {
     private readonly _matDialog: MatDialog,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _appointmentsFacade: AppointmentFacade,
-    private readonly _appointmentService: AppointmentServices
+    private readonly _appointmentService: AppointmentServices,
   ) {
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
     this.pageSizeOptions = [10, 25, 50, 100];
@@ -68,6 +68,13 @@ export class AppointmentsComponent implements OnInit {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
   }
 
+  public onUpdateStatusClicked(changeStatus: any): void {
+    this._appointmentService
+      .updateAppointmentStatus(changeStatus.appointmentId, changeStatus.appointmentStatus)
+      .subscribe(() => {
+        this.getAllAppointments();
+      });
+  }
   public onAddAppointmentButtonClicked(): void {
     // this._matDialog.open(AddAppointmentComponent, matDialogConfig);
     this._matDialog
@@ -95,7 +102,8 @@ export class AppointmentsComponent implements OnInit {
     this._matDialog
       .open(EditAppointmentComponent, this.matDialogConfig)
       .afterClosed()
-      .pipe(take(1)).subscribe(() => {
+      .pipe(take(1))
+      .subscribe(() => {
         this.getAllAppointments();
       });
   }
