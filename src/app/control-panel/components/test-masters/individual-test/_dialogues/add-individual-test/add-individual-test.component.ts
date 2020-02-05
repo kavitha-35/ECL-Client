@@ -178,12 +178,12 @@ export class AddIndividualTestComponent implements OnInit {
     }
   }
 
-  public onProcessingCenterSearch(value: string): void {
-    this.selectedprocessingCenters = this._filterProcessingCenter(value);
-}
+//   public onProcessingCenterSearch(value: string): void {
+//     this.selectedprocessingCenters = this._filterProcessingCenter(value);
+// }
 
-private _filterProcessingCenter(value: string): OutsourcingManagementModel[] {
-  const filterValue = value.toLowerCase();
-  return this.processingCenters.filter((option) => option.labName.toLowerCase().includes(filterValue));
-}
+// private _filterProcessingCenter(value: string): OutsourcingManagementModel[] {
+//   const filterValue = value.toLowerCase();
+//   return this.processingCenters.filter((option) => option.labName.toLowerCase().includes(filterValue));
+// }
 }

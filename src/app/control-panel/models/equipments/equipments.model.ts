@@ -4,6 +4,7 @@ export interface EquipmentModel {
   equipmentName: string;
   model: string;
   serial: string;
+  keyValue: string;
 }
 
 interface BrandModel {

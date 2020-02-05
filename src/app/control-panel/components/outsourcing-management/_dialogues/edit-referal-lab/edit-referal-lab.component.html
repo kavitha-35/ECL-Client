@@ -71,7 +71,7 @@
                 <!-- courier -->
                 <mat-form-field>
                   <mat-label>Courier</mat-label>
-                  <mat-select disableOptionCentering name="courier" [(ngModel)]="outsource.courierId">
+                  <mat-select disableOptionCentering name="courier" [(ngModel)]="outsource.courier.courierId">
                     <input matInput placeholder ="Search Courier" (keyup)="onKeySearch($event.target.value)"> 
                     <mat-option *ngFor="let options of couriers" [value]="options.lookupId">{{
                       options.keyValue
