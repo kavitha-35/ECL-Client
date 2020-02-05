@@ -19,6 +19,16 @@
       <td mat-cell *matCellDef="let element">{{ element.departmentType.departmentTypeName }}</td>
     </ng-container>
 
+    <!-- Doctor Name -->
+    <ng-container matColumnDef="status">
+      <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <section class="status-card">
+          {{ element.activeStatus }}
+        </section>
+      </td>
+    </ng-container>
+
     <!--Action-->
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>

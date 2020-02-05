@@ -89,6 +89,7 @@ export class DepartmentDataTableComponent implements OnInit, OnDestroy {
       { columnName: 'id', displayValue: 'Department Id', isSelected: true },
       { columnName: 'departmentname', displayValue: 'Department Name', isSelected: true },
       { columnName: 'departmentType', displayValue: 'Department Type', isSelected: true },
+      { columnName: 'status', displayValue: 'Status', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);

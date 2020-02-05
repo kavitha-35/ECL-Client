@@ -149,7 +149,7 @@
           </th>
           <td mat-cell *matCellDef="let element">
             <section class="actions-wrapper">
-              <button class="delete-button" mat-button color="warn" disableRipple>
+              <button class="delete-button" mat-button color="warn" disableRipple (click)="onDeleteIndividualTestMapping(element.individualTestId)">
                 <mat-icon>delete_outline</mat-icon>
               </button>
             </section>

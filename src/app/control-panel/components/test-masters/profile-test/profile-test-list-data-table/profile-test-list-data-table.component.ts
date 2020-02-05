@@ -33,7 +33,11 @@ export class ProfileTestListDataTableComponent implements OnInit {
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
   @ViewChild(MatTable, {static: false}) table: MatTable<any>;
-
+  matDialogConfig: MatDialogConfig = {
+    panelClass: 'mat-dialogue-no-padding',
+    width: '1400px',
+    autoFocus: false,
+  };
   constructor(
     private readonly _profileTestService: ProfileTestService) {
     this.addTestClicked = new EventEmitter<string>();
@@ -75,16 +79,16 @@ export class ProfileTestListDataTableComponent implements OnInit {
     this.filteredColumns = [
       { columnName: 'nestedSymbol', displayValue: 'ID', isSelected: true },
       { columnName: 'name', displayValue: 'Activity', isSelected: true },
-      { columnName: 'testId', displayValue: 'Test Category', isSelected: false },
-      { columnName: 'cptCode', displayValue: 'Accreditiation Symbol', isSelected: false },
+      { columnName: 'testId', displayValue: 'Test Category', isSelected: true },
+      { columnName: 'cptCode', displayValue: 'Accreditiation Symbol', isSelected: true },
       { columnName: 'testName', displayValue: 'Integration Code', isSelected: true },
-      { columnName: 'price', displayValue: 'Processing Center', isSelected: false },
+      { columnName: 'price', displayValue: 'Processing Center', isSelected: true },
       { columnName: 'storage', displayValue: 'Outsource Vendor Code', isSelected: true },
       { columnName: 'department', displayValue: 'Method', isSelected: true },
       { columnName: 'location', displayValue: 'Unit', isSelected: true },
       { columnName: 'currency', displayValue: 'Reference Range', isSelected: true },
       { columnName: 'status', displayValue: 'TAT', isSelected: true },
-      { columnName: 'action', displayValue: 'Action', isSelected: true },
+      { columnName: 'action', displayValue: 'Action', isSelected: true }
     ];
     const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
