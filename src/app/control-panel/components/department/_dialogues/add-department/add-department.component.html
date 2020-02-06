@@ -41,7 +41,7 @@
                   <mat-label>Department Type</mat-label>
                   <mat-select disableOptionCentering name=departmentType ngModel #departmentType="ngModel">
                     <input matInput placeholder ="Search Department" (keyup)="onKeySearch($event.target.value)"> 
-                    <mat-option *ngFor="let options of departmentTypes"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of departmentTypes"[value]="options.lookupId">{{options.keyValue |uppercase }}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>

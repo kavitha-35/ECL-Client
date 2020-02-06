@@ -23,32 +23,32 @@
           <!-- Organization -->
           <mat-form-field>
             <mat-select placeholder="Organization">
-              <mat-option value="Organization 1">Organization 1</mat-option>
-              <mat-option value="Organization 2">Organization 2</mat-option>
-              <mat-option value="Organization 3">Organization 3</mat-option>
-              <mat-option value="Organization 4">Organization 4</mat-option>
+              <mat-option value="Organization 1">ORGANIZATION 1</mat-option>
+              <mat-option value="Organization 2">ORGANIZATION2</mat-option>
+              <mat-option value="Organization 3">ORGANIZATION 3</mat-option>
+              <mat-option value="Organization 4">ORGANIZATION4</mat-option>
             </mat-select>
           </mat-form-field>
 
           <!-- Called by -->
           <mat-form-field>
             <mat-label>Called By</mat-label>
-            <input matInput [(ngModel)]="logistic.calledBy" [ngModelOptions]="{ standalone: true }" />
+            <input matInput placeholder="Called By" class="uppercase" [(ngModel)]="logistic.calledBy" [ngModelOptions]="{ standalone: true }" />
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Landline</mat-label>
-            <input matInput [(ngModel)]="logistic.landLine" [ngModelOptions]="{ standalone: true }" />
+            <input matInput placeholder="Landline" class="uppercase"  [(ngModel)]="logistic.landLine" [ngModelOptions]="{ standalone: true }" />
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Mobile</mat-label>
-            <input matInput [(ngModel)]="logistic.mobile" [ngModelOptions]="{ standalone: true }" />
+            <input matInput placeholder="Mobile" class="uppercase"  [(ngModel)]="logistic.mobile" [ngModelOptions]="{ standalone: true }" />
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput [(ngModel)]="logistic.email" [ngModelOptions]="{ standalone: true }" />
+            <input matInput  placeholder="Email" [(ngModel)]="logistic.email" [ngModelOptions]="{ standalone: true }" />
           </mat-form-field>
 
           <!-- Driver select -->
@@ -56,10 +56,10 @@
             <mat-label>Driver Assigned</mat-label>
             <mat-select value="driver1" disableOptionCentering>
               <mat-option value="driver 1">
-                Driver 1
+                DRIVER 1
               </mat-option>
               <mat-option value="driver 2">
-                Driver 2
+                DRIVER 2
               </mat-option>
             </mat-select>
           </mat-form-field>

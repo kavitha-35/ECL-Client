@@ -45,15 +45,15 @@
                   <mat-label>Brand</mat-label>
                   <mat-select disableOptionCentering name="brandId" ngModel #brandId="ngModel">
                     <mat-option *ngFor="let options of brands" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
-                <!-- Puchase Date -->
+                <!-- Purchase Date -->
                 <mat-form-field>
-                  <mat-label>Puchase Date</mat-label>
-                  <input matInput placeholder="Puchase Date" name="puchaseDate" class="uppercase" ngModel #puchaseDate="ngModel" required/>
+                  <mat-label>Purchase Date</mat-label>
+                  <input matInput placeholder="Purchase Date" name="puchaseDate" class="uppercase" ngModel #puchaseDate="ngModel" required/>
                 </mat-form-field>
 
                 <!-- Interface Type -->
@@ -61,10 +61,10 @@
                   <mat-label>Interface Type</mat-label>
                   <mat-select disableOptionCentering name="interfaceType" ngModel #interfaceType="ngModel">
                     <mat-option value="1">
-                      Yes
+                      YES
                     </mat-option>
                     <mat-option value="2">
-                      No
+                      NO
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -74,10 +74,10 @@
                   <mat-label>Analysed</mat-label>
                   <mat-select disableOptionCentering name="analysed" ngModel #analysed="ngModel">
                     <mat-option value="1">
-                      Yes
+                      YES
                     </mat-option>
                     <mat-option value="2">
-                      No
+                      NO
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
