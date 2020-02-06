@@ -192,6 +192,7 @@ import { CreditnotesRibbonMenuComponent } from './components/credit-notes/credit
 import { CreditnotesSearchComponent } from './components/credit-notes/creditnotes-search/creditnotes-search.component';
 import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
 import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
+import { AddProblemsampleComponent } from './components/accession/problem-sample-notification/_dialogues/add-problemsample/add-problemsample.component';
 
 
 @NgModule({
@@ -342,7 +343,8 @@ import { PaymentCollectionListComponent } from './components/finance/payment-col
     CreditnotesRibbonMenuComponent,
     CreditnotesSearchComponent,
     PaymentCollectionComponent,
-    PaymentCollectionListComponent
+    PaymentCollectionListComponent,
+    AddProblemsampleComponent
   ],
   providers: [
     DatePipe,

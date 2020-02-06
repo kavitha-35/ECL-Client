@@ -20,15 +20,21 @@
               <!-- Header -->
               <app-section-header title="Basic Information"></app-section-header>
 
+              <!-- method active -->
+              <section class="pt-19" style="padding-top: 15px;">
+                <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
+              </section>
+
               <!-- Content -->
               <section class="basic-content">
+
                 <!-- Method Name -->
                 <mat-form-field >
                   <mat-label>Method Name</mat-label>
                   <input matInput placeholder="Method Name" class="uppercase" name=methodName ngModel #methodName="ngModel" />
                 </mat-form-field>
 
-                <!-- Method Name -->
+                <!-- Department -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Department</mat-label>
                   <mat-select disableOptionCentering name="departmentId" ngModel #departmentId="ngModel">

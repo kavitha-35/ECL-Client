@@ -1,0 +1,304 @@
+<section id="problemSample-container">
+  <mat-card class="problemSample-mat-card">
+    <!--  Dialog Caption -->
+    <section>
+      <app-dialog-caption
+        title="Problem Sample"
+        subTitle="Add Problem Sample Notification"
+        icon="fa-calendar"
+      >
+      </app-dialog-caption>
+    </section>
+
+    <!-- Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content class="outsource-dialog">
+        <section>
+          <!--  Problem Sample Notification Form -->
+          <form class="problemSample-form" #problemSample="ngForm">
+            <!-- Basic Information -->
+            <section class="basic-wrapper">
+              <!-- Header -->
+              <app-section-header title="Personal Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="basic-content">
+                <mat-form-field>
+                  <mat-label>Type</mat-label>
+                  <mat-select disableOptionCentering name="problemSampleType">
+                    <mat-option value="1">
+                      CASH
+                    </mat-option>
+                    <mat-option value="2">
+                      CREDIT
+                    </mat-option>
+                    <mat-option value="3">
+                      INSURANCE
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Name -->
+                <mat-form-field class="mt-7">
+                  <mat-label>Name</mat-label>
+                  <input matInput maxlength="25" class="uppercase" placeholder="Name" name="fullName" />
+                </mat-form-field>
+
+                <!-- Age -->
+                <mat-form-field class="mt-7">
+                  <mat-label>Age</mat-label>
+                  <input matInput placeholder="Age" name="age" />
+                </mat-form-field>
+
+                <!-- DOB -->
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Date of birth" name="patient.dateOfBirth" />
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <!-- Gender -->
+                <section class="mt-13">
+                  <label for="gender">Gender</label>
+                  <mat-radio-group id="gender" name="gender" label="Gender">
+                    <mat-radio-button value="1" class="ml-2">MALE</mat-radio-button>
+                    <mat-radio-button value="2" class="ml-2">FEMALE</mat-radio-button>
+                  </mat-radio-group>
+                </section>
+
+                <!-- LANDLINE -->
+                <mat-form-field>
+                  <mat-label>Landline</mat-label>
+                  <input matInput placeholder="Landline" name="landline" />
+                </mat-form-field>
+
+                <!-- Mobile Number -->
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput placeholder="Mobile Number" name="mobile" />
+                </mat-form-field>
+
+                <!-- Email ID -->
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" placeholder="Email" name="email" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <section class="address-information-wrapper">
+              <app-section-header title="Address Information"></app-section-header>
+              <section class="address-information-content">
+                <!-- Address -->
+                <mat-form-field>
+                  <mat-label>Address</mat-label>
+                  <input matInput placeholder="Address" class="uppercase" name="address" />
+                </mat-form-field>
+
+                <!-- P.O.Box -->
+                <mat-form-field>
+                  <mat-label>P.O.Box</mat-label>
+                  <input matInput placeholder="P.O.Box" name="poBox" />
+                </mat-form-field>
+                <!-- Area -->
+                <mat-form-field>
+                  <mat-label>Area</mat-label>
+                  <input matInput class="uppercase" placeholder="Area" name="area" />
+                </mat-form-field>
+
+                <!-- City -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>City</mat-label>
+                  <mat-select disableOptionCenteringn name="city">
+                    <mat-option>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Country -->
+                <mat-form-field class="mt-n7">
+                  <mat-label>Country</mat-label>
+                  <mat-select disableOptionCentering name="country">
+                    <mat-option></mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+            </section>
+            <section class="social-media-wrapper">
+              <app-section-header title="Social Media"></app-section-header>
+              <section class="social-media-content">
+                <!-- Whatsapp Number -->
+                <mat-form-field>
+                  <mat-label>Whatsapp Number </mat-label>
+                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber" />
+                </mat-form-field>
+
+                <!-- Facebook Id -->
+                <mat-form-field>
+                  <mat-label>Facebook Id </mat-label>
+                  <input matInput placeholder="Facebook Id" name="facebook" />
+                </mat-form-field>
+
+                <!-- Instagram Id-->
+                <mat-form-field>
+                  <mat-label>Instagram Id </mat-label>
+                  <input matInput placeholder="Instagram Id" name="instagram" />
+                </mat-form-field>
+
+                <!-- Twitter Id-->
+                <mat-form-field>
+                  <mat-label>Twitter Id </mat-label>
+                  <input matInput placeholder="Twitter Id" name="twitter" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <section class="social-media-wrapper">
+              <app-section-header title="Referral Information"></app-section-header>
+              <section class="social-media-content">
+                <!-- Referral Organization -->
+
+                <mat-form-field class="mt-n7">
+                  <mat-label>Organization</mat-label>
+                  <mat-select disableOptionCentering name="organizationId">
+                    <mat-option>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- Referral Doctor -->
+                <mat-form-field>
+                  <mat-label>Physician</mat-label>
+                  <input matInput maxlength="10" class="uppercase" placeholder="Physician" name="physician" />
+                </mat-form-field>
+                <!-- Referral file No -->
+                <mat-form-field>
+                  <mat-label>File No</mat-label>
+                  <input matInput maxlength="10" placeholder="fileNo" name="fileNo" />
+                </mat-form-field>
+              </section>
+            </section>
+
+            <section class="clinical-history-wrapper">
+              <app-section-header title="Clinical History"></app-section-header>
+              <section class="clinical-history-content">
+                <mat-form-field>
+                  <mat-label>clinical History</mat-label>
+                  <textarea matInput placeholder="clinical History" class="uppercase" name="clinicalHistory"></textarea>
+                </mat-form-field>
+              </section>
+            </section>
+
+            <section class="test-wrapper">
+              <app-section-header title="Test(s) Information"></app-section-header>
+              <section class="test-content">
+                <mat-form-field class="full-width">
+                  <input matInput type="text" placeholder="Search for Tests" />
+                  <mat-autocomplete>
+                    <mat-option> </mat-option>
+                  </mat-autocomplete>
+                  <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+              </section>
+
+              <!-- No Linked Record(s) Message -->
+              <section
+                fxLayout
+                fxLayoutAlign="center center"
+                class="mat-card-subtitle mt-3 mb-3"
+               >
+                No Linked Tests
+              </section>
+            </section>
+
+            <section class="insurance-information-wrapper">
+              <app-section-header title="Insurance Details"></app-section-header>
+              <section class="insurance-information-content">
+                <!-- Member Number -->
+                <mat-form-field>
+                  <mat-label>Member Number</mat-label>
+                  <input matInput maxlength="10" placeholder="Member Number" name="memberNumber" />
+                </mat-form-field>
+
+                <!-- Employee Number -->
+                <mat-form-field>
+                  <mat-label>Employee Number</mat-label>
+                  <input matInput maxlength="10" placeholder="Employee Number" name="employeeNumber" />
+                </mat-form-field>
+
+                <!-- Validity -->
+                <mat-form-field>
+                  <mat-label>Validity</mat-label>
+                  <input matInput maxlength="10" placeholder="Validity" name="validity" />
+                </mat-form-field>
+
+                <!-- Network -->
+                <mat-form-field>
+                  <mat-label>Network</mat-label>
+                  <input matInput maxlength="10" placeholder="Network" name="network" />
+                </mat-form-field>
+
+                <!-- Sub Network -->
+                <mat-form-field>
+                  <mat-label>Sub Network</mat-label>
+                  <input matInput maxlength="10" placeholder="Sub Network" name="subNetwork" />
+                </mat-form-field>
+              </section>
+            </section>
+            <section class="document-wrapper">
+              <app-section-header title="Document Upload"></app-section-header>
+              <section class="document-content">
+                <mat-form-field>
+                  <mat-label>Select a document</mat-label>
+                  <mat-select disableOptionCentering>
+                    <mat-option value="1">
+                      PHOTO
+                    </mat-option>
+                    <mat-option value="2">
+                      EMIRATES ID
+                    </mat-option>
+                    <mat-option value="3">
+                      INSURANCE ID
+                    </mat-option>
+                    <mat-option value="4">
+                      DRIVING LICENSE
+                    </mat-option>
+                    <mat-option value="5">
+                      PRESCRIPTION
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <section>
+                  <button mat-button color="primary">
+                    Upload
+                  </button>
+                </section>
+
+                <mat-form-field class="reason-wrapper">
+                  <mat-label>Reason </mat-label>
+                  <textarea matInput placeholder="Reason" name="reason" class="uppercase"></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="remark-wrapper">
+                  <mat-label>Remarks </mat-label>
+                  <textarea matInput placeholder="Remarks" name="remarks" class="uppercase"></textarea>
+                </mat-form-field>
+              </section>
+            </section>
+          </form>
+        </section>
+
+        <section class="action-buttons-wrapper">
+          <button mat-button color="primary" matDialogClose>Clear</button>
+          <button mat-raised-button color="primary">
+            Add Problem Sample
+          </button>
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>

@@ -67,6 +67,7 @@ import { EditAppointmentComponent } from './main/components/appointments/_dialog
 import { ApplicationComponent } from './application/application.component';
 import { RegistrationsComponent } from './main/components/registrations/registrations.component';
 import { AddRegisterComponent } from './main/components/registrations/_dialogues/add-register/add-register.component';
+import { AddProblemsampleComponent } from './main/components/accession/problem-sample-notification/_dialogues/add-problemsample/add-problemsample.component';
 import { CreditNotesComponent } from './main/components/credit-notes/credit-notes.component';
 import { AddCreditnotesComponent } from './main/components/credit-notes/_dialogues/add-creditnotes/add-creditnotes.component';
 
@@ -153,6 +154,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ApplicationComponent,
     RegistrationsComponent,
     AddRegisterComponent,
+    AddProblemsampleComponent,
     CreditNotesComponent,
     AddCreditnotesComponent
   ],
