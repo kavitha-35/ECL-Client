@@ -9,8 +9,8 @@ import { CombinedTestService } from 'app/control-panel/services/combinedtest.ser
 import { LinkTestComponent } from 'app/main/components/registration/add-registration/link-test/link-test.component';
 import { ProfileTestService } from 'app/control-panel/services/profiletest.service';
 import { LinkTestToProfiletestComponent } from '../link-test-to-profiletest/link-test-to-profiletest.component';
-import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 import { DepartmentService } from 'app/control-panel/services/department.service';
+import { DepartmentModel } from 'app/control-panel/models/department/department.model';
 
 @Component({
   selector: 'app-add-profile-test',
@@ -18,7 +18,7 @@ import { DepartmentService } from 'app/control-panel/services/department.service
   styleUrls: ['./add-profile-test.component.scss']
 })
 export class AddProfileTestComponent implements OnInit {
-  public testprofile: ProfileTestModel;
+  public testprofile: ProfileTestModel = new ProfileTestModel();
   specimen: LookUpModel[] = [];
   specimenType: LookUpModel[] = [];
   storage: LookUpModel[] = [];
@@ -35,7 +35,7 @@ export class AddProfileTestComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.testprofile = new ProfileTestModel();
+    console.log('test profile model', this.testprofile);
     this.getStorage();
     this.getDepartments();
     this.getSpecimen();

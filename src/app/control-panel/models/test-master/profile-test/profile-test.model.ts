@@ -1,5 +1,4 @@
 import { CombinedTestModel } from '../combined-test/combined-test.model';
-import { IndividualTestModel } from '../individual-test/individual-test.model';
 
 export class ProfileTestModel {
   profileTestId: number;
@@ -12,9 +11,11 @@ export class ProfileTestModel {
   specimenType: string;
   patientFee: string;
   netFee: string;
+  storageId: number;
+  departmentId: number;
   storage: {
-    StorageId: string;
-    StorageName: string;
+    storageId: string;
+    storageName: string;
   };
   department: {
     departmentId: string;
@@ -22,4 +23,5 @@ export class ProfileTestModel {
   };
   currency: string;
   combinedTest?: CombinedTestModel[];
+  constructor() {}
 }

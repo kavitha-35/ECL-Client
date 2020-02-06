@@ -76,7 +76,7 @@
                 <!-- Storage-->
                 <mat-form-field class="mt-n7">
                   <mat-label>Storage</mat-label>
-                  <mat-select disableOptionCentering [(ngModel)]="testprofile.storage" name="storageId">
+                  <mat-select disableOptionCentering [(ngModel)]="testprofile.storageId" name="storageId">
                       <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -84,7 +84,7 @@
                 <!-- Department-->
                 <mat-form-field>
                   <mat-label>Department</mat-label>
-                  <mat-select disableOptionCentering [(ngModel)]="testprofile.department" name="departmentId">
+                  <mat-select disableOptionCentering [(ngModel)]="testprofile.departmentId" name="departmentId">
                       <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{
                         item.departmentName
                       }}</mat-option>
@@ -94,7 +94,6 @@
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
-                  <input matInput name="patientFee" placeholder="Patient Fee" required ngModel/>
                   <input
                     matInput
                     placeholder="Patient Fee"
