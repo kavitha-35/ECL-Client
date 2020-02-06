@@ -1,12 +1,10 @@
-<section id="problem-sample-notification-container" class="animated fadeIn">
+<section id="problemSample-container" class="animated fadeIn">
   <!-- Material Card -->
   <mat-card>
     <section class="mat-header-container">
       <!-- Mat Header Image -->
       <section class="mat-header-image-wrapper">
-        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true"
-          >offline_pin
-        </mat-icon>
+        <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">apps </mat-icon>
       </section>
 
       <!-- Mat Header Title -->
@@ -15,13 +13,18 @@
         <mat-card-title>
           <section class="mat-card-title-container">
             <section>
-              Problem Sample Notification
+           Problem Sample Notification
             </section>
           </section>
         </mat-card-title>
 
         <!-- Mat Card SubTitle -->
-        <mat-card-subtitle> Manage Problem Sample Notification </mat-card-subtitle>
+        <mat-card-subtitle> View/Manage Problem Sample Notification </mat-card-subtitle>
+      </section>
+
+      <!-- Add problem Sample Button -->
+      <section class="problemSample-button-wrapper">
+        <button class="problemSample-button" mat-stroked-button (click)="onAddProblemSampleNotificationClicked()">Add Problem Sample</button>
       </section>
     </section>
 

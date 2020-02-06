@@ -21,17 +21,19 @@
               <!-- Header -->
               <app-section-header title="Basic Information"></app-section-header>
 
+              <!-- Active-->
+              <section class="pt-19" style="padding-top: 15px;">
+                <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
+              </section>
+              
               <!-- Content -->
               <section class="basic-content">
-                  <!-- Active-->
-                  <section class="pt-19" style="padding-top: 15px;">
-                    <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
-                  </section>
+                  
 
                 <!-- Department Name -->
                 <mat-form-field >
                   <mat-label>Department Name</mat-label>
-                  <input matInput placeholder="Department Name" name=departmentName ngModel #departmentName="ngModel" required />
+                  <input matInput placeholder="Department Name" class="uppercase" name=departmentName ngModel #departmentName="ngModel" required />
                 </mat-form-field>
 
                 <!-- Department Type -->

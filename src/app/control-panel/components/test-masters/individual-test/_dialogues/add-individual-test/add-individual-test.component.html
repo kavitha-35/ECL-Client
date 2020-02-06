@@ -66,10 +66,10 @@
                   <mat-label>Accreditation</mat-label>
                   <mat-select disableOptionCentering name="accrediation" ngModel #accrediationId="ngModel">
                     <mat-option [value]="true">
-                      yes
+                      YES
                     </mat-option>
                     <mat-option [value]="false">
-                      No
+                      NO
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -80,6 +80,7 @@
                   <input
                     matInput
                     placeholder="Test Component"
+                    class="uppercase"
                     name="individualTestName"
                     required
                     ngModel
@@ -113,6 +114,7 @@
                   <input
                     matInput
                     placeholder="Vendor Code"
+                    class="uppercase"
                     name="outsourceVendorCode"
                     ngModel
                     #outSourceVendorCode="ngModel"
@@ -145,6 +147,7 @@
                   <input
                     matInput
                     placeholder="Integration Code"
+                    class="uppercase"
                     name="integrationCode"
                     ngModel
                     #integrationCode="ngModel"
@@ -154,7 +157,7 @@
                 <!-- CPT Amount -->
                 <mat-form-field>
                   <mat-label>CPT Amount</mat-label>
-                  <input matInput placeholder="CPT Amount" name="cptAmount" ngModel #cptAmount="ngModel" />
+                  <input matInput placeholder="CPT Amount" class="uppercase" name="cptAmount" ngModel #cptAmount="ngModel" />
                 </mat-form-field>
 
                 <!-- TAT -->
@@ -243,7 +246,7 @@
                       <!--Enter Values -->
                       <mat-form-field>
                         <mat-label>Enter Values</mat-label>
-                        <input matInput placeholder="Enter Values" name="value" [(ngModel)]="value" />
+                        <input matInput placeholder="Enter Values" class="uppercase" name="value" [(ngModel)]="value" />
                       </mat-form-field>
 
                       <section class="pl-100">
