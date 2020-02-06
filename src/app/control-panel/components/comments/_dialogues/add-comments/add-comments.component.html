@@ -19,7 +19,12 @@
               <section class="basic-wrapper">
                 <!-- Header -->
                 <app-section-header title="Comment"></app-section-header>
-  
+
+                <!-- comment status -->
+                <section class="pt-19" style="padding-top: 15px;">
+                  <mat-slide-toggle color="primary" name="active" ngModel #active="ngModel">Active</mat-slide-toggle>
+                </section>
+
                 <!-- Content -->
                 <section class="basic-content">
                   <!-- Comment Name -->
