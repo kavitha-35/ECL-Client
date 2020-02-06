@@ -1,78 +1,95 @@
 <section id="add-appointment-container">
-    <mat-card class="add-appointment-mat-card">
-  
-      <!-- Add Appointment Dialog Caption -->
-      <section>
-        <app-dialog-caption
-          title="Edit Appointment"
-          subTitle="Schedule/ Book Appointment"
-          icon="fa-calendar">
-        </app-dialog-caption>
-      </section>
-  
-      <!-- Add Appointment Dialog Content -->
-      <section>
-        <!-- Mat Card Header -->
-        <app-mat-dialog-header></app-mat-dialog-header>
-  
-        <!-- Mat Card Content -->
-        <mat-card-content>
-          <section>
-  
-            <!-- Add Appointment Form -->
-            <form class="add-appointment-form">
-  
-              <!-- Demographics -->
-              <section class="demographics-wrapper">
-  
-                <!-- Header -->
-                <app-section-header title="Demographics"></app-section-header>
-  
-                <!-- Content -->
-                <section class="demographics-content">
-  
+  <mat-card class="add-appointment-mat-card">
+    <!-- Add Appointment Dialog Caption -->
+    <section>
+      <app-dialog-caption title="Edit Appointment" subTitle="Schedule/ Book Appointment" icon="fa-calendar">
+      </app-dialog-caption>
+    </section>
+
+    <!-- Add Appointment Dialog Content -->
+    <section>
+      <!-- Mat Card Header -->
+      <app-mat-dialog-header></app-mat-dialog-header>
+
+      <!-- Mat Card Content -->
+      <mat-dialog-content style="margin: auto;">
+        <section>
+          <!-- Add Appointment Form -->
+          <form class="add-appointment-form">
+            <!-- Demographics -->
+            <section class="demographics-wrapper">
+              <!-- Header -->
+              <app-section-header title="Demographics"></app-section-header>
+
+              <!-- Content -->
+              <section class="demographics-content">
                 <!-- Name -->
                 <mat-form-field>
                   <mat-label>Name</mat-label>
-                  <input matInput 
-                  placeholder="Name" 
-                  name="patientName"
-                  #patientName="ngModel"
-                  required
-                  [(ngModel)]="appointment.patientName"/>
+                  <input
+                    matInput
+                    placeholder="Name"
+                    name="patientName"
+                    #patientName="ngModel"
+                    required
+                    [(ngModel)]="appointment.patientName"
+                  />
                   <mat-error *ngIf="patientName.invalid && (patientName.dirty || patientName.touched)">
                     <mat-error *ngIf="patientName.errors.required">Patient Name is required</mat-error>
                     <mat-error *ngIf="patientName.errors?.pattern">text is required</mat-error>
                   </mat-error>
                 </mat-form-field>
-  
+
                 <!-- Date of Birth -->
                 <mat-form-field>
-                  <input matInput name="picker" placeholder="Date Of Birth" [(ngModel)]="appointment.dob"/>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    name="dob"
+                    placeholder="Date Of Birth"
+                    [(ngModel)]="appointment.dob"
+                  />
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-  
+
                 <!-- Gender -->
                 <section class="pt-13">
                   <label for="gender" class="sub-title">Gender</label>
-                  <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="appointment.gender">
-                    <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
-                    <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+                  <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="appointment.gender.genderId">
+                    <mat-radio-button [value]="1" class="ml-2">Male</mat-radio-button>
+                    <mat-radio-button [value]="2" class="ml-2">Female</mat-radio-button>
                   </mat-radio-group>
                 </section>
-  
+
+                <!--Age  -->
+                <mat-form-field>
+                  <mat-label>Age</mat-label>
+                  <input
+                    matInput
+                    placeholder="Age"
+                    name="age"
+                    #landline="ngModel"
+                    pattern="[0-9]*"
+                    required
+                    [(ngModel)]="appointment.age"
+                  />
+                </mat-form-field>
+
                 <!-- Landline Number -->
                 <mat-form-field>
                   <mat-label>Landline Number</mat-label>
-                  <input matInput placeholder="Landline"
-                  name="landline"
-                  #landline="ngModel"
-                  pattern="[0-9]*"
-                  required
-                  [(ngModel)]="appointment.landline"/>
+                  <input
+                    matInput
+                    placeholder="Landline"
+                    name="landline"
+                    #landline="ngModel"
+                    pattern="[0-9]*"
+                    required
+                    [(ngModel)]="appointment.landline"
+                  />
                 </mat-form-field>
-  
+
                 <!-- Mobile Number -->
                 <mat-form-field>
                   <mat-label>Mobile</mat-label>
@@ -90,11 +107,11 @@
                     <mat-error *ngIf="mobile.errors?.pattern">number is required</mat-error>
                   </mat-error>
                 </mat-form-field>
-  
+
                 <!-- Email -->
                 <mat-form-field>
                   <mat-label>Email</mat-label>
-                  <input 
+                  <input
                     matInput
                     placeholder="Email"
                     name="email"
@@ -108,80 +125,61 @@
                     <mat-error *ngIf="email.errors?.pattern">abc@gmail.com format is required</mat-error>
                   </mat-error>
                 </mat-form-field>
-                </section>
-  
               </section>
-  
-              <!-- Address Information -->
-              <section class="address-information-wrapper">
-  
-                <!-- Header -->
-                <app-section-header title="Address Information"></app-section-header>
-  
-                <!-- Content -->
-                <section class="address-information-content">
-  
+            </section>
+
+            <!-- Address Information -->
+            <section class="address-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Address Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="address-information-content">
                 <!-- P.O.Box -->
-                <mat-form-field>
-                  <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" />
-                </mat-form-field>
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
                   <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="appointment.poBox" />
                 </mat-form-field>
-  
+
                 <!-- Area -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Area</mat-label>
-                  <mat-select disableOptionCentering name="area" [(ngModel)]="appointment.area">
-                    <mat-option value="gulfarea">
-                      Gulf Area
-                    </mat-option>
-                    <mat-option value="deira">
-                      Deira
-                    </mat-option>
-                    <mat-option value="burdubai">
-                      Bur Dubai
-                    </mat-option>
-                  </mat-select>
+                  <input matInput placeholder="Address" name="address" [(ngModel)]="appointment.area" />
                 </mat-form-field>
-  
+
                 <!-- City -->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
-                  <mat-select disableOptionCenteringn name="city" [(ngModel)]="appointment.city">
+                  <mat-select disableOptionCenteringn name="city" [(ngModel)]="appointment.city.cityId">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
-  
+
                 <!-- Country -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
-                  <mat-select disableOptionCentering name="country" [(ngModel)]="appointment.country">
+                  <mat-select disableOptionCentering name="country" [(ngModel)]="appointment.country.countryId">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
                       options.keyValue
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
-                </section>
               </section>
-  
-              <!-- Schedule Information -->
-              <section class="schedule-information-wrapper">
-  
-                <!-- Header -->
-                <app-section-header title="Schedule Information"></app-section-header>
-  
-                <!-- Content -->
-                <section class="schedule-information-content">
-  
+            </section>
+
+            <!-- Schedule Information -->
+            <section class="schedule-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Schedule Information"></app-section-header>
+
+              <!-- Content -->
+              <section class="schedule-information-content">
                 <!-- Appointment Date and Time -->
                 <mat-form-field>
                   <input
-                    matInput 
+                    matInput
                     name="appointmentDateTime"
                     [(ngModel)]="appointment.appointmentDateTime"
                     placeholder="Appointment Date and Time"
@@ -190,35 +188,32 @@
                   />
                   <owl-date-time #Appointment></owl-date-time>
                 </mat-form-field>
-  
-                </section>
               </section>
-  
-              <!-- Comment Information -->
-              <section class="comment-information-wrapper">
-  
-                <!-- Header -->
-                <app-section-header title="Comment"></app-section-header>
-  
-                <section>
-  
+            </section>
+
+            <!-- Comment Information -->
+            <section class="comment-information-wrapper">
+              <!-- Header -->
+              <app-section-header title="Comment"></app-section-header>
+
+              <section>
                 <!-- Comment -->
                 <mat-form-field class="comment-mat-field full-width">
                   <mat-label>Comment</mat-label>
-                  <input matInput placeholder="Comment" [(ngModel)]="appointment.comments" name="comments"/>
+                  <input matInput placeholder="Comment" [(ngModel)]="appointment.comments" name="comments" />
                 </mat-form-field>
-                </section>
               </section>
-            </form>
-  
-            <section class="action-buttons-wrapper">
-              <button mat-button color="primary" matDialogClose>Clear</button>
-              <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditAppointmentClicked()">Update Appointment</button>
             </section>
+          </form>
+
+          <section class="action-buttons-wrapper">
+            <button mat-button color="primary" matDialogClose>Clear</button>
+            <button mat-raised-button color="primary" cdkFocusInitial (click)="onEditAppointmentClicked()">
+              Update Appointment
+            </button>
           </section>
-        </mat-card-content>
-      </section>
-  
-    </mat-card>
-  </section>
-  
+        </section>
+      </mat-dialog-content>
+    </section>
+  </mat-card>
+</section>

@@ -6,6 +6,7 @@ import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
 import { MatDialogRef } from '@angular/material';
 import { AppointmentServices } from 'app/main/services/appointment.services';
 import { AppointmentModel } from 'app/main/models/appointment/appointment.model';
+import { AddAppointmentRequestModel } from 'app/main/models/appointment/add-appointment/add-appointment-request.model';
 
 @Component({
   selector: 'app-new-appointment',
@@ -16,10 +17,10 @@ export class AddAppointmentComponent implements OnInit {
   public time: Time[];
   public cities: LookUpModel[];
   public countries: LookUpModel[];
-  public appointment: AppointmentModel = new AppointmentModel();
+  public appointment: AddAppointmentRequestModel = new AddAppointmentRequestModel();
 
   constructor(
-    private readonly _dialogRef: MatDialogRef<AppointmentModel>,
+    private readonly _dialogRef: MatDialogRef<AddAppointmentComponent>,
     private readonly appointmentService: AppointmentServices,
     private readonly _lookUpService: LookupService,
   ) {}

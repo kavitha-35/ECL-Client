@@ -184,6 +184,12 @@ import { OperationsDashboardComponent } from './components/dashboards/operations
 import { ManagementInformationComponent } from './components/dashboards/management-information/management-information.component';
 import { LabManagmentComponent } from './components/dashboards/lab-managment/lab-managment.component';
 import { FinanceManagementComponent } from './components/dashboards/finance-management/finance-management.component';
+import { CreditNotesComponent } from './components/credit-notes/credit-notes.component';
+import { AddCreditnotesComponent } from './components/credit-notes/_dialogues/add-creditnotes/add-creditnotes.component';
+import { CreditnotesListComponent } from './components/credit-notes/creditnotes-list/creditnotes-list.component';
+import { CreditnotesListDataTableComponent } from './components/credit-notes/creditnotes-list-data-table/creditnotes-list-data-table.component';
+import { CreditnotesRibbonMenuComponent } from './components/credit-notes/creditnotes-ribbon-menu/creditnotes-ribbon-menu.component';
+import { CreditnotesSearchComponent } from './components/credit-notes/creditnotes-search/creditnotes-search.component';
 import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
 import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
 import { AddProblemsampleComponent } from './components/accession/problem-sample-notification/_dialogues/add-problemsample/add-problemsample.component';
@@ -330,6 +336,12 @@ import { AddProblemsampleComponent } from './components/accession/problem-sample
     ManagementInformationComponent,
     LabManagmentComponent,
     FinanceManagementComponent,
+    CreditNotesComponent,
+    AddCreditnotesComponent,
+    CreditnotesListComponent,
+    CreditnotesListDataTableComponent,
+    CreditnotesRibbonMenuComponent,
+    CreditnotesSearchComponent,
     PaymentCollectionComponent,
     PaymentCollectionListComponent,
     AddProblemsampleComponent

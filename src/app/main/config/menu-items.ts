@@ -201,7 +201,7 @@ const MENUITEMS: Menu[] = [
           },
         ],
       },
-      { state: 'not-found', name: 'Credit Notes', type: 'link' },
+      { state: 'creditnotes', name: 'Credit Notes', type: 'link' },
       {
         state: 'payment-collection',
         name: 'Payment Collection',

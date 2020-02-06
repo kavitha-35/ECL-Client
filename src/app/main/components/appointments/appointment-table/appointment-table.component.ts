@@ -10,16 +10,17 @@ import { FilterItemModel } from '../../../../shared/models/filter-item.model';
   styleUrls: ['./appointment-table.component.scss'],
 })
 export class AppointmentTableComponent implements OnInit, OnChanges {
-  @Input() public appointments       : AppointmentModel[];
-  @Output() public rowSelected       : EventEmitter<number>;
-  @Output() public deleteAppointmentClicked   : EventEmitter<number>;
-  @Output() public editAppointmentClicked   : EventEmitter<any>;
+  @Input() public appointments: AppointmentModel[];
+  @Output() public rowSelected: EventEmitter<number>;
+  @Output() public deleteAppointmentClicked: EventEmitter<number>;
+  @Output() public editAppointmentClicked: EventEmitter<any>;
+  @Output() public updateStatusClicked: EventEmitter<object>;
 
-  public displayedColumns            : string[];
-  public filteredColumns             : GridColumnModel[];
+  public displayedColumns: string[];
+  public filteredColumns: GridColumnModel[];
 
-  public emailFilterList             : FilterItemModel[];
-  public filteredAppointments        : AppointmentModel[];
+  public emailFilterList: FilterItemModel[];
+  public filteredAppointments: AppointmentModel[];
 
   constructor() {
     this.emailFilterList = [];
@@ -28,6 +29,7 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
     this.rowSelected = new EventEmitter<number>();
     this.deleteAppointmentClicked = new EventEmitter<number>();
     this.editAppointmentClicked = new EventEmitter<any>();
+    this.updateStatusClicked = new EventEmitter<object>();
   }
 
   ngOnInit(): void {
@@ -48,16 +50,18 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
     this.rowSelected.emit(selectedRow.appointmentId);
   }
 
-  public onEditClicked(selectedRow: any): void {
+  public onEditClicked(selectedRow: any, mouseEvent: MouseEvent): void {
+    mouseEvent.stopPropagation();
     this.editAppointmentClicked.emit(selectedRow);
   }
 
-  public onDeleteClicked(selectedRow: AppointmentModel): void {
-    this.deleteAppointmentClicked.emit(selectedRow.appointmentId);
+  public onDeleteClicked(appointmentId: number, mouseEvent: MouseEvent): void {
+    mouseEvent.stopPropagation();
+    this.deleteAppointmentClicked.emit(appointmentId);
   }
 
   public onColumnChooserClosed(selectedColumns: GridColumnModel[]): void {
-    this.displayedColumns = selectedColumns.map(x => x.columnName);
+    this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
 
   public onFilterClosed(selectedFilterItems: string[]): void {
@@ -67,7 +71,7 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
     }
 
     this.filteredAppointments = this.appointments.filter((appointment) =>
-      selectedFilterItems.some((x: string) => x === appointment.email)
+      selectedFilterItems.some((x: string) => x === appointment.email),
     );
   }
 
@@ -87,6 +91,9 @@ export class AppointmentTableComponent implements OnInit, OnChanges {
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
 
-    this.displayedColumns = this.filteredColumns.map(x => x.columnName);
+    this.displayedColumns = this.filteredColumns.map((x) => x.columnName);
+  }
+  public updateAppointmentStatus(status: string, id: string): void {
+    this.updateStatusClicked.emit({ appointmentStatus: status, appointmentId: id });
   }
 }

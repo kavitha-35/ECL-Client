@@ -1,0 +1,65 @@
+<section id="creditnotes-container" class="animated fadeIn">
+    <!-- Material Card -->
+    <mat-card>
+      <section class="mat-header-container">
+        <!-- Mat Header Image -->
+        <section class="mat-header-image-wrapper">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">apps </mat-icon>
+        </section>
+  
+        <!-- Mat Header Title -->
+        <section>
+          <!-- Mat Card Title -->
+          <mat-card-title>
+            <section class="mat-card-title-container">
+              <section>
+                Credit Notes
+              </section>
+            </section>
+          </mat-card-title>
+  
+          <!-- Mat Card SubTitle -->
+          <mat-card-subtitle> View/Manage Credit Notes</mat-card-subtitle>
+        </section>
+  
+        <!-- Add creditnote Button -->
+        <section class="credit-button-wrapper">
+          <button class="credit-button" mat-stroked-button (click)="onAddCreditnotesButtonClicked()">Add Credit Note</button>
+        </section>
+       </section>
+  
+      <!-- Mat Table Ribbon -->
+      <app-creditnotes-ribbon-menu
+        (showListViewButtonClicked)="onShowListViewButtonClicked()"
+        (showTableViewButtonClicked)="onShowTableViewButtonClicked()"
+      >
+      </app-creditnotes-ribbon-menu>
+  
+      <!-- Mat Divider -->
+      <mat-divider></mat-divider>
+  
+      <!-- Test List -->
+      <!-- <ng-container *ngIf="showListView; then listView; else tableView"></ng-container> -->
+  
+      <!-- List View -->
+      <!-- <ng-template #listView>
+        <app-creditnotes-list [method]="method"></app-creditnotes-list>
+      </ng-template>
+   -->
+      <!-- Table View -->
+      <!-- <ng-template #tableView>
+        <app-creditnotes-list-data-table
+          [method]="method"
+          (editMethodClicked)="onEditMethodClicked($event)"
+          (viewMethodClicked)="onViewMethodClicked($event)"
+          (deleteMethodClicked)="onDeleteMethodClicked($event)"
+          [isBusy]="isFetchingMethods"
+        ></app-creditnotes-list-data-table>
+      </ng-template>
+   -->
+      <!-- <mat-paginator [length]="method.length" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+      </mat-paginator> -->
+      
+    </mat-card>
+  </section>
+  
