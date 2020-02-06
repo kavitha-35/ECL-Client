@@ -59,7 +59,7 @@
                 <mat-form-field>
                   <mat-label>Specimen</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="testprofile.specimen" name="specimen">
-                      <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
+                      <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{ item.keyValue |uppercase }}</mat-option>
                     </mat-select>
                 </mat-form-field>
 
@@ -68,7 +68,7 @@
                   <mat-label>Specimen Type</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="testprofile.specimenType" name="specimenType">
                       <mat-option *ngFor="let item of specimenType" [value]="item.lookupId"
-                        >{{ item.keyValue }}
+                        >{{ item.keyValue |uppercase}}
                       </mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -77,7 +77,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Storage</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="testprofile.storage" name="storageId">
-                      <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
+                      <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue  |uppercase }}</mat-option>
                     </mat-select>
                 </mat-form-field>
 

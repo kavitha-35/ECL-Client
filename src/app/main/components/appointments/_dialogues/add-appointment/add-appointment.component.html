@@ -153,7 +153,7 @@
                 <mat-label>City</mat-label>
                 <mat-select disableOptionCenteringn name="city" [(ngModel)]="appointment.city">
                   <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                    options.keyValue
+                    options.keyValue |uppercase
                   }}</mat-option>
                 </mat-select>
               </mat-form-field>
@@ -163,7 +163,7 @@
                 <mat-label>Country</mat-label>
                 <mat-select disableOptionCentering name="country" [(ngModel)]="appointment.country">
                   <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                    options.keyValue
+                    options.keyValue |uppercase
                   }}</mat-option>
                 </mat-select>
               </mat-form-field>

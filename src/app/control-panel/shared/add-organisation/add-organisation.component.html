@@ -51,10 +51,10 @@
                   <mat-label>Branch</mat-label>
                   <mat-select disableOptionCentering name="branch" ngModel #branch="ngModel">
                     <mat-option [value]="true">
-                      Yes
+                      YES
                     </mat-option>
                     <mat-option [value]="false">
-                      No
+                      NO
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -64,7 +64,7 @@
                   <mat-label>Organisation Type </mat-label>
                   <mat-select matInput placeholder="Type " name="organizationType" ngModel #organizationType="ngModel">
                     <mat-option *ngFor="let options of organisationTypes" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -112,7 +112,7 @@
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -122,7 +122,7 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -232,7 +232,7 @@
                     <mat-label>Department</mat-label>
                     <mat-select disableOptionCentering name="departmentId{{ i }}" [(ngModel)]="contact.departmentId">
                       <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
-                        options.keyValue
+                        options.keyValue |uppercase
                       }}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -401,7 +401,7 @@
                   <mat-label>Language</mat-label>
                   <mat-select disableOptionCentering name="language" ngModel #language="ngModel">
                     <mat-option *ngFor="let options of languages" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -411,7 +411,7 @@
                   <mat-label>Time Zone</mat-label>
                   <mat-select disableOptionCentering name="timeZone" ngModel #timeZone="ngModel">
                     <mat-option *ngFor="let options of timeZones" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>

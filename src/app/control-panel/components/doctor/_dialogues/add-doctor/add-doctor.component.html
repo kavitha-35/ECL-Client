@@ -53,7 +53,7 @@
                   <mat-label>Organization</mat-label>
                   <mat-select disableOptionCentering name="organizationId" ngModel #organizationId="ngModel">
                     <mat-option *ngFor="let item of organisations" [value]="item.organizationId"
-                      >{{ item.organizationName }}
+                      >{{ item.organizationName |uppercase }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -91,7 +91,7 @@
                   <mat-label>Doctor Speciality</mat-label>
                   <mat-select disableOptionCentering name="doctorSpeciality" ngModel #doctorSpeciality="ngModel">
                     <mat-option *ngFor="let options of specialities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -179,7 +179,7 @@
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -189,7 +189,7 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
