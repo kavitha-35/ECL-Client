@@ -109,7 +109,7 @@
                 <!-- Area -->
                 <mat-form-field>
                   <mat-label>Area</mat-label>
-                  <input matInput placeholder="Area"class="uppercase" name="area" required [(ngModel)]="outsource.area" />
+                  <input matInput placeholder="Area" class="uppercase" name="area" required [(ngModel)]="outsource.area" />
                 </mat-form-field>
 
                 <!-- City-->
@@ -135,7 +135,7 @@
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="outsource.poNumber" />
+                  <input matInput placeholder="P.O.Box"  class="uppercase" name="postBox" required [(ngModel)]="outsource.poNumber" />
                 </mat-form-field>
 
                 <!-- Web -->
@@ -147,7 +147,7 @@
                 <!-- Fax -->
                 <mat-form-field>
                   <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" name="fax" [(ngModel)]="outsource.fax" />
+                  <input matInput placeholder="Fax"  class="uppercase" name="fax" [(ngModel)]="outsource.fax" />
                 </mat-form-field>
 
                 <!-- Mobile Number -->
@@ -201,6 +201,7 @@
                     matInput
                     placeholder="Whatsapp Number "
                     name="whatsappNumber "
+                    class="uppercase"
                     [(ngModel)]="outsource.whatsapp"
                   />
                 </mat-form-field>
@@ -208,19 +209,19 @@
                 <!-- Facebook Id -->
                 <mat-form-field>
                   <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" [(ngModel)]="outsource.facebook" />
+                  <input matInput placeholder="Facebook Id"  class="uppercase" name="facebook" [(ngModel)]="outsource.facebook" />
                 </mat-form-field>
 
                 <!-- Instagram Id-->
                 <mat-form-field>
                   <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" [(ngModel)]="outsource.instagram" />
+                  <input matInput placeholder="Instagram Id"  class="uppercase" name="instagram" [(ngModel)]="outsource.instagram" />
                 </mat-form-field>
 
                 <!-- Twitter Id-->
                 <mat-form-field>
                   <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" [(ngModel)]="outsource.twitter" />
+                  <input matInput placeholder="Twitter Id"  class="uppercase" name="twitter" [(ngModel)]="outsource.twitter" />
                 </mat-form-field>
               </section>
             </section>
@@ -319,7 +320,7 @@
                   <!-- Facebook Id -->
                   <mat-form-field>
                     <mat-label>Facebook Id </mat-label>
-                    <input matInput placeholder="Facebook Id" name="facebook{{ i }}" [(ngModel)]="contact.faceook" />
+                    <input matInput placeholder="Facebook Id"  class="uppercase" name="facebook{{ i }}" [(ngModel)]="contact.faceook" />
                   </mat-form-field>
 
                   <!-- Instagram Id-->
@@ -328,6 +329,7 @@
                     <input
                       matInput
                       placeholder="Instagram Id"
+                      class="uppercase"
                       name="instagram{{ i }}"
                       [(ngModel)]="contact.instagram"
                     />
@@ -339,6 +341,7 @@
                     <input
                       matInput
                       placeholder="Twitter Id"
+                      class="uppercase"
                       name="twitter{{ i }}"
                       ngModel
                       [(ngModel)]="contact.twitter"
@@ -414,7 +417,7 @@
                 <!-- Credit limit -->
                 <mat-form-field>
                   <mat-label> Credit limit</mat-label>
-                  <input matInput placeholder="Credit limit" name="creditLimit" [(ngModel)]="outsource.creditLimit" />
+                  <input matInput placeholder="Credit limit" class="uppercase" name="creditLimit" [(ngModel)]="outsource.creditLimit" />
                 </mat-form-field>
               </section>
             </section>
@@ -428,7 +431,7 @@
                 <!-- URL -->
                 <mat-form-field>
                   <mat-label>URL</mat-label>
-                  <input matInput placeholder="URL" name="url" required [(ngModel)]="outsource.url" />
+                  <input matInput placeholder="URL" class="uppercase" name="url" required [(ngModel)]="outsource.url" />
                 </mat-form-field>
 
                 <!-- UserName -->
@@ -447,7 +450,7 @@
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="password" required [(ngModel)]="outsource.password" />
+                  <input matInput placeholder="Password" class="uppercase" name="password" required [(ngModel)]="outsource.password" />
                 </mat-form-field>
               </section>
             </section>

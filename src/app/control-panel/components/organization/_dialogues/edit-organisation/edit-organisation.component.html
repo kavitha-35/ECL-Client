@@ -72,7 +72,7 @@
                 <!-- Business Hours -->
                 <mat-form-field>
                   <mat-label>Business Hours</mat-label>
-                  <input matInput placeholder="Business Hours" name="businessHours" ngModel #address="ngModel" />
+                  <input matInput placeholder="Business Hours"  class="uppercase" name="businessHours" ngModel #address="ngModel" />
                 </mat-form-field>
               </section>
             </section>
@@ -104,7 +104,7 @@
                 <!-- Area -->
                 <mat-form-field>
                   <mat-label> Area</mat-label>
-                  <input matInput placeholder=" Area" name="area" ngModel #area="ngModel" />
+                  <input matInput placeholder=" Area" class="uppercase" name="area" ngModel #area="ngModel" />
                 </mat-form-field>
 
                 <!-- City-->
@@ -130,19 +130,19 @@
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
+                  <input matInput placeholder="P.O.Box"  class="uppercase" name="postBox" ngModel #postBox="ngModel" />
                 </mat-form-field>
 
                 <!-- Fax -->
                 <mat-form-field>
                   <mat-label>Fax</mat-label>
-                  <input matInput placeholder="Fax" name="fax" ngModel #fax="ngModel" />
+                  <input matInput placeholder="Fax" class="uppercase" name="fax" ngModel #fax="ngModel" />
                 </mat-form-field>
 
                 <!-- Web -->
                 <mat-form-field>
                   <mat-label>Web</mat-label>
-                  <input matInput placeholder="Web" name="web" ngModel #web="ngModel" />
+                  <input matInput placeholder="Web" name="web" class="uppercase" ngModel #web="ngModel" />
                 </mat-form-field>
 
                 <!-- Email-->
@@ -154,7 +154,7 @@
                 <!-- Mobile Number-->
                 <mat-form-field>
                   <mat-label>Mobile Number</mat-label>
-                  <input matInput placeholder="Mobile Number" name="mobileNumber" ngModel #mobileNumber="ngModel" />
+                  <input matInput placeholder="Mobile Number"  class="uppercase" name="mobileNumber" ngModel #mobileNumber="ngModel" />
                 </mat-form-field>
 
                 <!-- Telephone -->
@@ -201,19 +201,19 @@
                 <!-- Facebook Id -->
                 <mat-form-field>
                   <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                  <input matInput placeholder="Facebook Id" class="uppercase" name="facebook" ngModel #facebook="ngModel" />
                 </mat-form-field>
 
                 <!-- Instagram Id-->
                 <mat-form-field>
                   <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                  <input matInput placeholder="Instagram Id" class="uppercase" name="instagram" ngModel #instagram="ngModel" />
                 </mat-form-field>
 
                 <!-- Twitter Id-->
                 <mat-form-field>
                   <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                  <input matInput placeholder="Twitter Id" class="uppercase" name="twitter" ngModel #twitter="ngModel" />
                 </mat-form-field>
               </section>
             </section>
@@ -241,6 +241,7 @@
                     <input
                       matInput
                       placeholder="Designation"
+                      class="uppercase"
                       name="designation{{ i }}"
                       [(ngModel)]="contact.designation"
                     />
@@ -301,7 +302,6 @@
                     <input
                       matInput
                       placeholder="Email"
-                      class="uppercase"
                       name="email{{ i }}"
                       [(ngModel)]="contact.email"
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -311,11 +311,12 @@
 
                   <!-- Date of Birth -->
                   <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
                     <input
                       matInput
                       [matDatepicker]="picker"
                       name="dateOfBirth{{ i }}"
-                      placeholder="Date Of Birth"
+                      placeholder="DD/MM/YYYY"
                       [(ngModel)]="contact.dateOfBirth"
                     />
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -324,11 +325,12 @@
 
                   <!-- Date of Anniversary -->
                   <mat-form-field>
+                    <mat-label>Date of Anniversary </mat-label>
                     <input
                       matInput
                       [matDatepicker]="picker1"
                       name="dateOfAnniversary{{ i }}"
-                      placeholder="Date Of Anniversary"
+                      placeholder="DD/MM/YYYY"
                       [(ngModel)]="contact.dateOfAnniversary"
                     />
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -341,6 +343,7 @@
                     <input
                       matInput
                       placeholder="Whatsapp Number "
+                      class="uppercase"
                       name="whatsapp{{ i }}"
                       [(ngModel)]="contact.whatsapp"
                     />
@@ -349,7 +352,7 @@
                   <!-- Facebook Id -->
                   <mat-form-field>
                     <mat-label>Facebook Id </mat-label>
-                    <input matInput placeholder="Facebook Id" name="facebook{{ i }}" [(ngModel)]="contact.facebook" />
+                    <input matInput placeholder="Facebook Id" class="uppercase" name="facebook{{ i }}" [(ngModel)]="contact.facebook" />
                   </mat-form-field>
 
                   <!-- Instagram Id-->
@@ -358,6 +361,7 @@
                     <input
                       matInput
                       placeholder="Instagram Id"
+                      class="uppercase"
                       name="instagram{{ i }}"
                       [(ngModel)]="contact.instagram"
                     />
@@ -366,7 +370,7 @@
                   <!-- Twitter Id-->
                   <mat-form-field>
                     <mat-label>Twitter Id </mat-label>
-                    <input matInput placeholder="Twitter Id" name="twitter{{ i }}" [(ngModel)]="contact.twitter" />
+                    <input matInput placeholder="Twitter Id"class="uppercase" name="twitter{{ i }}" [(ngModel)]="contact.twitter" />
                   </mat-form-field>
                 </section>
                 <section class="cancel-contact-section">
@@ -420,13 +424,13 @@
                 <!-- Start Date-->
                 <mat-form-field>
                   <mat-label>Start Date</mat-label>
-                  <input matInput placeholder="DD/MM/YY" name="startDate" ngModel #startDate="ngModel" />
+                  <input matInput placeholder="DD/MM/YYYY" name="startDate" ngModel #startDate="ngModel" />
                 </mat-form-field>
 
                 <!-- Expiry Date-->
                 <mat-form-field>
                   <mat-label>Expiry Date</mat-label>
-                  <input matInput placeholder="DD/MM/YY" name="expiryDate" ngModel #expiryDate="ngModel" />
+                  <input matInput placeholder="DD/MM/YYYY" name="expiryDate" ngModel #expiryDate="ngModel" />
                 </mat-form-field>
 
                 <!-- Contract -->
@@ -475,13 +479,13 @@
                 <!-- User Id -->
                 <mat-form-field>
                   <mat-label>User Name</mat-label>
-                  <input matInput placeholder="User Name" name="userName" ngModel #userName="ngModel" />
+                  <input matInput placeholder="User Name" class="uppercase" name="userName" ngModel #userName="ngModel" />
                 </mat-form-field>
 
                 <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="Password" ngModel #password="ngModel" />
+                  <input matInput placeholder="Password" class="uppercase" name="Password" ngModel #password="ngModel" />
                 </mat-form-field>
               </section>
             </section>
@@ -494,13 +498,13 @@
                 <!-- Clinic ID -->
                 <mat-form-field>
                   <mat-label>Clinic ID</mat-label>
-                  <input matInput placeholder="Clinic ID" name="clinicId" ngModel #clinicId="ngModel" />
+                  <input matInput placeholder="Clinic ID" class="uppercase" name="clinicId" ngModel #clinicId="ngModel" />
                 </mat-form-field>
 
                 <!-- Driver -->
                 <mat-form-field>
                   <mat-label>Driver</mat-label>
-                  <input matInput placeholder="Driver" name="driver" ngModel #driver="ngModel" />
+                  <input matInput placeholder="Driver" class="uppercase" name="driver" ngModel #driver="ngModel" />
                 </mat-form-field>
 
                 <!-- Sales Rep -->
@@ -509,6 +513,7 @@
                   <input
                     matInput
                     placeholder="Sales Representative"
+                    class="uppercase"
                     name="salesRepresentative"
                     ngModel
                     #salesRepresentative="ngModel"
