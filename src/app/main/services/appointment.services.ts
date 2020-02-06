@@ -9,14 +9,14 @@ import { AddAppointmentResponseModel } from '../models/appointment/add-appointme
 import { AppointmentModel } from '../models/appointment/appointment.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppointmentServices {
   private readonly routePrefix = 'appointment';
 
   constructor(private httpClient: HttpClient) {}
 
-  addAppointment(appointment: AppointmentModel): Observable<AppointmentModel> {
+  addAppointment(appointment: AddAppointmentRequestModel): Observable<AppointmentModel> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}`;
@@ -49,5 +49,12 @@ export class AppointmentServices {
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${AppointmentId}`;
     return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
+  }
+
+  updateAppointmentStatus(appointmentId: string, appointmentStatus: string): Observable<boolean> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
+    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.routePrefix}/${appointmentId}/status`;
+    return this.httpClient.put<boolean>(apiUrl, { status: appointmentStatus }, { headers: headers });
   }
 }

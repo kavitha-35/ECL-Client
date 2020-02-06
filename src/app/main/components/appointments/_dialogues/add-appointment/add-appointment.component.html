@@ -16,7 +16,7 @@
       <app-mat-dialog-header></app-mat-dialog-header>
 
       <!-- Mat Card Content -->
-      <mat-card-content>
+      <mat-dialog-content style="margin: auto;">
         <section>
 
           <!-- Add Appointment Form -->
@@ -49,7 +49,7 @@
 
               <!-- Date of Birth -->
               <mat-form-field>
-                <input matInput name="picker" placeholder="Date Of Birth" [(ngModel)]="appointment.dob"/>
+                <input matInput [matDatepicker]="picker" name="dob" placeholder="Date Of Birth" [(ngModel)]="appointment.dob"/>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
@@ -222,7 +222,7 @@
             <button mat-raised-button color="primary" cdkFocusInitial (click)="onAddAppointmentClicked()">Add Appointment</button>
           </section>
         </section>
-      </mat-card-content>
+      </mat-dialog-content>
     </section>
 
   </mat-card>
