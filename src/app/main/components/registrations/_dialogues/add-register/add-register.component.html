@@ -41,18 +41,19 @@
                 <!-- Name -->
                 <mat-form-field class="mt-7">
                   <mat-label>Name</mat-label>
-                  <input matInput maxlength="25" placeholder="Name" name="fullName" [(ngModel)]="patient.fullName" />
+                  <input matInput maxlength="25" placeholder="Name" class="uppercase" name="fullName" [(ngModel)]="patient.fullName" />
                 </mat-form-field>
 
                 <!-- Age -->
                 <mat-form-field class="mt-7">
                   <mat-label>Age</mat-label>
-                  <input matInput placeholder="Age" name="age" [(ngModel)]="patient.age" />
+                  <input matInput placeholder="Age" class="uppercase" name="age" [(ngModel)]="patient.age" />
                 </mat-form-field>
 
                 <!-- DOB -->
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Date of birth" name="patient.dateOfBirth" [(ngModel)]="patient.dateOfBirth" />
+                  <mat-label>DOB</mat-label>
+                  <input matInput [matDatepicker]="picker" placeholder="DD/MM/YYYY" name="patient.dateOfBirth" [(ngModel)]="patient.dateOfBirth" />
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -69,7 +70,7 @@
                 <!-- LANDLINE -->
                 <mat-form-field>
                   <mat-label>Landline</mat-label>
-                  <input matInput placeholder="Landline" name="landline" [(ngModel)]="patient.landline" />
+                  <input matInput placeholder="Landline" class="uppercase" name="landline" [(ngModel)]="patient.landline" />
                 </mat-form-field>
 
                 <mat-form-field>
@@ -90,18 +91,18 @@
                 <!-- Address -->
                 <mat-form-field>
                   <mat-label>Address</mat-label>
-                  <input matInput placeholder="Address" name="address" [(ngModel)]="patient.address" />
+                  <input matInput placeholder="Address" class="uppercase" name="address" [(ngModel)]="patient.address" />
                 </mat-form-field>
 
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="poBox" [(ngModel)]="patient.poBox" />
+                  <input matInput placeholder="P.O.Box" class="uppercase" name="poBox" [(ngModel)]="patient.poBox" />
                 </mat-form-field>
                 <!-- Area -->
                 <mat-form-field>
                   <mat-label>Area</mat-label>
-                  <input matInput placeholder="Area" name="area" [(ngModel)]="patient.area" />
+                  <input matInput placeholder="Area" class="uppercase" name="area" [(ngModel)]="patient.area" />
                 </mat-form-field>
 
                 <!-- City -->
@@ -131,26 +132,26 @@
                 <!-- Whatsapp Number -->
                 <mat-form-field>
                   <mat-label>Whatsapp Number </mat-label>
-                  <input matInput placeholder="Whatsapp Number " name="whatsappNumber"  [(ngModel)]="patient.whatsappNumber"
+                  <input matInput placeholder="Whatsapp Number " class="uppercase" name="whatsappNumber"  [(ngModel)]="patient.whatsappNumber"
                     />
                 </mat-form-field>
 
                 <!-- Facebook Id -->
                 <mat-form-field>
                   <mat-label>Facebook Id </mat-label>
-                  <input matInput placeholder="Facebook Id" name="facebook" [(ngModel)]="patient.facebook" />
+                  <input matInput placeholder="Facebook Id" class="uppercase" name="facebook" [(ngModel)]="patient.facebook" />
                 </mat-form-field>
 
                 <!-- Instagram Id-->
                 <mat-form-field>
                   <mat-label>Instagram Id </mat-label>
-                  <input matInput placeholder="Instagram Id" name="instagram" [(ngModel)]="patient.instagram" />
+                  <input matInput placeholder="Instagram Id" class="uppercase" name="instagram" [(ngModel)]="patient.instagram" />
                 </mat-form-field>
 
                 <!-- Twitter Id-->
                 <mat-form-field>
                   <mat-label>Twitter Id </mat-label>
-                  <input matInput placeholder="Twitter Id" name="twitter" [(ngModel)]="patient.twitter" />
+                  <input matInput placeholder="Twitter Id" class="uppercase" name="twitter" [(ngModel)]="patient.twitter" />
                 </mat-form-field>
               </section>
             </section>
@@ -171,12 +172,12 @@
                 <!-- Referral Doctor -->
                 <mat-form-field>
                   <mat-label>Physician</mat-label>
-                  <input matInput maxlength="10" placeholder="Physician" name="physician" [(ngModel)]="patient.physician" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="Physician" name="physician" [(ngModel)]="patient.physician" />
                 </mat-form-field>
                 <!-- Referral file No -->
                 <mat-form-field>
                   <mat-label>File No</mat-label>
-                  <input matInput maxlength="10" placeholder="fileNo" name="fileNo" [(ngModel)]="patient.fileNo" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="fileNo" name="fileNo" [(ngModel)]="patient.fileNo" />
                 </mat-form-field>
               </section>
             </section>
@@ -220,31 +221,31 @@
                 <!-- Member Number -->
                 <mat-form-field>
                   <mat-label>Member Number</mat-label>
-                  <input matInput maxlength="10" placeholder="Member Number" name="memberNumber" [(ngModel)]="patient.memberNumber" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="Member Number" name="memberNumber" [(ngModel)]="patient.memberNumber" />
                 </mat-form-field>
 
                 <!-- Employee Number -->
                 <mat-form-field>
                   <mat-label>Employee Number</mat-label>
-                  <input matInput maxlength="10" placeholder="Employee Number" name="employeeNumber" [(ngModel)]="patient.employeeNumber" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="Employee Number" name="employeeNumber" [(ngModel)]="patient.employeeNumber" />
                 </mat-form-field>
 
                 <!-- Validity -->
                 <mat-form-field>
                   <mat-label>Validity</mat-label>
-                  <input matInput maxlength="10" placeholder="Validity" name="validity" [(ngModel)]="patient.validity" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="Validity" name="validity" [(ngModel)]="patient.validity" />
                 </mat-form-field>
 
                 <!-- Network -->
                 <mat-form-field>
                   <mat-label>Network</mat-label>
-                  <input matInput maxlength="10" placeholder="Network" name="network" [(ngModel)]="patient.network" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="Network" name="network" [(ngModel)]="patient.network" />
                 </mat-form-field>
 
                 <!-- Sub Network -->
                 <mat-form-field>
                   <mat-label>Sub Network</mat-label>
-                  <input matInput maxlength="10" placeholder="Sub Network" name="subNetwork" [(ngModel)]="patient.subNetwork" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="Sub Network" name="subNetwork" [(ngModel)]="patient.subNetwork" />
                 </mat-form-field>
               </section>
             </section>

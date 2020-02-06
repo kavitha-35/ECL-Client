@@ -314,11 +314,12 @@
 
                   <!-- Date of Birth -->
                   <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
                     <input
                       matInput
                       [matDatepicker]="picker"
                       name="dateOfBirth{{ i }}"
-                      placeholder="Date Of Birth"
+                      placeholder="DD/MM/YYYY"
                       [(ngModel)]="contact.dateOfBirth"
                     />
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -327,11 +328,12 @@
 
                   <!-- Date of Anniversary -->
                   <mat-form-field>
+                    <mat-label> Date of Anniversary</mat-label>
                     <input
                       matInput
                       [matDatepicker]="picker1"
                       name="dateOfAnniversary{{ i }}"
-                      placeholder="Date Of Anniversary"
+                      placeholder="DD/MM/YYYY"
                       [(ngModel)]="contact.dateOfAnniversary"
                     />
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -425,13 +427,13 @@
                 <!-- Start Date-->
                 <mat-form-field>
                   <mat-label>Start Date</mat-label>
-                  <input matInput placeholder="DD/MM/YY" name="startDate" ngModel #startDate="ngModel" />
+                  <input matInput placeholder="DD/MM/YYYY" name="startDate" ngModel #startDate="ngModel" />
                 </mat-form-field>
 
                 <!-- Expiry Date-->
                 <mat-form-field>
                   <mat-label>Expiry Date</mat-label>
-                  <input matInput placeholder="DD/MM/YY" name="expiryDate" ngModel #expiryDate="ngModel" />
+                  <input matInput placeholder="DD/MM/YYYY" name="expiryDate" ngModel #expiryDate="ngModel" />
                 </mat-form-field>
 
                 <!-- Contract -->
