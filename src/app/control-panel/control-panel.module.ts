@@ -35,6 +35,7 @@ import {
   MatPaginatorModule,
   MatSlideToggleModule,
   MatAutocompleteModule,
+  MAT_DATE_LOCALE,
 } from '@angular/material';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AgmCoreModule } from '@agm/core';
@@ -286,6 +287,7 @@ import { IndividualTestDetailsComponent } from './components/test-masters/indivi
     DatePipe,
     ControlPanelMenu,
     MatDatepickerModule,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
     CommentsComponent,
     AddCommentsComponent,
     EditCommentsComponent,

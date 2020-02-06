@@ -53,7 +53,15 @@ import { PatientTestsInformationComponent } from './components/registration/add-
 import { MatStepperModule } from '@angular/material/stepper';
 import { PatientVerificationComponent } from './components/registration/add-registration/patient-verification/patient-verification.component';
 import { NgChatModule } from 'ng-chat';
-import { MatExpansionModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSortModule, MatAutocompleteModule } from '@angular/material';
+import {
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatAutocompleteModule,
+  MAT_DATE_LOCALE,
+} from '@angular/material';
 import { BulkRegistrationComponent } from './components/registration/bulk-registration/bulk-registration.component';
 import { RegistrationListComponent } from './components/registration/registration-list/registration-list.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -192,7 +200,6 @@ import { CreditnotesRibbonMenuComponent } from './components/credit-notes/credit
 import { CreditnotesSearchComponent } from './components/credit-notes/creditnotes-search/creditnotes-search.component';
 import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
 import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
-
 
 @NgModule({
   declarations: [
@@ -342,12 +349,13 @@ import { PaymentCollectionListComponent } from './components/finance/payment-col
     CreditnotesRibbonMenuComponent,
     CreditnotesSearchComponent,
     PaymentCollectionComponent,
-    PaymentCollectionListComponent
+    PaymentCollectionListComponent,
   ],
   providers: [
     DatePipe,
     MenuItems,
     MatDatepickerModule,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
     PatientServices,
     HomeCollectionFacade,
     AppointmentFacade,

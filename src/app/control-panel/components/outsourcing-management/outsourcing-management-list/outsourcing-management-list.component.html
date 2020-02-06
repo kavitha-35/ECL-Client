@@ -4,20 +4,17 @@
       <section class="title">#{{ element.outsourceId }} / {{ element.labName }}</section>
       <mat-icon class="pointer mr-12 white" [matMenuTriggerFor]="statusMenu">arrow_drop_down</mat-icon>
       <mat-menu #statusMenu="matMenu">
-        <button mat-menu-item>Edit</button>
-        <button mat-menu-item>Delete</button>
+        <button mat-menu-item (click)="onEditReferalLabClicked(element)">Edit</button>
+        <button mat-menu-item (click)="onDeleteReferalLabClicked(element.outsourceId)">Delete</button>
       </mat-menu>
     </section>
     <section class="action-buttons-container">
-      <button mat-button>
-        <i class="fa fa-lg fa-eye dark-blue" aria-hidden="true"></i>
-      </button>
 
-      <button mat-button>
+      <button mat-button (click)="onEditReferalLabClicked(element)">
         <i class="fa fa-lg fa-pencil deep-orange" aria-hidden="true"></i>
       </button>
 
-      <button mat-button>
+      <button mat-button (click)="onDeleteReferalLabClicked(element.outsourceId)">
         <i class="fa fa-lg fa-trash red" aria-hidden="true"></i>
       </button>
     </section>
