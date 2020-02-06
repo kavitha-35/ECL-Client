@@ -5,6 +5,9 @@ import { LogisticsFacade } from '../../../state/logistics/logistics.facade';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PageEvent } from '@angular/material';
 import { DISPLAY_MODE } from 'app/main/models/constants';
+import { RegistrationModel } from 'app/main/models/registration/registration.model';
+import { TestByStatusService } from 'app/main/services/test-by-status.service';
+import { RegistrationListModel } from 'app/main/models/registration-list/registration-list.model';
 
 @Component({
   selector: 'app-pending-accession',
@@ -12,7 +15,8 @@ import { DISPLAY_MODE } from 'app/main/models/constants';
   styleUrls: ['./pending-accession.component.scss'],
 })
 export class PendingAccessionComponent implements OnInit {
-  public logisticsCollections: LogisticModel[];
+  scannedValue: string;
+  public pendingAccession: RegistrationListModel[] = [];
   public showListView: boolean;
   public pageEvent: PageEvent;
   public pageSizeOptions: number[] = [10, 25, 50, 100];
@@ -21,14 +25,14 @@ export class PendingAccessionComponent implements OnInit {
     private readonly _logisticsFacade: LogisticsFacade,
     private readonly _router: Router,
     private readonly _activatedRoute: ActivatedRoute,
+    private readonly _pendingAccessionService: TestByStatusService,
   ) {
+    this.scannedValue = '';
     this.pageEvent = { pageIndex: 0, pageSize: 10 } as PageEvent;
   }
 
   ngOnInit(): void {
-    this._logisticsFacade.logistics$.subscribe((data) => {
-      this.logisticsCollections = data.filter((x) => x.status.name === 'Pending Accession');
-    });
+    this.getAllPendingAccession();
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
@@ -40,5 +44,18 @@ export class PendingAccessionComponent implements OnInit {
 
   public onShowTableViewButtonClicked(): void {
     this._router.navigate([], { queryParams: { view: DISPLAY_MODE.TABLE } });
+  }
+
+  public barcodeScanner(event: any): void {
+    console.log(this.scannedValue);
+    this._pendingAccessionService.changeStatusList(this.scannedValue, 'pending').subscribe((data) => {
+      this.scannedValue = '';
+    });
+  }
+
+  public getAllPendingAccession(): void {
+    this._pendingAccessionService.getAllStatusList('pending').subscribe((data) => {
+      this.pendingAccession = data;
+    });
   }
 }

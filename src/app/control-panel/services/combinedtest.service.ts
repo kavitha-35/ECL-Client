@@ -65,4 +65,11 @@ export class CombinedTestService {
     const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.combinetestprefix}`;
     return this.httpClient.post<any>(apiUrl, tests, { headers: headers });
   }
+
+  deleteIndividualTestsFromCombineTest(testId: string): Observable<boolean> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Auth-Key', 'liskey');
+    const apiUrl = `${ROUTE_CONFIG.ConfigurationServiceBaseUrl}/${this.combinetestprefix}`;
+    return this.httpClient.delete<boolean>(apiUrl, { headers: headers });
+  }
 }

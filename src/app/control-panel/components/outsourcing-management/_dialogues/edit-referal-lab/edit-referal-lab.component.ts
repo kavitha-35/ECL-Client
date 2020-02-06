@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { OutsourceManagementService } from 'app/control-panel/services/outsource-management.service';
 import { LookupService } from 'app/control-panel/services/lookup.service';
 import { LookUpModel } from 'app/control-panel/models/lookup/lookup.model';
@@ -22,17 +22,34 @@ export class EditReferalLabComponent implements OnInit {
   public couriers: LookUpModel[];
   public departments: DepartmentModel[];
   public outsource: OutsourcingManagementModel;
+  public contactPerson: ContactPerson;
   constructor(
     private readonly _dialogRef: MatDialogRef<EditReferalLabComponent>,
     private readonly outsourcingService: OutsourceManagementService,
     private readonly _lookUpService: LookupService,
     private readonly _departmentService: DepartmentService,
+    private _snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) data: OutsourcingManagementModel,
   ) {
     this.outsource = data;
   }
 
   ngOnInit(): void {
+    this.contactPerson = {
+      designation: '',
+      courierId: '',
+      mobile: '',
+      contactPersonName: '',
+      dateOfBirth: '',
+      dateOfAnniversary: '',
+      email: '',
+      departmentId: 0,
+      telephone: '',
+      twitter: '',
+      facebook: '',
+      instagram: '',
+      whatsapp: '',
+    };
     this.getCities();
     this.getCountries();
     this.getdepartments();
@@ -42,6 +59,12 @@ export class EditReferalLabComponent implements OnInit {
   public onEditReferalLabClicked(): void {
     this.outsource.contactPersons = this.contactPersonList;
     this.outsourcingService.updateOutsourcing(this.outsource.outsourceId, this.outsource).subscribe(() => {
+      this._snackBar.open('Referral Lab Edited Successfully', '', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['snackbar']
+      });
       this._dialogRef.close();
     });
   }
@@ -71,7 +94,7 @@ export class EditReferalLabComponent implements OnInit {
   }
 
   public addContact(): void {
-    this.contactPersonList.push(new ContactPerson());
+    this.contactPersonList.push(this.contactPerson);
   }
 
   public cancelContact(contact: ContactPerson): void {

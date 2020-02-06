@@ -23,6 +23,12 @@
         <!-- Mat Card SubTitle -->
         <mat-card-subtitle> Manage Pending Accessions for Patients </mat-card-subtitle>
       </section>
+       <!-- Add Appointment Button -->
+       <section class="comment-button-wrapper">
+        <mat-form-field >
+          <input matInput placeholder="Barcode" [(ngModel)]="scannedValue" (keyup.enter)="barcodeScanner($event)"/>
+        </mat-form-field>
+      </section>
     </section>
 
     <!-- Mat Table Ribbon -->
@@ -40,20 +46,20 @@
     <!-- List View -->
     <ng-template #listView>
       <app-pending-accession-list
-        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [pendingAccession]="pendingAccession | slice: pageEvent.pageIndex:pageEvent.pageSize"
       ></app-pending-accession-list>
     </ng-template>
 
     <!-- Table View -->
     <ng-template #tableView>
       <app-pending-accession-table
-        [logisticsCollections]="logisticsCollections | slice: pageEvent.pageIndex:pageEvent.pageSize"
+        [pendingAccession]="pendingAccession | slice: pageEvent.pageIndex:pageEvent.pageSize"
       >
       </app-pending-accession-table>
     </ng-template>
 
     <mat-paginator
-      [length]="logisticsCollections.length"
+      [length]="pendingAccession.length"
       [pageSizeOptions]="pageSizeOptions"
       (page)="pageEvent = $event"
     >

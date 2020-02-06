@@ -1,44 +1,62 @@
-<section id="pending-accession-container">
-  <table mat-table [dataSource]="logisticsCollections" class="full-width">
+<section id="pending-accession-list-container">
+  <table mat-table [dataSource]="pendingAccession" class="full-width">
     <!-- ID -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>Logistic ID</th>
+      <th mat-header-cell *matHeaderCellDef>SID</th>
+      <td mat-cell *matCellDef="let element">{{ element.sId }}</td>
+    </ng-container>
+
+    <!-- Visit ID -->
+    <ng-container matColumnDef="visitId">
+      <th mat-header-cell *matHeaderCellDef>Visit Id</th>
       <td mat-cell *matCellDef="let element">{{ element.id }}</td>
     </ng-container>
 
-    <!-- Clinic -->
-    <ng-container matColumnDef="clinic">
-      <th mat-header-cell *matHeaderCellDef>Clinic</th>
-      <td mat-cell *matCellDef="let element">{{ element.clinic.name }}</td>
+    <!-- Date -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.dateOfBirth | date }}</td>
     </ng-container>
 
-    <!-- Called by -->
-    <ng-container matColumnDef="calledBy">
-      <th mat-header-cell *matHeaderCellDef>Called by</th>
-      <td mat-cell *matCellDef="let element">{{ element.calledBy.name }}</td>
+    <!-- Patient Details -->
+    <ng-container matColumnDef="patientDetails">
+      <th mat-header-cell *matHeaderCellDef>Patient Details</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
     </ng-container>
 
-    <!-- Assigned To (Driver) -->
-    <ng-container matColumnDef="driver">
-      <th mat-header-cell *matHeaderCellDef>Assigned To (Driver)</th>
-      <td mat-cell *matCellDef="let element">{{ element.driver.name }}</td>
+    <!-- Organization -->
+    <ng-container matColumnDef="organization">
+      <th mat-header-cell *matHeaderCellDef>Organization</th>
+      <td mat-cell *matCellDef="let element">{{ element.referralOrganization.name }}</td>
     </ng-container>
 
-    <!-- Scheduled Date -->
-    <ng-container matColumnDef="scheduledOn">
-      <th mat-header-cell *matHeaderCellDef>Scheduled Date</th>
-      <td mat-cell *matCellDef="let element">{{ element.scheduledOn | date }}</td>
+    <!-- Doctor -->
+    <ng-container matColumnDef="physician">
+      <th mat-header-cell *matHeaderCellDef>Physician</th>
+      <td mat-cell *matCellDef="let element">{{ element.referralDoctor.name }}</td>
     </ng-container>
 
-    <!-- Requested On -->
-    <ng-container matColumnDef="modifiedOn">
-      <th mat-header-cell *matHeaderCellDef>Requested On</th>
-      <td mat-cell *matCellDef="let element">{{ element.modifiedOn | date }}</td>
+    <!-- Sample -->
+    <ng-container matColumnDef="sample">
+      <th mat-header-cell *matHeaderCellDef>Sample</th>
+      <td mat-cell *matCellDef="let element">{{ element.sample }}</td>
+    </ng-container>
+
+    <!-- TAT -->
+    <ng-container matColumnDef="tat">
+      <th mat-header-cell *matHeaderCellDef>TAT</th>
+      <td mat-cell *matCellDef="let element">{{ element.sample }}</td>
+    </ng-container>
+
+    <!-- Biling Date -->
+    <ng-container matColumnDef="billingDate">
+      <th mat-header-cell *matHeaderCellDef>Billing Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.sample }}</td>
     </ng-container>
 
     <!-- Status -->
     <ng-container matColumnDef="status">
-      <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
+      <th mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let element">
         <section class="status-card">
           {{ element.status.name }}
@@ -55,19 +73,44 @@
       </th>
       <td mat-cell *matCellDef="let element">
         <section class="actions-wrapper">
-          <button class="action-button" mat-button disableRipple [matMenuTriggerFor]="statusMenu">
+          <button
+            *ngIf="showLinkIcon"
+            class="link-button"
+            mat-button
+            color="primary"
+            disableRipple
+            (click)="onLinkButtonClicked($event, element)"
+          >
+            <mat-icon>add_outline</mat-icon>
+          </button>
+          <button
+            *ngIf="showDeleteIcon"
+            class="unlink-button"
+            mat-button
+            color="primary"
+            disableRipple
+            (click)="onActionButtonClicked($event)"
+          >
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+          <button
+            *ngIf="showActionIcon"
+            class="action-button"
+            mat-button
+            disableRipple
+            [matMenuTriggerFor]="statusMenu"
+            (click)="onActionButtonClicked($event)"
+          >
             <mat-icon>more_vert_outline</mat-icon>
           </button>
           <mat-menu #statusMenu="matMenu">
-            <button mat-menu-item>Waiting List</button>
-            <button mat-menu-item>Problem Sample Notification</button>
-            <button mat-menu-item>Cancel</button>
+            <ng-content></ng-content>
           </mat-menu>
         </section>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" ></tr>
   </table>
 </section>

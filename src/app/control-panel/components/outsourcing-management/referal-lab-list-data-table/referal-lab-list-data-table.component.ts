@@ -8,12 +8,13 @@ import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing
   styleUrls: ['./referal-lab-list-data-table.component.scss'],
 })
 export class ReferalLabListDataTableComponent implements OnInit {
-  @Input() labs : OutsourcingManagementModel[];
+  @Input() labs: OutsourcingManagementModel[];
   @Input() isBusy: boolean;
   @Output() editReferalLabClicked = new EventEmitter<string>();
   @Output() deleteReferalLabClicked = new EventEmitter<string>();
   public displayedColumns: string[];
   public filteredColumns: GridColumnModel[];
+  public outsourceLabs: OutsourcingManagementModel[] = null;
 
   constructor() {}
 
@@ -50,7 +51,7 @@ export class ReferalLabListDataTableComponent implements OnInit {
       { columnName: 'country', displayValue: 'Country', isSelected: true },
       { columnName: 'action', displayValue: 'Action', isSelected: true },
     ];
-    const selectedColumns = this.filteredColumns.filter(x => x.isSelected);
+    const selectedColumns = this.filteredColumns.filter((x) => x.isSelected);
     this.displayedColumns = selectedColumns.map((x) => x.columnName);
   }
 }

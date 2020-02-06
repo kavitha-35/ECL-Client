@@ -1,5 +1,4 @@
 export class AddOutsourcingManagementModel {
-  outsourceId: number;
   labCode: string;
   labName: string;
   relation: string;

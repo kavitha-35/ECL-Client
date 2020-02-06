@@ -45,7 +45,8 @@
       <!-- List View -->
       <ng-template #listView>
         <app-outsourcing-management-list
-        [labs]="outsourcedLab"></app-outsourcing-management-list
+        [labs]="outsourcedLab" (editReferalLabClicked)="onEditReferalLabClicked($event)"
+        (deleteReferalLabClicked)="onDeleteReferalLabClicked($event)"></app-outsourcing-management-list
           >
       </ng-template>
 

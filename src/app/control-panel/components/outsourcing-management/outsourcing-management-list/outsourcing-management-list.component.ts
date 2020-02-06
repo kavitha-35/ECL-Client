@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
 import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing-management/outsourcing-management.model';
 
 @Component({
@@ -8,10 +8,19 @@ import { OutsourcingManagementModel } from 'app/control-panel/models/outsourcing
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OutsourcingManagementListComponent implements OnInit {
- @Input() labs : OutsourcingManagementModel[]
+ @Input() labs : OutsourcingManagementModel[];
+ @Output() editReferalLabClicked = new EventEmitter<string>();
+ @Output() deleteReferalLabClicked = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
   }
+  public onEditReferalLabClicked(outsource: any): void {
+    console.log('Selected row', outsource);
+    this.editReferalLabClicked.emit(outsource);
+  }
 
+  public onDeleteReferalLabClicked(outsourceId: string): void {
+    this.deleteReferalLabClicked.emit(outsourceId);
+  }
 }
