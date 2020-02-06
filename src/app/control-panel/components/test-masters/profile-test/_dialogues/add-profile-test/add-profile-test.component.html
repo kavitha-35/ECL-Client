@@ -26,19 +26,19 @@
                 <!-- ECl Code-->
                 <mat-form-field>
                   <mat-label>ECl DOS Code</mat-label>
-                  <input matInput name="eclDosCode" placeholder="ECl DOS Code" required [(ngModel)]="testprofile.eclDosCode"/>
+                  <input matInput name="eclDosCode" class="uppercase" placeholder="ECl DOS Code" [(ngModel)]="testprofile.eclDosCode"/>
                 </mat-form-field>
 
                 <!-- Test Id-->
                 <mat-form-field>
                   <mat-label>Test Id</mat-label>
-                  <input matInput name="testId" placeholder="Test Id" [(ngModel)]="testprofile.testId" />
+                  <input matInput name="testId" class="uppercase" placeholder="Test Id" [(ngModel)]="testprofile.testId" />
                 </mat-form-field>
 
                 <!-- CPT Code-->
                 <mat-form-field>
                   <mat-label>CPT Code</mat-label>
-                  <input matInput placeholder="CPT Code" name="cptCode" required [(ngModel)]="testprofile.cptCode"/>
+                  <input matInput placeholder="CPT Code" class="uppercase" name="cptCode" [(ngModel)]="testprofile.cptCode"/>
                 </mat-form-field>
 
                 <!-- Test Name-->
@@ -94,7 +94,6 @@
                 <!--Patient Fee-->
                 <mat-form-field>
                   <mat-label>Patient Fee</mat-label>
-                  <input matInput name="patientFee" placeholder="Patient Fee" required ngModel/>
                   <input
                     matInput
                     placeholder="Patient Fee"
