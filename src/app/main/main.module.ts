@@ -201,6 +201,7 @@ import { CreditnotesSearchComponent } from './components/credit-notes/creditnote
 import { PaymentCollectionComponent } from './components/finance/payment-collection/payment-collection.component';
 import { PaymentCollectionListComponent } from './components/finance/payment-collection/payment-collection-list/payment-collection-list.component';
 import { AddProblemsampleComponent } from './components/accession/problem-sample-notification/_dialogues/add-problemsample/add-problemsample.component';
+import { RevisitRegisterComponent } from './components/registrations/_dialogues/revisit-register/revisit-register.component';
 
 @NgModule({
   declarations: [
@@ -351,7 +352,8 @@ import { AddProblemsampleComponent } from './components/accession/problem-sample
     CreditnotesSearchComponent,
     PaymentCollectionComponent,
     PaymentCollectionListComponent,
-    AddProblemsampleComponent
+    AddProblemsampleComponent,
+    RevisitRegisterComponent
   ],
   providers: [
     DatePipe,
@@ -423,6 +425,8 @@ import { AddProblemsampleComponent } from './components/accession/problem-sample
     PendingAccessionSearchComponent,
     PendingAccessionListComponent,
   ],
-  entryComponents: [],
+  entryComponents: [
+    RevisitRegisterComponent
+  ],
 })
 export class MainModule {}
