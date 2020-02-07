@@ -31,6 +31,7 @@
                     matInput
                     placeholder="Name"
                     name="patientName"
+                    class="uppercase"
                     #patientName="ngModel"
                     required
                     [(ngModel)]="appointment.patientName"
@@ -142,7 +143,7 @@
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" required [(ngModel)]="appointment.poBox" />
+                  <input matInput placeholder="P.O.Box" class="uppercase" name="postBox" required [(ngModel)]="appointment.poBox" />
                 </mat-form-field>
 
                 <!-- Area -->

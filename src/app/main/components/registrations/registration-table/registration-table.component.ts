@@ -35,7 +35,6 @@ export class RegistrationTableComponent {
       { columnName: 'patientDetails', displayValue: 'Patient Details', isSelected: true },
       { columnName: 'organization', displayValue: 'Organization', isSelected: true },
       { columnName: 'physician', displayValue: 'Physician', isSelected: true },
-      { columnName: 'sample', displayValue: 'Sample', isSelected: true },
       { columnName: 'tat', displayValue: 'TAT', isSelected: true },
       { columnName: 'billingDate', displayValue: 'Billing Date', isSelected: true },
       { columnName: 'status', displayValue: 'Status', isSelected: true },

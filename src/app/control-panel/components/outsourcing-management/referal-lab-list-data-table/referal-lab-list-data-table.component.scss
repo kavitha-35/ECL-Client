@@ -2,6 +2,10 @@
   $status-card-background: #F44335;
   $status-card-color: #ffffff;
 
+  height: 400px;
+  overflow: auto;
+  overflow-x: hidden;
+
   table {
     .status-card {
       border: $status-card-background 1px solid;

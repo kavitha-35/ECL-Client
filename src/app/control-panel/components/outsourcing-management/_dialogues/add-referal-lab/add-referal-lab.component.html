@@ -47,10 +47,10 @@
                   <mat-label>Branch</mat-label>
                   <mat-select disableOptionCentering name="relation" [(ngModel)]="outsource.relation">
                     <mat-option value="Yes">
-                      Yes
+                      YES
                     </mat-option>
                     <mat-option value="No">
-                      No
+                      NO
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -73,7 +73,7 @@
                   <mat-label>Courier</mat-label>
                   <mat-select disableOptionCentering name="courier" [(ngModel)]="outsource.courierId">
                     <mat-option *ngFor="let options of couriers" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue|uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -117,7 +117,7 @@
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" [(ngModel)]="outsource.city">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -127,7 +127,7 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" [(ngModel)]="outsource.country">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -243,7 +243,7 @@
                     <mat-label> Department</mat-label>
                     <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
                       <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
-                        options.departmentName
+                        options.departmentName |uppercase
                       }}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -314,11 +314,12 @@
 
                   <!-- Date of Birth -->
                   <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
                     <input
                       matInput
                       [matDatepicker]="picker"
                       name="dateOfBirth{{ i }}"
-                      placeholder="Date Of Birth"
+                      placeholder="DD/MM/YYYY"
                       [(ngModel)]="contact.dateOfBirth"
                     />
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -327,11 +328,12 @@
 
                   <!-- Date of Anniversary -->
                   <mat-form-field>
+                    <mat-label>Date of Anniversary</mat-label>
                     <input
                       matInput
                       [matDatepicker]="picker1"
                       name="dateOfAnniversary{{ i }}"
-                      placeholder="Date Of Anniversary"
+                      placeholder="DD/MM/YYYY"
                       [(ngModel)]="contact.dateOfAnniversary"
                     />
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -395,22 +397,22 @@
                   <mat-label>Payment Mode</mat-label>
                   <mat-select disableOptionCentering name="paymentMode" [(ngModel)]="outsource.paymentMethod">
                     <mat-option value="cash">
-                      Cash
+                      CASH
                     </mat-option>
                     <mat-option value="netBanking">
-                      Net Banking
+                   NET BANKING
                     </mat-option>
                     <mat-option value="credit">
-                      Credit Card
+                      CREDIT CARD
                     </mat-option>
                     <mat-option value="debit">
-                      Debit Card
+                      DEBIT CARD
                     </mat-option>
                     <mat-option value="cheque">
-                      Cheque
+                      CHEQUE
                     </mat-option>
                     <mat-option value="paymentgateway">
-                      Payment Gateway
+                      PAYMENT GATEWAY
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -436,6 +438,24 @@
                     </mat-option>
                     <mat-option value="90">
                       90
+                    </mat-option>
+                    <mat-option value="105">
+                      105
+                    </mat-option>
+                    <mat-option value="120">
+                      120
+                    </mat-option>
+                    <mat-option value="135">
+                      135
+                    </mat-option>
+                    <mat-option value="150">
+                      150
+                    </mat-option>
+                    <mat-option value="165">
+                      165
+                    </mat-option>
+                    <mat-option value="180">
+                      180
                     </mat-option>
                   </mat-select>
                 </mat-form-field>

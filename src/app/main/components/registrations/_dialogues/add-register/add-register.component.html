@@ -41,18 +41,19 @@
                 <!-- Name -->
                 <mat-form-field class="mt-7">
                   <mat-label>Name</mat-label>
-                  <input matInput class="uppercase" maxlength="25" placeholder="Name" name="fullName" [(ngModel)]="patient.fullName" />
+                  <input matInput maxlength="25" placeholder="Name" class="uppercase" name="fullName" [(ngModel)]="patient.fullName" />
                 </mat-form-field>
 
                 <!-- Age -->
                 <mat-form-field class="mt-7">
                   <mat-label>Age</mat-label>
-                  <input matInput placeholder="Age" name="age" [(ngModel)]="patient.age" />
+                  <input matInput placeholder="Age" class="uppercase" name="age" [(ngModel)]="patient.age" />
                 </mat-form-field>
 
                 <!-- DOB -->
                 <mat-form-field>
-                  <input matInput [matDatepicker]="picker" placeholder="Date of birth" name="patient.dateOfBirth" [(ngModel)]="patient.dateOfBirth" />
+                  <mat-label>DOB</mat-label>
+                  <input matInput [matDatepicker]="picker" placeholder="DD/MM/YYYY" name="patient.dateOfBirth" [(ngModel)]="patient.dateOfBirth" />
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -163,7 +164,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Organization</mat-label>
                   <mat-select disableOptionCentering name="organizationId" [(ngModel)]="patient.organization">
-                    <mat-option *ngFor="let item of organisations" [value]="item.OrganizationMasterId">{{item.OrganizationMasterName | uppercase}}
+                    <mat-option *ngFor="let item of organisations" [value]="item.organizationId">{{item.organizationName}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -171,7 +172,7 @@
                 <!-- Referral Doctor -->
                 <mat-form-field>
                   <mat-label>Physician</mat-label>
-                  <input matInput maxlength="10" placeholder="Physician" class="uppercase" name="physician" [(ngModel)]="patient.physician" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="Physician" name="physician" [(ngModel)]="patient.physician" />
                 </mat-form-field>
                 <!-- Referral file No -->
                 <mat-form-field>

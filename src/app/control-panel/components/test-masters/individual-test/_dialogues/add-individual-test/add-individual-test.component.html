@@ -28,10 +28,10 @@
                   <mat-label>Test Category</mat-label>
                   <mat-select disableOptionCentering name="testCategoryId" ngModel #testCategory="ngModel">
                     <mat-option value="0">
-                      In House
+                      IN HOUSE
                     </mat-option>
                     <mat-option value="1">
-                      Outsource
+                      OUTSOURCE
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -56,7 +56,7 @@
                       (keyup)="onKeySearch($event.target.value)"
                     />
                     <mat-option *ngFor="let options of accrediationSymbols" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -93,7 +93,7 @@
                   <mat-label>Equipment</mat-label>
                   <mat-select disableOptionCentering name="equipmentId" ngModel #equipmentId="ngModel">
                     <mat-option *ngFor="let options of equipments" [value]="options.equipmentId">{{
-                      options.equipmentName
+                      options.equipmentName |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -103,7 +103,7 @@
                   <mat-label>Processing center</mat-label>
                   <mat-select disableOptionCentering name="processingCentreId" ngModel #processingCentreId="ngModel">
                     <mat-option *ngFor="let options of processingCenter" [value]="options.outsourceId">{{
-                      options.labName
+                      options.labName |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -126,7 +126,7 @@
                   <mat-label>Method</mat-label>
                   <mat-select disableOptionCentering name="methodId" ngModel #methodId="ngModel">
                     <mat-option *ngFor="let options of methods" [value]="options.methodId">{{
-                      options.methodName
+                      options.methodName |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -136,7 +136,7 @@
                   <mat-label>Unit</mat-label>
                   <mat-select disableOptionCentering name="unitId" ngModel #unitName="ngModel">
                     <mat-option *ngFor="let options of units" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -170,7 +170,8 @@
                   </mat-form-field>
                   <mat-form-field style="width: 100px;">
                     <mat-select disableOptionCentering placeholder="Hours" name="tatHours" ngModel #tatHours="ngModel">
-                      <mat-option *ngFor="let option of hours" [value]="option">{{ option }}</mat-option>
+                      <mat-option *ngFor="let option of hours" [value]="option">{{ option 
+                      }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field style="width: 100px;">
@@ -181,7 +182,8 @@
                       ngModel
                       #tatMinutes="ngModel"
                     >
-                      <mat-option *ngFor="let option of minutes" [value]="option">{{ option }}</mat-option>
+                      <mat-option *ngFor="let option of minutes" [value]="option">{{ option 
+                      }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </section>
@@ -205,9 +207,9 @@
                         placeholder="Age Range"
                         [(ngModel)]="referenceRange.ageRange"
                       >
-                        <mat-option [value]=1>Age Range (in Years)</mat-option>
-                        <mat-option [value]=1>Age Range (in Days)</mat-option>
-                        <mat-option [value]=1>Age Range (in Months)</mat-option>
+                        <mat-option [value]=1>AGE RANGE (in Years)</mat-option>
+                        <mat-option [value]=1>AGE RANGE (in Days)</mat-option>
+                        <mat-option [value]=1>AGE RANGE (in Months)</mat-option>
                       </mat-select>
                     </mat-form-field>
 
@@ -252,10 +254,10 @@
                       <section class="pl-100">
                         <!-- Enter Values -->
                         <button mat-raised-button class="mr-16" color="primary" (click)="onAddValuesClicked()">
-                          Add
+                          ADD
                         </button>
                         <button mat-raised-button class="mr-0" color="warn" (click)="onDeleteValuesClicked()">
-                          Delete
+                          DELETE
                         </button>
                       </section>
                       <!-- Added Values  -->
@@ -279,13 +281,13 @@
                         [(ngModel)]="referenceRange.alternateResult"
                       >
                         <mat-option value="0">
-                          Normal
+                          NORMAL
                         </mat-option>
                         <mat-option value="1">
-                          Intermediate
+                          INTERMEDIATE 
                         </mat-option>
                         <mat-option value="2">
-                          High
+                          HIGH 
                         </mat-option>
                       </mat-select>
                     </mat-form-field>

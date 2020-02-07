@@ -1,8 +1,12 @@
-#pending-accession-container {
-  $status-card-background: #4a90e2;
-  $status-card-color: #ffffff;
+$status-card-background: #4a90e2;
+$status-card-color: #ffffff;
 
+#registration-list-container {
   table {
+    .mat-row {
+      cursor: pointer;
+    }
+
     .status-card {
       border: $status-card-background 1px solid;
       border-radius: 4px;
@@ -24,7 +28,12 @@
         min-width: 32px;
       }
 
-      .edit-button {
+      .unlink-button {
+        visibility: hidden;
+        color: #f44335;
+      }
+
+      .link-button {
         visibility: hidden;
       }
 
@@ -36,7 +45,11 @@
     .mat-row:hover {
       cursor: pointer;
 
-      .edit-button {
+      .unlink-button {
+        visibility: visible;
+      }
+
+      .link-button {
         visibility: visible;
       }
     }

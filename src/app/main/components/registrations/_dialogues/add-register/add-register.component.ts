@@ -93,6 +93,7 @@ export class AddRegisterComponent implements OnInit {
   public getOrganizations(): void {
     this._organisationservice.getAllOrganisations().subscribe((data) => {
       this.organisations = data;
+      console.log(this.organisations);
     });
   }
 }

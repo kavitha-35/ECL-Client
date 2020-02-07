@@ -106,6 +106,7 @@ export class AddIndividualTestComponent implements OnInit {
 
   onAddValuesClicked(): void {
     this.values.push(this.value);
+    this.value = null;
   }
 
   public checkReferenceRangeEditors(): void {
@@ -170,6 +171,9 @@ export class AddIndividualTestComponent implements OnInit {
     const referenceRange = new ReferenceRange();
     referenceRange.values = this.values;
     this.referenceRangeList.push(referenceRange);
+    console.log(this.referenceRangeList);
+    this.values = [];
+    this.value = '';
   }
 
   public cancelReferenceRange(referenceRange: ReferenceRange): void {

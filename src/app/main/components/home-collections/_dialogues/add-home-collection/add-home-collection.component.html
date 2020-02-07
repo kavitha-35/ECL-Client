@@ -22,11 +22,12 @@
             <!-- Patient Name -->
             <mat-form-field>
               <mat-label>Name</mat-label>
-              <input class="uppercase" matInput placeholder="Name" />
+              <input matInput placeholder="Name" class="uppercase" />
             </mat-form-field>
             <!-- DOB -->
             <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Date of birth" />
+              <mat-label>DOB</mat-label>
+              <input matInput [matDatepicker]="picker" placeholder="DD/MM/YYYY" />
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -64,14 +65,12 @@
                 <!-- Postal Code -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput maxlength="10" class="uppercase" placeholder="P.O.Box" />
+                  <input matInput maxlength="10" placeholder="P.O.Box" class="uppercase" />
                 </mat-form-field>
                 <!-- Area -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Area</mat-label>
-                  <mat-select disableOptionCentering  placeholder="Area">
-                    <mat-option></mat-option>
-                  </mat-select>
+                  <input matInput placeholder="Area" class="uppercase" />
                 </mat-form-field>
                 <!-- City -->
                 <mat-form-field>
@@ -99,12 +98,12 @@
                 <!-- Referral Organization -->
                 <mat-form-field>
                   <mat-label> Organization</mat-label>
-                  <input matInput class="uppercase" placeholder="Organization" />
+                  <input matInput placeholder="Organization" class="uppercase" />
                 </mat-form-field>
                 <!-- Referral Doctor -->
                 <mat-form-field>
                   <mat-label>Physician</mat-label>
-                  <input matInput class="uppercase" placeholder="Physician" />
+                  <input matInput placeholder="Physician" class="uppercase" />
                 </mat-form-field>
               </section>
             </section>
@@ -138,12 +137,12 @@
               <section class="user-credentials-content">
                 <mat-form-field>
                   <mat-label>Assigned Driver</mat-label>
-                  <input matInput class="uppercase" placeholder="Assigned Driver" />
+                  <input matInput placeholder="Assigned Driver" class="uppercase" />
                 </mat-form-field>
                 <!-- Assigned Phlebotomist -->
                 <mat-form-field>
                   <mat-label> Assigned Phlebotomist</mat-label>
-                  <input matInput class="uppercase" placeholder=" Assigned Phlebotomist" />
+                  <input matInput placeholder=" Assigned Phlebotomist" class="uppercase" />
                 </mat-form-field>
               </section>
             </section>
