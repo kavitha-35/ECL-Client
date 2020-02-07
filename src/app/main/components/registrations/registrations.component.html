@@ -24,8 +24,11 @@
 
       <!-- Add Registration Button -->
       <section class="registration-button-wrapper">
-        <button class="registration-button" mat-stroked-button (click)="onAddRegisterButtonClicked()">
+        <button class="registration-button" *ngIf="!isReVisitRegistration" mat-stroked-button (click)="onAddRegisterButtonClicked()">
           Add registration
+        </button>
+        <button class="registration-button" *ngIf="isReVisitRegistration" mat-stroked-button (click)="onAddRevisitRegisterButtonClicked()">
+          Add Revist Registration
         </button>
       </section>
     </section>

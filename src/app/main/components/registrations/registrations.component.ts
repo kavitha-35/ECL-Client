@@ -1,11 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, PageEvent, MatDialogConfig } from '@angular/material';
-import { DISPLAY_MODE } from 'app/main/models/constants';
+import { DISPLAY_MODE, REGISTRATION_ROUTER_ACTIONS } from 'app/main/models/constants';
 import { take } from 'rxjs/operators';
 import { AddRegisterComponent } from './_dialogues/add-register/add-register.component';
 import { RegistrationListService } from 'app/main/services/registration-list.service';
 import { RegistrationListModel } from 'app/main/models/registration-list/registration-list.model';
+import { RevisitRegisterComponent } from './_dialogues/revisit-register/revisit-register.component';
 
 @Component({
   selector: 'app-registrations',
@@ -24,6 +25,7 @@ export class RegistrationsComponent implements OnInit {
     autoFocus: false,
   };
   registrations: RegistrationListModel[];
+  isReVisitRegistration: boolean;
 
   constructor(
     private readonly _matDialog: MatDialog,
@@ -41,16 +43,23 @@ export class RegistrationsComponent implements OnInit {
     this._activatedRoute.queryParams.subscribe((queryParams) => {
       this.showListView = queryParams['view'] === DISPLAY_MODE.LIST;
     });
+    this._activatedRoute.queryParams.subscribe((queryParams) => {
+      this.isReVisitRegistration = queryParams['action'] === REGISTRATION_ROUTER_ACTIONS.ReVisitRegistration;
+    });
   }
 
   public onAddRegisterButtonClicked(): void {
+      this._matDialog
+        .open(AddRegisterComponent, this.matDialogConfig)
+        .afterClosed()
+        .pipe(take(1));
+  }
+
+  onAddRevisitRegisterButtonClicked(): void {
     this._matDialog
-      .open(AddRegisterComponent, this.matDialogConfig)
-      .afterClosed()
-      .pipe(take(1));
-    /*.subscribe(() => {
-      this.getAllComment();
-      });*/
+    .open(RevisitRegisterComponent, this.matDialogConfig)
+    .afterClosed()
+    .pipe(take(1));
   }
 
   public onShowListViewButtonClicked(): void {

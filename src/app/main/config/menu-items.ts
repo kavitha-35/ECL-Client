@@ -56,7 +56,7 @@ const MENUITEMS: Menu[] = [
     icon: 'supervised_user_circle',
     children: [
       { state: 'registrations', name: 'Add Registration', paramValue: 'registration', type: 'link' },
-      { state: 'patient', name: 'Revisit Registration', paramValue: 'revisit-registration', type: 'link' },
+      { state: 'registrations', name: 'Revisit Registration', paramValue: 'revisit-registration', type: 'link' },
       { state: 'bulk-registration', name: 'Bulk Registration', type: 'link' },
       { state: 'additional-tests', name: 'Additional Tests', type: 'link' },
       { state: 'registration-list', name: 'Registration List', type: 'link' },
