@@ -51,7 +51,7 @@
                 <mat-form-field>
                   <mat-label>Specimen</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.specimen" name="specimen">
-                    <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
+                    <mat-option *ngFor="let item of specimen" [value]="item.lookupId">{{ item.keyValue |uppercase }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -60,7 +60,7 @@
                   <mat-label>Specimen Type</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.specimenType" name="specimenType">
                     <mat-option *ngFor="let item of specimenType" [value]="item.lookupId"
-                      >{{ item.keyValue }}
+                      >{{ item.keyValue |uppercase }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -69,7 +69,7 @@
                 <mat-form-field>
                   <mat-label>Storage</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.storage.StorageId" name="storageId">
-                    <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue }}</mat-option>
+                    <mat-option *ngFor="let item of storage" [value]="item.lookupId">{{ item.keyValue |uppercase}}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -77,7 +77,7 @@
                 <mat-form-field>
                   <mat-label>Department</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.department.departmentId" name="departmentId">
-                    <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{ item.departmentName }}</mat-option>
+                    <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{ item.departmentName |uppercase}}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -97,8 +97,8 @@
                 <mat-form-field>
                   <mat-label>Report Format</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="test.reportFormat" name="reportFormat">
-                    <mat-option [value]="1">Radiology</mat-option>
-                    <mat-option [value]="2">Pathology</mat-option>
+                    <mat-option [value]="1">RADIOLOGY</mat-option>
+                    <mat-option [value]="2">PATHOLOGY</mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>

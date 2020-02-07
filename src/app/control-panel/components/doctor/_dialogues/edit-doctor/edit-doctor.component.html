@@ -38,7 +38,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Organization</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="selectedForEdit.organization.organizationId" name="organizationId" ngModel #organizationId="ngModel">
-                    <mat-option *ngFor="let item of organizations" [value]="item.organizationId">{{item.organisation}}
+                    <mat-option *ngFor="let item of organizations" [value]="item.organizationId">{{item.organisation |uppercase}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -58,7 +58,7 @@
                 <mat-form-field class="mt-n7">
                   <mat-label>Doctor Speciality</mat-label>
                   <mat-select disableOptionCentering name=doctorSpeciality ngModel #doctorSpeciality="ngModel">
-                    <mat-option *ngFor="let options of specialities"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of specialities"[value]="options.lookupId">{{options.keyValue |uppercase}}</mat-option>
                   </mat-select>
                 </mat-form-field>
                  <!-- Email-->
@@ -103,26 +103,26 @@
                 <!-- Area -->
                 <mat-form-field>
                   <mat-label> Area</mat-label>
-                  <input matInput placeholder=" Area" name=" area" ngModel #area="ngModel" />
+                  <input matInput placeholder=" Area" class="uppercase" name=" area" ngModel #area="ngModel" />
                 </mat-form-field>
                 <!-- Region-->
                 <mat-form-field class="mt-n7">
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
-                    <mat-option *ngFor="let options of cities"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of cities"[value]="options.lookupId">{{options.keyValue |uppercase}}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <!-- Country -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
-                    <mat-option *ngFor="let options of countries"[value]="options.lookupId">{{options.keyValue}}</mat-option>
+                    <mat-option *ngFor="let options of countries"[value]="options.lookupId">{{options.keyValue |uppercase}}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <!-- P.O.Box -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput placeholder="P.O.Box" name="postBox" ngModel #postBox="ngModel" />
+                  <input matInput placeholder="P.O.Box" name="postBox" class="uppercase" ngModel #postBox="ngModel" />
                 </mat-form-field>
               </section>
             </section>
@@ -139,17 +139,17 @@
                 <!-- Facebook Id -->
                <mat-form-field>
                 <mat-label>Facebook Id </mat-label>
-                <input matInput placeholder="Facebook Id" name="facebook" ngModel #facebook="ngModel" />
+                <input matInput placeholder="Facebook Id" class="uppercase"  name="facebook" ngModel #facebook="ngModel" />
               </mat-form-field>
                <!-- Instagram Id-->
                <mat-form-field>
                 <mat-label>Instagram Id </mat-label>
-                <input matInput placeholder="Instagram Id" name="instagram" ngModel #instagram="ngModel" />
+                <input matInput placeholder="Instagram Id"  class="uppercase" name="instagram" ngModel #instagram="ngModel" />
               </mat-form-field>
               <!-- Twitter Id-->
               <mat-form-field>
                 <mat-label>Twitter Id </mat-label>
-                <input matInput placeholder="Twitter Id" name="twitter" ngModel #twitter="ngModel" />
+                <input matInput placeholder="Twitter Id" name="twitter" class="uppercase" ngModel #twitter="ngModel" />
               </mat-form-field>
               </section>
             </section>
@@ -161,12 +161,12 @@
                 <!-- User name -->
                 <mat-form-field>
                   <mat-label>User Name</mat-label>
-                  <input matInput placeholder="User Name" name="userName" ngModel #userName="ngModel"/>
+                  <input matInput placeholder="User Name" class="uppercase" name="userName" ngModel #userName="ngModel"/>
                 </mat-form-field>
                   <!-- Password -->
                 <mat-form-field>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" name="password" ngModel #password="ngModel" />
+                  <input matInput placeholder="Password"  class="uppercase" name="password" ngModel #password="ngModel" />
                 </mat-form-field>
               </section>
             </section>

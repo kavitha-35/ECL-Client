@@ -10,13 +10,13 @@
     <!-- Department Name -->
     <ng-container matColumnDef="departmentname">
       <th mat-header-cell *matHeaderCellDef>Department Name</th>
-      <td mat-cell *matCellDef="let element">{{ element?.departmentName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element?.departmentName |uppercase}}</td>
     </ng-container>
 
     <!-- Doctor Name -->
     <ng-container matColumnDef="departmentType">
       <th mat-header-cell *matHeaderCellDef>Department Type</th>
-      <td mat-cell *matCellDef="let element">{{ element.departmentType.departmentTypeName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.departmentType.departmentTypeName |uppercase }}</td>
     </ng-container>
 
     <!-- Doctor Name -->
@@ -24,7 +24,7 @@
       <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let element">
         <section class="status-card">
-          {{ element.activeStatus }}
+          {{ element.activeStatus |uppercase }}
         </section>
       </td>
     </ng-container>

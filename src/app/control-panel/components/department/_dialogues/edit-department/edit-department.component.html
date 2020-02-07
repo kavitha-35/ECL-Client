@@ -64,7 +64,7 @@
                   >
                     <input matInput placeholder="Search Department" (keyup)="onKeySearch($event.target.value)" />
                     <mat-option *ngFor="let options of departmentTypes" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue  |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>

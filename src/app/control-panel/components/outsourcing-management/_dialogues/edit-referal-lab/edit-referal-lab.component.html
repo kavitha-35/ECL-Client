@@ -47,10 +47,10 @@
                   <mat-label>Branch</mat-label>
                   <mat-select disableOptionCentering name="relation" [(ngModel)]="outsource.relation">
                     <mat-option value="Yes">
-                      Yes
+                      YES
                     </mat-option>
                     <mat-option value="No">
-                      No
+                      NO
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -60,10 +60,10 @@
                   <mat-label>Interfacing Type</mat-label>
                   <mat-select disableOptionCentering name="interfacingType" [(ngModel)]="outsource.interfacingType">
                     <mat-option value="Unidirectional">
-                      Unidirectional
+                      UNIDIRECTIONAL
                     </mat-option>
                     <mat-option value="Bidirectional">
-                      Bidirectional
+                      BIDIRECTIONAL
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -73,7 +73,7 @@
                   <mat-label>Courier</mat-label>
                   <mat-select disableOptionCentering name="courier" [(ngModel)]="outsource.courier.courierId">
                     <mat-option *ngFor="let options of couriers" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -117,7 +117,7 @@
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" [(ngModel)]="outsource.city.cityId">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -127,7 +127,7 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" [(ngModel)]="outsource.country.countryId">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -239,7 +239,7 @@
                     <mat-label> Department</mat-label>
                     <mat-select disableOptionCenteringn name="department{{ i }}" [(ngModel)]="contact.departmentId">
                       <mat-option *ngFor="let options of departments" [value]="options.departmentId">{{
-                        options.departmentName
+                        options.departmentName |uppercase
                       }}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -375,16 +375,16 @@
                   <mat-label>Payment Mode</mat-label>
                   <mat-select disableOptionCentering name="paymentMode" [(ngModel)]="outsource.paymentMethod">
                     <mat-option value="cash">
-                      Cash
+                      CASH
                     </mat-option>
                     <mat-option value="netBanking">
-                      Net Banking
+                      NET BANKING
                     </mat-option>
                     <mat-option value="credit">
-                      Credit Card
+                      CREDIT CARD
                     </mat-option>
                     <mat-option value="debit">
-                      Debit Card
+                      DEBIT CARD
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
