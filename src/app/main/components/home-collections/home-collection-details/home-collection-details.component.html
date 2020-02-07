@@ -10,7 +10,7 @@
           <section class="patient-information">
             <!-- Patient Name -->
             <section class="sub-title">Patient Name</section>
-            <section>{{ selectedHomeCollection.patientName }}</section>
+            <section>{{ selectedHomeCollection.patientName | uppercase}}</section>
 
             <!-- Patient Phone Number -->
             <section class="sub-title">Phone Number</section>
@@ -35,11 +35,11 @@
           <section class="referral-information">
             <!-- Organization Name -->
             <section class="sub-title">Organization Name</section>
-            <section>{{ selectedHomeCollection.referral.organization.name }}</section>
+            <section>{{ selectedHomeCollection.referral.organization.name | uppercase }}</section>
 
             <!-- Doctor Name -->
             <section class="sub-title">Doctor Name</section>
-            <section>{{ selectedHomeCollection.referral.doctor.name }}</section>
+            <section>{{ selectedHomeCollection.referral.doctor.name | uppercase }}</section>
           </section>
         </mat-card-content>
 
@@ -52,11 +52,11 @@
 
             <!-- Area -->
             <section class="sub-title">Area</section>
-            <section>{{ selectedHomeCollection.area }}</section>
+            <section>{{ selectedHomeCollection.area | uppercase}}</section>
 
             <!-- City -->
             <section class="sub-title">City</section>
-            <section>{{ selectedHomeCollection.city }}</section>
+            <section>{{ selectedHomeCollection.city| uppercase }}</section>
 
             <!-- Postal Code -->
             <section class="sub-title">Postal Code</section>
@@ -64,13 +64,13 @@
 
             <!-- Country -->
             <section class="sub-title">Country</section>
-            <section>{{ selectedHomeCollection.country }}</section>
+            <section>{{ selectedHomeCollection.country | uppercase }}</section>
           </section>
 
           <section class="comment-container">
             <!-- Comments -->
             <section class="sub-title">Comments</section>
-            <section>{{ selectedHomeCollection.comment }}</section>
+            <section>{{ selectedHomeCollection.comment | uppercase}}</section>
           </section>
         </mat-card-content>
       </section>

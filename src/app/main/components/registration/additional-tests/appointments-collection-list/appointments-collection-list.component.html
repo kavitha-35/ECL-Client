@@ -15,19 +15,19 @@
     <!-- Patient Name -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>NAME</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.name | uppercase }}</td>
     </ng-container>
 
     <!-- Referral -->
     <ng-container matColumnDef="referral">
       <th mat-header-cell *matHeaderCellDef>REFERRAL</th>
-      <td mat-cell *matCellDef="let element">{{ element.referral }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.referral | uppercase}}</td>
     </ng-container>
 
     <!-- Organization Cost -->
     <ng-container matColumnDef="organization">
       <th mat-header-cell *matHeaderCellDef>ORGANISATION</th>
-      <td mat-cell *matCellDef="let element">{{ element.organization }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.organization | uppercase }}</td>
     </ng-container>
 
     <!-- Actions -->

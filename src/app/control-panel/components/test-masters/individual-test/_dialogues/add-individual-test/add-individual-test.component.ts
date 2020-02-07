@@ -22,6 +22,7 @@ import { ReferenceRange, ValuesModel } from 'app/control-panel/models/reference-
 export class AddIndividualTestComponent implements OnInit {
   value: string;
   deleteValue: string;
+  public checked: boolean;
   public processingCenter: OutsourcingManagementModel[];
   public units: LookUpModel[];
   public doctor: DoctorModel[];
@@ -43,6 +44,7 @@ export class AddIndividualTestComponent implements OnInit {
     private readonly _methodService: MethodService,
     private readonly _outsourceService: OutsourceManagementService,
   ) {
+    this.checked = false;
     this.value = '';
     this.deleteValue = '';
     this.editorConfig = {
@@ -107,6 +109,9 @@ export class AddIndividualTestComponent implements OnInit {
     this.value = null;
   }
 
+  public checkReferenceRangeEditors(): void {
+    this.checked = !this.checked;
+  }
   onDeleteValuesClicked(): void {
     const index = this.values.indexOf(this.deleteValue);
     if (index >= 0) {

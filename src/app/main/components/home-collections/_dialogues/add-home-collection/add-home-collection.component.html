@@ -35,19 +35,19 @@
             <section class="pt-13">
               <label for="gender">Gender</label>
               <mat-radio-group id="gender" name="gender" label="Gender">
-                <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
-                <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+                <mat-radio-button value="1" class="ml-2">MALE</mat-radio-button>
+                <mat-radio-button value="2" class="ml-2">FEMALE</mat-radio-button>
               </mat-radio-group>
             </section>
             <!-- Landline -->
             <mat-form-field>
               <mat-label>Landline</mat-label>
-              <input matInput placeholder="Landline" />
+              <input matInput class="uppercase" placeholder="Landline" />
             </mat-form-field>
             <!-- Mobile Number -->
             <mat-form-field>
               <mat-label>Mobile Number</mat-label>
-              <input matInput placeholder="Phone Number" />
+              <input matInput class="uppercase" placeholder="Phone Number" />
             </mat-form-field>
             <!-- Email ID -->
             <mat-form-field>
@@ -115,6 +115,7 @@
                 <mat-form-field>
                   <input
                     matInput
+                    class="uppercase"
                     placeholder="Scheduled Date and Time"
                     [owlDateTimeTrigger]="Scheduled"
                     [owlDateTime]="Scheduled"

@@ -5,18 +5,18 @@
   ></app-column-chooser>
   <mat-form-field class="right">
     <mat-select (selectionChange)="filterRow()" placeholder="Filter By City" [(ngModel)]="selectedCity" multiple>
-      <mat-option *ngFor="let city of availableCity" [value]="city">{{ city }}</mat-option>
+      <mat-option *ngFor="let city of availableCity" [value]="city">{{ city | uppercase }}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-select (selectionChange)="filterRow()" placeholder="Filter By Country" [(ngModel)]="selectedCountry" multiple>
-      <mat-option *ngFor="let country of availableCountry" [value]="country">{{ country }}</mat-option>
+      <mat-option *ngFor="let country of availableCountry" [value]="country">{{ country | uppercase }}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field>
     <mat-select (selectionChange)="filterRow()" placeholder="Filter By Area" [(ngModel)]="selectedAreas" multiple>
-      <mat-option *ngFor="let area of availableAreas" [value]="area">{{ area }}</mat-option>
+      <mat-option *ngFor="let area of availableAreas" [value]="area">{{ area | uppercase }}</mat-option>
     </mat-select>
   </mat-form-field>
 </section>
@@ -35,13 +35,13 @@
 
     <ng-container matColumnDef="Organization">
       <th mat-header-cell *matHeaderCellDef>Organization</th>
-      <td mat-cell *matCellDef="let element">{{ element.organization }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.organization | uppercase }}</td>
     </ng-container>
 
     <!-- Called by -->
     <ng-container matColumnDef="CalledBy">
       <th mat-header-cell *matHeaderCellDef>Called by</th>
-      <td mat-cell *matCellDef="let element">{{ element.calledBy.name }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.calledBy.name  }}</td>
     </ng-container>
 
     <!-- Landline -->
@@ -65,25 +65,25 @@
     <!-- area -->
     <ng-container matColumnDef="Area">
       <th mat-header-cell *matHeaderCellDef>Area</th>
-      <td mat-cell *matCellDef="let element">{{ element.area }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.area | uppercase }}</td>
     </ng-container>
 
     <!-- City -->
     <ng-container matColumnDef="City">
       <th mat-header-cell *matHeaderCellDef>City</th>
-      <td mat-cell *matCellDef="let element">{{ element.city }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.city | uppercase }}</td>
     </ng-container>
 
     <!-- Country -->
     <ng-container matColumnDef="Country">
       <th mat-header-cell *matHeaderCellDef>Country</th>
-      <td mat-cell *matCellDef="let element">{{ element.country }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.country | uppercase }}</td>
     </ng-container>
 
     <!-- Assigned To (Driver) -->
     <ng-container matColumnDef="Driver">
       <th mat-header-cell *matHeaderCellDef>Assigned Driver</th>
-      <td mat-cell *matCellDef="let element">{{ element.driver.name }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.driver.name | uppercase }}</td>
     </ng-container>
 
     <!-- Scheduled Date -->
@@ -115,7 +115,7 @@
       <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let element">
         <section class="status-card">
-          {{ element.status.name }}
+          {{ element.status.name | uppercase }}
         </section>
       </td>
     </ng-container>

@@ -33,7 +33,7 @@
                       CREDIT
                     </mat-option>
                     <mat-option value="3">
-                      Insurance
+                      INSURANCE
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -62,8 +62,8 @@
                 <section class="mt-13">
                   <label for="gender">Gender</label>
                   <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="patient.gender">
-                    <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
-                    <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+                    <mat-radio-button value="1" class="ml-2">MALE</mat-radio-button>
+                    <mat-radio-button value="2" class="ml-2">FEMALE</mat-radio-button>
                   </mat-radio-group>
                 </section>
 
@@ -75,7 +75,7 @@
 
                 <mat-form-field>
                   <mat-label>Mobile Number</mat-label>
-                  <input matInput placeholder="Mobile Number" name="mobile" [(ngModel)]="patient.mobile" />
+                  <input matInput placeholder="Mobile Number" class="uppercase" name="mobile" [(ngModel)]="patient.mobile" />
                 </mat-form-field>
                 <!-- Email ID -->
                 <mat-form-field>
@@ -110,7 +110,7 @@
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCenteringn name="city" [(ngModel)]="patient.city">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue | uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -120,7 +120,7 @@
                 <mat-label>Country</mat-label>
                 <mat-select disableOptionCentering name="country" [(ngModel)]="patient.country">
                   <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                    options.keyValue
+                    options.keyValue | uppercase
                   }}</mat-option>
                 </mat-select>
               </mat-form-field>
@@ -132,7 +132,7 @@
                 <!-- Whatsapp Number -->
                 <mat-form-field>
                   <mat-label>Whatsapp Number </mat-label>
-                  <input matInput placeholder="Whatsapp Number " class="uppercase" name="whatsappNumber"  [(ngModel)]="patient.whatsappNumber"
+                  <input matInput placeholder="Whatsapp Number " class="uppercase"  name="whatsappNumber"  [(ngModel)]="patient.whatsappNumber"
                     />
                 </mat-form-field>
 
@@ -177,7 +177,7 @@
                 <!-- Referral file No -->
                 <mat-form-field>
                   <mat-label>File No</mat-label>
-                  <input matInput maxlength="10" class="uppercase" placeholder="fileNo" name="fileNo" [(ngModel)]="patient.fileNo" />
+                  <input matInput maxlength="10" placeholder="file No" class="uppercase" name="fileNo" [(ngModel)]="patient.fileNo" />
                 </mat-form-field>
               </section>
             </section>
@@ -187,7 +187,7 @@
               <section class="clinical-history-content">
                 <mat-form-field>
                   <mat-label>clinical History</mat-label>
-                  <textarea matInput maxlength="10" placeholder="clinical History" class="uppercase" name="clinicalHistory" [(ngModel)]="patient.clinicalHistory"></textarea>
+                  <textarea matInput maxlength="10" class="uppercase" placeholder="clinical History" class="uppercase" name="clinicalHistory" [(ngModel)]="patient.clinicalHistory"></textarea>
                 </mat-form-field>
               </section>
             </section>
@@ -200,7 +200,7 @@
                     [matAutocomplete]="search" />
                   <mat-autocomplete #search="matAutocomplete">
                     <mat-option *ngFor="let element of selectedCombinedTests" (click)="selectedAutoComplete(element)">
-                      {{ element.testName }}
+                      {{ element.testName | uppercase}}
                     </mat-option>
                   </mat-autocomplete>
                   <mat-icon matSuffix>search</mat-icon>

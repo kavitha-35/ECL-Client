@@ -27,6 +27,7 @@
                 <mat-form-field>
                   <mat-label>Name</mat-label>
                   <input
+                    class="uppercase"
                     matInput
                     placeholder="Name"
                     name="patientName"
@@ -45,6 +46,7 @@
                 <mat-form-field>
                   <input
                     matInput
+                    class="uppercase"
                     [matDatepicker]="picker"
                     name="dob"
                     placeholder="Date Of Birth"
@@ -58,8 +60,8 @@
                 <section class="pt-13">
                   <label for="gender" class="sub-title">Gender</label>
                   <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="appointment.gender.genderId">
-                    <mat-radio-button [value]="1" class="ml-2">Male</mat-radio-button>
-                    <mat-radio-button [value]="2" class="ml-2">Female</mat-radio-button>
+                    <mat-radio-button [value]="1" class="ml-2">MALE</mat-radio-button>
+                    <mat-radio-button [value]="2" class="ml-2">FEMALE</mat-radio-button>
                   </mat-radio-group>
                 </section>
 
@@ -68,6 +70,7 @@
                   <mat-label>Age</mat-label>
                   <input
                     matInput
+                    class="uppercase"
                     placeholder="Age"
                     name="age"
                     #landline="ngModel"
@@ -82,6 +85,7 @@
                   <mat-label>Landline Number</mat-label>
                   <input
                     matInput
+                    class="uppercase"
                     placeholder="Landline"
                     name="landline"
                     #landline="ngModel"
@@ -145,7 +149,7 @@
                 <!-- Area -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Area</mat-label>
-                  <input matInput placeholder="Address" class="uppercase" name="address" [(ngModel)]="appointment.area" />
+                  <input matInput placeholder="Area" class="uppercase" name="address" [(ngModel)]="appointment.area" />
                 </mat-form-field>
 
                 <!-- City -->
@@ -153,7 +157,7 @@
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCenteringn name="city" [(ngModel)]="appointment.city.cityId">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -163,7 +167,7 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" [(ngModel)]="appointment.country.countryId">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue | uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -181,6 +185,7 @@
                 <mat-form-field>
                   <input
                     matInput
+                    class="uppercase"
                     name="appointmentDateTime"
                     [(ngModel)]="appointment.appointmentDateTime"
                     placeholder="Appointment Date and Time"

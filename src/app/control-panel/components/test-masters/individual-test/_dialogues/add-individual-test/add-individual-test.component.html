@@ -293,15 +293,32 @@
                     </mat-form-field>
                   </section>
                   <section class="comment-wrapper">
-                    <!-- Male Range -->
-                    <mat-label>Description </mat-label>
+                    <mat-label>Reference Range </mat-label>
+                    <textarea *ngIf=!checked></textarea>
+                    <mat-checkbox class="check-box" [(ngModel)]="referenceRange.checked" name="referenceRange" (change)="checkReferenceRangeEditors()">Advanced Editor</mat-checkbox>
+                  </section>
+
+                  <section class="comment-wrapper" *ngIf=checked>
+                    <!-- Reference Range -->
                     <ckeditor
-                      name="description{{ i }}"
+                      [config]="editorConfig"
+                      debounce="500"
+                      name="referenceRange"
+                    ></ckeditor>
+                  </section>
+
+              
+                  <section class="comment-wrapper" >
+                  <mat-label>Description </mat-label>
+                    <!-- Description-->
+                    <ckeditor
+                      name="description{{i}}"
                       [config]="editorConfig"
                       debounce="500"
                       [(ngModel)]="referenceRange.description"
                     ></ckeditor>
                   </section>
+
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
@@ -319,7 +336,7 @@
                       />
                     </mat-form-field>
 
-                    <mat-form-field>
+                    <mat-form-field class="allignment">
                       <input
                         matInput
                         name="criticalRangeMax {{ i }}"

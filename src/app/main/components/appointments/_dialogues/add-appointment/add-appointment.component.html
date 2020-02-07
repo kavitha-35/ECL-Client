@@ -59,8 +59,8 @@
               <section class="pt-13">
                 <label for="gender" class="sub-title">Gender</label>
                 <mat-radio-group id="gender" name="gender" label="Gender" [(ngModel)]="appointment.gender">
-                  <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
-                  <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+                  <mat-radio-button value="1" class="ml-2">MALE</mat-radio-button>
+                  <mat-radio-button value="2" class="ml-2">FEMALE</mat-radio-button>
                 </mat-radio-group>
               </section>
 
@@ -119,7 +119,7 @@
                 />
                 <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
                   <mat-error *ngIf="email.errors.required">Email is required</mat-error>
-                  <mat-error *ngIf="email.errors?.pattern">abc@gmail.com format is required</mat-error>
+                  <mat-error *ngIf="email.errors?.pattern"> format is required</mat-error>
                 </mat-error>
               </mat-form-field>
               </section>
@@ -145,7 +145,7 @@
               <!-- Area -->
               <mat-form-field class="mt-n7">
                 <mat-label>Area</mat-label>
-                  <input matInput placeholder="Address" class="uppercase" name="address" [(ngModel)]="appointment.area" />
+                  <input matInput placeholder="Area" class="uppercase" name="address" [(ngModel)]="appointment.area" />
               </mat-form-field>
 
               <!-- City -->
@@ -191,6 +191,7 @@
                 <input
                   matInput 
                   name="appointmentDateTime"
+                  class="uppercase"
                   [(ngModel)]="appointment.appointmentDateTime"
                   placeholder="DD/MM/YYYY"
                   [owlDateTimeTrigger]="Appointment"
