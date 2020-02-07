@@ -2,7 +2,7 @@
   <mat-card class="organisation-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Organisations" subTitle="Edit Organisation" icon="fa-calendar"> </app-dialog-caption>
+      <app-dialog-caption title="Organizations" subTitle="Edit Organization" icon="fa-calendar"> </app-dialog-caption>
     </section>
 
     <!-- Dialog Content -->
@@ -51,10 +51,10 @@
                   <mat-label>Branch</mat-label>
                   <mat-select disableOptionCentering name="branch" ngModel #branch="ngModel">
                     <mat-option [value]="true">
-                      Yes
+                      YES
                     </mat-option>
                     <mat-option [value]="false">
-                      No
+                      NO
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -64,7 +64,7 @@
                   <mat-label>Organisation Type </mat-label>
                   <mat-select matInput placeholder="Type " name="organizationType" ngModel #organizationType="ngModel">
                     <mat-option *ngFor="let options of organisationTypes" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -112,7 +112,7 @@
                   <mat-label>City</mat-label>
                   <mat-select disableOptionCentering name="city" ngModel #city="ngModel">
                     <mat-option *ngFor="let options of cities" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -122,7 +122,7 @@
                   <mat-label>Country</mat-label>
                   <mat-select disableOptionCentering name="country" ngModel #country="ngModel">
                     <mat-option *ngFor="let options of countries" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -230,7 +230,7 @@
                     <mat-label>Department</mat-label>
                     <mat-select disableOptionCentering name="departmentId{{ i }}" [(ngModel)]="contact.departmentId">
                       <mat-option *ngFor="let options of departments" [value]="options.lookupId">{{
-                        options.keyValue
+                        options.keyValue |uppercase
                       }}</mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -398,7 +398,7 @@
                   <mat-label>Language</mat-label>
                   <mat-select disableOptionCentering name="language" ngModel #language="ngModel">
                     <mat-option *ngFor="let options of languages" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -408,7 +408,7 @@
                   <mat-label>Time Zone</mat-label>
                   <mat-select disableOptionCentering name="timeZone" ngModel #timeZone="ngModel">
                     <mat-option *ngFor="let options of timeZones" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -562,7 +562,7 @@
                   <mat-label>Currency</mat-label>
                   <mat-select disableOptionCentering name="currencyId" ngModel #currencyId="ngModel">
                     <mat-option *ngFor="let options of currencies" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -572,22 +572,22 @@
                   <mat-label>Payment Mode</mat-label>
                   <mat-select disableOptionCentering name="paymentMode" ngModel #paymentMode="ngModel">
                     <mat-option value="Cash">
-                      Cash
+                      CASH
                     </mat-option>
                     <mat-option value="Net Banking">
-                      Net Banking
+                      NET BANKING
                     </mat-option>
                     <mat-option value="Credit Card">
-                      Credit Card
+                      CREDIT CARD
                     </mat-option>
                     <mat-option value="Debit Card">
-                      Debit Card
+                      DEBIT CARD
                     </mat-option>
                     <mat-option value="cheque">
-                      Cheque
+                      CHEQUE
                     </mat-option>
                     <mat-option value="Payment Gateway">
-                      Payment Gateway
+                      PAYMENT GATEWAY
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -597,10 +597,10 @@
                   <mat-label>Payment Type</mat-label>
                   <mat-select disableOptionCentering ngModel name="paymentType" #paymentType="ngModel">
                     <mat-option [value]="1">
-                      Postpaid
+                      POSTPAID
                     </mat-option>
                     <mat-option [value]="2">
-                      PrePaid
+                      PREPAID
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -614,7 +614,7 @@
                 <!-- Current Due-->
                 <mat-form-field>
                   <mat-label>Current Due</mat-label>
-                  <input matInput placeholder="Current Due" name="currentDue" ngModel #currentDue="ngModel" />
+                  <input matInput placeholder="Current Due" class="uppercase" name="currentDue" ngModel #currentDue="ngModel" />
                 </mat-form-field>
 
                 <!-- Billing Cycle-->
@@ -622,10 +622,10 @@
                   <mat-label>Billing Cycle</mat-label>
                   <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
                     <mat-option value="1">
-                      BiMonthly
+                      BIMONTHLY
                     </mat-option>
                     <mat-option value="2">
-                      Monthly
+                      MONTHLY
                     </mat-option>
                   </mat-select>
                 </mat-form-field>

@@ -10,31 +10,31 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Clinic</th>
-      <td mat-cell *matCellDef="let element">{{ element.clinicName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.clinicName |uppercase}}</td>
     </ng-container>
 
     <!-- Type -->
     <ng-container matColumnDef="type">
       <th mat-header-cell *matHeaderCellDef>Type</th>
-      <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.type |uppercase}}</td>
     </ng-container>
 
     <!-- Post Box -->
     <ng-container matColumnDef="postBox">
       <th mat-header-cell *matHeaderCellDef>Post Box</th>
-      <td mat-cell *matCellDef="let element">{{ element.postBox }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.postBox |uppercase}}</td>
     </ng-container>
 
     <!-- Address -->
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef>Address</th>
-      <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.address |uppercase}}</td>
     </ng-container>
 
     <!-- Area -->
     <ng-container matColumnDef="area">
       <th mat-header-cell *matHeaderCellDef>Area</th>
-      <td mat-cell *matCellDef="let element">{{ element.area }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.area |uppercase}}</td>
     </ng-container>
 
     <!-- Email -->
@@ -46,19 +46,19 @@
     <!-- Contact Person -->
     <ng-container matColumnDef="contactPerson">
       <th mat-header-cell *matHeaderCellDef>Sales Representative</th>
-      <td mat-cell *matCellDef="let element">{{ element.contactPerson }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.contactPerson|uppercase}}</td>
     </ng-container>
 
     <!-- Contact Number -->
     <ng-container matColumnDef="contactNumber">
       <th mat-header-cell *matHeaderCellDef>Contact Number</th>
-      <td mat-cell *matCellDef="let element">{{ element.contactNumber }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.contactNumber |uppercase}}</td>
     </ng-container>
 
     <!-- Sales Representative -->
     <ng-container matColumnDef="salesRepresentative">
       <th mat-header-cell *matHeaderCellDef>Sales Representative</th>
-      <td mat-cell *matCellDef="let element">{{ element.salesRepresentative }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.salesRepresentative |uppercase }}</td>
     </ng-container>
 
     <!--Action-->

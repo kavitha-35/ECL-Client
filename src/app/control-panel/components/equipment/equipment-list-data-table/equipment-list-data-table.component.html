@@ -9,13 +9,13 @@
     <!-- Asset Name -->
     <ng-container matColumnDef="assetName">
       <th mat-header-cell *matHeaderCellDef>Asset Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.assetName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.assetName |uppercase}}</td>
     </ng-container>
 
     <!-- Asset Id -->
     <ng-container matColumnDef="assetId">
       <th mat-header-cell *matHeaderCellDef>Asset Id</th>
-      <td mat-cell *matCellDef="let element">{{ element.assetId }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.assetId |uppercase}}</td>
     </ng-container>
 
     
@@ -23,55 +23,55 @@
     <!-- Brand -->
     <ng-container matColumnDef="brand">
       <th mat-header-cell *matHeaderCellDef>Brand</th>
-      <td mat-cell *matCellDef="let element">{{ element.brand.brandName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.brand.brandName |uppercase}}</td>
     </ng-container>
 
     <!-- Puchase Date -->
     <ng-container matColumnDef="machine">
       <th mat-header-cell *matHeaderCellDef>Puchase Date</th>
-      <td mat-cell *matCellDef="let element">{{ element.machine }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.machine |uppercase }}</td>
     </ng-container>
 
     <!-- Puchase From -->
     <ng-container matColumnDef="puchaseFrom">
       <th mat-header-cell *matHeaderCellDef>Puchase From</th>
-      <td mat-cell *matCellDef="let element">{{ element.puchaseFrom }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.puchaseFrom |uppercase}}</td>
     </ng-container>
 
     <!-- Manufacturer Model -->
     <ng-container matColumnDef="model">
       <th mat-header-cell *matHeaderCellDef>Manufacturer Model</th>
-      <td mat-cell *matCellDef="let element">{{ element.model}}</td>
+      <td mat-cell *matCellDef="let element">{{ element.model |uppercase}}</td>
     </ng-container>
 
     <!-- Serial No -->
     <ng-container matColumnDef="serialNo">
       <th mat-header-cell *matHeaderCellDef>Serial No</th>
-      <td mat-cell *matCellDef="let element">{{ element.serialNo }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.serialNo |uppercase}}</td>
     </ng-container>
 
     <!-- Supplier -->
     <ng-container matColumnDef="supplier">
       <th mat-header-cell *matHeaderCellDef>Supplier</th>
-      <td mat-cell *matCellDef="let element">{{ element.supplier }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.supplier |uppercase}}</td>
     </ng-container>
 
     <!-- Condition -->
     <ng-container matColumnDef="condition">
       <th mat-header-cell *matHeaderCellDef>Condition</th>
-      <td mat-cell *matCellDef="let element">{{ element.condition }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.condition |uppercase}}</td>
     </ng-container>
 
     <!-- Warranty -->
     <ng-container matColumnDef="warranty">
       <th mat-header-cell *matHeaderCellDef>Condition</th>
-      <td mat-cell *matCellDef="let element">{{ element.warranty }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.warranty|uppercase }}</td>
     </ng-container>
 
     <!-- Depreciation -->
     <ng-container matColumnDef="depreciation">
       <th mat-header-cell *matHeaderCellDef>Depreciation</th>
-      <td mat-cell *matCellDef="let element">{{ element.depreciation }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.depreciation |uppercase}}</td>
     </ng-container>
 
     <!-- Value -->
@@ -83,14 +83,14 @@
     <!-- Location -->
     <ng-container matColumnDef="location">
       <th mat-header-cell *matHeaderCellDef>Location</th>
-      <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.location |uppercase}}</td>
     </ng-container>
 
 
     <!-- Description -->
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef>Description</th>
-      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.description |uppercase }}</td>
     </ng-container>
 
     <!--Action-->
