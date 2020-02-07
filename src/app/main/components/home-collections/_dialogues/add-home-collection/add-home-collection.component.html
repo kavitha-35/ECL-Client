@@ -22,7 +22,7 @@
             <!-- Patient Name -->
             <mat-form-field>
               <mat-label>Name</mat-label>
-              <input matInput placeholder="Name" />
+              <input class="uppercase" matInput placeholder="Name" />
             </mat-form-field>
             <!-- DOB -->
             <mat-form-field>
@@ -34,19 +34,19 @@
             <section class="pt-13">
               <label for="gender">Gender</label>
               <mat-radio-group id="gender" name="gender" label="Gender">
-                <mat-radio-button value="1" class="ml-2">Male</mat-radio-button>
-                <mat-radio-button value="2" class="ml-2">Female</mat-radio-button>
+                <mat-radio-button value="1" class="ml-2">MALE</mat-radio-button>
+                <mat-radio-button value="2" class="ml-2">FEMALE</mat-radio-button>
               </mat-radio-group>
             </section>
             <!-- Landline -->
             <mat-form-field>
               <mat-label>Landline</mat-label>
-              <input matInput placeholder="Landline" />
+              <input matInput class="uppercase" placeholder="Landline" />
             </mat-form-field>
             <!-- Mobile Number -->
             <mat-form-field>
               <mat-label>Mobile Number</mat-label>
-              <input matInput placeholder="Phone Number" />
+              <input matInput class="uppercase" placeholder="Phone Number" />
             </mat-form-field>
             <!-- Email ID -->
             <mat-form-field>
@@ -64,12 +64,12 @@
                 <!-- Postal Code -->
                 <mat-form-field>
                   <mat-label>P.O.Box</mat-label>
-                  <input matInput maxlength="10" placeholder="P.O.Box" />
+                  <input matInput maxlength="10" class="uppercase" placeholder="P.O.Box" />
                 </mat-form-field>
                 <!-- Area -->
                 <mat-form-field class="mt-n7">
                   <mat-label>Area</mat-label>
-                  <mat-select disableOptionCentering placeholder="Area">
+                  <mat-select disableOptionCentering  placeholder="Area">
                     <mat-option></mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -99,12 +99,12 @@
                 <!-- Referral Organization -->
                 <mat-form-field>
                   <mat-label> Organization</mat-label>
-                  <input matInput placeholder="Organization" />
+                  <input matInput class="uppercase" placeholder="Organization" />
                 </mat-form-field>
                 <!-- Referral Doctor -->
                 <mat-form-field>
                   <mat-label>Physician</mat-label>
-                  <input matInput placeholder="Physician" />
+                  <input matInput class="uppercase" placeholder="Physician" />
                 </mat-form-field>
               </section>
             </section>
@@ -116,6 +116,7 @@
                 <mat-form-field>
                   <input
                     matInput
+                    class="uppercase"
                     placeholder="Scheduled Date and Time"
                     [owlDateTimeTrigger]="Scheduled"
                     [owlDateTime]="Scheduled"
@@ -125,7 +126,7 @@
 
                 <mat-form-field class="full-width">
                   <mat-label>Comment</mat-label>
-                  <input matInput maxlength="100" placeholder="Enter Comment (Optional)" />
+                  <input matInput maxlength="100" class="uppercase" placeholder="Enter Comment (Optional)" />
                 </mat-form-field>
               </section>
             </section>
@@ -137,12 +138,12 @@
               <section class="user-credentials-content">
                 <mat-form-field>
                   <mat-label>Assigned Driver</mat-label>
-                  <input matInput placeholder="Assigned Driver" />
+                  <input matInput class="uppercase" placeholder="Assigned Driver" />
                 </mat-form-field>
                 <!-- Assigned Phlebotomist -->
                 <mat-form-field>
                   <mat-label> Assigned Phlebotomist</mat-label>
-                  <input matInput placeholder=" Assigned Phlebotomist" />
+                  <input matInput class="uppercase" placeholder=" Assigned Phlebotomist" />
                 </mat-form-field>
               </section>
             </section>

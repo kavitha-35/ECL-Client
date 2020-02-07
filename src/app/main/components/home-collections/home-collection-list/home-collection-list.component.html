@@ -31,7 +31,7 @@
       
             <!-- Patient Name -->
             <section class="sub-title">Patient Name</section>
-            <section>{{ homeCollection.patientName }}</section>
+            <section>{{ homeCollection.patientName | uppercase}}</section>
       
             <!-- Date Of Birth -->
             <section class="sub-title">Date Of Birth</section>
@@ -39,7 +39,7 @@
       
             <!-- Gender -->
             <section class="sub-title">Gender</section>
-            <section>{{ homeCollection.gender.name }}</section>
+            <section>{{ homeCollection.gender.name | uppercase}}</section>
       
             <!-- Mobile Number -->
             <section class="sub-title">Mobile Number</section>
@@ -55,7 +55,7 @@
       
             <!-- Status -->
             <section class="sub-title">Status</section>
-            <section>{{ homeCollection.status.name }}</section>
+            <section>{{ homeCollection.status.name | uppercase }}</section>
           </section>
         </section>
       </section>

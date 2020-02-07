@@ -9,13 +9,13 @@
     <!-- Patient Name -->
     <ng-container matColumnDef="patientName">
       <th mat-header-cell *matHeaderCellDef>Patient Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.displayName}}</td>
+      <td mat-cell *matCellDef="let element">{{ element.displayName | uppercase}}</td>
     </ng-container>
 
     <!-- Gender -->
     <ng-container matColumnDef="gender">
       <th mat-header-cell *matHeaderCellDef>Gender</th>
-      <td mat-cell *matCellDef="let element">{{ element.gender.genderName	 }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.gender.genderName	| uppercase }}</td>
     </ng-container>
 
     <!-- Email Address -->
@@ -46,7 +46,7 @@
       <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let element">
         <section class="status-card">
-          {{ element.status }}
+          {{ element.status |uppercase }}
         </section>
       </td>
     </ng-container>

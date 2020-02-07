@@ -37,7 +37,7 @@
       
             <!-- Assigned To (Driver) -->
             <section class="sub-title">Assigned To (Driver)</section>
-            <section>{{ logisticsCollection.driver.name }}</section>
+            <section>{{ logisticsCollection.driver.name | uppercase}}</section>
       
             <!-- Scheduled Date -->
             <section class="sub-title">Scheduled Date</section>
@@ -49,7 +49,7 @@
       
             <!-- Status -->
             <section class="sub-title">Status</section>
-            <section>{{ logisticsCollection.status.name }}</section>
+            <section>{{ logisticsCollection.status.name | uppercase}}</section>
           </section>
         </section>
       </section>
