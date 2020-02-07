@@ -87,30 +87,32 @@ export class AddReferalLabComponent implements OnInit {
   public onAddReferalLabClicked(): void {
     console.log(this.outsource);
     if (this.outsource.labName !== '') {
-      this.outsourcingService.addOutsourcing(this.outsource).subscribe((data) => {
-        this._snackBar.open('Referral Lab Added Successfully', '', {
-          duration: 2000,
-          verticalPosition: 'top',
-          horizontalPosition: 'right',
-          panelClass: ['snackbar']
-        });
-        this._dialogRef.close();
-      },
-      // tslint:disable-next-line: no-shadowed-variable
-      (error: any) => {
-        this._snackBar.open(error, '', {
-          duration: 2000,
-          verticalPosition: 'top',
-          horizontalPosition: 'right',
-          panelClass: ['snackbar']
-        });
-      });
+      this.outsourcingService.addOutsourcing(this.outsource).subscribe(
+        (data) => {
+          this._snackBar.open('Referral Lab Added Successfully', '', {
+            duration: 2000,
+            verticalPosition: 'top',
+            horizontalPosition: 'right',
+            panelClass: ['snackbar'],
+          });
+          this._dialogRef.close();
+        },
+        // tslint:disable-next-line: no-shadowed-variable
+        (error: any) => {
+          this._snackBar.open(error, '', {
+            duration: 2000,
+            verticalPosition: 'top',
+            horizontalPosition: 'right',
+            panelClass: ['snackbar'],
+          });
+        },
+      );
     } else {
       this._snackBar.open('Please Enter Valid Refferal Name', '', {
         duration: 2000,
         verticalPosition: 'top',
         horizontalPosition: 'right',
-        panelClass: ['snackbar']
+        panelClass: ['snackbar'],
       });
     }
   }
@@ -141,6 +143,21 @@ export class AddReferalLabComponent implements OnInit {
 
   public addContact(): void {
     this.contactPersonList.push(this.contactPerson);
+    this.contactPerson = {
+      designation: '',
+      courierId: '',
+      mobile: '',
+      contactPersonName: '',
+      dateOfBirth: '',
+      dateOfAnniversary: '',
+      email: '',
+      departmentId: 0,
+      telephone: '',
+      twitter: '',
+      facebook: '',
+      instagram: '',
+      whatsapp: '',
+    };
   }
 
   public cancelContact(contact: ContactPerson): void {
