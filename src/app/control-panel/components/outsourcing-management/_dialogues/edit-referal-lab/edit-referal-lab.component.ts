@@ -63,7 +63,7 @@ export class EditReferalLabComponent implements OnInit {
         duration: 2000,
         verticalPosition: 'top',
         horizontalPosition: 'right',
-        panelClass: ['snackbar']
+        panelClass: ['snackbar'],
       });
       this._dialogRef.close();
     });
@@ -95,6 +95,21 @@ export class EditReferalLabComponent implements OnInit {
 
   public addContact(): void {
     this.contactPersonList.push(this.contactPerson);
+    this.contactPerson = {
+      designation: '',
+      courierId: '',
+      mobile: '',
+      contactPersonName: '',
+      dateOfBirth: '',
+      dateOfAnniversary: '',
+      email: '',
+      departmentId: 0,
+      telephone: '',
+      twitter: '',
+      facebook: '',
+      instagram: '',
+      whatsapp: '',
+    };
   }
 
   public cancelContact(contact: ContactPerson): void {
