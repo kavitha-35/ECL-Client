@@ -22,8 +22,7 @@ export class ReferenceRange {
   upperAge: string;
   min: string;
   max: string;
-  checked: boolean;
-  descrip: boolean;
+  checked: string;
   description: string;
   values: string[];
   alternateResult: string;

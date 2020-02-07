@@ -23,7 +23,6 @@ export class AddIndividualTestComponent implements OnInit {
   value: string;
   deleteValue: string;
   public checked: boolean;
-  public descrip: boolean;
   public processingCenter: OutsourcingManagementModel[];
   public units: LookUpModel[];
   public doctor: DoctorModel[];
@@ -46,7 +45,6 @@ export class AddIndividualTestComponent implements OnInit {
     private readonly _outsourceService: OutsourceManagementService,
   ) {
     this.checked = false;
-    this.descrip = false;
     this.value = '';
     this.deleteValue = '';
     this.editorConfig = {
@@ -112,9 +110,6 @@ export class AddIndividualTestComponent implements OnInit {
 
   public checkReferenceRangeEditors(): void {
     this.checked = !this.checked;
-  }
-  public checkDescriptionEditors(): void {
-    this.descrip = !this.descrip;
   }
   onDeleteValuesClicked(): void {
     const index = this.values.indexOf(this.deleteValue);
