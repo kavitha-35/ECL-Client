@@ -292,27 +292,33 @@
                   </section>
                   <section class="comment-wrapper">
                     <mat-label>Reference Range </mat-label>
-                    <textarea></textarea>
-                    <mat-checkbox class="check" [(ngModel)]="checked">check for reference </mat-checkbox>
+                    <textarea *ngIf=!checked></textarea>
+                    <mat-checkbox class="check" [(ngModel)]="referenceRange.checked" name="referenceRange" (change)="checkReferenceRangeEditors()">Advanced Editor</mat-checkbox>
                   </section>
 
-                  <section class="comment-wrapper">
+                  <section class="comment-wrapper" *ngIf=checked>
                     <!-- Reference Range -->
                     <ckeditor
                       [config]="editorConfig"
                       debounce="500"
-                      [(ngModel)]="checked"
+                      [(ngModel)]="referenceRange.checked"
+                      name="referenceRange"
                     ></ckeditor>
                   </section>
 
                   <section class="comment-wrapper">
-                    <!-- Description-->
                     <mat-label>Description </mat-label>
+                    <textarea *ngIf=!descrip></textarea>
+                    <mat-checkbox class="check" [(ngModel)]="referenceRange.descrip" name="description" (change)="checkDescriptionEditors()">Advanced Editor</mat-checkbox>
+                  </section>
+
+                  <section class="comment-wrapper" *ngIf=descrip>
+                    <!-- Description-->
                     <ckeditor
-                      name="description{{ i }}"
+                      name="description"
                       [config]="editorConfig"
                       debounce="500"
-                      [(ngModel)]="referenceRange.description"
+                      [(ngModel)]="referenceRange.descrip"
                     ></ckeditor>
                   </section>
 
@@ -333,7 +339,7 @@
                       />
                     </mat-form-field>
 
-                    <mat-form-field>
+                    <mat-form-field class="allignment">
                       <input
                         matInput
                         name="criticalRangeMax {{ i }}"
