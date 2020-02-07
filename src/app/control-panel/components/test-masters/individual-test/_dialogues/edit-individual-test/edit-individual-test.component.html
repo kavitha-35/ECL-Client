@@ -28,10 +28,10 @@
                   <mat-label>Test Category</mat-label>
                   <mat-select disableOptionCentering name="testCategoryId" [(ngModel)]="selectedForEdit.testCategory.testCategoryId" #testCategory="ngModel">
                     <mat-option [value]=0>
-                      In House
+                      IN HOUSE
                     </mat-option>
                     <mat-option [value]=1>
-                      Outsource
+                      OUTSOURCE
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -46,7 +46,7 @@
                   <mat-label>Accreditation Symbol</mat-label>
                   <mat-select disableOptionCentering name="accrediationSymbolId" [(ngModel)]="selectedForEdit.accrediationSymbol.accrediationSymbolId" #accrediationSymbolId="ngModel">
                     <mat-option *ngFor="let options of accrediationSymbols" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -83,7 +83,7 @@
                   <mat-label>Equipment</mat-label>
                   <mat-select disableOptionCentering name="equipmentId" [(ngModel)]="selectedForEdit.equipment.equipmentId" #equipmentId="ngModel">
                     <mat-option *ngFor="let options of equipments" [value]="options.equipmentId">{{
-                      options.equipmentName
+                      options.equipmentName |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -93,7 +93,7 @@
                   <mat-label>Processing center</mat-label>
                   <mat-select disableOptionCentering name="processingCentreId" [(ngModel)]="selectedForEdit.processingCenter.processingCenterId" #processingCentreId="ngModel">
                     <mat-option  *ngFor="let options of processingCenter" [value]="options.outsourceId">{{
-                      options.labName
+                      options.labName |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -116,7 +116,7 @@
                   <mat-label>Method</mat-label>
                   <mat-select disableOptionCentering name="methodId" [(ngModel)]="selectedForEdit.method.methodId" #methodId="ngModel">
                     <mat-option *ngFor="let options of methods" [value]="options.methodId">{{
-                      options.methodName
+                      options.methodName |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -126,7 +126,7 @@
                   <mat-label>Unit</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="selectedForEdit.unit.unitId" name="unitId" #unitId="ngModel">
                     <mat-option *ngFor="let options of units" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>

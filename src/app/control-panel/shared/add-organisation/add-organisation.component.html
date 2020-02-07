@@ -2,7 +2,7 @@
   <mat-card class="organisation-mat-card">
     <!--  Dialog Caption -->
     <section>
-      <app-dialog-caption title="Organisations" subTitle="Add a Organisation" icon="fa-calendar"> </app-dialog-caption>
+      <app-dialog-caption title="Organizations" subTitle="Add a Organization" icon="fa-calendar"> </app-dialog-caption>
     </section>
 
     <!-- Dialog Content -->
@@ -565,7 +565,7 @@
                   <mat-label>Currency</mat-label>
                   <mat-select disableOptionCentering name="currencyId" ngModel #currencyId="ngModel">
                     <mat-option *ngFor="let options of currencies" [value]="options.lookupId">{{
-                      options.keyValue
+                      options.keyValue |uppercase
                     }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -575,22 +575,22 @@
                   <mat-label>Payment Mode</mat-label>
                   <mat-select disableOptionCentering name="paymentMode" ngModel #paymentMode="ngModel">
                     <mat-option value="Cash">
-                      Cash
+                      CASH
                     </mat-option>
                     <mat-option value="Net Banking">
-                      Net Banking
+                      NET BANKING
                     </mat-option>
                     <mat-option value="Credit Card">
-                      Credit Card
+                      CREDIT CARD
                     </mat-option>
                     <mat-option value="Debit Card">
-                      Debit Card
+                      DEBIT CARD
                     </mat-option>
                     <mat-option value="cheque">
-                      Cheque
+                      CHEQUE
                     </mat-option>
                     <mat-option value="Payment Gateway">
-                      Payment Gateway
+                      PAYMENT GATEWAY
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -600,10 +600,10 @@
                   <mat-label>Payment Type</mat-label>
                   <mat-select disableOptionCentering ngModel name="paymentType" #paymentType="ngModel">
                     <mat-option [value]="1">
-                      Postpaid
+                      POSTPAID
                     </mat-option>
                     <mat-option [value]="2">
-                      PrePaid
+                      PREPAID
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -625,10 +625,10 @@
                   <mat-label>Billing Cycle</mat-label>
                   <mat-select disableOptionCentering name="relation" ngModel #relation="ngModel">
                     <mat-option value="1">
-                      BiMonthly
+                      BIMONTHLY
                     </mat-option>
                     <mat-option value="2">
-                      Monthly
+                      MONTHLY
                     </mat-option>
                   </mat-select>
                 </mat-form-field>

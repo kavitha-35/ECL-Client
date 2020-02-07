@@ -86,7 +86,7 @@
                   <mat-label>Department</mat-label>
                   <mat-select disableOptionCentering [(ngModel)]="testprofile.department" name="departmentId">
                       <mat-option *ngFor="let item of departments" [value]="item.departmentId">{{
-                        item.departmentName
+                        item.departmentName |uppercase
                       }}</mat-option>
                     </mat-select>
                 </mat-form-field>

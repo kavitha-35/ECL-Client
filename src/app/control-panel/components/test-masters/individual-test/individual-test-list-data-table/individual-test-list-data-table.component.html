@@ -4,73 +4,73 @@
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>Test ID</th>
-      <td mat-cell *matCellDef="let element">{{ element.individualTestId }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.individualTestId}}</td>
     </ng-container>
 
     <!-- Test Category -->
     <ng-container matColumnDef="testCategory">
       <th mat-header-cell *matHeaderCellDef>Test Category</th>
-      <td mat-cell *matCellDef="let element">{{ element.testCategory.testCategoryName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.testCategory.testCategoryName |uppercase }}</td>
     </ng-container>
 
     <!-- Accreditiation Symbol -->
     <ng-container matColumnDef="accreditiationSymbol">
       <th mat-header-cell *matHeaderCellDef>Accreditiation Symbol</th>
-      <td mat-cell *matCellDef="let element">{{ element.accreditationSymbol }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.accreditationSymbol |uppercase }}</td>
     </ng-container>
 
     <!-- Integration code -->
     <ng-container matColumnDef="integrationCode">
       <th mat-header-cell *matHeaderCellDef>Integration Code</th>
-      <td mat-cell *matCellDef="let element">{{ element.integrationCode }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.integrationCode |uppercase}}</td>
     </ng-container>
 
     <!-- Test Name -->
     <ng-container matColumnDef="testName">
       <th mat-header-cell *matHeaderCellDef>Test Component</th>
-      <td mat-cell *matCellDef="let element">{{ element.testComponent }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.testComponent |uppercase }}</td>
     </ng-container>
 
     <!-- Processing Center -->
     <ng-container matColumnDef="processingCenter">
       <th mat-header-cell *matHeaderCellDef>Processing Center</th>
-      <td mat-cell *matCellDef="let element">{{ element.processingCenter.processingCenterName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.processingCenter.processingCenterName |uppercase}}</td>
     </ng-container>
 
     <!-- Outsource Vendor Code -->
     <ng-container matColumnDef="outsourceVendorCode">
       <th mat-header-cell *matHeaderCellDef>Outsource Vendor Code</th>
-      <td mat-cell *matCellDef="let element">{{ element.outsourceVendorCode }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.outsourceVendorCode |uppercase}}</td>
     </ng-container>
 
     <!-- Method -->
     <ng-container matColumnDef="method">
       <th mat-header-cell *matHeaderCellDef>Method</th>
-      <td mat-cell *matCellDef="let element">{{ element.method.methodName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.method.methodName |uppercase}}</td>
     </ng-container>
 
     <!--Unit -->
     <ng-container matColumnDef="unit">
       <th mat-header-cell *matHeaderCellDef>Unit</th>
-      <td mat-cell *matCellDef="let element">{{ element.unit.unitName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.unit.unitName |uppercase }}</td>
     </ng-container>
 
     <!--TAT -->
     <ng-container matColumnDef="tat">
       <th mat-header-cell *matHeaderCellDef>TAT</th>
-      <td mat-cell *matCellDef="let element">{{ element.tat }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.tat |uppercase}}</td>
     </ng-container>
 
     <!--CPT Amount-->
     <ng-container matColumnDef="cptAmount">
       <th mat-header-cell *matHeaderCellDef>CPT Amount</th>
-      <td mat-cell *matCellDef="let element">{{ element.cptAmount }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.cptAmount |uppercase }}</td>
     </ng-container>
 
     <!--Accreditation -->
     <ng-container matColumnDef="accreditation">
       <th mat-header-cell *matHeaderCellDef>Accreditation</th>
-      <td mat-cell *matCellDef="let element">{{ element.accreditation }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.accreditation |uppercase}}</td>
     </ng-container>
 
     <!-- Activity -->
@@ -78,7 +78,7 @@
       <th class="text-center" mat-header-cell *matHeaderCellDef>Status</th>
       <td mat-cell *matCellDef="let element">
         <section class="status-card">
-          {{ element. ActiveStatus }}
+          {{ element. ActiveStatus |uppercase }}
         </section>
       </td>
     </ng-container>
@@ -116,7 +116,7 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
