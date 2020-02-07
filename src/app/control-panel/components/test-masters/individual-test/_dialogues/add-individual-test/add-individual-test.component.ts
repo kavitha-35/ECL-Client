@@ -119,6 +119,7 @@ export class AddIndividualTestComponent implements OnInit {
       this.processingCenter = data;
     });
   }
+
   public getUnits(): void {
     this.lookUpService.getLookUp('unit').subscribe((data: LookUpModel[]) => {
       this.units = data;
@@ -151,6 +152,7 @@ export class AddIndividualTestComponent implements OnInit {
       this.accrediationSymbols = this.accrediationSymbolsFilter;
     }
   }
+
   public selectSearch(value: string): void {
     this.accrediationSymbols = [];
     const filter = value.toLowerCase();
