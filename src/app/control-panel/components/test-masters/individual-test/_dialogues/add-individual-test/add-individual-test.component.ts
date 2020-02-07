@@ -22,6 +22,7 @@ import { ReferenceRange, ValuesModel } from 'app/control-panel/models/reference-
 export class AddIndividualTestComponent implements OnInit {
   value: string;
   deleteValue: string;
+  checked = false;
   public processingCenter: OutsourcingManagementModel[];
   public units: LookUpModel[];
   public doctor: DoctorModel[];
